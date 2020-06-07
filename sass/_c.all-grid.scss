@@ -1,0 +1,235 @@
+/* ===================================
+    all-grid
+======================================*/
+
+.all-grid__header {
+	height: var(--grid-base);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: var(--grid-base);
+	padding-left: var(--grid-spacer);
+	
+	> div {
+		padding-right: 10vw;  // allow for menu track
+	}
+}
+
+.all-grid {
+	display: grid;
+	grid-gap: var(--grid-spacer);
+	grid-auto-flow: dense;
+	grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr));
+
+	.listing-page & {
+		grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
+	}
+	
+	.detail-page & {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	
+	&.all-grid--sticky {
+		grid-template-columns: repeat(3, 1fr);
+		grid-auto-rows: auto, var(--grid-base);//minmax(10vw,var(--grid-base));
+		
+		[itemprop="headline"] {
+			padding-left: var(--grid-spacer);
+		}
+		[itemprop="articleBody"] {
+			grid-column: span 2;
+		}
+	}
+	
+	.image--is-landscape {
+		grid-column: span 3;
+		grid-row: span 2;
+	}
+	.image--is-portrait  {
+		grid-column: span 2;
+		grid-row: span 3;
+	}
+	
+	.image--is-square  {
+		grid-row: span 2;
+		grid-column: span 2;
+	}
+	
+	.detail-page & {
+		.image--is-landscape {
+			grid-column: span 2;
+			grid-row: span 1;
+		}
+		
+		.image--is-portrait  {
+			grid-column: span 1;
+			grid-row: span 2;
+		}
+		
+		.image--is-square  {
+			grid-row: span 2;
+			grid-column: span 2;
+		}
+	}
+	
+	[itemprop="description"],
+	[itemprop="articleBody"] {
+		padding: var(--grid-spacer);
+	}
+
+	figcaption {
+		padding: var(--grid-spacer);
+	}
+}
+
+.all-grid--centered {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(var(--grid-base) * 2);
+	
+	> * {
+		padding: var(--grid-spacer);
+	}
+}
+
+
+
+.image--is-omitted {
+	grid-row: span 2;
+	grid-column: span 2;
+
+	a {
+		[itemprop="description"] {
+			p {
+				@extend .line-clamp;
+			}
+			position: relative;
+			z-index: 1;
+			color: white !important;
+			@include breakpoint($portrait) {
+				display: none;
+			}
+		}
+	}
+	
+	.detail-page & {
+		grid-column-start: 1;
+		grid-column-end: -1;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 10vw; // allow for menu track
+		
+		[itemprop="headline"] {
+			padding-left: var(--grid-spacer);
+		}
+		
+		+ [itemprop="articleBody"] {
+			grid-column-start: 1;
+			grid-column-end: -1;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 0 10vw; // allow for menu track
+		}
+	}
+}
+
+.all-grid--sub {
+	grid-template-columns: 1fr 1fr;
+	
+	> header{
+		padding-right: var(--h1); // font size of hamburger
+		margin-right: var(--grid-spacer); 
+	}
+	
+	[itemprop="description"]{
+		padding: 0;
+	}
+	
+	[itemprop="articleBody"]{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: var(--grid-spacer);
+		grid-column: 1 / -1;
+		
+		> * {
+			&:nth-child(even) {
+				padding-right: var(--h1); // font size of hamburger
+			}
+		}
+	}
+	
+	.image--is-landscape + header {
+		grid-column: span 2;
+		padding-left: var(--grid-spacer);
+	}
+}
+
+.all-grid--sub--noimage  {
+	@extend .flow;
+	grid-column: span 2;
+	padding-left: var(--grid-spacer);
+	padding-right: 0;
+}
+
+	.all-grid__thumb {
+		position: relative;
+		
+		[itemprop="headline"] {
+			@extend .u-hug;
+			display: flex;
+			padding-left: var(--grid-spacer);
+			padding-right: var(--grid-spacer);
+			padding-bottom: var(--grid-spacer);
+			align-items: flex-end;
+			background-color: rgba(94,96,97,.3);
+			transition: background-color .6s ease-out;
+			
+			span {
+				@extend .line-clamp;
+			}
+		}
+		
+		a:hover [itemprop="headline"] {
+			background-color: transparent;
+			span {
+				color: white;
+			}
+		}
+	}
+	
+	.all-grid__image {
+		position: relative;
+	}
+	
+	.all-grid__superimpose {
+		position: relative;
+		grid-row-start: 1;
+		grid-column-start: 1;
+		grid-column-end: -1;
+		
+		[itemprop="headline"] {
+			@extend .u-hug;
+			z-index: 1;
+			display: flex;
+			flex-direction: column;
+			padding-left: var(--grid-spacer);
+			padding-right: var(--grid-spacer);
+			padding-top: var(--grid-spacer);
+		}
+		
+		[itemprop="description"] {
+			@extend .u-hug;
+			top: auto;
+			display: flex;
+			justify-content: flex-end;
+			flex-direction: column;
+			padding-left: var(--grid-spacer);
+			padding-right: var(--grid-spacer);
+			padding-bottom: var(--grid-spacer);
+		}
+	}
+
+
+

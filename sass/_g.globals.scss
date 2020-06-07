@@ -1,0 +1,34 @@
+/* ===================================
+    globals
+======================================*/
+
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+	background: var(--selectionColour);
+	color: var(--white);
+}
+
+html {
+	font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+    height: 100%;
+	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
+}
+
+body {
+    @extend .sans;
+	color: var(--bodyColour);
+    background-color: var(--backgroundColour);
+	line-height: var(--baseline);
+	min-height: 100%;
+
+	@include breakpoint($portrait) {
+	}
+	
+	@include breakpoint($landscape) {
+	}
+	overflow-x: hidden;
+}

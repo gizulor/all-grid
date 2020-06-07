@@ -1,0 +1,450 @@
+<link rel="stylesheet" href="../../styles/all-grid.css">
+<style>
+:root {
+
+/* Text colours. British English. */
+
+--headingColour: var(--white);
+--bodyColour: var(--white);
+--linkColour: var(--white);
+--hoverColour: white;
+--captionColour: var(--gray);
+--selectionColour: var(--red);
+--menuTextColour: var(--charcoal);
+
+/* Background colours. */
+
+--backgroundColour: var(--black);
+--menuBackgroundColour: var(--yellow);
+--footerBackgroundColour: var(--black);
+--codeBackgroundColour: var(--silver);
+
+
+
+--white:					rgb(234,228,215);
+--silver:					rgb(188,187,182);
+--grey:					rgb(167,168,165);
+--grey1:					rgb(146,150,154);
+--grey2:					rgb(146,148,148);
+--grey3:					rgb(129,134,139);
+--grey4:					rgb(96,100,106); 
+--charcoal:				rgb(94,96,97);	 
+--charcoal1:				rgb(90,85,80);	 
+--black:					rgb(58,59,59);	 
+--black1:					rgb(64,60,58);	 
+--black2:					rgb(69,66,62);
+--bluedark:				rgb(49,61,107);	 
+--blue:					rgb(57,87,165);	 
+--blue1:					rgb(77,106,168); 
+--blue2:					rgb(62,110,144); 
+--blue3:					rgb(103,157,174);
+--blue4:					rgb(122,167,203);
+--bluepale:				rgb(143,171,201);
+--blue6:					rgb(171,189,200);
+--blue7:					rgb(182,198,206);
+--blue8:					rgb(138,181,186);
+--green:					rgb(64,110,88);	 
+--green1:					rgb(62,111,66);	 
+--green2:					rgb(66,143,112); 
+--green3:					rgb(127,162,90); 
+--green4:					rgb(171,193,122);
+--green5:					rgb(196,211,155);
+--green6:					rgb(145,175,161);
+--green7:					rgb(168,196,193);
+--greenpale:				rgb(190,203,183);
+--greenpale1:				rgb(198,213,204);
+--greenpale2:				rgb(217,225,221);
+--olive:					rgb(184,161,54); 
+--yellow:					rgb(242,187,29); 
+--yellowbeige2:			rgb(234,207,166);
+--yelloworange:			rgb(219,176,127);
+--yelloworange1:			rgb(221,191,153);
+--orange:					rgb(212,108,64); 
+--orange2:				rgb(220,141,103);
+--orangepale:				rgb(234,207,185);
+--orange1:				rgb(196,94,58);	 
+--red:					rgb(172,68,58);	 
+--red1:					rgb(155,55,56);	 
+--red2:					rgb(143,58,67);	 
+--red3:					rgb(148,58,77);	 
+--redbeige:				rgb(214,175,166);
+--redbeige1:				rgb(205,152,134);
+--pink:					rgb(219,163,175);
+--pink2:					rgb(230,205,191);
+--purple:					rgb(116,57,59);	 
+--brown:					rgb(116,68,56);	 
+--brown1:					rgb(76,66,61);	 
+--brown3:					rgb(139,77,62);	 
+--brown2:					rgb(104,68,60);	 
+--brown4:					rgb(182,123,102);
+--brown5:					rgb(183,172,157);
+--brown6:					rgb(183,163,146);
+--brown7:					rgb(146,138,126);
+--beige:					rgb(216,178,154);
+--beigepink:				rgb(219,190,170);
+--beigepink1:				rgb(234,219,192);
+--beigepink2:				rgb(226,203,181);
+
+
+}
+
+
+body {
+	background-color: var(--black);
+	color: white;
+	text-transform: lowercase;
+	line-height: 1;
+}
+
+h1,h2 {
+	color: var(--white);
+	margin-top: 1rem;
+	margin-bottom: .5rem;
+}	
+.farbe {
+	width: 15vw;
+	display: inline-block;
+	vertical-align: top;
+	padding: 1em;
+	min-height: 15vw;
+}
+.farbe	span {
+	font-size: 11px;
+	display: block;
+	/* These are technically the same, but use both */
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	
+	-ms-word-break: break-all;
+	/* This is the dangerous one in WebKit, as it breaks things wherever */
+	word-break: break-all;
+	/* Instead use this non-standard one: */
+	word-break: break-word;
+	
+	/* Adds a hyphen where the word breaks, if supported (No Blink) */
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+	}
+
+
+</style>
+
+<body>
+	<h1>Le Corbusier Colour Palette</h1>
+<h2>Neutrals</h2>
+	<div class="farbe bg--white">
+		white
+		<span>blancivoire</span>
+	</div>            
+	
+	<div class="farbe bg--silver">
+		silver
+		<span>grisclair31</span>
+	</div>            
+	
+	<div class="farbe bg--grey">
+		grey
+		<span>grismoyen</span>
+	</div>            
+	
+	<div class="farbe bg--grey1">
+		grey1
+		<span>grisclair59</span>
+	</div>            
+	
+	<div class="farbe bg--grey2">
+		grey2
+		<span>gris31</span>
+	</div>            
+	
+	<div class="farbe bg--grey3">
+		grey3
+		<span>gris59</span>
+	</div>            
+	
+	<div class="farbe bg--grey4">
+		grey4
+		<span>grisfonce59</span>
+	</div>            
+	
+	<div class="farbe bg--charcoal">
+		charcoal
+		<span>grisfonce31</span>
+	</div>            
+	
+	<div class="farbe bg--charcoal1">
+		charcoal1
+		<span>ombrenaturelle31</span>
+	</div>            
+	
+	<div class="farbe bg--black">
+		black
+		<span>noirdivoire</span>
+	</div>            
+	
+	<div class="farbe bg--black1">
+		black1
+		<span>terredombrebrulee59</span>
+	</div>            
+	
+	<div class="farbe bg--black2">
+		black2
+		<span>ombrenaturelle59</span>
+	</div>            
+<h2>Blues</h2>
+	<div class="farbe bg--bluedark">
+		bluedark
+		<span>bleuoutremerfonce</span>
+	</div>            
+	
+	<div class="farbe bg--blue">
+		blue
+		<span>xxx</span>
+	</div>            
+	
+	<div class="farbe bg--blue1">
+		blue1
+		<span>bleuoutremer31</span>
+	</div>            
+	
+	<div class="farbe bg--blue2">
+		blue2
+		<span>bleuceruleen31</span>
+	</div>            
+	
+	<div class="farbe bg--blue3">
+		blue3
+		<span>ceruleenvif</span>
+	</div>            
+	
+	<div class="farbe bg--blue4">
+		blue4
+		<span>bleuceruleen59</span>
+	</div>            
+	
+	<div class="farbe bg--bluepale">
+		bluepale
+		<span>outremermoyen</span>
+	</div>            
+		
+	<div class="farbe bg--blue6">
+		blue6
+		<span>outremerclair</span>
+	</div>            
+	
+	<div class="farbe bg--blue7">
+		blue7
+		<span>outremerpale</span>
+	</div>            
+	<div class="farbe bg--blue8">
+		blue8
+		<span>ceruleenmoyen</span>
+	</div>            
+<h2>Greens</h2>
+	
+	<div class="farbe bg--green">
+		green
+		<span>vert</span>
+	</div>            
+	
+	<div class="farbe bg--green1">
+		green1
+		<span>vertfonce</span>
+	</div>            
+	
+	<div class="farbe bg--green2">
+		green2
+		<span>vert59</span>
+	</div>            
+	
+	<div class="farbe bg--green3">
+		green3
+		<span>vertclair</span>
+	</div>            
+	
+	<div class="farbe bg--green4">
+		green4
+		<span>vertclair</span>
+	</div>            
+	
+	<div class="farbe bg--green5">
+		green5
+		<span>vertjauneclair</span>
+	</div>            
+	
+	<div class="farbe bg--green6">
+		green6
+		<span>vertanglaisclair</span>
+	</div>            
+	
+	<div class="farbe bg--greenpale">
+		greenpale
+		<span>vertanglaispale</span>
+	</div>            
+	<div class="farbe bg--greenpale1">
+		greenpale1
+		<span>ceruleenpale</span>
+	</div>            
+	
+	<div class="farbe bg--green7">
+		green7
+		<span>ceruleenclair</span>
+	</div>            
+	
+	
+	<div class="farbe bg--greenpale2">
+		greenpale2
+		<span>outremergris</span>
+	</div>            
+	
+	<div class="farbe bg--olive">
+		olive
+		<span>vertolivevif</span>
+	</div>            
+
+<h2>Yellows</h2>
+	<div class="farbe bg--yellow">
+		yellow
+		<span>lejaunevif</span>
+	</div>            
+	
+	<div class="farbe bg--yelloworange">
+		yelloworange
+		<span>ocrejauneclair</span>
+	</div>            
+	
+	<div class="farbe bg--yelloworange1">
+		yelloworange1
+		<span>terresienneclaire59</span>
+	</div>            
+	
+	<div class="farbe bg--yellowbeige2">
+		yellowbeige2
+		<span>ocre</span>
+	</div>            
+<h2>Oranges</h2>
+	<div class="farbe bg--orange1">
+		orange1
+		<span>orangevif</span>
+	</div>            
+	<div class="farbe bg--orange">
+		orange
+		<span>orange</span>
+	</div>            
+	<div class="farbe bg--orange2">
+		orange2
+		<span>orangeclair</span>
+	</div>            
+	<div class="farbe bg--orangepale">
+		orangepale
+		<span>orangepale</span>
+	</div>            
+	
+	
+	
+<h2>Reds</h2>
+	<div class="farbe bg--red">
+		red
+		<span>rougevermillon59</span>
+	</div>            
+	<div class="farbe bg--red1">
+		red1
+		<span>rougevermillon31</span>
+	</div>            
+	<div class="farbe bg--red2">
+		red2
+		<span>rougecarmin</span>
+	</div>            
+	<div class="farbe bg--red3">
+		red3
+		<span>rougerubia</span>
+	</div>            
+	<div class="farbe bg--pink">
+		pink
+		<span>rosevif</span>
+	</div>            
+	<div class="farbe bg--pink2">
+		pink2
+		<span>rosepale</span>
+	</div>            
+	<div class="farbe bg--redbeige">
+		redbeige
+		<span>roseclair</span>
+	</div>            
+	
+	<div class="farbe bg--redbeige1">
+		redbeige1
+		<span>locrerougemoyen</span>
+	</div>            
+<h2>Purple</h2>
+	<div class="farbe bg--purple">
+		purple
+		<span>lerubis</span>
+	</div>            
+	
+	
+<h2>Browns</h2>
+	
+	<div class="farbe bg--brown1">
+		brown1
+		<span>terredombrebrulee31</span>
+	</div>            
+	
+	<div class="farbe bg--brown2">
+		brown2
+		<span>terresiennebrulee31</span>
+	</div>            
+	<div class="farbe bg--brown">
+		brown
+		<span>terresiennebrulee59</span>
+	</div>            
+	<div class="farbe bg--brown3">
+		brown3
+		<span>locrerouge</span>
+	</div>            
+	
+	
+	
+	
+	<div class="farbe bg--brown4">
+		brown4
+		<span>terresiennebrique</span>
+	</div>            
+	
+	<div class="farbe bg--beige">
+		beige
+		<span>terresienneclaire31</span>
+	</div>            
+	
+	<div class="farbe bg--beigepink">
+		beigepink
+		<span>locrerougeclair</span>
+	</div>            
+	
+	<div class="farbe bg--beigepink1">
+		beigepink1
+		<span>blanc</span>
+	</div>            
+	
+	<div class="farbe bg--beigepink2">
+		beigepink2
+		<span>terresiennepale</span>
+	</div>            
+	
+	
+	<div class="farbe bg--brown5">
+		brown5
+		<span>ombrenaturelleclaire</span>
+	</div>            
+	
+	<div class="farbe bg--brown6">
+		brown6
+		<span>ombrebruleeclaire</span>
+	</div>            
+	<div class="farbe bg--brown7">
+		brown7
+		<span>ombrenaturellemoyenne</span>
+	</div>            
+</body>

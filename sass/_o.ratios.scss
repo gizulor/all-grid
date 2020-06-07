@@ -1,0 +1,47 @@
+/* ===================================
+    ratios
+======================================*/
+
+.ratio {
+    position: relative;
+    width: 100%;
+}
+
+/* .ratio */.ratio--1x1 {
+    padding-top: 100%;
+}
+
+.ratio--1x2 {
+	padding-top: 50%;
+}
+
+.ratio--1x4 {
+	padding-top: 25%;
+}
+
+.ratio--gm {
+	padding-top: 61.8%;
+}
+.ratio--gm-portrait {
+	padding-top: 38.2%;
+}
+
+.ratio--video {
+	padding-top: 56.3%;
+	iframe {
+		width: 100%;
+		min-height: 100%;
+	}
+}
+
+	// inner container positioned absolutely and holds content
+	.ratio__inner {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	}
+
+
+

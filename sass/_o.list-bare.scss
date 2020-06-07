@@ -1,0 +1,18 @@
+/* ===================================
+   typography
+======================================*/
+
+/**
+ * The list-bare object simply removes any indents and bullet points from lists.
+ */
+
+.list-bare,
+%list-bare {
+    margin:  0;
+    padding: 0;
+    list-style: none;
+    
+    li {
+	    margin-left: 0;
+    }
+}

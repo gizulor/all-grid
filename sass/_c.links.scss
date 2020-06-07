@@ -1,0 +1,140 @@
+/* ===================================
+    links
+======================================*/
+
+a {
+	color: var(--linkColour);
+	transition: color .3s, background-color .1s;
+	
+	&:hover {
+		color: var(--hoverColour);
+	}
+	
+	[itemprop="description"] &,
+	[itemprop="articleBody"] & {
+		color: inherit;
+	}
+}
+
+#navigation {
+	background-color: var(--menuBackgroundColour);
+	position: fixed;
+	z-index: 10;
+	width: 50%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	overflow: auto;
+	padding-top: var(--grid-base);
+	padding-left: 5vw;
+	padding-right: 5vw;
+	display: none;
+	
+	.nav-is-active & {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	li {
+		position: relative;
+		
+		a {
+			color: var(--menuTextColour);
+			display: block;
+			&:hover {
+				color: --hoverColour;
+			}
+		}
+		
+		&.active a {
+			color: var(--selectionColour);
+		}
+	}
+}
+
+.link {}
+
+
+.link--plain,
+.link--plain > * {
+	text-decoration: none !important;
+}
+
+.links--dont-break-out a {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+.links-pagination {
+	
+	a {
+		@extend .link--plain, .t-lc;
+		padding-left: var(--grid-spacer);
+		padding-right: var(--grid-spacer);
+		
+		span {
+			width: 0;
+		    height: 0;
+		    border-top: var(--grid-spacer) solid;
+		    border-left: var(--grid-spacer) solid transparent;
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+	
+	[rel="next"] span {
+		transform: rotateZ(-135deg);
+	}
+	
+	[rel="prev"] span {
+		transform: rotateZ(45deg);
+	}
+}
+
+.links-keywords {
+	@extend .links-pagination;
+}
+	
+.links-social {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: var(--grid-spacer);
+	grid-column: minmax(calc(var(--grid-base) / 2), calc(var(--grid-base) * 2)) !important;
+}
+
+	.link--social  {
+		width: calc(var(--grid-spacer) * 2);
+		filter: invert(100%) sepia(25%);
+		span {
+			display: none;
+		}
+	}
+	
+	.link--social__twitter {
+		content: url(/themes/all-grid/styles/img/social-twitter.svg) 
+	}
+	
+	.link--social__facebook {
+		content: url(/themes/all-grid/styles/img/social-facebook.svg) 
+	}
+	
+	.link--social__linkedin {
+		content: url(/themes/all-grid/styles/img/social-linkedin.svg) 
+	}
+	
+	
+	.link--social__instagram{
+		content: url(/themes/all-grid/styles/img/social-instagram.svg) 
+	}
+
+
+

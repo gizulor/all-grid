@@ -1,0 +1,91 @@
+/* ===================================
+    logos and icons
+======================================*/
+
+.hamburger {
+	position: fixed;
+	z-index: 20;
+	//top: 0;
+	right: var(--grid-spacer);
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	padding: 0;
+	cursor: pointer;
+	transition: transform .2s ease-in-out;
+	vertical-align: middle;
+	border: 0 none;
+	background: transparent;
+
+	&::-moz-focus-inner { //Button height fix for Firefox
+	  padding: 0;
+	  border: 0 none;
+	}
+
+	&:focus { //Focus fix for Chrome
+	  outline: 0;
+	}
+	
+	&:before,
+	&:after {
+	  content: "";
+	}
+	
+	&:before,
+	& .icon,
+	&:after {
+	  display: block;
+	  width: 100%;
+	  height: .15em;
+	  margin: 0 0 .25em;
+	  transition: transform .2s ease-in-out;
+	  background: var(--bodyColour);
+	}
+	
+	&.active:before,
+	&.active .icon,
+	&.active:after {
+	  background: var(--selectionColour);
+	}
+	
+	&:hover .icon{
+		transform: scale(0);
+	}
+	
+	&:hover:before{
+		transform: translateY(.4em) rotate(135deg);
+	}
+	
+	&:hover:after {
+		transform: translateY(-.4em) rotate(-135deg);
+	}
+}
+
+.nav-is-active .hamburger {
+	&:hover {
+		transform: rotate(180deg);
+	}
+	&:before,
+	& .icon,
+	&:after {
+	  background: var(--selectionColour);
+	}
+}
+
+.nav-is-active { // close / cancel / cross
+	.hamburger-cancel .icon {
+	  transform: scale(0);
+	}
+	
+	.hamburger-cancel:before {
+	  transform: translateY(.4em) rotate(135deg);
+	}
+	
+	.hamburger-cancel:after {
+	  transform: translateY(-.4em) rotate(-135deg);
+	}
+ }
+ 
+ 
+ 
+ 

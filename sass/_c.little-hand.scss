@@ -1,0 +1,26 @@
+/* ===================================
+    article/image 'little-hand' links
+======================================*/
+
+.little-hand {
+	position: absolute;
+	z-index: 2;
+	transition: all .3s ease;
+	mix-blend-mode: difference;
+	
+	&:hover {
+		transform: scale(1.5);
+	}
+	
+	&.image-edit {
+		top: 45%;
+		left: .5rem;
+		.listing-page & {
+			display: none;
+		}
+		
+	}
+}
+
+
+

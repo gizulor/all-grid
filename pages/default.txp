@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+
+<txp:output_form form="head" />
+
+<txp:output_form form="body_header" />
+
+    <main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/Blog">
+
+        <!-- is this the search result page? also omits the pagination links below (uses pagination format within search_display.txp instead) -->
+        <txp:if_search>
+            <txp:output_form form="search_display" />
+        <txp:else />
+            <!-- else is this the front page? -->
+            <txp:article limit="1" form="sticky" status="sticky" />
+            
+			<txp:if_section name=",default">
+			
+				<ul class="all-grid list-bare">
+					<txp:article form="article_listing" sort="category1 asc, rand()" limit="20" />
+					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
+					<txp:output_form form="body_aside" wraptag="li" class="all-grid__thumb links-social image--is-omitted bgr--<txp::random_number to="10" />" />
+				</ul>
+				
+            <txp:else />
+            
+            	<txp:if_article_list>
+            	
+                    <txp:if_category>
+                        <h1 itemprop="name" class="u-content-padding all-grid--uifontsize"><txp:text item="category" />: <txp:category title /></h1>
+                    </txp:if_category>
+                    
+					<txp:article form="article_listing" limit="20" wraptag="ul" class="all-grid list-bare" />
+					
+				<txp:else />
+				
+					<txp:article  />
+					
+            	</txp:if_article_list>
+            	
+            </txp:if_section>
+
+			<txp:output_form form="body_pagination" />
+			
+        </txp:if_search>
+
+    </main>
+
+    <txp:output_form form="body_footer" />
+
+</body>
+</html>

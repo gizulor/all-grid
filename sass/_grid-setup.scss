@@ -1,0 +1,31 @@
+/* ===================================
+    all-grid setup
+======================================*/
+
+:root {
+	--grid-base: 15vw;
+	--grid-spacer: 2vw;
+	
+	/* primary fontsize: applies to all elements in your html with the .all-grid--uifontsize class */
+	
+	--uifontsize: 4vmin; 	/* 4vmin = loud, 1vmin = quiet, other units work too  */
+	
+	/* typography: currently limited to containers with the .typography class */
+	
+	--type-measure: 40rem;  
+	--baseline: 1.5rem;
+	--h1: 3rem;
+	--h2: 2rem;
+	--h3: 1.5rem;
+	--h4: 1.25rem;
+	--h5: 1rem;
+
+	
+}
+
+.all-grid--uifontsize {
+	font-size: calc(.5rem + var(--uifontsize));
+	line-height: 1.1;
+	letter-spacing: -.04em;
+	text-transform: lowercase;
+}

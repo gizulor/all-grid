@@ -1,0 +1,25 @@
+<article class="all-grid all-grid--sub" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+	<txp:if_article_image>
+		<txp:variable name="image-class" value="image image--fill hide-figcaption" />
+		<txp:images form="images" break="" limit="1" />
+		
+	
+	</txp:if_article_image>
+		<txp:variable name="figure-output" />
+	<header<txp:if_article_image not > class="all-grid--sub--noimage"</txp:if_article_image>>
+	    <h1 itemprop="headline" class="all-grid--uifontsize">
+			<txp:title />
+			<txp:output_form form="little-hand" />
+		</h1>
+
+	    <aside itemprop="description" class="flow t-hyphens all-grid--uifontsize typeset">
+	        <txp:excerpt />
+	    </aside>
+	</header>
+
+	
+    <div itemprop="articleBody" class="typeset">
+        <txp:body />
+    </div>
+</article>

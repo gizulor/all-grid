@@ -1,0 +1,4 @@
+<txp:variable name="random_to" value='<txp:yield name="to" escape="number" />' /><txp:php>
+global $variable;
+echo (rand(1,$variable['random_to']));
+</txp:php>

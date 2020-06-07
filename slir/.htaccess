@@ -1,0 +1,18 @@
+# Prevent other scripts from interfering with SLIR
+# php_value auto_prepend_file none
+# php_value auto_append_file none
+
+# Pretty URLs
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [S=40]
+RewriteRule . index.php [L]
+</IfModule>
+
+# Prevent viewing of the error log file in its default location
+<Files slir-error-log>
+Order Deny,Allow
+Deny from All
+</Files>

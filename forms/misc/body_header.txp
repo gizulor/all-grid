@@ -1,0 +1,40 @@
+<header class="all-grid__header">
+	
+	<div class="t-lc">
+	    <h1 class="all-grid--uifontsize"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
+	    <txp:if_section name=",default">
+		    <txp:evaluate>
+		        <h3 class="all-grid--uifontsize"><txp:site_slogan /></h3>
+		    </txp:evaluate>
+    	<txp:else />
+	    	<h3 class="all-grid--uifontsize"><txp:section link title tidy escape="tidy,textile"  class="link--plain"/></h3>
+	    </txp:if_section>
+	</div>
+	
+	<button class="hamburger hamburger-cancel all-grid--uifontsize" onclick="toggleMenu(event)">
+	  <span class="icon"></span>
+	</button>
+	
+	<nav id="navigation" class="t-lc all-grid--uifontsize" aria-label="<txp:text item="site_nav" />" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <txp:section_list  wraptag="ul" break="" class="list-bare flow" include_default="1" default_title="Home">
+            <li<txp:if_section name='<txp:section />'> class="active"</txp:if_section>>
+                <a class="link--plain" itemprop="url" href="<txp:section url />">
+                    <txp:section title />
+                </a>
+            </li>
+        </txp:section_list>
+	</nav>
+	
+	<script>
+		function toggleMenu(event) {
+			var body = document.getElementsByTagName('body')[0];
+			if(body.classList.contains('nav-is-active')){
+				body.classList.remove('nav-is-active');
+			} else {
+				body.classList.add('nav-is-active');
+			}
+			event.preventDefault();
+		}
+	</script>
+
+</header>
