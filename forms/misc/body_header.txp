@@ -7,7 +7,7 @@
 				<h3 class="all-grid--uifontsize"><txp:site_slogan /></h3>
 			</txp:evaluate>
 		<txp:else />
-			<h3 class="all-grid--uifontsize"><txp:section link title tidy escape="tidy,textile"  class="link--plain"/></h3>
+			<h3 class="all-grid--uifontsize"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
 		</txp:if_section>
 	</div>
 	

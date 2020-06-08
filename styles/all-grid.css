@@ -296,6 +296,9 @@ blockquote p:last-child:after {
   margin-right: -.5em;
   margin-top: -.125em; }
 
+blockquote p:only-child:after {
+  content: ""; }
+
 blockquote + p {
   color: var(--captionColour); }
 
@@ -355,6 +358,12 @@ th {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; }
+
+.line-clamp--1 {
+  -webkit-line-clamp: 1; }
+
+.line-clamp--2 {
+  -webkit-line-clamp: 2; }
 
 /* ===================================
    typography
@@ -478,7 +487,7 @@ th {
 .bg--blue3, .bgr--13 {
   background-color: var(--blue3); }
 
-.t--blue3 {
+.t--blue3, .tr--3 {
   color: var(--blue3); }
 
 .bg--blue8 {
@@ -502,7 +511,7 @@ th {
 .bg--blue, .bgr--3 {
   background-color: var(--blue); }
 
-.t--blue, .tr--3 {
+.t--blue {
   color: var(--blue); }
 
 .bg--blue4 {
@@ -700,13 +709,13 @@ th {
 .bg--brown4, .bgr--19 {
   background-color: var(--brown4); }
 
-.t--brown4 {
+.t--brown4, .tr--9 {
   color: var(--brown4); }
 
 .bg--beige {
   background-color: var(--beige); }
 
-.t--beige, .tr--9 {
+.t--beige {
   color: var(--beige); }
 
 .bg--beigepink2 {

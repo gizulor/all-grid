@@ -216,7 +216,9 @@ blockquote {
 		margin-right: -.5em;
 		margin-top: -.125em;
 	} 
-	
+	p:only-child:after {
+		content: "";
+	} 
 	& + p {
 		color:  var(--captionColour);
 	}
@@ -301,6 +303,14 @@ th {
 	display: -webkit-box;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
+}
+
+.line-clamp--1 {
+	-webkit-line-clamp: 1;
+}
+
+.line-clamp--2 {
+	-webkit-line-clamp: 2;
 }
 
 
