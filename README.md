@@ -18,7 +18,7 @@ all-grid requires Textpattern v4.80 and above.
 
 Specify a `--grid-base` in the theme stylesheet, and all-grid will adjust your layout accordingly. If you use the css unit `vw` eg. `--grid-base: 15vw;`, the grid will maintain consistent proportions across all screen sizes. Use `px` eg. `--grid-base: 160px;` and the grid will change as the viewport changes.  
 
-By default, [front page](/) articles are listed randomly (try reloading the page to see how all-grid copes with various image proportions). Other sections are listed using default sorting.
+By default, front page articles are listed randomly (try reloading the page to see how all-grid copes with various image proportions). Other sections are listed using default sorting.
 
 ## image handling
 
