@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ===================================
-    all-grid setup
+	all-grid setup
 ======================================*/
 :root {
   --grid-base: 15vw;
@@ -106,7 +106,7 @@
   --beigepink2:		rgb(226,203,181); }
 
 /* ===================================
-    basic reset
+	basic reset
 ======================================*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -129,7 +129,7 @@ time, mark, audio, video {
   vertical-align: baseline; }
 
 /* ===================================
-    globals
+	globals
 ======================================*/
 * {
   box-sizing: border-box; }
@@ -370,7 +370,7 @@ th {
     margin-left: 0; }
 
 /* ===================================
-    flow: owl selector
+	flow: owl selector
 ======================================*/
 .flow, .all-grid--sub--noimage {
   --flow-space: 1em; }
@@ -758,7 +758,7 @@ th {
   color: var(--black2); }
 
 /* ===================================
-    all-grid
+	all-grid
 ======================================*/
 .all-grid__header {
   height: var(--grid-base);
@@ -907,7 +907,7 @@ th {
     padding-bottom: var(--grid-spacer); }
 
 /* ===================================
-    logos and icons
+	logos and icons
 ======================================*/
 .hamburger {
   position: fixed;
@@ -961,7 +961,7 @@ th {
   transform: translateY(-0.4em) rotate(-135deg); }
 
 /* ===================================
-    links
+	links
 ======================================*/
 a {
   color: var(--linkColour);
@@ -1058,7 +1058,7 @@ a {
   content: url(/themes/all-grid/styles/img/social-instagram.svg); }
 
 /* ===================================
-    article/image 'little-hand' links
+	article/image 'little-hand' links
 ======================================*/
 .little-hand {
   position: absolute;
@@ -1074,7 +1074,7 @@ a {
       display: none; }
 
 /* ===================================
-    images
+	images
 ======================================*/
 img {
   -ms-interpolation-mode: bicubic;
@@ -1101,7 +1101,7 @@ figcaption p {
     height: 100%; }
 
 /* ===================================
-    footer
+	footer
 ======================================*/
 .site-footer {
   background-color: var(--footerBackgroundColour); }

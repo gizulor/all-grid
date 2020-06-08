@@ -1,5 +1,5 @@
 <article class="all-grid " itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-    <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
 	<header class="<txp:if_article_image>all-grid__superimpose<txp:else />image--is-omitted </txp:if_article_image>">
 		<txp:if_article_image>
@@ -8,94 +8,94 @@
 		<txp:else />
 			<txp:variable name="random-textcolour">tr--<txp::random_number to="10" /></txp:variable>
 		</txp:if_article_image>
-	    <h1 itemprop="headline" class="all-grid--uifontsize <txp:variable name="random-textcolour" />">
+		<h1 itemprop="headline" class="all-grid--uifontsize <txp:variable name="random-textcolour" />">
 			<txp:title />
 			<txp:output_form form="little-hand" />
 		</h1>
-	    <aside itemprop="description" class="flow <txp:if_article_image>typeset</txp:if_article_image> t-hyphens all-grid--uifontsize <txp:variable name="random-textcolour" />">
-	        <txp:excerpt />
-	    </aside>
+		<aside itemprop="description" class="flow <txp:if_article_image>typeset</txp:if_article_image> t-hyphens all-grid--uifontsize <txp:variable name="random-textcolour" />">
+			<txp:excerpt />
+		</aside>
 
 
 	</header>
 	
-<txp:hide>    <p>
-        <strong>
-            <txp:text item="posted" />
-        </strong>
-        <time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
-            <txp:posted />
-        </time>
-        <meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
+<txp:hide>	<p>
+		<strong>
+			<txp:text item="posted" />
+		</strong>
+		<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
+			<txp:posted />
+		</time>
+		<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
 
-        <!-- only display comments count if comments posted, or if new comments allowed -->
-        <txp:if_comments>
-            <br>
-            <strong>
-                <txp:text item="comments" />
-            </strong>
-            <a href="<txp:permlink />#comments-head" title="<txp:text item="view" />" itemprop="discussionUrl">
-                <span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-                    <meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-                    <span itemprop="userInteractionCount"><txp:comments_count /></span>
-                </span>
-            </a>
-        <txp:else />
-            <txp:if_comments_allowed>
-                <br>
-                <strong>
-                    <txp:text item="comments" />
-                </strong>
-                <a href="<txp:permlink />#comments-head" title="<txp:text item="view" />" itemprop="discussionUrl">
-                    <span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-                        <meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-                        <span itemprop="userInteractionCount">0</span>
-                    </span>
-                </a>
-            </txp:if_comments_allowed>
-        </txp:if_comments>
-    </p>
+		<!-- only display comments count if comments posted, or if new comments allowed -->
+		<txp:if_comments>
+			<br>
+			<strong>
+				<txp:text item="comments" />
+			</strong>
+			<a href="<txp:permlink />#comments-head" title="<txp:text item="view" />" itemprop="discussionUrl">
+				<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
+					<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
+					<span itemprop="userInteractionCount"><txp:comments_count /></span>
+				</span>
+			</a>
+		<txp:else />
+			<txp:if_comments_allowed>
+				<br>
+				<strong>
+					<txp:text item="comments" />
+				</strong>
+				<a href="<txp:permlink />#comments-head" title="<txp:text item="view" />" itemprop="discussionUrl">
+					<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
+						<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
+						<span itemprop="userInteractionCount">0</span>
+					</span>
+				</a>
+			</txp:if_comments_allowed>
+		</txp:if_comments>
+	</p>
 
 </txp:hide>
 
-    <div itemprop="articleBody" class="flow typeset">
-        <txp:body />
-    </div>
+	<div itemprop="articleBody" class="flow typeset">
+		<txp:body />
+	</div>
 	<txp:if_article_image>
 	
 		<txp:variable name="image-class" value="image all-grid__image" />
 		<txp:images form="images" break="" offset="1" limit="10" />
 	</txp:if_article_image>
-    
-    
-    
-    
-<txp:hide>    <p>
-        <strong>
-            <txp:text item="author" />
-        </strong>
-        <span itemprop="author" itemscope itemtype="https://schema.org/Person">
-            <span itemprop="name">
-                <txp:author link this_section />
-            </span>
-        </span>
+	
+	
+	
+	
+<txp:hide>	<p>
+		<strong>
+			<txp:text item="author" />
+		</strong>
+		<span itemprop="author" itemscope itemtype="https://schema.org/Person">
+			<span itemprop="name">
+				<txp:author link this_section />
+			</span>
+		</span>
 
-        <!-- only display categories if they are actually set for an article, otherwise omit -->
-    </p>
+		<!-- only display categories if they are actually set for an article, otherwise omit -->
+	</p>
 
 
-    <!-- if this is an individual article then add the comments section via form: comments_display.article.txp -->
-    <txp:if_individual_article>
-        <txp:output_form form="comments_display" />
-    </txp:if_individual_article>
+	<!-- if this is an individual article then add the comments section via form: comments_display.article.txp -->
+	<txp:if_individual_article>
+		<txp:output_form form="comments_display" />
+	</txp:if_individual_article>
 </txp:hide>
 
 </article>
 
 <txp:if_article_category>
-    <ul itemprop="keywords" class=" all-grid--centered list-bare ">
-        <txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
-            <txp:category title link class='all-grid--uifontsize link--plain <txp:variable name="random-textcolour" />' />
-        </txp:category_list>
-    </ul>
+	<ul itemprop="keywords" class=" all-grid--centered list-bare ">
+		<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
+			<txp:category title link class='all-grid--uifontsize link--plain <txp:variable name="random-textcolour" />' />
+		</txp:category_list>
+	</ul>
 </txp:if_article_category>

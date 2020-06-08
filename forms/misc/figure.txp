@@ -6,30 +6,30 @@
 		<figure class="<txp:yield name="class" />">
 			<img src="<txp:hide><txp:if_yield name="slir">/slir/<txp:yield name="slir" />/</txp:if_yield></txp:hide><txp:image_url />" alt />
 			<txp:if_individual_article>
-		    	<txp:output_form form="little-hand">image</txp:output_form>
+				<txp:output_form form="little-hand">image</txp:output_form>
 			</txp:if_individual_article>
-		    <txp:if_yield name="caption">
-		        <figcaption><txp:yield name="caption" escape="tidy,textile" /></figcaption>
-		    <txp:else />
-		        <txp:image_info id='<txp:yield name="id" />' wraptag="figcaption" escape="tidy,textile" />
-		    </txp:if_yield>
+			<txp:if_yield name="caption">
+				<figcaption><txp:yield name="caption" escape="tidy,textile" /></figcaption>
+			<txp:else />
+				<txp:image_info id='<txp:yield name="id" />' wraptag="figcaption" escape="tidy,textile" />
+			</txp:if_yield>
 		</figure>
 	</txp:variable>
 </txp:images>
 
 <txp:hide>correct schema markup https://forum.textpattern.com/viewtopic.php?pid=322913#p322913
 <txp:if_article_image>
-    <txp:images>
-        <img width="<txp:image_info type="w" />" height="<txp:image_info type="h" />" itemprop="url contentUrl" alt="<txp:image_info type="alt" />" src="<txp:image_url />">
-        <meta itemprop="width" content="<txp:image_info type="w" />">
-        <meta itemprop="height" content="<txp:image_info type="h" />">
-    </txp:images>
+	<txp:images>
+		<img width="<txp:image_info type="w" />" height="<txp:image_info type="h" />" itemprop="url contentUrl" alt="<txp:image_info type="alt" />" src="<txp:image_url />">
+		<meta itemprop="width" content="<txp:image_info type="w" />">
+		<meta itemprop="height" content="<txp:image_info type="h" />">
+	</txp:images>
 <txp:else />
-    <span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <meta itemprop="url contentUrl" content="...a fallback image URL for your blog posts...">
-        <meta itemprop="width" content="1200">
-        <meta itemprop="height" content="1200">
-    </span>
+	<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+		<meta itemprop="url contentUrl" content="...a fallback image URL for your blog posts...">
+		<meta itemprop="width" content="1200">
+		<meta itemprop="height" content="1200">
+	</span>
 </txp:if_article_image>
 
 </txp:hide>

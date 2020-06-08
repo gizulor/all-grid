@@ -1,9 +1,9 @@
 /* ===================================
-    globals
+	globals
 ======================================*/
 
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 ::selection {
@@ -14,14 +14,14 @@
 html {
 	font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-    height: 100%;
+	height: 100%;
 	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
 }
 
 body {
-    @extend .sans;
+	@extend .sans;
 	color: var(--bodyColour);
-    background-color: var(--backgroundColour);
+	background-color: var(--backgroundColour);
 	line-height: var(--baseline);
 	min-height: 100%;
 

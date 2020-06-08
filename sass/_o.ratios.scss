@@ -1,14 +1,14 @@
 /* ===================================
-    ratios
+	ratios
 ======================================*/
 
 .ratio {
-    position: relative;
-    width: 100%;
+	position: relative;
+	width: 100%;
 }
 
 /* .ratio */.ratio--1x1 {
-    padding-top: 100%;
+	padding-top: 100%;
 }
 
 .ratio--1x2 {
@@ -36,11 +36,11 @@
 
 	// inner container positioned absolutely and holds content
 	.ratio__inner {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    right: 0;
-	    bottom: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
 	}
 
 

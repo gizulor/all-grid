@@ -1,4 +1,4 @@
 <footer class="site-footer all-grid--centered">
-    <p><span  class="t-lc"><txp:text item="published_with" /></span> <a rel="external" href="https://textpattern.com/" title="<txp:text item="go_txp_com" />">Textpattern CMS</a></p>
-    <txp:if_logged_in><p>you're logged <a href="<txp:site_url />textpattern" target="txp">in</strong></p></txp:if_logged_in>
+	<p><span  class="t-lc"><txp:text item="published_with" /></span> <a rel="external" href="https://textpattern.com/" title="<txp:text item="go_txp_com" />">Textpattern CMS</a></p>
+	<txp:if_logged_in><p>you're logged <a href="<txp:site_url />textpattern" target="txp">in</strong></p></txp:if_logged_in>
 </footer>
