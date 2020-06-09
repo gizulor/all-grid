@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+	<meta charset="utf-8"/>
+</head>
+<body>
+
+<h1 id="all-grid:atextpatternthemeforimage-richwebsites">all-grid: a textpattern theme for image-rich websites</h1>
+
+<p>Suitable for small to large sites with flexible image display requirements.</p>
+
+<figure>
+<img src="/styles/img/all-grid-theme.jpg" alt="all-grid screenshot" />
+<figcaption>all-grid screenshot</figcaption>
+</figure>
+
+<p>all-grid requires Textpattern v4.80 and above.</p>
+
+<p><a href="https://all-grid.all-sorts.biz">Demo Site</a></p>
+
+<h2 id="all-grid:">all-grid:</h2>
+
+<ul>
+<li>uses the proportion of images to better fit into a grid layout</li>
+<li>treats mobiles as first class citizens (the layout is consistent across screen sizes)</li>
+<li>can be used without imagery</li>
+<li>sticky articles are given prominence on any list page</li>
+</ul>
+
+<h2 id="all-grid">all-grid!</h2>
+
+<p>Specify a <code>--grid-base</code> in the theme stylesheet, and all-grid will adjust your layout accordingly. If you use the css unit <code>vw</code> eg. <code>--grid-base: 15vw;</code>, the grid will maintain consistent proportions across all screen sizes. Use <code>px</code> eg. <code>--grid-base: 160px;</code> and the grid will change as the viewport changes.</p>
+
+<p>By default, front page articles are listed randomly (try reloading the page to see how all-grid copes with various image proportions). Other sections are listed using default sorting.</p>
+
+<h2 id="imagehandling">image handling</h2>
+
+<p>all-grid includes <a href="https://github.com/lencioni/SLIR">SLIR(Smart Lencioni Image Resizer)</a>, a PHP script to automatically crop and resize images that you have uploaded into the <em>Content:Images</em> tab. Specify images by entering their ids in an <em>Article image</em> field.</p>
+
+<h2 id="typography">typography</h2>
+
+<p>Font sizes adjust automatically depending on the width of the viewport, and can be changed using the set up variables in the theme stylesheet.</p>
+
+</body>
+</html>
+
