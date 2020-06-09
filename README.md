@@ -25,7 +25,7 @@ By default, front page articles are listed randomly (try reloading the page to s
 
 ## image handling
 
-all-grid includes [SLIR(Smart Lencioni Image Resizer)](https://github.com/lencioni/SLIR), a PHP script to automatically crop and resize images that you have uploaded into the _Content:Images_ tab. Specify images by entering their ids in an _Article image_ field.
+all-grid includes [SLIR(Smart Lencioni Image Resizer)](/slir/), a PHP script to automatically crop and resize images that you have uploaded into the _Content:Images_ tab. Specify images by entering their ids in an _Article image_ field.
 
 ## typography
 
