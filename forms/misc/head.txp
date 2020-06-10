@@ -3,16 +3,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 		<title><txp:page_title /></title>
 
-<txp:hide>
-		<txp:css format="link" />
- 		<txp:css format="link" name="all-grid__colours-only"/>
-</txp:hide>
 
- 		<txp:if_logged_in>
-			<link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
+<txp:hide>
+		<!-- if you prefer to code your css locally… -->
+ 		<txp:if_logged_in name="login-name">
+			<txp:hide><link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>"></txp:hide>
+			<link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
 		<txp:else />
 			<txp:css format="link" name="all-grid"/>
  		</txp:if_logged_in>
+
+</txp:hide>
+ 		
+		<txp:css format="link" name="all-grid"/>
+ 		
 		<meta name="generator" content="Textpattern CMS">
 	
 		<txp:if_search>
