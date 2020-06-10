@@ -1,4 +1,4 @@
-<article class="all-grid all-grid--sub" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article class="all-grid all-grid--sub" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 	<txp:if_article_image>
 		<txp:variable name="image-class" value="image image--fill hide-figcaption" />

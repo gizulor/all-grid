@@ -2,5 +2,3 @@
 <a rel="external" class="link--social link--social__<txp:link_description />" href="<txp:link_url />">
 	<span><txp:link_name /></span>
 </a>
-
-

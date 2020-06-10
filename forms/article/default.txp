@@ -1,4 +1,4 @@
-<article class="all-grid " itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article class="all-grid " itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
 	<header class="<txp:if_article_image>all-grid__superimpose<txp:else />image--is-omitted </txp:if_article_image>">
