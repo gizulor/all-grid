@@ -3,7 +3,7 @@
 Suitable for small to large sites with flexible image display requirements.
 
 
-![all-grid screenshot](/styles/img/all-grid-theme-mobile.jpg) ![all-grid screenshot](/styles/img/all-grid-theme.jpg)
+![all-grid screenshot](/styles/img/all-grid-theme.jpg)
 
 all-grid requires Textpattern v4.80 and above.
 
