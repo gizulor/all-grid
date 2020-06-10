@@ -3,9 +3,9 @@
 ======================================*/
 
 :root {
-	
+
 	/* 	Text colours */
-	
+
 	--headingColour:	var(--white);
 	--bodyColour:		var(--white);
 	--linkColour:		var(--white);
@@ -13,17 +13,17 @@
 	--captionColour:	var(--white);
 	--selectionColour:	var(--red);
 	--menuTextColour:	var(--charcoal);
-	
+
 	/* 	Background colours */
-	
+
 	--backgroundColour:		var(--black);
 	--menuBackgroundColour:		var(--yellow);
 	--footerBackgroundColour:	var(--black);
 	--codeBackgroundColour:		var(--charcoal);
-	
-	
+
+
 	/* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
-	
+
 	--white:			rgb(234,228,215);
 	--silver:			rgb(188,187,182);
 	--grey:				rgb(167,168,165);

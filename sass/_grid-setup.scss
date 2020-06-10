@@ -3,15 +3,17 @@
 ======================================*/
 
 :root {
+	/* grid-base determises the size of the grid. Pixel units also work! */
+
 	--grid-base: 15vw;
 	--grid-spacer: 2vw;
-	
+
 	/* primary fontsize: applies to all elements in your html with the .all-grid--uifontsize class */
-	
+
 	--uifontsize: 4vmin; 	/* 4vmin = loud, 1vmin = quiet, other units work too  */
-	
+
 	/* typography: currently limited to containers with the .typography class */
-	
+
 	--type-measure: 40rem;  
 	--baseline: 1.5rem;
 	--h1: 3rem;
@@ -20,7 +22,6 @@
 	--h4: 1.25rem;
 	--h5: 1rem;
 
-	
 }
 
 .all-grid--uifontsize {
