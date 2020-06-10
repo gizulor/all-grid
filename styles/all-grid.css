@@ -21,7 +21,8 @@
   font-size: calc(.5rem + var(--uifontsize));
   line-height: 1.1;
   letter-spacing: -.04em;
-  text-transform: lowercase; }
+  text-transform: lowercase;
+  font-weight: 500; }
 
 /* ===================================
     colour palette
@@ -32,7 +33,7 @@
   --bodyColour:		var(--white);
   --linkColour:		var(--white);
   --hoverColour:		white;
-  --captionColour:	var(--grey);
+  --captionColour:	var(--white);
   --selectionColour:	var(--red);
   --menuTextColour:	var(--charcoal);
   /* 	Background colours */
@@ -166,7 +167,7 @@ body {
 .sans, body {
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   font-style: normal;
-  font-weight: 500; }
+  font-weight: 300; }
 
 .serif, cite, blockquote p:last-child:after, blockquote p:first-child:before {
   font-family: Georgia, serif; }
@@ -815,7 +816,18 @@ th {
     grid-column: span 2; }
   .all-grid [itemprop="description"],
   .all-grid [itemprop="articleBody"] {
-    padding: var(--grid-spacer); }
+    padding: var(--grid-spacer);
+    padding-top: 0; }
+  @media screen and (max-width: 960px) {
+    .all-grid [itemprop="articleBody"] {
+      margin-top: 5vh;
+      grid-column-start: 1;
+      grid-column-end: -1;
+      padding-right: 10vw; } }
+  @media screen and (max-width: 960px) {
+    .all-grid aside[itemprop="description"] {
+      margin-top: 5vh;
+      padding-right: 10vw; } }
   .all-grid figcaption {
     padding: var(--grid-spacer); }
 
@@ -914,7 +926,13 @@ th {
     padding-left: var(--grid-spacer);
     padding-right: var(--grid-spacer);
     padding-bottom: var(--grid-spacer); }
-
+    @media (min-width: 1280px) {
+      .all-grid__superimpose [itemprop="description"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0; } }
 /* ===================================
 	logos and icons
 ======================================*/
@@ -1122,7 +1140,7 @@ figcaption p {
 .u-pb {
   padding-bottom: 1rem; }
 
-.u-hug, .all-grid__thumb [itemprop="headline"], .all-grid__superimpose [itemprop="headline"], .all-grid__superimpose [itemprop="description"] {
+.u-hug, .all-grid__thumb [itemprop="headline"], .all-grid__superimpose [itemprop="headline"] {
   position: absolute;
   left: 0;
   top: 0;

@@ -12,12 +12,12 @@
 <txp:else />
 	<txp:evaluate test="newer,older">
 		<nav class="links-pagination all-grid--centered all-grid--uifontsize" aria-label="<txp:text item="page_nav" />">
-			<txp:newer rel="prev" class="links-pagination__prev">
-				<span></span>previous
-			</txp:newer>
-			<txp:older rel="next" class="links-pagination__next">
+			<txp:older rel="prev" class="links-pagination__next">
 				continues…<span></span>
 			</txp:older>
+			<txp:newer rel="next" class="links-pagination__prev">
+				<span></span>previous
+			</txp:newer>
 		</nav>
 	</txp:evaluate>
 </txp:if_individual_article>

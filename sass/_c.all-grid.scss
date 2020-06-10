@@ -24,11 +24,11 @@
 	.listing-page & {
 		grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
 	}
-	
-	.detail-page & {
-		grid-template-columns: repeat(3, 1fr);
-	}
-	
+
+		.detail-page & {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
 	&.all-grid--sticky {
 		grid-template-columns: repeat(3, 1fr);
 		grid-auto-rows: auto, var(--grid-base);//minmax(10vw,var(--grid-base));
@@ -75,8 +75,22 @@
 	[itemprop="description"],
 	[itemprop="articleBody"] {
 		padding: var(--grid-spacer);
+		padding-top: 0;
 	}
-
+	[itemprop="articleBody"] {
+		@media screen and (max-width: $medium) {
+			margin-top: 5vh;
+			grid-column-start:  1;
+			grid-column-end:  -1;
+			padding-right: 10vw; //allow for menu track
+		}
+	}
+	aside[itemprop="description"] {
+		@media screen and (max-width: $medium) {
+			margin-top: 5vh;
+			padding-right: 10vw; //allow for menu track
+		}
+	}
 	figcaption {
 		padding: var(--grid-spacer);
 	}
@@ -220,7 +234,14 @@
 		}
 		
 		[itemprop="description"] {
-			@extend .u-hug;
+			@include breakpoint($desktop) {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+			}
+
 			top: auto;
 			display: flex;
 			justify-content: flex-end;
