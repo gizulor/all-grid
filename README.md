@@ -3,7 +3,7 @@
 Suitable for small to large sites with flexible image display requirements.
 
 
-![all-grid screenshot](/styles/img/all-grid-theme.jpg)
+![all-grid screenshot](/styles/img/all-grid-theme-mobile.jpg) ![all-grid screenshot](/styles/img/all-grid-theme.jpg)
 
 all-grid requires Textpattern v4.80 and above.
 
@@ -12,7 +12,8 @@ all-grid requires Textpattern v4.80 and above.
 
 ## all-grid:
 
-* uses the proportion of images to better fit into a grid layout
+* uses a plain ui, your imagery is the focus
+* uses the proportion of your images to inform the grid layout
 * treats mobiles as first class citizens (the layout is consistent across screen sizes)
 * can be used without imagery
 * sticky articles are given prominence on any list page
