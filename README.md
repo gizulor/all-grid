@@ -1,4 +1,4 @@
-# all-grid: a textpattern theme for image-based websites
+# A Textpattern Theme for image-rich websites
 
 Suitable for small to large sites with flexible image display requirements.
 
