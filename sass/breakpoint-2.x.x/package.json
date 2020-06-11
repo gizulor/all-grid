@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/Team-Sass/breakpoint",
   "devDependencies": {
-    "diff": "^1.2.1",
+    "diff": "^4.0.2",
     "fs-extra": "^0.14.0",
     "glob": "^4.3.2",
     "node-sass": "^3.0.0",
