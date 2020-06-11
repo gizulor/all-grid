@@ -168,7 +168,7 @@ body {
 .sans, body {
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   font-style: normal;
-  font-weight: 300; }
+  font-weight: 600; }
 
 .serif, cite, blockquote p:last-child:after, blockquote p:first-child:before {
   font-family: Georgia, serif; }
