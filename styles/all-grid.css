@@ -859,7 +859,8 @@ th {
     margin-right: auto;
     padding: 10vw; }
     .detail-page .image--is-omitted [itemprop="headline"] {
-      padding-left: var(--grid-spacer); }
+      padding-left: var(--grid-spacer);
+      padding-right: var(--grid-spacer); }
     .detail-page .image--is-omitted + [itemprop="articleBody"] {
       grid-column-start: 1;
       grid-column-end: -1;
