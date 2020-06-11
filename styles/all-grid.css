@@ -383,10 +383,10 @@ th {
 /* ===================================
 	flow: owl selector
 ======================================*/
-.flow, .all-grid--sub--noimage {
+.flow, .all-grid--sub--noimage, .image--is-omitted a [itemprop="description"] {
   --flow-space: 1em; }
 
-.flow > * + *, .all-grid--sub--noimage > * + * {
+.flow > * + *, .all-grid--sub--noimage > * + *, .image--is-omitted a [itemprop="description"] > * + * {
   margin-top: var(--baseline);
   margin-top: var(--flow-space); }
 
@@ -845,6 +845,7 @@ th {
   grid-row: span 2;
   grid-column: span 2; }
   .image--is-omitted a [itemprop="description"] {
+    padding-top: var(--grid-spacer);
     position: relative;
     z-index: 1;
     color: white !important; }
