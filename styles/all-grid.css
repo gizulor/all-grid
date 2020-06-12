@@ -3,7 +3,7 @@
 	all-grid setup
 ======================================*/
 :root {
-  /* grid-base determises the size of the grid. Pixel units also work! */
+  /* grid-base determines the size of the grid. Pixel units also work! */
   --grid-base: 15vw;
   --grid-spacer: 2vw;
   /* primary fontsize: applies to all elements in your html with the .all-grid--uifontsize class */
