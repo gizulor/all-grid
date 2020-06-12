@@ -5,7 +5,9 @@ Suitable for small to large sites with flexible image display requirements.
 
 ![all-grid screenshot](/styles/img/all-grid-theme.jpg)
 
-all-grid requires Textpattern v4.80 and above.
+all-grid is free and open source software, and requires Textpattern v4.80 and above.
+
+
 
 
 [Demo Site](https://all-grid.all-sorts.biz)
