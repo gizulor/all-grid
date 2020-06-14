@@ -913,7 +913,8 @@ th {
   position: relative;
   grid-row-start: 1;
   grid-column-start: 1;
-  grid-column-end: -1; }
+  grid-column-end: -1;
+  min-height: 61.8vw; }
   .all-grid__superimpose [itemprop="headline"] {
     z-index: 1;
     display: flex;

@@ -226,7 +226,7 @@
 		grid-row-start: 1;
 		grid-column-start: 1;
 		grid-column-end: -1;
-		
+		min-height: 61.8vw;
 		[itemprop="headline"] {
 			@extend .u-hug;
 			z-index: 1;

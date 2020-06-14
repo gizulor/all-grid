@@ -23,26 +23,14 @@
 	</txp:if_variable>
 </txp:variable>
 
-<txp:if_variable name="caption" value="">
-
-   <p itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="<txp:variable name="image-class" /> image--is-<txp:variable name="image-orientation" />">
-		<txp:variable name="theimage" />
-		<meta itemprop="width" content="<txp:image_info type="w" />">
-		<meta itemprop="height" content="<txp:image_info type="h" />">
-		<txp:output_form form="little-hand">image</txp:output_form>
-	</p>
-
-<txp:else />
-
-	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="<txp:variable name="image-class" /> image--is-<txp:variable name="image-orientation" />">
-		<txp:variable name="theimage" />
-		<meta itemprop="width" content="<txp:image_info type="w" />">
-		<meta itemprop="height" content="<txp:image_info type="h" />">
-		<txp:output_form form="little-hand">image</txp:output_form>
+<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="<txp:variable name="image-class" /> image--is-<txp:variable name="image-orientation" />">
+	<txp:variable name="theimage" />
+	<meta itemprop="width" content="<txp:image_info type="w" />">
+	<meta itemprop="height" content="<txp:image_info type="h" />">
+	<txp:output_form form="little-hand">image</txp:output_form>
+	<txp:if_variable name="caption" value>
 		<figcaption itemprop="caption">
 			<txp:image_info escape="textile" />
 		</figcaption>
-
-	</figure>
-
-</txp:if_variable>
+	</txp:if_variable>
+</figure>
