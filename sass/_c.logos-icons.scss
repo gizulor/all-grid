@@ -59,6 +59,9 @@
 	&:hover:after {
 		transform: translateY(-.4em) rotate(-135deg);
 	}
+	&:hover {
+		transform: rotate(45deg);
+	}
 }
 
 .nav-is-active .hamburger {

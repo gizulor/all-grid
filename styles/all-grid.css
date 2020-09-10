@@ -975,6 +975,8 @@ th {
     transform: translateY(0.4em) rotate(135deg); }
   .hamburger:hover:after {
     transform: translateY(-0.4em) rotate(-135deg); }
+  .hamburger:hover {
+    transform: rotate(45deg); }
 
 .nav-is-active .hamburger:hover {
   transform: rotate(180deg); }
