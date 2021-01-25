@@ -11,14 +11,14 @@
 @import "t.mixins";
 @import "t.quantity-queries";
 
-@import "grid-setup";
-@import "colours-setup";
+@import "s.config";
+@import "s.colours-setup";
+@import "colours/c.colours";
 
 
 
 @import "b.reset";
 
-@import "s.config";
 
 @import "g.globals";
 @import "b.typography";
@@ -27,7 +27,6 @@
 @import "o.flow";
 //@import "o.ratios";
 
-@import "colours/c.colours";
 
 @import "c.all-grid";
 
