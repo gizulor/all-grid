@@ -19,7 +19,7 @@
 			<txp:excerpt />
 		</div>
 </txp:if_article_image>
-		<h3 itemprop="headline" class="all-grid--uifontsize t-hyphens">
+		<h3 itemprop="headline" class="all-grid--uifont t-hyphens">
 			<span><txp:title /></span>
 		</h3>
    </a>

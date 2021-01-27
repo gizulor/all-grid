@@ -8,11 +8,11 @@
 		<txp:else />
 			<txp:variable name="random-textcolour">tr--<txp::random_number to="10" /></txp:variable>
 		</txp:if_article_image>
-		<h1 itemprop="headline" class="all-grid--uifontsize <txp:variable name="random-textcolour" />">
+		<h1 itemprop="headline" class="all-grid--uifont <txp:variable name="random-textcolour" />">
 			<txp:title />
 			<txp:output_form form="little-hand" />
 		</h1>
-		<aside itemprop="description" class="flow <txp:if_article_image>typeset</txp:if_article_image> t-hyphens all-grid--uifontsize <txp:variable name="random-textcolour" />">
+		<aside itemprop="description" class="flow <txp:if_article_image>typeset</txp:if_article_image> t-hyphens all-grid--uifont <txp:variable name="random-textcolour" />">
 			<txp:excerpt />
 		</aside>
 
@@ -95,7 +95,7 @@
 <txp:if_article_category>
 	<ul itemprop="keywords" class=" all-grid--centered list-bare ">
 		<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
-			<txp:category title link class='all-grid--uifontsize link--plain <txp:variable name="random-textcolour" />' />
+			<txp:category title link class='all-grid--uifont link--plain <txp:variable name="random-textcolour" />' />
 		</txp:category_list>
 	</ul>
 </txp:if_article_category>

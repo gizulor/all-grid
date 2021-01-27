@@ -39,13 +39,13 @@ $portrait: ('max-aspect-ratio' '1/1');
 	--grid-base: 15vw;
 	--grid-spacer: 2vw;
 
-	/* primary fontsize: applies to all elements in your html with the .all-grid--uifontsize class */
+	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
 
 	--uifontsize: 4vmin; 	/* 4vmin = loud, 1vmin = quiet, other units work too  */
 
-	/* typography: currently limited to containers with the .typography class */
+	/* typography: limited to containers with the .typography class */
 
-	--type-measure: 40rem;  
+	--type-measure: 40rem;
 	--baseline: 1.5rem;
 	--h1: 3rem;
 	--h2: 2rem;
@@ -55,7 +55,7 @@ $portrait: ('max-aspect-ratio' '1/1');
 
 }
 
-.all-grid--uifontsize {
+.all-grid--uifont {
 	font-size: calc(.5rem + var(--uifontsize));
 	line-height: 1.1;
 	letter-spacing: -.04em;

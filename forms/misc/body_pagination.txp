@@ -1,5 +1,5 @@
 <txp:if_individual_article>
-	<nav class="links-pagination all-grid--centered all-grid--uifontsize" aria-label="<txp:text item="page_nav" />">
+	<nav class="links-pagination all-grid--centered all-grid--uifont" aria-label="<txp:text item="page_nav" />">
 		<txp:evaluate test="link_to_prev,link_to_next">
 			<txp:link_to_next rel="next">
 				<span></span><txp:title />
@@ -11,7 +11,7 @@
 	</nav>
 <txp:else />
 	<txp:evaluate test="newer,older">
-		<nav class="links-pagination all-grid--centered all-grid--uifontsize" aria-label="<txp:text item="page_nav" />">
+		<nav class="links-pagination all-grid--centered all-grid--uifont" aria-label="<txp:text item="page_nav" />">
 			<txp:older rel="prev" class="links-pagination__next">
 				continues…<span></span>
 			</txp:older>

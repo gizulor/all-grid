@@ -1,5 +1,16 @@
+/* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
+
+
 /* ===================================
-    colour palette
+    colour palette as classes
+======================================*/
+// text and background colours, including random colour sets. Can be removed if you require a simple colour scheme
+
+@import "colours/c.colours"; 
+
+
+/* ===================================
+    colour palette as variables
 ======================================*/
 
 :root {
@@ -22,7 +33,7 @@
 	--codeBackgroundColour:		var(--charcoal);
 
 
-	/* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
+// Redundant colours can be removed if you're shaving bytes
 
 	--white:			rgb(234,228,215);
 	--silver:			rgb(188,187,182);
@@ -88,6 +99,3 @@
 	--beigepink1:		rgb(234,219,192);
 	--beigepink2:		rgb(226,203,181);
 }
-
-
-

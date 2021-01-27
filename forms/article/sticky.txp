@@ -8,12 +8,12 @@
 	</txp:if_article_image>
 		<txp:variable name="figure-output" />
 	<header<txp:if_article_image not > class="all-grid--sub--noimage"</txp:if_article_image>>
-		<h1 itemprop="headline" class="all-grid--uifontsize">
+		<h1 itemprop="headline" class="all-grid--uifont">
 			<txp:title />
 			<txp:output_form form="little-hand" />
 		</h1>
 
-		<aside itemprop="description" class="flow t-hyphens all-grid--uifontsize typeset">
+		<aside itemprop="description" class="flow t-hyphens all-grid--uifont typeset">
 			<txp:excerpt />
 		</aside>
 	</header>

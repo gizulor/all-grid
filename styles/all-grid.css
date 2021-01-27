@@ -6,10 +6,10 @@
   /* grid-base determines the size of the grid. Pixel units also work! */
   --grid-base: 15vw;
   --grid-spacer: 2vw;
-  /* primary fontsize: applies to all elements in your html with the .all-grid--uifontsize class */
+  /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
   --uifontsize: 4vmin;
   /* 4vmin = loud, 1vmin = quiet, other units work too  */
-  /* typography: currently limited to containers with the .typography class */
+  /* typography: limited to containers with the .typography class */
   --type-measure: 40rem;
   --baseline: 1.5rem;
   --h1: 3rem;
@@ -18,95 +18,17 @@
   --h4: 1.25rem;
   --h5: 1rem; }
 
-.all-grid--uifontsize {
+.all-grid--uifont {
   font-size: calc(.5rem + var(--uifontsize));
   line-height: 1.1;
   letter-spacing: -.04em;
   text-transform: lowercase;
   font-weight: 500; }
 
+/* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
 /* ===================================
-    colour palette
+    colour palette as classes
 ======================================*/
-:root {
-  /* 	Text colours */
-  --headingColour:	var(--white);
-  --bodyColour:		var(--white);
-  --linkColour:		var(--white);
-  --hoverColour:		white;
-  --captionColour:	var(--white);
-  --selectionColour:	var(--red);
-  --menuTextColour:	var(--charcoal);
-  /* 	Background colours */
-  --backgroundColour:		var(--black);
-  --menuBackgroundColour:		var(--yellow);
-  --footerBackgroundColour:	var(--black);
-  --codeBackgroundColour:		var(--charcoal);
-  /* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
-  --white:			rgb(234,228,215);
-  --silver:			rgb(188,187,182);
-  --grey:				rgb(167,168,165);
-  --grey1:			rgb(146,150,154);
-  --grey2:			rgb(146,148,148);
-  --grey3:			rgb(129,134,139);
-  --grey4:			rgb(96,100,106);
-  --charcoal:			rgb(94,96,97);
-  --charcoal1:		rgb(90,85,80);
-  --black:			rgb(58,59,59);
-  --black1:			rgb(64,60,58);
-  --black2:			rgb(69,66,62);
-  --bluedark:			rgb(49,61,107);
-  --blue:				rgb(57,87,165);
-  --blue1:			rgb(77,106,168);
-  --blue2:			rgb(62,110,144);
-  --blue3:			rgb(103,157,174);
-  --blue4:			rgb(122,167,203);
-  --bluepale:			rgb(143,171,201);
-  --blue6:			rgb(171,189,200);
-  --blue7:			rgb(182,198,206);
-  --blue8:			rgb(138,181,186);
-  --green:			rgb(64,110,88);
-  --green1:			rgb(62,111,66);
-  --green2:			rgb(66,143,112);
-  --green3:			rgb(127,162,90);
-  --green4:			rgb(171,193,122);
-  --green5:			rgb(196,211,155);
-  --green6:			rgb(145,175,161);
-  --green7:			rgb(168,196,193);
-  --greenpale:		rgb(190,203,183);
-  --greenpale1:		rgb(198,213,204);
-  --greenpale2:		rgb(217,225,221);
-  --olive:			rgb(184,161,54);
-  --yellow:			rgb(242,187,29);
-  --yellowbeige2:		rgb(234,207,166);
-  --yelloworange:		rgb(219,176,127);
-  --yelloworange1:	rgb(221,191,153);
-  --orange:			rgb(212,108,64);
-  --orange2:			rgb(220,141,103);
-  --orangepale:		rgb(234,207,185);
-  --orange1:			rgb(196,94,58);
-  --red:				rgb(172,68,58);
-  --red1:				rgb(155,55,56);
-  --red2:				rgb(143,58,67);
-  --red3:				rgb(148,58,77);
-  --redbeige:			rgb(214,175,166);
-  --redbeige1:		rgb(205,152,134);
-  --pink:				rgb(219,163,175);
-  --pink2:			rgb(230,205,191);
-  --purple:			rgb(116,57,59);
-  --brown:			rgb(116,68,56);
-  --brown1:			rgb(76,66,61);
-  --brown3:			rgb(139,77,62);
-  --brown2:			rgb(104,68,60);
-  --brown4:			rgb(182,123,102);
-  --brown5:			rgb(183,172,157);
-  --brown6:			rgb(183,163,146);
-  --brown7:			rgb(146,138,126);
-  --beige:			rgb(216,178,154);
-  --beigepink:		rgb(219,190,170);
-  --beigepink1:		rgb(234,219,192);
-  --beigepink2:		rgb(226,203,181); }
-
 .bg--beigepink1 {
   background-color: var(--beigepink1); }
 
@@ -484,6 +406,87 @@
 
 .t--black2 {
   color: var(--black2); }
+
+/* ===================================
+    colour palette as variables
+======================================*/
+:root {
+  /* 	Text colours */
+  --headingColour:	var(--white);
+  --bodyColour:		var(--white);
+  --linkColour:		var(--white);
+  --hoverColour:		white;
+  --captionColour:	var(--white);
+  --selectionColour:	var(--red);
+  --menuTextColour:	var(--charcoal);
+  /* 	Background colours */
+  --backgroundColour:		var(--black);
+  --menuBackgroundColour:		var(--yellow);
+  --footerBackgroundColour:	var(--black);
+  --codeBackgroundColour:		var(--charcoal);
+  --white:			rgb(234,228,215);
+  --silver:			rgb(188,187,182);
+  --grey:				rgb(167,168,165);
+  --grey1:			rgb(146,150,154);
+  --grey2:			rgb(146,148,148);
+  --grey3:			rgb(129,134,139);
+  --grey4:			rgb(96,100,106);
+  --charcoal:			rgb(94,96,97);
+  --charcoal1:		rgb(90,85,80);
+  --black:			rgb(58,59,59);
+  --black1:			rgb(64,60,58);
+  --black2:			rgb(69,66,62);
+  --bluedark:			rgb(49,61,107);
+  --blue:				rgb(57,87,165);
+  --blue1:			rgb(77,106,168);
+  --blue2:			rgb(62,110,144);
+  --blue3:			rgb(103,157,174);
+  --blue4:			rgb(122,167,203);
+  --bluepale:			rgb(143,171,201);
+  --blue6:			rgb(171,189,200);
+  --blue7:			rgb(182,198,206);
+  --blue8:			rgb(138,181,186);
+  --green:			rgb(64,110,88);
+  --green1:			rgb(62,111,66);
+  --green2:			rgb(66,143,112);
+  --green3:			rgb(127,162,90);
+  --green4:			rgb(171,193,122);
+  --green5:			rgb(196,211,155);
+  --green6:			rgb(145,175,161);
+  --green7:			rgb(168,196,193);
+  --greenpale:		rgb(190,203,183);
+  --greenpale1:		rgb(198,213,204);
+  --greenpale2:		rgb(217,225,221);
+  --olive:			rgb(184,161,54);
+  --yellow:			rgb(242,187,29);
+  --yellowbeige2:		rgb(234,207,166);
+  --yelloworange:		rgb(219,176,127);
+  --yelloworange1:	rgb(221,191,153);
+  --orange:			rgb(212,108,64);
+  --orange2:			rgb(220,141,103);
+  --orangepale:		rgb(234,207,185);
+  --orange1:			rgb(196,94,58);
+  --red:				rgb(172,68,58);
+  --red1:				rgb(155,55,56);
+  --red2:				rgb(143,58,67);
+  --red3:				rgb(148,58,77);
+  --redbeige:			rgb(214,175,166);
+  --redbeige1:		rgb(205,152,134);
+  --pink:				rgb(219,163,175);
+  --pink2:			rgb(230,205,191);
+  --purple:			rgb(116,57,59);
+  --brown:			rgb(116,68,56);
+  --brown1:			rgb(76,66,61);
+  --brown3:			rgb(139,77,62);
+  --brown2:			rgb(104,68,60);
+  --brown4:			rgb(182,123,102);
+  --brown5:			rgb(183,172,157);
+  --brown6:			rgb(183,163,146);
+  --brown7:			rgb(146,138,126);
+  --beige:			rgb(216,178,154);
+  --beigepink:		rgb(219,190,170);
+  --beigepink1:		rgb(234,219,192);
+  --beigepink2:		rgb(226,203,181); }
 
 /* ===================================
 	basic reset

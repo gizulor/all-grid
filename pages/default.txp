@@ -27,7 +27,7 @@
 				<txp:if_article_list>
 
 					<txp:if_category>
-						<h1 itemprop="name" class="u-content-padding all-grid--uifontsize"><txp:text item="category" />: <txp:category title /></h1>
+						<h1 itemprop="name" class="u-content-padding all-grid--uifont"><txp:text item="category" />: <txp:category title /></h1>
 					</txp:if_category>
 
 					<txp:article form="article_listing" limit="20" wraptag="ul" class="all-grid list-bare" />
