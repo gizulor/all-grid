@@ -8,7 +8,7 @@
 }  
 
 .flow > * + * { 
-  margin-top: var(--baseline); // fallback
+  margin-top: 1em; // fallback
   margin-top: var(--flow-space);
 }
 
