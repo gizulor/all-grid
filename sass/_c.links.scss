@@ -16,41 +16,6 @@ a {
 	}
 }
 
-#navigation {
-	background-color: var(--menuBackgroundColour);
-	position: fixed;
-	z-index: 10;
-	width: 50%;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	overflow: auto;
-	padding-top: var(--grid-base);
-	padding-left: 5vw;
-	padding-right: 5vw;
-	display: none;
-	
-	.nav-is-active & {
-		display: flex;
-		flex-direction: column;
-	}
-	
-	li {
-		position: relative;
-		
-		a {
-			color: var(--menuTextColour);
-			display: block;
-			&:hover {
-				color: --hoverColour;
-			}
-		}
-		
-		&.active a {
-			color: var(--selectionColour);
-		}
-	}
-}
 
 .link {}
 

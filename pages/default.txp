@@ -2,8 +2,13 @@
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
 <txp:output_form form="head" />
-
-<txp:output_form form="body_header" />
+	<!-- Demo only -->
+	<txp:variable name="menu" value='<txp:page_url type="menu" />' default="" />
+	<txp::body_header menu='<txp:variable name="menu" />' />
+	<!-- End Demo only -->
+		
+	<txp:hide><!--  Production code: use <txp::body_header /> or <txp::body_header menu="hamburger" /> to output form body_header --></txp:hide>
+		
 
 	<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/CreativeWork">
 
@@ -11,9 +16,9 @@
 		<txp:if_search>
 			<txp:output_form form="search_display" />
 		<txp:else />
-			<!-- else is this the front page? -->
-			<txp:article limit="1" form="sticky" status="sticky" />
 
+			<txp:article limit="1" form="sticky" status="sticky" />
+			<!-- else is this the front page? -->
 			<txp:if_section name=",default">
 
 				<ul class="all-grid list-bare">

@@ -775,16 +775,58 @@ th {
 	all-grid
 ======================================*/
 .all-grid__header {
-  height: var(--grid-base);
+  min-height: var(--grid-base);
+  padding: calc(var(--grid-spacer) * 2) var(--grid-spacer);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  min-height: var(--grid-base);
-  padding-left: var(--grid-spacer); }
-  .all-grid__header > div {
-    padding-right: 10vw; }
+  justify-content: center; }
+
+.header--hamburger {
+  padding-right: 10vw; }
+
+.all-grid__menu > ul {
+  display: flex;
+  flex-wrap: flex; }
+
+.all-grid__menu li {
+  position: relative;
+  min-width: clamp(12ch, 10vw, 24ch);
+  margin-right: calc(var(--grid-spacer)*2); }
+  .all-grid__menu li:last-child {
+    margin-right: 0; }
+  .all-grid__menu li a:hover {
+    color: --hoverColour; }
+  .all-grid__menu li.active a {
+    display: block;
+    color: var(--selectionColour); }
+
+.menu--hamburger {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  padding-top: var(--grid-base);
+  padding-left: 5vw;
+  padding-right: 5vw;
+  background-color: var(--menuBackgroundColour); }
+  .menu--hamburger > ul {
+    display: block; }
+  .nav-is-active .menu--hamburger {
+    display: flex;
+    flex-direction: column; }
+  .menu--hamburger li {
+    position: relative;
+    display: block;
+    margin-right: 0; }
+    .menu--hamburger li a {
+      color: var(--menuTextColour); }
 
 .all-grid {
+  border: 1px solid green;
   display: grid;
   grid-gap: var(--grid-spacer);
   grid-auto-flow: dense;
@@ -1006,32 +1048,6 @@ a {
     color: var(--hoverColour); }
   [itemprop="description"] a, [itemprop="articleBody"] a {
     color: inherit; }
-
-#navigation {
-  background-color: var(--menuBackgroundColour);
-  position: fixed;
-  z-index: 10;
-  width: 50%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  overflow: auto;
-  padding-top: var(--grid-base);
-  padding-left: 5vw;
-  padding-right: 5vw;
-  display: none; }
-  .nav-is-active #navigation {
-    display: flex;
-    flex-direction: column; }
-  #navigation li {
-    position: relative; }
-    #navigation li a {
-      color: var(--menuTextColour);
-      display: block; }
-      #navigation li a:hover {
-        color: --hoverColour; }
-    #navigation li.active a {
-      color: var(--selectionColour); }
 
 .link--plain, .links-pagination a, .links-keywords a,
 .link--plain > *,

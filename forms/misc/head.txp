@@ -5,17 +5,17 @@
 
 
 <txp:hide>
-		<!-- if you prefer to code your css locally… -->
+		<!-- if you prefer to build your css locally… -->
  		<txp:if_logged_in name="login-name">
 			<txp:hide><link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>"></txp:hide>
-			<link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
+			<link rel="stylesheet" href="https://localhost/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
 		<txp:else />
 			<txp:css format="link" name="all-grid"/>
  		</txp:if_logged_in>
 
 </txp:hide>
  		
-		<txp:css format="link" name="all-grid"/>
+		<link rel="stylesheet" href="https://gribble.local:5757/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
  		
 		<meta name="generator" content="Textpattern CMS">
 	

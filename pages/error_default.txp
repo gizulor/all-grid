@@ -20,7 +20,7 @@
 
 <body class="error-page" itemscope itemtype="https://schema.org/WebPage">
 
-	<txp:output_form form="body_header" />
+	<txp::body_header menu="hamburger" />
 
 	<!-- Main content -->
 	<main id="main" aria-label="<txp:text item="main_content" />" class="all-grids all-grid--centered">
