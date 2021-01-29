@@ -1,25 +1,26 @@
-<article class="all-grid all-grid--sub" itemscope itemtype="http://schema.org/Collection">
+<txp::images_preprocess random-bg-colour />
+
+<article class="all-grid__hero image--is-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 	<txp:if_article_image>
 		<txp:variable name="image-class" value="image image--fill hide-figcaption" />
 		<txp:images form="images" break="" limit="1" />
-		
-	
 	</txp:if_article_image>
-		<txp:variable name="figure-output" />
-	<header<txp:if_article_image not > class="all-grid--sub--noimage"</txp:if_article_image>>
-		<h1 itemprop="headline" class="all-grid--uifont">
-			<txp:title />
-			<txp:output_form form="little-hand" />
-		</h1>
-
-		<aside itemprop="description" class="flow t-hyphens all-grid--uifont typeset">
-			<txp:excerpt />
-		</aside>
-	</header>
-
+	<div class="all-grid__hero__overlay"></div>
 	
-	<div itemprop="articleBody" class="typeset">
+	<div class="all-grid__hero__text">
+		<header class="flow <txp:if_article_image not > all-grid__hero--noimage</txp:if_article_image>">
+			<h1 itemprop="headline" class="all-grid--uifont">
+				<txp:title />
+				<txp:output_form form="little-hand" />
+			</h1>
+	
+			<aside itemprop="description" class="flow t-hyphens h4-style typeset">
+				<txp:excerpt />
+			</aside>
+		</header>
+	</div>
+	<div itemprop="articleBody" class="typeset u-content-padding">
 		<txp:body />
 	</div>
 </article>

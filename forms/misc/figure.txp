@@ -1,6 +1,6 @@
 <txp:images id='<txp:yield name="id" escape="number" />' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="1" />' break="">
 	<txp:if_yield name="auto">
-		<txp:output_form form="images_preprocess" />
+		<txp::images_preprocess />
 	</txp:if_yield>
 	<txp:variable name="figure-output">
 		<figure class="<txp:yield name="class" />">

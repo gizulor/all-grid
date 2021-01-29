@@ -1,12 +1,7 @@
 <txp:variable name="picture-type" value="thumb" />
-<txp:if_article_image>
-	<txp:images form="images" break="" limit="1">
-		<txp:output_form form="images_preprocess" />
-	</txp:images>
-<txp:else />
-	<txp:variable name="image-orientation" value='omitted bgr--<txp::random_number to="10" />'/>
-	
-</txp:if_article_image>
+
+<txp::images_preprocess random-bg-colour />
+
 
 
 <li class="all-grid__thumb image--is-<txp:variable name="image-orientation" />" itemprop itemscope itemtype="http://schema.org/Collection">

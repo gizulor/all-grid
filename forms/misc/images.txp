@@ -1,4 +1,4 @@
-<txp:output_form form="images_preprocess" />
+<txp::images_preprocess />
 <txp:variable name="caption" value='<txp:image_info />' />
 
 <txp:variable name="picture--thumb">

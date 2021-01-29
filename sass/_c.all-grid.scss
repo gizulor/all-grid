@@ -22,7 +22,8 @@
 
 	li {
 		position: relative;
-		min-width: clamp(12ch,10vw,24ch);
+		min-width: clamp(6ch,10vw,24ch);
+		max-width: clamp(12ch,20vw,36ch);
 		
 		margin-right: calc(var(--grid-spacer)*2);
 		&:last-child {
@@ -32,7 +33,6 @@
 		a:hover {
 			color: --hoverColour;
 		}
-		
 		
 		&.active a {
 			display: block;
@@ -70,7 +70,8 @@
 			position: relative;
 			display: block;
 			margin-right: 0;
-			
+			min-width: inherit;
+			max-width: inherit;
 			a {
 				color: var(--menuTextColour);
 			}
@@ -84,13 +85,12 @@
 
 
 .all-grid {
-	border: 1px solid green;
 	display: grid;
 	grid-gap: var(--grid-spacer);
 	grid-auto-flow: dense;
 	grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr));
 
-	.listing-page & {
+	.listing-page :not(.all-grid__hero) & {
 		grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
 	}
 
@@ -222,43 +222,68 @@
 	}
 }
 
-.all-grid--sub {
-	grid-template-columns: 1fr 1fr;
-	
-	> header{
-		padding-right: var(--h1); // font size of hamburger
-		margin-right: var(--grid-spacer); 
+.all-grid__hero {
+	display: grid;
+	grid-template-columns: 1fr; // stretch to the full frame
+	//grid-template-rows: calc(var(--grid-base)* 4); // approx 3:2 ratio
+	grid-gap: 0;
+	align-content: center;
+	justify-content: center;
+	box-sizing: content-box;
+
+	.image {
+		z-index: 0;
+		grid-area: 1 / 1 / 2 / 2;
+		display: grid;
+		//min-width: 320px; // Do not resize to smaller than this.
 	}
-	
-	[itemprop="description"]{
-		padding: 0;
-	}
-	
-	[itemprop="articleBody"]{
+		.image--is-portrait {
+			//grid-column: span 1;
+		}
+		
+	> [itemprop="articleBody"]{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: var(--grid-spacer);
 		grid-column: 1 / -1;
-		
 		> * {
 			&:nth-child(even) {
-				padding-right: var(--h1); // font size of hamburger
+				padding-right: var(--h1); // allow for hamburger track
 			}
 		}
 	}
 	
-	.image--is-landscape + header {
-		grid-column: span 2;
-		padding-left: var(--grid-spacer);
+}
+
+.all-grid__hero__overlay{
+	z-index: 1;
+	
+	grid-area: 1 / 1 / 2 / 2;
+	display: grid;
+	max-width: 100%;
+	background: linear-gradient(60deg,rgba(black, 0.38) 30%,rgba(black, 0) 100%); // start at black at the bottom left'ish and goes at a 60% angle. This will make the white easy to read with nearly any image.
+}
+
+.all-grid__hero__text{
+	z-index: 2;
+	grid-area: 1 / 1 / 2 / 2;
+	display: grid;
+	align-items: flex-end;
+	margin-left: var(--grid-base);
+	margin-right: var(--grid-spacer);
+	margin-bottom: var(--grid-spacer);
+	
+	[itemprop="description"] {
+		margin-right: 50%;
 	}
 }
 
-.all-grid--sub--noimage  {
-	@extend .flow;
-	grid-column: span 2;
-	padding-left: var(--grid-spacer);
-	padding-right: 0;
-}
+
+
+
+
+
+
 
 	.all-grid__thumb {
 		position: relative;
