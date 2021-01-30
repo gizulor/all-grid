@@ -1,3 +1,13 @@
+<txp:hide><!-- 
+	Used to determine the orientation of the image for layout purposes, and set site-wide proportional cropping.
+	If no article image is specified, a random background colour option is made available
+
+	Call this shortcode via:
+		<txp::images_preprocess />
+	or
+		<txp::images_preprocess random-bg-colour />
+--></txp:hide>
+
 <txp:if_article_image>
 	<txp:images form="images" break="" limit="1">
 		<txp:php>

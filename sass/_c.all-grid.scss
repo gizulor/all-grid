@@ -229,23 +229,22 @@
 	grid-gap: 0;
 	align-content: center;
 	justify-content: center;
-	box-sizing: content-box;
-
-	.image {
-		z-index: 0;
-		grid-area: 1 / 1 / 2 / 2;
-		display: grid;
-		//min-width: 320px; // Do not resize to smaller than this.
-	}
-		.image--is-portrait {
-			//grid-column: span 1;
-		}
+	margin-bottom: var(--grid-spacer);
+	&.image--is-portrait {
+		grid-template-columns: 1fr 1fr;
 		
-	> [itemprop="articleBody"]{
+		[itemprop="articleBody"]{
+			@extend .flow;
+			grid-area: 1 / 2 / 2 / -1;
+			padding-right: var(--h1); // allow for hamburger track
+			padding-top: 0;
+		}
+	}
+
+	&.image--is-landscape [itemprop="articleBody"]{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: var(--grid-spacer);
-		grid-column: 1 / -1;
 		> * {
 			&:nth-child(even) {
 				padding-right: var(--h1); // allow for hamburger track
@@ -253,6 +252,17 @@
 		}
 	}
 	
+	&.image--is-omitted {
+		[itemprop="articleBody"]{
+			@extend .flow;
+		}
+	}
+	.image {
+		z-index: 0;
+		grid-area: 1 / 1 / 2 / 2;
+		display: grid;
+		//min-width: 320px; // Do not resize to smaller than this.
+	}
 }
 
 .all-grid__hero__overlay{
@@ -272,6 +282,14 @@
 	margin-left: var(--grid-base);
 	margin-right: var(--grid-spacer);
 	margin-bottom: var(--grid-spacer);
+	.image--is-portrait &{
+		align-items: flex-start;
+		margin-top: var(--grid-base);
+		margin-left: var(--grid-spacer);
+		[itemprop="description"] {
+			margin-right: inherit;
+		}
+	}
 	
 	[itemprop="description"] {
 		margin-right: 50%;

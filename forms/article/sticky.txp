@@ -1,4 +1,4 @@
-<txp::images_preprocess random-bg-colour />
+<txp::images_preprocess />
 
 <article class="all-grid__hero image--is-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">

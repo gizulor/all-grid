@@ -764,10 +764,10 @@ th {
 /* ===================================
 	flow: owl selector
 ======================================*/
-.flow, .all-grid--sub--noimage, .image--is-omitted a [itemprop="description"] {
+.flow, .all-grid__hero.image--is-omitted [itemprop="articleBody"], .all-grid__hero.image--is-portrait [itemprop="articleBody"], .image--is-omitted a [itemprop="description"] {
   --flow-space: 1em; }
 
-.flow > * + *, .all-grid--sub--noimage > * + *, .image--is-omitted a [itemprop="description"] > * + * {
+.flow > * + *, .all-grid__hero.image--is-omitted [itemprop="articleBody"] > * + *, .all-grid__hero.image--is-portrait [itemprop="articleBody"] > * + *, .image--is-omitted a [itemprop="description"] > * + * {
   margin-top: 1em;
   margin-top: var(--flow-space); }
 
@@ -790,7 +790,8 @@ th {
 
 .all-grid__menu li {
   position: relative;
-  min-width: clamp(12ch, 10vw, 24ch);
+  min-width: clamp(6ch, 10vw, 24ch);
+  max-width: clamp(12ch, 20vw, 36ch);
   margin-right: calc(var(--grid-spacer)*2); }
   .all-grid__menu li:last-child {
     margin-right: 0; }
@@ -821,17 +822,18 @@ th {
   .menu--hamburger li {
     position: relative;
     display: block;
-    margin-right: 0; }
+    margin-right: 0;
+    min-width: inherit;
+    max-width: inherit; }
     .menu--hamburger li a {
       color: var(--menuTextColour); }
 
 .all-grid {
-  border: 1px solid green;
   display: grid;
   grid-gap: var(--grid-spacer);
   grid-auto-flow: dense;
   grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr)); }
-  .listing-page .all-grid {
+  .listing-page :not(.all-grid__hero) .all-grid {
     grid-auto-rows: var(--grid-base); }
   .detail-page .all-grid {
     grid-template-columns: repeat(3, 1fr); }
@@ -913,28 +915,53 @@ th {
       margin-right: auto;
       padding: 0 10vw; }
 
-.all-grid--sub {
-  grid-template-columns: 1fr 1fr; }
-  .all-grid--sub > header {
-    padding-right: var(--h1);
-    margin-right: var(--grid-spacer); }
-  .all-grid--sub [itemprop="description"] {
-    padding: 0; }
-  .all-grid--sub [itemprop="articleBody"] {
+.all-grid__hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 0;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: var(--grid-spacer); }
+  .all-grid__hero.image--is-portrait {
+    grid-template-columns: 1fr 1fr; }
+    .all-grid__hero.image--is-portrait [itemprop="articleBody"] {
+      grid-area: 1 / 2 / 2 / -1;
+      padding-right: var(--h1);
+      padding-top: 0; }
+  .all-grid__hero.image--is-landscape [itemprop="articleBody"] {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: var(--grid-spacer);
-    grid-column: 1 / -1; }
-    .all-grid--sub [itemprop="articleBody"] > *:nth-child(even) {
+    grid-gap: var(--grid-spacer); }
+    .all-grid__hero.image--is-landscape [itemprop="articleBody"] > *:nth-child(even) {
       padding-right: var(--h1); }
-  .all-grid--sub .image--is-landscape + header {
-    grid-column: span 2;
-    padding-left: var(--grid-spacer); }
+  .all-grid__hero .image {
+    z-index: 0;
+    grid-area: 1 / 1 / 2 / 2;
+    display: grid; }
 
-.all-grid--sub--noimage {
-  grid-column: span 2;
-  padding-left: var(--grid-spacer);
-  padding-right: 0; }
+.all-grid__hero__overlay {
+  z-index: 1;
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  max-width: 100%;
+  background: linear-gradient(60deg, rgba(0, 0, 0, 0.38) 30%, rgba(0, 0, 0, 0) 100%); }
+
+.all-grid__hero__text {
+  z-index: 2;
+  grid-area: 1 / 1 / 2 / 2;
+  display: grid;
+  align-items: flex-end;
+  margin-left: var(--grid-base);
+  margin-right: var(--grid-spacer);
+  margin-bottom: var(--grid-spacer); }
+  .image--is-portrait .all-grid__hero__text {
+    align-items: flex-start;
+    margin-top: var(--grid-base);
+    margin-left: var(--grid-spacer); }
+    .image--is-portrait .all-grid__hero__text [itemprop="description"] {
+      margin-right: inherit; }
+  .all-grid__hero__text [itemprop="description"] {
+    margin-right: 50%; }
 
 .all-grid__thumb {
   position: relative; }
@@ -1160,7 +1187,7 @@ figcaption p {
 
 /* utilities trump all other classes */
 .u-content-padding {
-  padding: var(--grid-spacer); }
+  padding: calc(var(--grid-spacer) * 2) var(--grid-spacer); }
 
 .u-pb {
   padding-bottom: 1rem; }

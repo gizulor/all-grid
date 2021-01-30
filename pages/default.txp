@@ -17,10 +17,9 @@
 			<txp:output_form form="search_display" />
 		<txp:else />
 
-			<txp:article limit="1" form="sticky" status="sticky" />
 			<!-- else is this the front page? -->
 			<txp:if_section name=",default">
-
+				<txp:article limit="1" form="sticky" status="sticky" />
 				<ul class="all-grid list-bare">
 					<txp:article form="article_listing" sort="category1 asc, rand()" limit="20" />
 					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
