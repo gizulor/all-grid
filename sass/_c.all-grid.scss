@@ -94,22 +94,30 @@
 		grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
 	}
 
-		.detail-page & {
-			grid-template-columns: repeat(3, 1fr);
-		}
-
-	&.all-grid--sticky {
+	.detail-page & {
 		grid-template-columns: repeat(3, 1fr);
-		grid-auto-rows: auto, var(--grid-base);//minmax(10vw,var(--grid-base));
-		
-		[itemprop="headline"] {
-			padding-left: var(--grid-spacer);
-		}
-		[itemprop="articleBody"] {
-			grid-column: span 2;
-		}
 	}
+
+	// &.all-grid--sticky { //unused?
+	// 	grid-template-columns: repeat(3, 1fr);
+	// 	grid-auto-rows: auto, var(--grid-base);//minmax(10vw,var(--grid-base));
+	// 	
+	// 	[itemprop="headline"] {
+	// 		padding-left: var(--grid-spacer);
+	// 	}
+	// 	[itemprop="articleBody"] {
+	// 		grid-column: span 2;
+	// 	}
+	// }
 	
+	
+	
+	
+	
+	
+	/*	images
+	===================================== */
+
 	.image--is-landscape {
 		grid-column: span 3;
 		grid-row: span 2;
@@ -125,21 +133,32 @@
 	}
 	
 	.detail-page & {
-		.image--is-landscape {
+		> .image.image--is-landscape {
 			grid-column: span 2;
 			grid-row: span 1;
+			&:nth-of-type(even) {
+				grid-column-end: -1;
+				figcaption {
+					padding-left: 0;
+				}
+			}
 		}
 		
-		.image--is-portrait  {
+		> .image.image--is-portrait  {
 			grid-column: span 1;
 			grid-row: span 2;
 		}
 		
-		.image--is-square  {
+		> .image.image--is-square  {
 			grid-row: span 2;
 			grid-column: span 2;
 		}
 	}
+
+
+
+	/*	text boxes
+	===================================== */
 	
 	[itemprop="description"],
 	[itemprop="articleBody"] {
@@ -148,6 +167,7 @@
 	}
 	[itemprop="articleBody"] {
 		@media screen and (max-width: $medium) {
+		border: 1em solid red;
 			margin-top: 5vh;
 			grid-column-start:  1;
 			grid-column-end:  -1;
@@ -164,13 +184,14 @@
 		padding: var(--grid-spacer);
 	}
 }
+//end .all-grid
 
 .all-grid--centered {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	min-height: calc(var(--grid-base) * 2);
+	min-height: calc(var(--grid-base) * 3);
 	
 	> * {
 		padding: var(--grid-spacer);
@@ -187,7 +208,6 @@
 		[itemprop="description"] {
 			@extend .flow;
 			padding-top: var(--grid-spacer);
-
 			p {
 				@extend .line-clamp;
 			}
@@ -230,7 +250,12 @@
 	align-content: center;
 	justify-content: center;
 	margin-bottom: var(--grid-spacer);
-	&.image--is-portrait {
+	
+	> a {
+		display: contents;
+	}
+	
+	&.has--image-portrait {
 		grid-template-columns: 1fr 1fr;
 		
 		[itemprop="articleBody"]{
@@ -241,7 +266,7 @@
 		}
 	}
 
-	&.image--is-landscape [itemprop="articleBody"]{
+	&.has--image-landscape [itemprop="articleBody"]{
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-gap: var(--grid-spacer);
@@ -265,38 +290,39 @@
 	}
 }
 
-.all-grid__hero__overlay{
-	z-index: 1;
+	.all-grid__hero__overlay{
+		z-index: 1;
+		
+		grid-area: 1 / 1 / 2 / 2;
+		display: grid;
+		max-width: 100%;
+		background: linear-gradient(60deg,rgba(black, 0.38) 30%,rgba(black, 0) 100%); // start at black at the bottom left'ish and goes at a 60% angle. This will make the white easy to read with nearly any image.
+	}
 	
-	grid-area: 1 / 1 / 2 / 2;
-	display: grid;
-	max-width: 100%;
-	background: linear-gradient(60deg,rgba(black, 0.38) 30%,rgba(black, 0) 100%); // start at black at the bottom left'ish and goes at a 60% angle. This will make the white easy to read with nearly any image.
-}
-
-.all-grid__hero__text{
-	z-index: 2;
-	grid-area: 1 / 1 / 2 / 2;
-	display: grid;
-	align-items: flex-end;
-	margin-left: var(--grid-base);
-	margin-right: var(--grid-spacer);
-	margin-bottom: var(--grid-spacer);
-	.image--is-portrait &{
-		align-items: flex-start;
-		margin-top: var(--grid-base);
+	.all-grid__hero__text{
+		z-index: 2;
+		grid-area: 1 / 1 / 2 / 2;
+		display: grid;
+		align-items: flex-end;
 		margin-left: var(--grid-spacer);
+		margin-right: var(--grid-spacer);
+		margin-bottom: var(--grid-spacer);
+		.has--image-portrait &{
+			align-items: flex-start;
+			margin-top: var(--grid-base);
+			margin-left: var(--grid-spacer);
+			[itemprop="description"] {
+				margin-right: inherit;
+			}
+		}
+		
 		[itemprop="description"] {
-			margin-right: inherit;
+			padding: 0;
+			margin-right: 50%;
 		}
 	}
 	
-	[itemprop="description"] {
-		margin-right: 50%;
-	}
-}
-
-
+	
 
 
 

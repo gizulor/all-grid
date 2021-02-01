@@ -1,7 +1,14 @@
 <txp::images_preprocess />
 
-<article class="all-grid__hero image--is-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
+<txp:if_article_image>
+	<txp:evaluate><txp:images offset="1" limit="10" break=""><txp:variable name="images-continue" value="1" /></txp:images></txp:evaluate>
+</txp:if_article_image>
+
+<article class="all-grid__hero has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+	<txp:if_variable name="images-continue" value="1" >
+		<a itemprop="url mainEntityOfPage" href="<txp:permlink />" class="link--plain">
+	</txp:if_variable>
 	<txp:if_article_image>
 		<txp:variable name="image-class" value="image image--fill hide-figcaption" />
 		<txp:images form="images" break="" limit="1" />
@@ -23,4 +30,7 @@
 	<div itemprop="articleBody" class="typeset u-content-padding">
 		<txp:body />
 	</div>
+	<txp:if_variable name="images-continue" value="1" >
+		</a>
+	</txp:if_variable>
 </article>

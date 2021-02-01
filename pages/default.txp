@@ -19,9 +19,9 @@
 
 			<!-- else is this the front page? -->
 			<txp:if_section name=",default">
-				<txp:article limit="1" form="sticky" status="sticky" />
+				<txp:article limit="1" form="hero" status="sticky" />
 				<ul class="all-grid list-bare">
-					<txp:article form="article_listing" sort="category1 asc, rand()" limit="20" />
+					<txp:article form="article_listing" sort="category1 asc, rand()" limit="20" allowoverride="0"/>
 					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
 					<txp:output_form form="body_aside" wraptag="li" class="all-grid__thumb links-social image--is-omitted bgr--<txp::random_number to="10" />" />
 				</ul>
@@ -31,14 +31,19 @@
 				<txp:if_article_list>
 
 					<txp:if_category>
-						<h1 itemprop="name" class="u-content-padding all-grid--uifont"><txp:text item="category" />: <txp:category title /></h1>
+						<header class="u-content-padding flow">
+							<h1 itemprop="name" class="all-grid--uifont"><txp:text item="category" />: <txp:category title /></h1>
+							<txp:evaluate><txp:meta_description type="category" format="" wraptag="p" class="t-lc"/></txp:evaluate>
+						</header>
 					</txp:if_category>
 
-					<txp:article form="article_listing" limit="20" wraptag="ul" class="all-grid list-bare" />
+					<txp:article limit="1" form="hero" status="sticky" />
+					<txp:article form="article_listing" allowoverride="0" limit="20" wraptag="ul" class="all-grid list-bare" />
 
 				<txp:else />
 
-					<txp:article  />
+					<txp:article status="sticky" />
+					<txp:article status="live" />
 
 				</txp:if_article_list>
 
