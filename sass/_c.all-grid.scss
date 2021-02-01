@@ -133,7 +133,7 @@
 	}
 	
 	.detail-page & {
-		> .image.image--is-landscape {
+		.image--is-landscape {
 			grid-column: span 2;
 			grid-row: span 1;
 			&:nth-of-type(even) {
@@ -144,14 +144,25 @@
 			}
 		}
 		
-		> .image.image--is-portrait  {
+		.image--is-portrait  {
 			grid-column: span 1;
 			grid-row: span 2;
 		}
 		
-		> .image.image--is-square  {
+		.image--is-square  {
 			grid-row: span 2;
 			grid-column: span 2;
+		}
+
+		.all-grid__image1 {
+			grid-column: span 3;
+			grid-row: span 2;
+			figcaption {
+				position: absolute;
+				bottom: 0;
+				filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
+				
+			}
 		}
 	}
 
@@ -351,9 +362,9 @@
 		}
 	}
 	
-	.all-grid__image {
-		position: relative;
-	}
+	// .all-grid__image {
+	// 	position: relative;
+	// }
 	
 	.all-grid__superimpose {
 		position: relative;
