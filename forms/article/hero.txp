@@ -7,7 +7,7 @@
 <article class="all-grid__hero has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 	<txp:if_variable name="images-continue" value="1" >
-		<a itemprop="url mainEntityOfPage" href="<txp:permlink />" class="link--plain">
+		<a itemprop="url mainEntityOfPage" href="<txp:permlink />" class="link--plain u-contents">
 	</txp:if_variable>
 	<txp:if_article_image>
 		<txp:variable name="image-class" value="image image--fill hide-figcaption" />

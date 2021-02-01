@@ -58,3 +58,7 @@
 	right: 0;
 	bottom: 0;
 }
+
+.u-contents { // break out of box to help with display: grid
+	display: contents;
+}

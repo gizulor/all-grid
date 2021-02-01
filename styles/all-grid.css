@@ -924,8 +924,6 @@ th {
   align-content: center;
   justify-content: center;
   margin-bottom: var(--grid-spacer); }
-  .all-grid__hero > a {
-    display: contents; }
   .all-grid__hero.has--image-portrait {
     grid-template-columns: 1fr 1fr; }
     .all-grid__hero.has--image-portrait [itemprop="articleBody"] {
@@ -1206,3 +1204,6 @@ figcaption p {
   top: 0;
   right: 0;
   bottom: 0; }
+
+.u-contents {
+  display: contents; }

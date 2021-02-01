@@ -251,10 +251,6 @@
 	justify-content: center;
 	margin-bottom: var(--grid-spacer);
 	
-	> a {
-		display: contents;
-	}
-	
 	&.has--image-portrait {
 		grid-template-columns: 1fr 1fr;
 		
