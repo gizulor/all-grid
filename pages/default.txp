@@ -21,7 +21,7 @@
 			<txp:if_section name=",default">
 				<txp:article limit="1" form="hero" status="sticky" />
 				<ul class="all-grid list-bare">
-					<txp:article form="article_listing" sort="category1 asc, rand()" limit="20" allowoverride="0"/>
+					<txp:article form="article_listing" sort="rand()" limit="20" allowoverride="0"/>
 					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
 					<txp:output_form form="body_aside" wraptag="li" class="all-grid__thumb links-social image--is-omitted bgr--<txp::random_number to="10" />" />
 				</ul>
@@ -32,14 +32,21 @@
 
 					<txp:if_category>
 						<header class="u-content-padding flow">
-							<h1 itemprop="name" class="all-grid--uifont"><txp:text item="category" />: <txp:category title /></h1>
-							<txp:evaluate><txp:meta_description type="category" format="" wraptag="p" class="t-lc"/></txp:evaluate>
+							<h1 itemprop="name" class="all-grid--uifont"><txp:section title="1" link="1" class="link--plain" />: <txp:category title />	<txp:if_logged_in>
+									<object class="little-hand"><a class="link--plain"  target="txp-category" href="<txp:site_url />textpattern/index.php?event=category" title="edit categories">	
+										<img src="<txp:page_url type="theme_path" />/styles/img/edit-article.png" width="16" height="16" alt="edit categories" style="width: 16px; height: 16px; border: none;" />
+									</a></object>
+								</txp:if_logged_in>
+							</h1>
+							<txp:evaluate>
+								<txp:meta_description type="category" format="" wraptag="p" class="t-lc"/>
+							</txp:evaluate>
 						</header>
 					</txp:if_category>
-
-					<txp:article limit="1" form="hero" status="sticky" />
-					<txp:article form="article_listing" allowoverride="0" limit="20" wraptag="ul" class="all-grid list-bare" />
-
+					<ul class="all-grid list-bare">
+						<txp:article limit="1" form="article_listing" allowoverride="0" status="sticky" />
+						<txp:article form="article_listing" allowoverride="0" limit="20" />
+					</ul>
 				<txp:else />
 
 					<txp:article status="sticky" />

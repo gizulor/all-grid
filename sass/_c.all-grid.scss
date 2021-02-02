@@ -157,6 +157,10 @@
 		.all-grid__image1 {
 			grid-column: span 3;
 			grid-row: span 2;
+			
+			&.image--is-portrait {
+				//grid-column: span 2;
+			}
 			figcaption {
 				position: absolute;
 				bottom: 0;
@@ -170,27 +174,38 @@
 
 	/*	text boxes
 	===================================== */
-	
-	[itemprop="description"],
-	[itemprop="articleBody"] {
-		padding: var(--grid-spacer);
-		padding-top: 0;
-	}
-	[itemprop="articleBody"] {
-		@media screen and (max-width: $medium) {
-		border: 1em solid red;
-			margin-top: 5vh;
-			grid-column-start:  1;
-			grid-column-end:  -1;
-			padding-right: 10vw; //allow for menu track
+	.detail-page &,
+	.image--is-omitted {
+		> header,
+		 [itemprop="description"],
+		 [itemprop="articleBody"] {
+			padding: var(--grid-spacer);
 		}
-	}
-	aside[itemprop="description"] {
-		@media screen and (max-width: $medium) {
-			margin-top: 5vh;
-			padding-right: 10vw; //allow for menu track
+		
+		[itemprop="description"],
+		[itemprop="articleBody"] {
+			padding-left: 0;
 		}
+		[itemprop="articleBody"] {
+			padding-right: 6vw; // allow for hamburger menu tracking 
+		}
+		
 	}
+	// [itemprop="articleBody"] {
+	// 	
+	// 	@media screen and (max-width: $medium) {
+	// 		margin-top: 5vh;
+	// 		grid-column-start:  1;
+	// 		grid-column-end:  -1;
+	// 		padding-right: 10vw; //allow for menu track
+	// 	}
+	// }
+	// aside[itemprop="description"] {
+	// 	@media screen and (max-width: $medium) {
+	// 		margin-top: 5vh;
+	// 		padding-right: 10vw; //allow for menu track
+	// 	}
+	// }
 	figcaption {
 		padding: var(--grid-spacer);
 	}
@@ -316,10 +331,10 @@
 		margin-bottom: var(--grid-spacer);
 		.has--image-portrait &{
 			align-items: flex-start;
-			margin-top: var(--grid-base);
-			margin-left: var(--grid-spacer);
+			margin-top: calc(var(--grid-spacer) *2);
+			//margin-left: var(--grid-spacer);
 			[itemprop="description"] {
-				margin-right: inherit;
+				//margin-right: inherit;
 			}
 		}
 		

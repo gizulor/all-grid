@@ -1,101 +1,70 @@
-<article class="all-grid " itemscope itemtype="http://schema.org/Collection">
+<article class="all-grid" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-
-	<header class="<txp:if_article_image>all-grid__superimpose<txp:else />image--is-omitted </txp:if_article_image>">
-		<txp:if_article_image>
-			<txp:variable name="image-class" value="image hide-figcaption" />
-			<txp:images form="images" break="" limit="1" />
-		<txp:else />
-			<txp:variable name="random-textcolour">tr--<txp::random_number to="10" /></txp:variable>
-		</txp:if_article_image>
+	<txp:hide>
+		<txp::images_preprocess />
+		has--image-<txp:variable name="image-orientation" />
+	</txp:hide>
+	<txp:if_article_image>
+		<txp:variable name="image-class" value="image all-grid__image1" />
+		<txp:images form="images" break="" limit="1" />
+		<txp:variable name="image-class" value="" />
+	<txp:else />
+		<txp:variable name="random-textcolour">tr--<txp::random_number to="10" /></txp:variable>
+	</txp:if_article_image>
+	<header class="flow">
 		<h1 itemprop="headline" class="all-grid--uifont <txp:variable name="random-textcolour" />">
 			<txp:title />
 			<txp:output_form form="little-hand" />
 		</h1>
-		<aside itemprop="description" class="flow <txp:if_article_image>typeset</txp:if_article_image> t-hyphens all-grid--uifont <txp:variable name="random-textcolour" />">
-			<txp:excerpt />
-		</aside>
 
-
-	</header>
-	
-<txp:hide>	<p>
-		<strong>
-			<txp:text item="posted" />
-		</strong>
-		<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
-			<txp:posted />
-		</time>
-		<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
-
-		<!-- only display comments count if comments posted, or if new comments allowed -->
-		<txp:if_comments>
-			<br>
-			<strong>
-				<txp:text item="comments" />
-			</strong>
-			<a href="<txp:permlink />#comments-head" title="<txp:text item="view" />" itemprop="discussionUrl">
-				<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-					<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-					<span itemprop="userInteractionCount"><txp:comments_count /></span>
-				</span>
-			</a>
-		<txp:else />
-			<txp:if_comments_allowed>
-				<br>
+		<txp:if_section name="news,blog">
+			<txp:hide><!-- optional (use your actual section name above) --></txp:hide>
+			<p>
 				<strong>
-					<txp:text item="comments" />
+					<txp:text item="posted" />
 				</strong>
-				<a href="<txp:permlink />#comments-head" title="<txp:text item="view" />" itemprop="discussionUrl">
-					<span itemprop="interactionStatistic" itemscope itemtype="https://schema.org/InteractionCounter">
-						<meta itemprop="interactionType" content="https://schema.org/CommentAction" />
-						<span itemprop="userInteractionCount">0</span>
-					</span>
-				</a>
-			</txp:if_comments_allowed>
-		</txp:if_comments>
-	</p>
+				<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
+					<txp:posted />
+				</time>
+				<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
+			</p>
+		</txp:if_section>
+		
+		<txp:if_article_category>
+			<txp:hide><!-- display the category description if available --></txp:hide>
+			<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="p" trim>
+		
+				<txp:evaluate><span class="t--grey3 t-lc">[ <txp:meta_description type="category" format="" wraptag="" /> ]</span></txp:evaluate>
+			</txp:category_list>
+		</txp:if_article_category>
+	</header>
 
-</txp:hide>
+	<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont <txp:variable name="random-textcolour" />">
+		<txp:excerpt />
+	</aside>
+
+
+	
 
 	<div itemprop="articleBody" class="flow typeset">
 		<txp:body />
 	</div>
 	<txp:if_article_image>
-	
-		<txp:variable name="image-class" value="image all-grid__image" />
+		<txp:variable name="image-class" value="image" />
 		<txp:images form="images" break="" offset="1" limit="10" />
 	</txp:if_article_image>
 	
 	
 	
 	
-<txp:hide>	<p>
-		<strong>
-			<txp:text item="author" />
-		</strong>
-		<span itemprop="author" itemscope itemtype="https://schema.org/Person">
-			<span itemprop="name">
-				<txp:author link this_section />
-			</span>
-		</span>
-
-		<!-- only display categories if they are actually set for an article, otherwise omit -->
-	</p>
-
-
-	<!-- if this is an individual article then add the comments section via form: comments_display.article.txp -->
-	<txp:if_individual_article>
-		<txp:output_form form="comments_display" />
-	</txp:if_individual_article>
-</txp:hide>
 
 </article>
 
 <txp:if_article_category>
-	<ul itemprop="keywords" class=" all-grid--centered list-bare ">
+	<ul itemprop="keywords" class="all-grid--centered list-bare">
 		<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
-			<txp:category title link class='all-grid--uifont link--plain <txp:variable name="random-textcolour" />' />
+			<txp:category title link  class='all-grid--uifont link--plain <txp:variable name="random-textcolour" />' />
+			<txp:evaluate><txp:meta_description type="category" format="" wraptag="p" class=" t-lc"/></txp:evaluate>
 		</txp:category_list>
 	</ul>
 </txp:if_article_category>

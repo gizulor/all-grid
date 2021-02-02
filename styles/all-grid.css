@@ -529,10 +529,10 @@ html {
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   height: 100%;
-  font-size: 0.81rem; }
+  font-size: 1rem; }
   @media (min-width: 20rem) {
     html {
-      font-size: calc(0.81rem + 0.81 * (100vw - 20rem) / 140); } }
+      font-size: calc(1rem + 0.62 * (100vw - 20rem) / 140); } }
   @media (min-width: 160rem) {
     html {
       font-size: 1.62rem; } }
@@ -871,21 +871,21 @@ th {
       bottom: 0;
       -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
               filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5)); }
-  .all-grid [itemprop="description"],
-  .all-grid [itemprop="articleBody"] {
-    padding: var(--grid-spacer);
-    padding-top: 0; }
-  @media screen and (max-width: 960px) {
-    .all-grid [itemprop="articleBody"] {
-      border: 1em solid red;
-      margin-top: 5vh;
-      grid-column-start: 1;
-      grid-column-end: -1;
-      padding-right: 10vw; } }
-  @media screen and (max-width: 960px) {
-    .all-grid aside[itemprop="description"] {
-      margin-top: 5vh;
-      padding-right: 10vw; } }
+  .detail-page .all-grid > header,
+  .detail-page .all-grid [itemprop="description"],
+  .detail-page .all-grid [itemprop="articleBody"],
+  .all-grid .image--is-omitted > header,
+  .all-grid .image--is-omitted [itemprop="description"],
+  .all-grid .image--is-omitted [itemprop="articleBody"] {
+    padding: var(--grid-spacer); }
+  .detail-page .all-grid [itemprop="description"],
+  .detail-page .all-grid [itemprop="articleBody"],
+  .all-grid .image--is-omitted [itemprop="description"],
+  .all-grid .image--is-omitted [itemprop="articleBody"] {
+    padding-left: 0; }
+  .detail-page .all-grid [itemprop="articleBody"],
+  .all-grid .image--is-omitted [itemprop="articleBody"] {
+    padding-right: 6vw; }
   .all-grid figcaption {
     padding: var(--grid-spacer); }
 
@@ -966,10 +966,7 @@ th {
   margin-bottom: var(--grid-spacer); }
   .has--image-portrait .all-grid__hero__text {
     align-items: flex-start;
-    margin-top: var(--grid-base);
-    margin-left: var(--grid-spacer); }
-    .has--image-portrait .all-grid__hero__text [itemprop="description"] {
-      margin-right: inherit; }
+    margin-top: calc(var(--grid-spacer) *2); }
   .all-grid__hero__text [itemprop="description"] {
     padding: 0;
     margin-right: 50%; }

@@ -24,7 +24,6 @@ body {
 	background-color: var(--backgroundColour);
 	line-height: var(--baseline);
 	min-height: 100%;
-
 	@include breakpoint($portrait) {
 	}
 	
