@@ -6,10 +6,12 @@
 		<txp::images_preprocess />
 	or
 		<txp::images_preprocess random-bg-colour />
+		
+	Note: the id='<txp:yield name="id" />' part of the images tag allows for when this form is called from /forms/images.txp
 --></txp:hide>
 
 <txp:if_article_image>
-	<txp:images form="images" break="" limit="1">
+	<txp:images form="images" id='<txp:yield name="id" />' break="" limit="1">
 		<txp:php>
 			$h = image_info(array('type' => 'h'));
 			$w = image_info(array('type' => 'w'));

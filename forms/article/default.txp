@@ -7,7 +7,6 @@
 	<txp:if_article_image>
 		<txp:variable name="image-class" value="image all-grid__image1" />
 		<txp:images form="images" break="" limit="1" />
-		<txp:variable name="image-class" value="" />
 	<txp:else />
 		<txp:variable name="random-textcolour">tr--<txp::random_number to="10" /></txp:variable>
 	</txp:if_article_image>
