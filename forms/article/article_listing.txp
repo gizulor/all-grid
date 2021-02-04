@@ -1,10 +1,9 @@
 <txp:variable name="picture-type" value="thumb" />
-
-<txp::images_preprocess random-bg-colour />
-
+<txp::images_preprocess id='<txp:images break="" limit="1"><txp:image_info type="id" /></txp:images>' random-bg-colour />
 
 
-<li class="all-grid__thumb image--is-<txp:variable name="image-orientation" />" itemprop itemscope itemtype="http://schema.org/Collection">
+
+<li class="all-grid__thumb has--image-<txp:variable name="image-orientation" />" itemprop itemscope itemtype="http://schema.org/Collection">
 	<a class="link--plain" href="<txp:permlink />" itemprop="url mainEntityOfPage">
 <txp:if_article_image>
 		<txp:variable name="image-class" value="image image--thumb image--fill hide-figcaption" />

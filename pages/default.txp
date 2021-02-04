@@ -23,7 +23,7 @@
 				<ul class="all-grid list-bare">
 					<txp:article form="article_listing" sort="rand()" limit="20" allowoverride="0"/>
 					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
-					<txp:output_form form="body_aside" wraptag="li" class="all-grid__thumb links-social image--is-omitted bgr--<txp::random_number to="10" />" />
+					<txp:output_form form="body_aside" wraptag="li" class="all-grid__thumb links-social has--image-omitted bgr--<txp::random_number to="10" />" />
 				</ul>
 
 			<txp:else />

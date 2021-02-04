@@ -118,16 +118,16 @@
 	/*	images
 	===================================== */
 
-	.image--is-landscape {
+	.has--image-landscape {
 		grid-column: span 3;
 		grid-row: span 2;
 	}
-	.image--is-portrait  {
+	.has--image-portrait  {
 		grid-column: span 2;
 		grid-row: span 3;
 	}
 	
-	.image--is-square  {
+	.has--image-square  {
 		grid-row: span 2;
 		grid-column: span 2;
 	}
@@ -175,7 +175,7 @@
 	/*	text boxes
 	===================================== */
 	.detail-page &,
-	.image--is-omitted {
+	.has--image-omitted {
 		> header,
 		 [itemprop="description"],
 		 [itemprop="articleBody"] {
@@ -184,7 +184,7 @@
 		
 		[itemprop="description"],
 		[itemprop="articleBody"] {
-			padding-left: 0;
+		//	padding-left: 0;
 		}
 		[itemprop="articleBody"] {
 			padding-right: 6vw; // allow for hamburger menu tracking 
@@ -226,7 +226,7 @@
 
 
 
-.image--is-omitted {
+.has--image-omitted {
 	grid-row: span 2;
 	grid-column: span 2;
 
@@ -299,7 +299,7 @@
 		}
 	}
 	
-	&.image--is-omitted {
+	&.has--image-omitted {
 		[itemprop="articleBody"]{
 			@extend .flow;
 		}

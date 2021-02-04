@@ -735,7 +735,7 @@ th {
   font-weight: bold;
   border-bottom: 2px solid var(--bodyColour); }
 
-.line-clamp, .all-grid__thumb [itemprop="headline"] span, .image--is-omitted a [itemprop="description"] p {
+.line-clamp, .all-grid__thumb [itemprop="headline"] span, .has--image-omitted a [itemprop="description"] p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -764,10 +764,10 @@ th {
 /* ===================================
 	flow: owl selector
 ======================================*/
-.flow, .all-grid__hero.image--is-omitted [itemprop="articleBody"], .all-grid__hero.has--image-portrait [itemprop="articleBody"], .image--is-omitted a [itemprop="description"] {
+.flow, .all-grid__hero.has--image-omitted [itemprop="articleBody"], .all-grid__hero.has--image-portrait [itemprop="articleBody"], .has--image-omitted a [itemprop="description"] {
   --flow-space: 1em; }
 
-.flow > * + *, .all-grid__hero.image--is-omitted [itemprop="articleBody"] > * + *, .all-grid__hero.has--image-portrait [itemprop="articleBody"] > * + *, .image--is-omitted a [itemprop="description"] > * + * {
+.flow > * + *, .all-grid__hero.has--image-omitted [itemprop="articleBody"] > * + *, .all-grid__hero.has--image-portrait [itemprop="articleBody"] > * + *, .has--image-omitted a [itemprop="description"] > * + * {
   margin-top: 1em;
   margin-top: var(--flow-space); }
 
@@ -841,13 +841,13 @@ th {
     grid-auto-rows: var(--grid-base); }
   .detail-page .all-grid {
     grid-template-columns: repeat(3, 1fr); }
-  .all-grid .image--is-landscape {
+  .all-grid .has--image-landscape {
     grid-column: span 3;
     grid-row: span 2; }
-  .all-grid .image--is-portrait {
+  .all-grid .has--image-portrait {
     grid-column: span 2;
     grid-row: span 3; }
-  .all-grid .image--is-square {
+  .all-grid .has--image-square {
     grid-row: span 2;
     grid-column: span 2; }
   .detail-page .all-grid .image--is-landscape {
@@ -874,17 +874,12 @@ th {
   .detail-page .all-grid > header,
   .detail-page .all-grid [itemprop="description"],
   .detail-page .all-grid [itemprop="articleBody"],
-  .all-grid .image--is-omitted > header,
-  .all-grid .image--is-omitted [itemprop="description"],
-  .all-grid .image--is-omitted [itemprop="articleBody"] {
+  .all-grid .has--image-omitted > header,
+  .all-grid .has--image-omitted [itemprop="description"],
+  .all-grid .has--image-omitted [itemprop="articleBody"] {
     padding: var(--grid-spacer); }
-  .detail-page .all-grid [itemprop="description"],
   .detail-page .all-grid [itemprop="articleBody"],
-  .all-grid .image--is-omitted [itemprop="description"],
-  .all-grid .image--is-omitted [itemprop="articleBody"] {
-    padding-left: 0; }
-  .detail-page .all-grid [itemprop="articleBody"],
-  .all-grid .image--is-omitted [itemprop="articleBody"] {
+  .all-grid .has--image-omitted [itemprop="articleBody"] {
     padding-right: 6vw; }
   .all-grid figcaption {
     padding: var(--grid-spacer); }
@@ -898,27 +893,27 @@ th {
   .all-grid--centered > * {
     padding: var(--grid-spacer); }
 
-.image--is-omitted {
+.has--image-omitted {
   grid-row: span 2;
   grid-column: span 2; }
-  .image--is-omitted a [itemprop="description"] {
+  .has--image-omitted a [itemprop="description"] {
     padding-top: var(--grid-spacer);
     position: relative;
     z-index: 1;
     color: white !important; }
     @media (max-aspect-ratio: 1/1) {
-      .image--is-omitted a [itemprop="description"] {
+      .has--image-omitted a [itemprop="description"] {
         display: none; } }
-  .detail-page .image--is-omitted {
+  .detail-page .has--image-omitted {
     grid-column-start: 1;
     grid-column-end: -1;
     margin-left: auto;
     margin-right: auto;
     padding: 10vw; }
-    .detail-page .image--is-omitted [itemprop="headline"] {
+    .detail-page .has--image-omitted [itemprop="headline"] {
       padding-left: var(--grid-spacer);
       padding-right: var(--grid-spacer); }
-    .detail-page .image--is-omitted + [itemprop="articleBody"] {
+    .detail-page .has--image-omitted + [itemprop="articleBody"] {
       grid-column-start: 1;
       grid-column-end: -1;
       margin-left: auto;
