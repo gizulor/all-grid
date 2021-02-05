@@ -410,105 +410,42 @@
 }
 
 // ===================================
-// Random Colour Palette
+// Random Colour Palettes
 // ===================================
 
 
-.bgr--1 {
-	@extend .bg--yellow;
-	a{
+.bgr--set1 { //5 background colours in this set
+	// &:nth-of-type(5n+1) {
+	// 	@extend .bg--yellow;
+	// }
+	// &:nth-of-type(5n+2) {
+	// 	@extend .bg--green;
+	// }
+	// &:nth-of-type(5n+3) {
+	// 	@extend .bg--blue;
+	// }
+	// &:nth-of-type(5n+4) {
+	// 	@extend .bg--pink;
+	// }
+	// &:nth-of-type(5n+5) {
+	// 	@extend .bg--red;
+	// }
+	
+	&:nth-child(5n+1) {
+		@extend .bg--yellow;
 	}
-}
-.bgr--2 {
-	@extend .bg--green;
-}
-.bgr--3 {
-	@extend .bg--blue;
-}
-.bgr--4 {
-	@extend .bg--red;
-}
-.bgr--5 {
-	@extend .bg--orange;
-}
-.bgr--6 {
-	@extend .bg--green2;
-}
-.bgr--7 {
-	@extend .bg--olive;
-}
-.bgr--8 {
-	@extend .bg--bluepale;
-}
-.bgr--9 {
-	@extend .bg--brown;
-}
-.bgr--10 {
-	@extend .bg--pink;
-}
-.bgr--11 {
-	@extend .bg--grey3;
-	a{
+	&:nth-child(5n+2) {
+		@extend .bg--green;
 	}
-}
-.bgr--12 {
-	@extend .bg--green4;
-}
-.bgr--13 {
-	@extend .bg--blue3;
-}
-.bgr--14 {
-	@extend .bg--red3;
-}
-.bgr--15 {
-	@extend .bg--orange2;
-}
-.bgr--16 {
-	@extend .bg--green2;
-}
-.bgr--17 {
-	@extend .bg--green4;
-}
-.bgr--18 {
-	@extend .bg--bluepale;
-}
-.bgr--19 {
-	@extend .bg--brown4;
-}
-.bgr--20 {
-	@extend .bg--redbeige1;
-}
-
-
-.tr--1 {
-	@extend .t--yellow;
-}
-.tr--2 {
-	@extend .t--green;
-}
-.tr--3 {
-	@extend .t--blue3;
-}
-.tr--4 {
-	@extend .t--bluepale;
-}
-.tr--5 {
-	@extend .t--orange;
-}
-.tr--6 {
-	@extend .t--grey;
-}
-.tr--7 {
-	@extend .t--olive;
-}
-.tr--8 {
-	@extend .t--bluepale;
-}
-.tr--9 {
-	@extend .t--brown4;
-}
-.tr--10 {
-	@extend .t--pink;
+	&:nth-child(5n+3) {
+		@extend .bg--blue;
+	}
+	&:nth-child(5n+4) {
+		@extend .bg--pink;
+	}
+	&:nth-child(5n+5) {
+		@extend .bg--red;
+	}
 }
 
 

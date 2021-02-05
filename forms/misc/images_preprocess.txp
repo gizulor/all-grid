@@ -11,33 +11,12 @@
 --></txp:hide>
 
 <txp:if_article_image>
-	<txp:images form="images" id='<txp:yield name="id" />' break="" limit="1">
-		<txp:php>
-			$h = image_info(array('type' => 'h'));
-			$w = image_info(array('type' => 'w'));
-			
-			$r = $h/$w;
-			global $orientation, $crop;
-			
-			$orientation = 'square';
-			$crop = '1:1';
-			if($r > 1.1) {
-				$orientation = 'portrait';
-				$crop = '1000:1618';
-			} else if($r < 0.9) {
-				$orientation = 'landscape';
-				$crop = '1618:1000';
-			}
-			
-			global $variable;
-			$variable['image-orientation'] = $orientation; // required
-			
-			$variable['image-crop'] = $crop; // comment-out if you need images @ original proportions
-		</txp:php>
+	<txp:images form="images"  break="" limit="1">
+		<txp:output_form form="images_orientation" />
 	</txp:images>
 <txp:else />
 	<txp:if_yield name="random-bg-colour">
-		<txp:variable name="image-orientation" value='omitted bgr--<txp::random_number to="10" />'/>
+		<txp:variable name="image-orientation" value='omitted bgr--set1'/>
 	<txp:else />
 		<txp:variable name="image-orientation" value='omitted' />
 	</txp:if_yield>

@@ -1,4 +1,4 @@
-<txp::images_preprocess id='<txp:image_info type="id" />' />
+<txp::images_orientation />
 <txp:variable name="caption" value='<txp:image_info />' />
 
 <txp:variable name="picture--thumb">

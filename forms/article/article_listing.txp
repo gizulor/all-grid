@@ -1,45 +1,17 @@
 <txp:variable name="picture-type" value="thumb" />
-<txp::images_preprocess id='<txp:images break="" limit="1"><txp:image_info type="id" /></txp:images>' random-bg-colour />
-
-
-
-<li class="all-grid__thumb has--image-<txp:variable name="image-orientation" />" itemprop itemscope itemtype="http://schema.org/Collection">
+<txp::images_preprocess random-bg-colour />
+<li class="all-grid__thumb has--image-<txp:variable name='image-orientation' />" itemprop itemscope itemtype="http://schema.org/Collection">
 	<a class="link--plain" href="<txp:permlink />" itemprop="url mainEntityOfPage">
-<txp:if_article_image>
-		<txp:variable name="image-class" value="image image--thumb image--fill hide-figcaption" />
-		<txp:images form="images" break="" limit="1" />
-<txp:else />
-		<div itemprop="description">
-			<txp:excerpt />
-		</div>
-</txp:if_article_image>
+		<txp:if_article_image>
+			<txp:variable name="image-class" value="image image--fill hide-figcaption" />
+			<txp:images form="images" break="" limit="1" />
+		<txp:else />
+			<div itemprop="description">
+				<txp:excerpt />
+			</div>
+		</txp:if_article_image>
 		<h3 itemprop="headline" class="all-grid--uifont t-hyphens">
 			<span><txp:title /></span>
 		</h3>
-   </a>
-
-
-<txp:hide>
-	 <!-- if the article has an excerpt, display that -->
-	<txp:if_excerpt>
-		<div itemprop="description">
-			<txp:excerpt />
-		</div>
-	</txp:if_excerpt>
-	<p class="footnote">
-		<txp:text item="posted" />
-		<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
-			<txp:posted />
-		</time>
-		<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
-		&#183;
-		<txp:text item="author" />
-		<span itemprop="author" itemscope itemtype="https://schema.org/Person">
-			<span itemprop="name">
-				<txp:author link this_section />
-			</span>
-		</span>
-	</p>
-
-</txp:hide>
+	</a>
 </li>

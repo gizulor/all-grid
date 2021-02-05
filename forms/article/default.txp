@@ -1,17 +1,12 @@
-<article class="all-grid" itemscope itemtype="http://schema.org/Collection">
+<txp::images_preprocess />
+<article class="all-grid all-grid--detail has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-	<txp:hide>
-		<txp::images_preprocess />
-		has--image-<txp:variable name="image-orientation" />
-	</txp:hide>
 	<txp:if_article_image>
-		<txp:variable name="image-class" value="image all-grid__image1" />
+		<txp:variable name="image-class" value="image all-grid--hero__image" />
 		<txp:images form="images" break="" limit="1" />
-	<txp:else />
-		<txp:variable name="random-textcolour">tr--<txp::random_number to="10" /></txp:variable>
 	</txp:if_article_image>
 	<header class="flow">
-		<h1 itemprop="headline" class="all-grid--uifont <txp:variable name="random-textcolour" />">
+		<h1 itemprop="headline" class="all-grid--uifont">
 			<txp:title />
 			<txp:output_form form="little-hand" />
 		</h1>
@@ -38,7 +33,7 @@
 		</txp:if_article_category>
 	</header>
 
-	<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont <txp:variable name="random-textcolour" />">
+	<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont">
 		<txp:excerpt />
 	</aside>
 
