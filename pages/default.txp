@@ -51,7 +51,7 @@
 					</ul>
 				<txp:else />
 
-					<txp:article status="sticky" />
+					<txp:article status="sticky" form="hero"/>
 					<txp:article status="live" />
 
 				</txp:if_article_list>

@@ -765,10 +765,10 @@ th {
 /* ===================================
 	flow: owl selector
 ======================================*/
-.flow, .all-grid__thumb.has--image-omitted [itemprop="description"], .all-grid--hero.has--image-portrait [itemprop="articleBody"], .all-grid--hero.has--image-omitted [itemprop="articleBody"] {
+.flow, .all-grid__thumb.has--image-omitted [itemprop="description"], .all-grid--detail.has--image-omitted, .all-grid--hero.has--image-portrait [itemprop="articleBody"], .all-grid--hero.has--image-omitted [itemprop="articleBody"] {
   --flow-space: 1em; }
 
-.flow > * + *, .all-grid__thumb.has--image-omitted [itemprop="description"] > * + *, .all-grid--hero.has--image-portrait [itemprop="articleBody"] > * + *, .all-grid--hero.has--image-omitted [itemprop="articleBody"] > * + * {
+.flow > * + *, .all-grid__thumb.has--image-omitted [itemprop="description"] > * + *, .all-grid--detail.has--image-omitted > * + *, .all-grid--hero.has--image-portrait [itemprop="articleBody"] > * + *, .all-grid--hero.has--image-omitted [itemprop="articleBody"] > * + * {
   margin-top: 1em;
   margin-top: var(--flow-space); }
 
@@ -958,13 +958,11 @@ figcaption p {
   display: grid;
   grid-gap: var(--grid-spacer);
   grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr));
-  background-color: rgba(255, 0, 0, 0.1); }
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr)); }
   .listing-page :not(.all-grid--hero) .all-grid {
     grid-auto-rows: var(--grid-base); }
 
 .all-grid--hero {
-  background-color: rgba(255, 255, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 0;
@@ -972,11 +970,10 @@ figcaption p {
   justify-content: center; }
 
 .all-grid--detail {
-  background-color: rgba(0, 128, 0, 0.1);
   grid-template-columns: repeat(3, 1fr); }
 
 .all-grid--centered {
-  background-color: rgba(0, 0, 255, 0.1);
+  background-color: rgba(0, 0, 255, 0.3);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -1020,7 +1017,9 @@ figcaption p {
 .all-grid--hero {
   margin-bottom: var(--grid-spacer); }
   .all-grid--hero.has--image-omitted {
-    border: 1px solid red; }
+    max-width: var(--type-measure);
+    margin-left: auto;
+    margin-right: auto; }
     .all-grid--hero.has--image-omitted [itemprop="articleBody"] {
       padding: calc(var(--grid-spacer) * 2); }
   .all-grid--hero.has--image-portrait [itemprop="articleBody"] {
@@ -1065,6 +1064,17 @@ figcaption p {
     align-items: flex-start; }
     .has--image-portrait .all-grid--hero__text [itemprop="description"] {
       margin-right: 50%; }
+
+/*
+	all-grid--detail variants & parts
+======================================*/
+.all-grid--detail.has--image-omitted {
+  display: block;
+  max-width: var(--type-measure);
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--grid-spacer);
+  padding-right: var(--hamburger-track-width); }
 
 /* ===================================
 	all-grid header & site menu options

@@ -8,18 +8,18 @@
 ======================================*/
 
 .all-grid {
+	//background-color: rgba(red,.1);
 	display: grid;
 	grid-gap: var(--grid-spacer);
 	grid-auto-flow: dense;
 	grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr));
-	background-color: rgba(red,.1);
 	.listing-page :not(.all-grid--hero) & {
 		grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
 	}
 }
 
 .all-grid--hero { // full width background image
-	background-color: rgba(yellow,.1);
+	//background-color: rgba(yellow,.1);
 	display: grid;
 	grid-template-columns: 1fr; // stretch to the full frame
 	//grid-template-rows: calc(var(--grid-base)* 4); // approx 3:2 ratio
@@ -29,12 +29,12 @@
 }
 
 .all-grid--detail { // used on detail pages
-	background-color: rgba(green,.1);
+	//background-color: rgba(green,.1);
 	grid-template-columns: repeat(3, 1fr);
 }
 
 .all-grid--centered {
-	background-color: rgba(blue,.1);
+	background-color: rgba(blue,.3);
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -48,45 +48,6 @@
 
 
 
-.has--image-omitted {
-	//padding: var(--grid-spacer);
-
-	
-	&.all-grid--detail {
-		// grid-column-start: 1;
-		// grid-column-end: -1;
-		// margin-left: auto;
-		// margin-right: auto;
-		// padding: 10vw; // allow for menu track
-		// 
-		// [itemprop="headline"] {
-		// 	padding-left: var(--grid-spacer);
-		// 	padding-right: var(--grid-spacer);
-		// }
-		// 
-		// + [itemprop="articleBody"] {
-		// 	grid-column-start: 1;
-		// 	grid-column-end: -1;
-		// 	margin-left: auto;
-		// 	margin-right: auto;
-		// 	padding: 0 10vw; // allow for menu track
-		// }
-	}
-	// > header,
-	//  [itemprop="description"],
-	//  [itemprop="articleBody"] {
-	// 	padding: var(--grid-spacer);
-	// }
-	// 
-	// [itemprop="description"],
-	// [itemprop="articleBody"] {
-	// //	padding-left: 0;
-	// }
-	// [itemprop="articleBody"] {
-	// 	padding-right: 6vw; // allow for hamburger menu tracking 
-	// }
-	// 
-}
 
 
 
@@ -175,7 +136,9 @@
 	margin-bottom: var(--grid-spacer);
 	
 	&.has--image-omitted {
-		border: 1px solid red;
+		max-width: var(--type-measure);
+		margin-left: auto;
+		margin-right: auto;
 		[itemprop="articleBody"]{
 			@extend .flow;
 			padding: calc(var(--grid-spacer) * 2);
@@ -253,6 +216,21 @@
 
 
 
+/*
+	all-grid--detail variants & parts
+======================================*/
 
+.all-grid--detail {
+	&.has--image-omitted {
+		@extend .flow;
+		display: block;
+		max-width: var(--type-measure);
+		margin-left: auto;
+		margin-right: auto;
+		padding: var(--grid-spacer);
+		padding-right: var(--hamburger-track-width); // allow for hamburger track
+		//display: block;
+	}
+}
 
 
