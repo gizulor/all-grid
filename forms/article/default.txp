@@ -2,7 +2,7 @@
 <article class="all-grid all-grid--detail has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 	<txp:if_article_image>
-		<txp:variable name="image-class" value="image all-grid--hero__image" />
+		<txp:variable name="image-class" value="image image--is-first" />
 		<txp:images form="images" break="" limit="1" />
 	</txp:if_article_image>
 	<header class="flow">
@@ -28,7 +28,7 @@
 			<txp:hide><!-- display the category description if available --></txp:hide>
 			<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="p" trim>
 		
-				<txp:evaluate><span class="t--grey3 t-lc">[ <txp:meta_description type="category" format="" wraptag="" /> ]</span></txp:evaluate>
+				<txp:evaluate><span class="t--grey3 t-lc t--small">[<txp:meta_description type="category" format="" wraptag="" />]</span></txp:evaluate>
 			</txp:category_list>
 		</txp:if_article_category>
 	</header>

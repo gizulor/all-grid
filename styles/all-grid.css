@@ -17,7 +17,7 @@
   --h3: 1.5rem;
   --h4: 1.25rem;
   --h5: 1rem;
-  --hamburger-track-width: 5vw; }
+  --hamburger-track-width: 7vw; }
 
 .all-grid--uifont {
   font-size: calc(.5rem + var(--uifontsize));
@@ -417,7 +417,7 @@
   --bodyColour:		var(--white);
   --linkColour:		var(--white);
   --hoverColour:		white;
-  --captionColour:	var(--white);
+  --captionColour:	var(--grey);
   --selectionColour:	var(--red);
   --menuTextColour:	var(--charcoal);
   /* 	Background colours */
@@ -1075,6 +1075,64 @@ figcaption p {
   margin-right: auto;
   padding: var(--grid-spacer);
   padding-right: var(--hamburger-track-width); }
+
+.all-grid--detail.has--image-portrait {
+  grid-column: span 3;
+  grid-row: span 3; }
+  .all-grid--detail.has--image-portrait .image--is-first {
+    grid-column: span 3; }
+    @media (min-aspect-ratio: 1/1) {
+      .all-grid--detail.has--image-portrait .image--is-first {
+        grid-column: span 2; } }
+.all-grid--detail.has--image-landscape {
+  grid-column: span 3;
+  grid-row: span 2; }
+  .all-grid--detail.has--image-landscape .image--is-first {
+    grid-column: span 3;
+    grid-row: span 2; }
+
+.all-grid--detail .image--is-first figcaption {
+  position: absolute;
+  bottom: 0;
+  -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75));
+          filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75)); }
+  .all-grid--detail .image--is-first figcaption p {
+    color: var(--white); }
+
+.all-grid--detail header,
+.all-grid--detail [itemprop="description"],
+.all-grid--detail [itemprop="articleBody"] {
+  padding: calc(var(--grid-spacer) * 2) var(--grid-spacer); }
+
+.all-grid--detail [itemprop="description"] {
+  grid-column: span 2;
+  padding-right: var(--hamburger-track-width); }
+
+.all-grid--detail [itemprop="articleBody"] {
+  grid-column: span 3;
+  max-width: var(--type-measure);
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: var(--hamburger-track-width); }
+
+.all-grid--detail .image--is-landscape {
+  grid-column: span 2;
+  grid-row: span 1; }
+  .all-grid--detail .image--is-landscape:nth-of-type(even) {
+    grid-column-end: -1; }
+    .all-grid--detail .image--is-landscape:nth-of-type(even) figcaption {
+      padding-left: 0; }
+
+.all-grid--detail .image--is-portrait {
+  grid-column: span 1;
+  grid-row: span 2; }
+
+.all-grid--detail .image--is-square {
+  grid-row: span 2;
+  grid-column: span 2; }
+
+.all-grid--detail figcaption {
+  padding: var(--grid-spacer); }
 
 /* ===================================
 	all-grid header & site menu options

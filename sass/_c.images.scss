@@ -19,6 +19,8 @@ img {
 	
 	figcaption p {
 		color: var(--captionColour);
+		//@extend small;
+		//font-weight: initial;
 	}
 
 
