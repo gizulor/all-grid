@@ -41,11 +41,11 @@ $portrait: ('max-aspect-ratio' '1/1');
 
 	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
 
-	--uifontsize: 4vmin; 	/* 4vmin = loud, 1vmin = quiet, other units work too  */
+	--uifontsize: 4vmin; 	/* 4vmin = loud, 1.5vmin = quiet, other units work too  */
 
 	/* typography: limited to containers with the .typography class */
 
-	--type-measure: 40rem;
+	--type-measure: clamp(40rem, 62vw,60rem);
 	--baseline: 1.5rem;
 	--h1: 3rem;
 	--h2: 2rem;

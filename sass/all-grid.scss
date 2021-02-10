@@ -12,7 +12,6 @@
 @import "t.quantity-queries";
 
 @import "s.config";
-@import "s.colours-setup";
 
 
 
@@ -39,6 +38,8 @@
 @import "c.all-grid"; // core grid definitions
 @import "c.all-grid__header"; // header and site menu options
 @import "c.all-grid__thumb"; // thumbnails (normally found on list pages)
+
+@import "s.colours-setup";
 
 // utilities trump all other classes
 

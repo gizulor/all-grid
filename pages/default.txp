@@ -2,10 +2,7 @@
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
 <txp:output_form form="head" />
-	<!-- Demo only -->
-	<txp:variable name="menu" value='<txp:page_url type="menu" />' default="" />
 	<txp::body_header menu='<txp:variable name="menu" />' />
-	<!-- End Demo only -->
 		
 	<txp:hide><!--  Production code: use <txp::body_header /> or <txp::body_header menu="hamburger" /> to output form body_header --></txp:hide>
 		

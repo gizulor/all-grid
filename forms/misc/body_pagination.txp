@@ -1,14 +1,14 @@
 <txp:if_individual_article>
-	<nav class="links-pagination all-grid--centered all-grid--uifont" aria-label="<txp:text item="page_nav" />">
-		<txp:evaluate test="link_to_prev,link_to_next">
-			<txp:link_to_next rel="next">
-				<span></span><txp:title />
-			</txp:link_to_next>
-			<txp:link_to_prev rel="prev">
-				<txp:title /><span></span>
-			</txp:link_to_prev>
-		</txp:evaluate>
-	</nav>
+	<txp:evaluate test="link_to_prev,link_to_next">
+		<nav class="links-pagination all-grid--centered all-grid--uifont" aria-label="<txp:text item="page_nav" />">
+				<txp:link_to_next rel="next">
+					<span></span><txp:title />
+				</txp:link_to_next>
+				<txp:link_to_prev rel="prev">
+					<txp:title /><span></span>
+				</txp:link_to_prev>
+		</nav>
+	</txp:evaluate>
 <txp:else />
 	<txp:evaluate test="newer,older">
 		<nav class="links-pagination all-grid--centered all-grid--uifont" aria-label="<txp:text item="page_nav" />">

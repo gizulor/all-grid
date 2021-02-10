@@ -165,9 +165,14 @@ sub {
   
 .footnote {
 	color: var(--captionColour);
+	font-size: .75rem;
+	font-weight: normal;
+	line-height: 1.25;
 }
 
-
+abbr {
+	border-bottom: 1px dotted var(--linkColour);
+}
 
 
 

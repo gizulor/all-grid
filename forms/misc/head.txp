@@ -54,16 +54,18 @@
 		<txp:feed_link flavor="rss" format="link" label="RSS" />
 	</head>
 
+<txp:output_form form="head_globals" />
+
 <txp:if_section name=",default">
-	<body class="front-page listing-page" itemscope itemtype="https://schema.org/WebPage">
+	<body class="front-page listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/WebPage">
 <txp:else />
 	<txp:if_search>
-		<body class="search-page listing-page" itemscope itemtype="https://schema.org/SearchResultsPage">
+		<body class="search-page listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/SearchResultsPage">
 	<txp:else />
 		<txp:if_article_list>
-			<body class="listing-page" itemscope itemtype="https://schema.org/CollectionPage">
+			<body class="listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/CollectionPage">
 		<txp:else />
-			<body class="detail-page" itemscope itemtype="https://schema.org/CreativeWork">
+			<body class="detail-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/CreativeWork">
 		</txp:if_article_list>
 	</txp:if_search>
 </txp:if_section>
