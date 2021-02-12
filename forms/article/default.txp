@@ -2,8 +2,7 @@
 <article class="all-grid all-grid--detail has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 	<txp:if_article_image>
-		<txp:variable name="image-class" value="image image--is-first" />
-		<txp:images form="images" break="" limit="1" />
+		<txp::figure limit="1" class="image image--is-first" crop />
 	</txp:if_article_image>
 	<header class="flow">
 		<h1 itemprop="headline" class="all-grid--uifont">
@@ -44,8 +43,7 @@
 		<txp:body />
 	</div>
 	<txp:if_article_image>
-		<txp:variable name="image-class" value="image" />
-		<txp:images form="images" break="" offset="1" limit="10" />
+		<txp::figure limit="10" offset="1" class="image" crop />
 	</txp:if_article_image>
 	
 	

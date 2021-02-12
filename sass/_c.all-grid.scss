@@ -31,6 +31,10 @@
 .all-grid--detail { // used on detail pages
 	//background-color: rgba(green,.1);
 	grid-template-columns: repeat(3, 1fr);
+	
+	[itemprop="articleBody"]{
+		position: relative; // to aid in positioning the image edit button if image is in body field.
+	}
 }
 
 .all-grid--centered {
@@ -48,86 +52,6 @@
 
 
 
-
-
-
-
-
-
-.all-gridz {
-
-	
-	/*	images
-	===================================== */
-
-	
-	.detail-page & {
-		.image--is-landscape {
-			grid-column: span 2;
-			grid-row: span 1;
-			&:nth-of-type(even) {
-				grid-column-end: -1;
-				figcaption {
-					padding-left: 0;
-				}
-			}
-		}
-		
-		.image--is-portrait  {
-			grid-column: span 1;
-			grid-row: span 2;
-		}
-		
-		.image--is-square  {
-			grid-row: span 2;
-			grid-column: span 2;
-		}
-
-		.all-grid--hero__image {
-			grid-column: span 3;
-			grid-row: span 2;
-			
-			&.image--is-portrait {
-				//grid-column: span 2;
-			}
-			figcaption {
-				position: absolute;
-				bottom: 0;
-				filter: drop-shadow(0px 0px 10px rgba(0,0,0,.5));
-				
-			}
-		}
-	}
-
-
-
-	/*	text boxes
-	===================================== */
-	// [itemprop="articleBody"] {
-	// 	
-	// 	@media screen and (max-width: $medium) {
-	// 		margin-top: 5vh;
-	// 		grid-column-start:  1;
-	// 		grid-column-end:  -1;
-	// 		padding-right: 10vw; //allow for menu track
-	// 	}
-	// }
-	// aside[itemprop="description"] {
-	// 	@media screen and (max-width: $medium) {
-	// 		margin-top: 5vh;
-	// 		padding-right: 10vw; //allow for menu track
-	// 	}
-	// }
-	figcaption {
-		padding: var(--grid-spacer);
-	}
-}
-//end .all-grid
-
-
-
-
-
 /*
 	all-grid--hero variants & parts
 ======================================*/
@@ -135,7 +59,7 @@
 .all-grid--hero {
 	margin-bottom: var(--grid-spacer);
 	
-	&.has--image-omitted {
+	&.has--image-omitted { // applies to articles with no article images
 		max-width: var(--type-measure);
 		margin-left: auto;
 		margin-right: auto;
@@ -233,9 +157,6 @@
 		margin-left: auto;
 		margin-right: auto;
 		padding: var(--grid-spacer);
-		.hamburger--is-active & {
-			padding-right: var(--hamburger-track-width); // allow for hamburger track
-		}
 	}
 	&.has--image-portrait  {
 		grid-column: span 3;
@@ -265,7 +186,7 @@
 			bottom: 0;
 			filter: drop-shadow(0px 0px 10px rgba(0,0,0,.75));
 			p {
-				color: var(--white);
+				color: white;
 			}
 		}
 	}

@@ -3,8 +3,7 @@
 <li class="all-grid__thumb has--image-<txp:variable name='image-orientation' />" itemprop itemscope itemtype="http://schema.org/Collection">
 	<a class="link--plain" href="<txp:permlink />" itemprop="url mainEntityOfPage">
 		<txp:if_article_image>
-			<txp:variable name="image-class" value="image image--fill hide-figcaption" />
-			<txp:images form="images" break="" limit="1" />
+			<txp::figure limit="1" class="image image--fill hide-figcaption" type="thumb"/>
 		<txp:else />
 			<div itemprop="description">
 				<txp:excerpt />

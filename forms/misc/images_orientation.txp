@@ -17,6 +17,5 @@
 	
 	global $variable;
 	$variable['image-orientation'] = $orientation; // required
-	
-	$variable['image-crop'] = $crop; // comment-out if you need images @ original proportions
+	$variable['image-crop'] = $crop; 
 </txp:php>

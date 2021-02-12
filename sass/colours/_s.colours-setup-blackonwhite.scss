@@ -6,7 +6,7 @@
 ======================================*/
 // text and background colours, including random colour sets. Can be removed if you require a simple colour scheme
 
-@import "colours/c.colours"; 
+@import "c.colours"; 
 
 
 /* ===================================
@@ -17,20 +17,20 @@
 
 	/* 	Text colours */
 
-	--headingColour:	var(--white);
-	--bodyColour:		var(--white);
-	--linkColour:		var(--white);
-	--hoverColour:		white;
+	--headingColour:	var(--black);
+	--bodyColour:		var(--black);
+	--linkColour:		var(--black);
+	--hoverColour:		black;
 	--captionColour:	var(--grey);
 	--selectionColour:	var(--red);
-	--menuTextColour:	var(--charcoal); //used for hamburger menu text only
+	--menuTextColour:	var(--bluepale); //used for hamburger menu text only
 
 	/* 	Background colours */
 
-	--backgroundColour:		var(--black);
-	--menuBackgroundColour:		var(--yellow); //used for hamburger menu background only
-	--footerBackgroundColour:	var(--black);
-	--codeBackgroundColour:		var(--charcoal);
+	--backgroundColour:		white;
+	--menuBackgroundColour:		var(--white); //used for hamburger menu background only
+	--footerBackgroundColour:	var(--white);
+	--codeBackgroundColour:		var(--silver);
 
 
 // Redundant colours can be removed if you're shaving bytes

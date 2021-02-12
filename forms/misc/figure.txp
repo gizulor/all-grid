@@ -1,35 +1,43 @@
-<txp:images id='<txp:yield name="id" escape="number" />' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="1" />' break="">
-	<txp:if_yield name="auto">
-		<txp::images_preprocess />
+<txp:images id='<txp:if_yield name="id"><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="1" />' break="">
+	<txp::images_orientation />
+	
+	<txp:if_yield name="crop">
+		<txp:variable name="slir-crop">-c<txp:variable name="image-crop" /></txp:variable>
 	</txp:if_yield>
-	<txp:variable name="figure-output">
-		<figure class="<txp:yield name="class" />">
-			<img src="<txp:hide><txp:if_yield name="slir">/slir/<txp:yield name="slir" />/</txp:if_yield></txp:hide><txp:image_url />" alt />
-			<txp:if_individual_article>
-				<txp:output_form form="little-hand">image</txp:output_form>
-			</txp:if_individual_article>
-			<txp:if_yield name="caption">
-				<figcaption><txp:yield name="caption" escape="tidy,textile" /></figcaption>
+	
+	
+	
+	<txp:variable name="caption" value='<txp:image_info />' />
+	
+	
+	<txp:variable name="theimage">
+		<picture>
+			<txp:if_yield name="type" value="thumb">
+				<source srcset="<txp:page_url type="theme_path" />/slir/w1280<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 1280px)">
+				<source srcset="<txp:page_url type="theme_path" />/slir/w960<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 640px)">
+				<source srcset="<txp:page_url type="theme_path" />/slir/w640<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 300px)">
+				<img itemprop="url contentUrl" src="<txp:page_url type="theme_path" />/slir/w320<txp:variable name="slir-crop" />/<txp:image_url />" alt="<txp:image_info type='alt' />" />
 			<txp:else />
-				<txp:image_info id='<txp:yield name="id" />' wraptag="figcaption" escape="tidy,textile" />
+				<source srcset="<txp:page_url type="theme_path" />/slir/w2560<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 1280px)">
+				<source srcset="<txp:page_url type="theme_path" />/slir/w1280<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 640px)">
+				<source srcset="<txp:page_url type="theme_path" />/slir/w640<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 300px)">
+				<img itemprop="url contentUrl" src="<txp:page_url type="theme_path" />/slir/w320<txp:variable name="slir-crop" />/<txp:image_url />" alt="<txp:image_info type='alt' />" />
 			</txp:if_yield>
-		</figure>
-	</txp:variable>
-</txp:images>
+		</picture>
 
-<txp:hide>correct schema markup https://forum.textpattern.com/viewtopic.php?pid=322913#p322913
-<txp:if_article_image>
-	<txp:images>
-		<img width="<txp:image_info type="w" />" height="<txp:image_info type="h" />" itemprop="url contentUrl" alt="<txp:image_info type="alt" />" src="<txp:image_url />">
+		
+		
+	</txp:variable>
+	
+	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="<txp:yield name="class" /> image--is-<txp:variable name="image-orientation" />">
+		<txp:variable name="theimage" />
 		<meta itemprop="width" content="<txp:image_info type="w" />">
 		<meta itemprop="height" content="<txp:image_info type="h" />">
-	</txp:images>
-<txp:else />
-	<span itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-		<meta itemprop="url contentUrl" content="...a fallback image URL for your blog posts...">
-		<meta itemprop="width" content="1200">
-		<meta itemprop="height" content="1200">
-	</span>
-</txp:if_article_image>
-
-</txp:hide>
+		<txp:output_form form="little-hand">image</txp:output_form>
+		<txp:if_variable name="caption" value>
+			<figcaption itemprop="caption">
+				<txp:image_info escape="textile" />
+			</figcaption>
+		</txp:if_variable>
+	</figure>
+</txp:images>

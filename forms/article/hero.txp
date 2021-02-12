@@ -7,8 +7,7 @@
 		<a itemprop="url mainEntityOfPage" href="<txp:permlink />" class="link--plain u-contents">
 	</txp:if_article_list>
 	<txp:if_article_image>
-		<txp:variable name="image-class" value="image all-grid--hero__image image--fill hide-figcaption" />
-		<txp:images form="images" break="" limit="1" />
+		<txp::figure limit="1" class="image all-grid--hero__image image--fill hide-figcaption" crop />
 	</txp:if_article_image>
 	<div class="all-grid--hero__overlay"></div>
 	
@@ -34,7 +33,8 @@
 </article>
 <txp:if_individual_article>
 	<txp:if_article_image>
-		<txp:variable name="image-class" value="image" />
-		<txp:images form="images" break="" offset="1" limit="10" wraptag="div" class="all-grid all-grid--detail"/>
+		<div class="all-grid all-grid--detail">
+			<txp::figure offset="1" limit="10" class="image" crop/>
+		</div>
 	</txp:if_article_image>
 </txp:if_individual_article>

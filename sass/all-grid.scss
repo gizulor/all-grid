@@ -39,7 +39,8 @@
 @import "c.all-grid__header"; // header and site menu options
 @import "c.all-grid__thumb"; // thumbnails (normally found on list pages)
 
-@import "s.colours-setup";
+@import "colours/s.colours-setup"; 
+//@import "colours/_s.colours-setup-blackonwhite"; 
 
 // utilities trump all other classes
 
