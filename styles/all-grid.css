@@ -3,12 +3,13 @@
 	all-grid setup
 ======================================*/
 :root {
-  /* grid-base determines the size of the grid. Pixel units also work! */
+  /* grid-base determines the size of the grid. Pixel units also work */
   --grid-base: 15vw;
   --grid-spacer: 2vw;
   /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
   --uifontsize: 4vmin;
   /* 4vmin = loud, 1.5vmin = quiet, other units work too  */
+  --type-weight: 500;
   /* typography: limited to containers with the .typography class */
   --type-measure: clamp(40rem, 62vw,60rem);
   --baseline: 1.5rem;
@@ -24,7 +25,7 @@
   line-height: 1.1;
   letter-spacing: -.04em;
   text-transform: lowercase;
-  font-weight: 500; }
+  font-weight: var(--type-weight); }
 
 /* ===================================
 	basic reset
@@ -67,10 +68,10 @@ html {
   font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   height: 100%;
-  font-size: 1rem; }
+  font-size: 0.85rem; }
   @media (min-width: 20rem) {
     html {
-      font-size: calc(1rem + 0.62 * (100vw - 20rem) / 140); } }
+      font-size: calc(0.85rem + 0.77 * (100vw - 20rem) / 140); } }
   @media (min-width: 160rem) {
     html {
       font-size: 1.62rem; } }
@@ -87,10 +88,11 @@ body {
 .sans, body {
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   font-style: normal;
-  font-weight: 600; }
+  font-weight: var(--type-weight); }
 
 .serif, cite, blockquote p:last-child:after, blockquote p:first-child:before {
-  font-family: Georgia, serif; }
+  font-family: Georgia, serif;
+  font-weight: var(--type-weight); }
 
 .monospace, code {
   font-family: Menlo, Courier, monospace; }

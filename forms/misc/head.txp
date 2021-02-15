@@ -1,3 +1,4 @@
+<txp:output_form form="head_globals" />
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,12 +12,13 @@
 			<link rel="stylesheet" href="https://localhost/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
 		<txp:else />
 			<txp:css format="link" name="all-grid"/>
- 		</txp:if_logged_in>
+ 		   <txp:css format="link"/>
+		</txp:if_logged_in>
 
 </txp:hide>
- 		
-		<link rel="stylesheet" href="https://gribble.local:5757/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
- 		
+		<txp:css format="link" name="all-grid"/>
+		<txp:output_form form="style_switcher" />
+		
 		<meta name="generator" content="Textpattern CMS">
 	
 		<txp:if_search>
@@ -54,7 +56,6 @@
 		<txp:feed_link flavor="rss" format="link" label="RSS" />
 	</head>
 
-<txp:output_form form="head_globals" />
 
 <txp:if_section name=",default">
 	<body class="front-page listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/WebPage">
@@ -69,3 +70,5 @@
 		</txp:if_article_list>
 	</txp:if_search>
 </txp:if_section>
+
+<txp:variable name="all-grid-switch__nav" />

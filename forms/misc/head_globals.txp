@@ -1,1 +1,2 @@
 <txp:variable name="menu" value="hamburger" />
+<txp:variable name="style-switcher" value="1" />

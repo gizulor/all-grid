@@ -29,7 +29,7 @@
 		
 	</txp:variable>
 	
-	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="<txp:yield name="class" /> image--is-<txp:variable name="image-orientation" />">
+	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="image <txp:yield name="class" /> image--is-<txp:variable name="image-orientation" />">
 		<txp:variable name="theimage" />
 		<meta itemprop="width" content="<txp:image_info type="w" />">
 		<meta itemprop="height" content="<txp:image_info type="h" />">

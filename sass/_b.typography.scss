@@ -5,11 +5,12 @@
 .sans {
 	font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
 	font-style: normal;
-	font-weight: 600;
+	font-weight: var(--type-weight);
 }
 
 .serif {
 	font-family: Georgia, serif;
+	font-weight: var(--type-weight);
 }
 
 .monospace {

@@ -1,12 +1,12 @@
 <txp:hide><!--  Call this form by using <txp::body_header /> or <txp::body_header menu="hamburger" /> --></txp:hide>
-
 <txp:if_yield name="menu" value="hamburger">
 	<header class="all-grid__header header--hamburger">
 		<h1 class="all-grid--uifont"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
 		<txp:if_section name=",default">
 			<txp:evaluate>
 				<h3 class="all-grid--uifont"><txp:site_slogan /></h3>
-			</txp:evaluate>
+	<ul class="smd_switcher"></ul>
+		</txp:evaluate>
 		<txp:else />
 			<h3 class="all-grid--uifont"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
 		</txp:if_section>
