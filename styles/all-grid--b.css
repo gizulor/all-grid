@@ -8,7 +8,7 @@
 
   --uifontsize: 4vmin;  /* 4vmin = loud, 1.5vmin = quiet, other units work too  */
   --type-weight: 300;
-  
+
   /* typography: limited to containers with the .typography class */
 
   --type-measure: clamp(40rem, 62vw,60rem);
@@ -21,8 +21,6 @@
 
    --hamburger-track-width: 7vw;  /* hamburger option is position fixed - allow for its vertical track */
 
-
-
   /* Text colours */
 
   --headingColour:   var(--black);
@@ -32,7 +30,6 @@
   --captionColour:   var(--grey);
   --selectionColour: var(--red);
   --menuTextColour:  var(--bluepale);  /* used for hamburger menu text only */
-
 
   /* Background colours */
 
@@ -49,3 +46,11 @@
   text-transform: lowercase;
   font-weight: var(--type-weight);
 }
+
+  /* add other css overrides to the main all-grid stylesheet here eg.
+
+  .all-grid {
+    padding-left: var(--grid-spacer);
+    padding-right: var(--grid-spacer);
+  }
+*/

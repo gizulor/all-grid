@@ -26,21 +26,21 @@
 		padding-right: var(--grid-spacer);
 		padding-bottom: var(--grid-spacer);
 		align-items: flex-end;
-		background-color: rgba(94,96,97,.3);
-		transition: background-color .6s ease-out;
+		//background-color: rgba(94,96,97,.3);
+		//transition: background-color .6s ease-out;
 		
 		span {
 			@extend .line-clamp;
 		}
 	}
 	
-	a:hover [itemprop="headline"] {
-		background-color: transparent;
-		span {
-			color: white;
-		}
-	}
-	
+	// a:hover [itemprop="headline"] {
+	// 	background-color: transparent;
+	// 	span {
+	// 		color: white;
+	// 	}
+	// }
+	// 
 	&.has--image-omitted {
 		grid-row: span 2;
 		grid-column: span 2;

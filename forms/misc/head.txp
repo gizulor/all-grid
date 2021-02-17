@@ -16,7 +16,8 @@
 		</txp:if_logged_in>
 
 </txp:hide>
-		<txp:css format="link" name="all-grid"/>
+		<link rel="stylesheet" href="https://gribble.local:5757/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" >
+ 		   <txp:css format="link"/>
 		<txp:output_form form="style_switcher" />
 		
 		<meta name="generator" content="Textpattern CMS">

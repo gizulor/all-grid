@@ -58,15 +58,14 @@ body {
 .preset {
 	font-family: Menlo, Courier, monospace;
 	background-color: var(--white);
-	font-size: 11px;
+	font-size: 10px;
 	font-weight: 300;
 	//line-height: 1.5;
 	
 	padding: var(--grid-spacer);
 	margin-top: var(--grid-spacer);
 	margin-right: 1em;
-	display: inline-block;
-	min-width: 300px;
+	//display: inline-block;
 	vertical-align: top;
 	dt {
 		&:first-child {
@@ -81,16 +80,16 @@ body {
 	
 	dd {
 		display: none;
+		padding-left: 3ch;
+	}
+	
+	&.default dd {
+		display: block;
+		color: var(--charcoal);
 	}
 	.changed {
 		display: block;
 		color: var(--red);
-		padding-left: var(--grid-spacer);
 		
-	}
-	&.default {
-		.changed {
-			color: var(--charcoal);
-		}
 	}
 }

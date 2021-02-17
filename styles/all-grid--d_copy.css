@@ -1,0 +1,75 @@
+:root {
+  /* grid-base determines the size of the grid. Pixel units also work. */
+
+  --grid-base: 15vw;
+  --grid-spacer: 2vw;
+
+  /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
+
+  --uifontsize: 4vmin;  /* 4vmin = loud, 1.5vmin = quiet, other units work too  */
+  --type-weight: 300;
+
+  /* typography: limited to containers with the .typography class */
+
+  --type-measure: clamp(40rem, 62vw,60rem);
+  --baseline: 1.5rem;
+  --h1: 3rem;
+  --h2: 2rem;
+  --h3: 1.5rem;
+  --h4: 1.25rem;
+  --h5: 1rem;
+
+   --hamburger-track-width: 7vw;  /* hamburger option is position fixed - allow for its vertical track */
+
+  /* Text colours */
+
+  --headingColour:   var(--black);
+  --bodyColour:      var(--charcoal);
+  --linkColour:      var(--black);
+  --hoverColour:     black;
+  --captionColour:   var(--grey);
+  --selectionColour: var(--red);
+  --menuTextColour:  var(--bluepale);  /* used for hamburger menu text only */
+
+  /* Background colours */
+
+  --backgroundColour:       white;
+  --menuBackgroundColour:   var(--white);  /* used for hamburger menu background only */
+  --footerBackgroundColour: var(--bluepale);
+  --codeBackgroundColour:   var(--silver);
+}
+
+.all-grid--uifont {
+  font-family: Didot, Garamond, serif;
+  font-size: calc(.5rem + var(--uifontsize));
+  line-height: 1.1;
+  letter-spacing: -.04em;
+  text-transform: none;
+  font-weight: var(--type-weight);
+}
+
+
+
+body {
+  font-family: Baskerville, serif;
+}
+
+.all-grid__header > h3,
+.all-grid__header > h3 a,
+.all-grid--hero [itemprop="description"],
+.all-grid__thumb [itemprop="description"] {
+  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-size: var(--h4);
+  font-weight: 200;
+  color: var(--grey);
+}
+
+.all-grid__thumb [itemprop="description"] {
+  color: inherit;
+}
+
+.detail-page [itemprop="description"],
+.detail-page [itemprop="headline"] {
+  color: var(--bluepale);
+}
+
