@@ -457,7 +457,7 @@ a {
   .little-hand:hover {
     transform: scale(1.5); }
   .little-hand.image-edit {
-    top: 45%;
+    top: 2rem;
     left: .5rem; }
     .listing-page .little-hand.image-edit {
       display: none; }
@@ -624,7 +624,7 @@ figcaption p {
 .all-grid--detail header,
 .all-grid--detail [itemprop="description"],
 .all-grid--detail [itemprop="articleBody"] {
-  padding: calc(var(--grid-spacer) * 2) var(--grid-spacer); }
+  padding: var(--grid-spacer); }
 
 .all-grid--detail [itemprop="description"] {
   grid-column: span 2; }
@@ -663,7 +663,7 @@ figcaption p {
 ======================================*/
 .all-grid__header {
   min-height: var(--grid-base);
-  padding: calc(var(--grid-spacer) * 2) var(--grid-spacer);
+  padding: var(--grid-spacer);
   display: flex;
   flex-direction: column;
   justify-content: center; }
@@ -734,13 +734,7 @@ figcaption p {
     padding-left: var(--grid-spacer);
     padding-right: var(--grid-spacer);
     padding-bottom: var(--grid-spacer);
-    align-items: flex-end;
-    background-color: rgba(94, 96, 97, 0.3);
-    transition: background-color .6s ease-out; }
-  .all-grid__thumb a:hover [itemprop="headline"] {
-    background-color: transparent; }
-    .all-grid__thumb a:hover [itemprop="headline"] span {
-      color: white; }
+    align-items: flex-end; }
   .all-grid__thumb.has--image-omitted {
     grid-row: span 2;
     grid-column: span 2;

@@ -194,7 +194,7 @@
 	header,
 	[itemprop="description"],
 	[itemprop="articleBody"] {
-		padding:  calc(var(--grid-spacer) * 2) var(--grid-spacer);
+		padding: var(--grid-spacer);
 	}
 	
 	[itemprop="description"] {

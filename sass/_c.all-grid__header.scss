@@ -4,7 +4,7 @@
 
 .all-grid__header {
 	min-height: var(--grid-base);
-	padding: calc(var(--grid-spacer) * 2) var(--grid-spacer);
+	padding: var(--grid-spacer);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
