@@ -1,5 +1,5 @@
 <txp:variable name="menu" value="hamburger" />
-<txp:if_section name="zno-hamburgers">
+<txp:if_section name="about">
 	<!-- demo only -->
 	<txp:variable name="menu" value="" />
 </txp:if_section>

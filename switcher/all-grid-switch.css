@@ -31,8 +31,6 @@ body {
       display: block; }
     .all-grid-switch:hover ul:after {
       opacity: 0; }
-  .all-grid-switch li {
-    display: contents; }
   .all-grid-switch ul {
     position: relative;
     display: flex; }
@@ -59,11 +57,5 @@ body {
     .preset dt:before {
       content: '// '; }
   .preset dd {
-    display: none;
-    padding-left: 3ch; }
-  .preset.default dd {
-    display: block;
+    padding-left: 3ch;
     color: var(--charcoal); }
-  .preset .changed {
-    display: block;
-    color: var(--red); }

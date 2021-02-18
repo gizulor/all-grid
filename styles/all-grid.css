@@ -1,33 +1,5 @@
 @charset "UTF-8";
 /* ===================================
-	all-grid setup
-======================================*/
-:root {
-  /* grid-base determines the size of the grid. Pixel units also work */
-  --grid-base: 15vw;
-  --grid-spacer: 2vw;
-  /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
-  --uifontsize: 4vmin;
-  /* 4vmin = loud, 1.5vmin = quiet, other units work too  */
-  --type-weight: 500;
-  /* typography: limited to containers with the .typography class */
-  --type-measure: clamp(40rem, 62vw,60rem);
-  --baseline: 1.5rem;
-  --h1: 3rem;
-  --h2: 2rem;
-  --h3: 1.5rem;
-  --h4: 1.25rem;
-  --h5: 1rem;
-  --hamburger-track-width: 7vw; }
-
-.all-grid--uifont {
-  font-size: calc(.5rem + var(--uifontsize));
-  line-height: 1.1;
-  letter-spacing: -.04em;
-  text-transform: lowercase;
-  font-weight: var(--type-weight); }
-
-/* ===================================
 	basic reset
 ======================================*/
 html, body, div, span, applet, object, iframe,
@@ -114,11 +86,8 @@ body {
           hyphens: auto; }
 
 h1, h2, h3, h4, h5, h6,
-[class*='-style'],
-[class*='-style'] p {
+[class*='-style'] {
   color: var(--headingColour); }
-  .all-grid__thumb h1, .all-grid--hero h1, .all-grid__thumb h2, .all-grid--hero h2, .all-grid__thumb h3, .all-grid--hero h3, .all-grid__thumb h4, .all-grid--hero h4, .all-grid__thumb h5, .all-grid--hero h5, .all-grid__thumb h6, .all-grid--hero h6, .all-grid__thumb [class*='-style'], .all-grid--hero [class*='-style'], .all-grid__thumb [class*='-style'] p, .all-grid--hero [class*='-style'] p {
-    color: white; }
 
 h1,
 .h1-style {
@@ -538,6 +507,9 @@ figcaption p {
 ======================================*/
 .all-grid--hero {
   margin-bottom: var(--grid-spacer); }
+  .all-grid--hero [itemprop="headline"],
+  .all-grid--hero [itemprop="description"] {
+    color: var(--white); }
   .all-grid--hero.has--image-omitted {
     max-width: var(--type-measure);
     margin-left: auto;
@@ -618,7 +590,7 @@ figcaption p {
   bottom: 0;
   -webkit-filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75));
           filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.75)); }
-  .all-grid--detail .image--is-first figcaption p {
+  .all-grid--detail .image--is-first figcaption p, .all-grid--detail .image--is-first figcaption a {
     color: white; }
 
 .all-grid--detail header,
@@ -734,7 +706,8 @@ figcaption p {
     padding-left: var(--grid-spacer);
     padding-right: var(--grid-spacer);
     padding-bottom: var(--grid-spacer);
-    align-items: flex-end; }
+    align-items: flex-end;
+    color: white; }
   .all-grid__thumb.has--image-omitted {
     grid-row: span 2;
     grid-column: span 2;
@@ -1131,19 +1104,6 @@ figcaption p {
     colour palette as variables
 ======================================*/
 :root {
-  /* 	Text colours */
-  --headingColour:	var(--white);
-  --bodyColour:		var(--white);
-  --linkColour:		var(--white);
-  --hoverColour:		white;
-  --captionColour:	var(--grey);
-  --selectionColour:	var(--red);
-  --menuTextColour:	var(--charcoal);
-  /* 	Background colours */
-  --backgroundColour:		var(--black);
-  --menuBackgroundColour:		var(--yellow);
-  --footerBackgroundColour:	var(--black);
-  --codeBackgroundColour:		var(--charcoal);
   --white:			rgb(234,228,215);
   --silver:			rgb(188,187,182);
   --grey:				rgb(167,168,165);

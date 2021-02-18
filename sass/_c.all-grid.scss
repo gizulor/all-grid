@@ -58,7 +58,10 @@
 
 .all-grid--hero {
 	margin-bottom: var(--grid-spacer);
-	
+	[itemprop="headline"],
+	[itemprop="description"] {
+		color: var(--white);
+	}
 	&.has--image-omitted { // applies to articles with no article images
 		max-width: var(--type-measure);
 		margin-left: auto;
@@ -185,9 +188,10 @@
 			position: absolute;
 			bottom: 0;
 			filter: drop-shadow(0px 0px 10px rgba(0,0,0,.75));
-			p {
+			p, a {
 				color: white;
 			}
+			
 		}
 	}
 

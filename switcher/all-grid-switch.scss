@@ -25,6 +25,7 @@ body {
 			text-decoration: underline;
 		}
 	}
+	
 	font-size: xx-small;
 	transition: font-size .1s ease;
 	&:hover {
@@ -34,13 +35,9 @@ body {
 		}
 		ul:after {
 			opacity: 0;
-			
 		}
 	}
 	
-	li{
-		display: contents;
-	}
 	ul {
 		position: relative;
 		display: flex;
@@ -55,17 +52,15 @@ body {
 }
 
 
+// demo only
 .preset {
 	font-family: Menlo, Courier, monospace;
 	background-color: var(--white);
 	font-size: 10px;
 	font-weight: 300;
-	//line-height: 1.5;
-	
 	padding: var(--grid-spacer);
 	margin-top: var(--grid-spacer);
 	margin-right: 1em;
-	//display: inline-block;
 	vertical-align: top;
 	dt {
 		&:first-child {
@@ -75,21 +70,10 @@ body {
 		&:before {
 			content: '// ';
 		}
-		
 	}
 	
 	dd {
-		display: none;
 		padding-left: 3ch;
-	}
-	
-	&.default dd {
-		display: block;
 		color: var(--charcoal);
-	}
-	.changed {
-		display: block;
-		color: var(--red);
-		
 	}
 }
