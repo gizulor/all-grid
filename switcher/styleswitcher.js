@@ -73,6 +73,6 @@ window.onunload = function(e) {
   createCookie("style", title, 365);
 }
 
-// var cookie = readCookie("style");
-// var title = cookie ? cookie : getPreferredStyleSheet();
-// setActiveStyleSheet(title);
+var cookie = readCookie("style");
+var title = cookie ? cookie : getPreferredStyleSheet();
+setActiveStyleSheet(title);

@@ -2,16 +2,6 @@
    typography
 ======================================*/
 
-.sans {
-	font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-	font-style: normal;
-	font-weight: var(--type-weight);
-}
-
-.serif {
-	font-family: Georgia, serif;
-	font-weight: var(--type-weight);
-}
 
 .monospace {
 	font-family: Menlo, Courier, monospace;
@@ -47,6 +37,7 @@
 h1, h2, h3, h4, h5, h6,
 [class*='-style']{
 	color: var(--headingColour);
+	font-family: var(--headingFont);
 }
 
 h1,
@@ -203,7 +194,7 @@ abbr {
 
 blockquote {
 	p:first-child:before {
-		@extend .serif;
+		font-family: var(--serif);
 		content: "“";
 		font-size: 2em;
 		position: absolute;
@@ -214,16 +205,16 @@ blockquote {
 		word-break: hyphenate;
 	}
 	p:last-child:after {
-		@extend .serif;
+		font-family: var(--serif);
 		content: "”";
 		font-size: 2em;
 		position: absolute;
 		margin-right: -.5em;
 		margin-top: -.125em;
 	} 
-	p:only-child:after {
-		content: "";
-	} 
+	// p:only-child:after {
+	// 	content: "";
+	// } 
 	& + p {
 		color:  var(--captionColour);
 	}
@@ -231,7 +222,7 @@ blockquote {
 
 
 cite {
-	@extend .serif;
+	font-family: var(--serif);
 	display: block;
 	font-style: italic;
 }

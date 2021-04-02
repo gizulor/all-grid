@@ -40,7 +40,7 @@
 }
 
 .all-grid--uifont {
-  font-family: Didot, Garamond, serif;
+  //font-family: Baskerville, serif;
   font-size: calc(.5rem + var(--uifontsize));
   line-height: 1.1;
   letter-spacing: -.04em;

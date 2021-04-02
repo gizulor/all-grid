@@ -48,6 +48,9 @@ html {
     html {
       font-size: 1.62rem; } }
 body {
+  font-family: var(--baseFont);
+  font-style: normal;
+  font-weight: var(--type-weight);
   color: var(--bodyColour);
   background-color: var(--backgroundColour);
   line-height: var(--baseline);
@@ -57,15 +60,6 @@ body {
 /* ===================================
    typography
 ======================================*/
-.sans, body {
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  font-style: normal;
-  font-weight: var(--type-weight); }
-
-.serif, cite, blockquote p:last-child:after, blockquote p:first-child:before {
-  font-family: Georgia, serif;
-  font-weight: var(--type-weight); }
-
 .monospace, code {
   font-family: Menlo, Courier, monospace; }
 
@@ -87,7 +81,8 @@ body {
 
 h1, h2, h3, h4, h5, h6,
 [class*='-style'] {
-  color: var(--headingColour); }
+  color: var(--headingColour);
+  font-family: var(--headingFont); }
 
 h1,
 .h1-style {
@@ -180,6 +175,7 @@ abbr {
   border-bottom: 1px dotted var(--linkColour); }
 
 blockquote p:first-child:before {
+  font-family: var(--serif);
   content: "“";
   font-size: 2em;
   position: absolute;
@@ -190,19 +186,18 @@ blockquote p {
   word-break: hyphenate; }
 
 blockquote p:last-child:after {
+  font-family: var(--serif);
   content: "”";
   font-size: 2em;
   position: absolute;
   margin-right: -.5em;
   margin-top: -.125em; }
 
-blockquote p:only-child:after {
-  content: ""; }
-
 blockquote + p {
   color: var(--captionColour); }
 
 cite {
+  font-family: var(--serif);
   display: block;
   font-style: italic; }
 
@@ -252,7 +247,7 @@ th {
   font-weight: bold;
   border-bottom: 2px solid var(--bodyColour); }
 
-.line-clamp, .all-grid__thumb.has--image-omitted [itemprop="description"] p, .all-grid__thumb [itemprop="headline"] span {
+.line-clamp, .all-grid__thumb.has--image-omitted [itemprop="description"], .all-grid__thumb [itemprop="headline"] span {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -713,11 +708,13 @@ figcaption p {
     grid-column: span 2;
     min-height: var(--grid-base);
     padding: var(--grid-spacer); }
-    .all-grid__thumb.has--image-omitted [itemprop="description"] p {
-      color: white; }
-    @media (max-aspect-ratio: 1/1) {
-      .all-grid__thumb.has--image-omitted [itemprop="description"] {
-        display: none; } }
+    .all-grid__thumb.has--image-omitted [itemprop="description"] {
+      -webkit-line-clamp: 1; }
+      .all-grid__thumb.has--image-omitted [itemprop="description"] p {
+        color: white; }
+      @media (max-aspect-ratio: 1/1) {
+        .all-grid__thumb.has--image-omitted [itemprop="description"] {
+          display: none; } }
 /* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
 /* ===================================
     colour palette as classes

@@ -19,7 +19,9 @@ html {
 }
 
 body {
-	@extend .sans;
+	font-family: var(--baseFont);
+	font-style: normal;
+	font-weight: var(--type-weight);
 	color: var(--bodyColour);
 	background-color: var(--backgroundColour);
 	line-height: var(--baseline);

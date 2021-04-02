@@ -18,7 +18,7 @@
 				<txp:output_form form="little-hand" />
 			</h1>
 	
-			<aside itemprop="description" class="flow t-hyphens h4-style typeset">
+			<aside itemprop="description" class="flow t-hyphens all-grid--uifont  h4-style typeset">
 				<txp:excerpt />
 			</aside>
 		</header>

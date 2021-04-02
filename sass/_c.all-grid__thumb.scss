@@ -48,11 +48,10 @@
 		padding: var(--grid-spacer);
 		[itemprop="description"] {
 			@extend .flow;
-			//position: relative;
-			//z-index: 1;
+				@extend .line-clamp;
+				-webkit-line-clamp: 1;
 			p {
 				color: white;
-				@extend .line-clamp;
 			}
 			@include breakpoint($portrait) {
 				display: none;
