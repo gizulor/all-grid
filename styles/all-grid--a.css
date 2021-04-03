@@ -1,67 +1,65 @@
 :root {
-	
-  --grid-base: 15vw; /* grid-base determines the size of the grid. Pixel units also work */
-  --grid-spacer: 2vw;
 
-  /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
+	--grid-base: 15vw; /* grid-base determines the size of the grid. Pixel units also work */
+	--grid-spacer: 2vw;
+	--hamburger-track-width: 7vw;	/* hamburger option is position fixed - allow for its vertical track */
 
-  --uifontsize: 4vmin; /* 4vmin = loud, 1.5vmin = quiet, other units work too */
-  --type-weight: 500;
-
-  /* typography: limited to containers with the .typography class */
-
-  --type-measure: clamp(40rem, 62vw,60rem);
-  --baseline: 1.5rem;
-  --h1: 3rem;
-  --h2: 2rem;
-  --h3: 1.5rem;
-  --h4: 1.25rem;
-  --h5: 1rem;
-
-  --hamburger-track-width: 7vw; 
+	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
+	--uifontsize: 4vmin; /* 4vmin = loud, 1.5vmin = quiet, other units work too */
+	--type-weight: 500;
 
 
-  /* Text colours */
+	/* typography: limited to containers with the .typography class */
 
-  --headingColour: var(--white);
-  --bodyColour: var(--white);
-  --linkColour: var(--white);
-  --hoverColour: white;
-  --captionColour: var(--grey);
-  --selectionColour: var(--red);
-  --menuTextColour: var(--charcoal);
-
-
-  /* Background colours */
-
-  --backgroundColour: var(--black);
-  --menuBackgroundColour: var(--yellow);
-  --footerBackgroundColour: var(--black);
-  --codeBackgroundColour: var(--charcoal);
+	--type-measure: clamp(40rem, 62vw, 60rem);
+	--baseline: 1.5rem;
+	--h1: 3rem;
+	--h2: 2rem;
+	--h3: 1.5rem;
+	--h4: 1.25rem;
+	--h5: 1rem;
 
 
-  /* Fonts */
+	/* Text colours */
 
-  --sans : system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  --serif: Baskerville, Georgia, serif;
+	--headingColour: var(--white);
+	--bodyColour: var(--white);
+	--linkColour: var(--white);
+	--hoverColour: white;
+	--captionColour: var(--grey);
+	--selectionColour: var(--red);
+	--menuTextColour: var(--charcoal); /* used for hamburger menu text only */
 
-  --baseFont: var(--sans);
-  --headingFont: var(--serif);  
+	/* Background colours */
+
+	--backgroundColour: var(--black);
+	--menuBackgroundColour: var(--yellow); /* used for hamburger menu background only */
+	--footerBackgroundColour: var(--black);
+	--codeBackgroundColour: var(--charcoal);
+
+
+	/* Fonts */
+
+	--sans: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+	--serif: Baskerville, Georgia, serif;
+	--baseFont: var(--sans);
+	--headingFont: var(--sans); /* typically headings within an excerpt or body field (all-grid uses .all-grid--uifont for most headings */
+
 }
-
 
 .all-grid--uifont {
-  font-family: var(--sans);
- // font-size: calc(.5rem + var(--uifontsize));
-  line-height: 1.1;
-  letter-spacing: -.04em;
-  text-transform: lowercase;
-  font-weight: var(--type-weight);
+	font-family: var(--sans);
+	font-size: calc(.5rem + var(--uifontsize));
+	line-height: 1.1;
+	letter-spacing: -0.04em;
+	text-transform: lowercase;
+	font-weight: var(--type-weight);
 }
-  /* add other css overrides to the main all-grid stylesheet here eg.
 
-  .all-grid {
-    padding-left: var(--grid-spacer);
-    padding-right: var(--grid-spacer);
-  }
+/* add other css overrides to the main all-grid stylesheet here eg.
+
+	.all-grid {
+		padding-left: var(--grid-spacer);
+		padding-right: var(--grid-spacer);
+	}
 */

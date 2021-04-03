@@ -8,9 +8,9 @@
 
 
 	<txp::body_header menu='<txp:variable name="menu" />' />
-		
-	<!--  Production code: use <txp::body_header /> or <txp::body_header menu="hamburger" /> to output form body_header -->
-		
+
+	<txp:hide><!--  Production code: use <txp::body_header /> or <txp::body_header menu="hamburger" /> to output form body_header --></txp:hide>
+
 
 
 	<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/CreativeWork">

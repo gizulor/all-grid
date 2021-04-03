@@ -16,7 +16,8 @@
 	vertical-align: middle;
 	border: 0 none;
 	background: transparent;
-
+	//font-size: calc(.5rem + var(--uifontsize));
+	
 	&::-moz-focus-inner { //Button height fix for Firefox
 	  padding: 0;
 	  border: 0 none;

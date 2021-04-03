@@ -5,8 +5,8 @@
 		<txp:if_section name=",default">
 			<txp:evaluate>
 				<h3 class="all-grid--uifont"><txp:site_slogan /></h3>
-	<ul class="smd_switcher"></ul>
-		</txp:evaluate>
+				<ul class="smd_switcher"></ul>
+			</txp:evaluate>
 		<txp:else />
 			<h3 class="all-grid--uifont"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
 		</txp:if_section>
