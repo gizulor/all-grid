@@ -5,20 +5,19 @@
 		<title><txp:page_title /></title>
 
 
-<txp:hide>
 		<!-- if you prefer to build your css locally… -->
  		<txp:if_logged_in name="login-name">
+		 
 			<txp:hide><link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>"></txp:hide>
 			<link rel="stylesheet" href="https://localhost/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
+	 		<txp:css format="link"/>
+			<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />" title="default" />
 		<txp:else />
 			<txp:css format="link" name="all-grid"/>
- 		   <txp:css format="link"/>
+	 		<txp:css format="link"/>
+			<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />" title="default" />
 		</txp:if_logged_in>
 
-</txp:hide>
-		<link rel="stylesheet" href="https://gribble.local:5757/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
- 		<txp:css format="link"/>
-		<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />" title="default" />
 		<txp:output_form form="style_switcher" />
 		
 		<meta name="generator" content="Textpattern CMS">
