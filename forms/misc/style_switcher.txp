@@ -1,9 +1,9 @@
 <txp:if_variable name="style-switcher" value="1">
 
 	<txp:hide><!-- Set up your alternate styles here. The name attribute should match one of those use in Textpattern's Presentation: Style tab --></txp:hide>
-	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--b" />" title="B" />
-	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--c" />" title="C" />
-	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--d" />" title="D" />
+	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--b" />?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" title="B" />
+	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--c" />?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" title="C" />
+	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--d" />?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" title="D" />
 	
 	<txp:hide><!-- Set up your alternate style widget buttons here. The setActiveStyleSheet() attribute should correspond with a link 'title' above --></txp:hide>
 	<txp:variable name="all-grid-switch__nav">

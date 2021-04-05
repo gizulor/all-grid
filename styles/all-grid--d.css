@@ -1,73 +1,97 @@
 :root {
-  /* grid-base determines the size of the grid. Pixel units also work. */
 
-  --grid-base: 15vw;
-  --grid-spacer: 2vw;
+	/* grid-base determines the size of the grid. Pixel units also work. */
 
-  /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
+	--grid-base: 15vw; /* grid-base determines the size of the grid. Pixel units also work */
+	--grid-spacer: 2vw;
+ 	--hamburger-track-width: 7vw;	/* hamburger option is position fixed - allow for its vertical track */
 
-  --uifontsize: 4vmin;  /* 4vmin = loud, 1.5vmin = quiet, other units work too  */
-  --type-weight: 300;
+	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
+	--uifontsize: 4vmin;	/* 4vmin = loud, 1.5vmin = quiet, other units work too	*/
+	--type-weight: 300;
 
-  /* typography: limited to containers with the .typography class */
 
-  --type-measure: clamp(40rem, 62vw,60rem);
-  --baseline: 1.5rem;
-  --h1: 3rem;
-  --h2: 2rem;
-  --h3: 1.5rem;
-  --h4: 1.25rem;
-  --h5: 1rem;
+	/* typography: limited to containers with the .typography class */
 
-   --hamburger-track-width: 7vw;  /* hamburger option is position fixed - allow for its vertical track */
+	--type-measure: clamp(40rem, 62vw,60rem);
+	--baseline: 1.5rem;
+	--h1: 3rem;
+	--h2: 2rem;
+	--h3: 1.5rem;
+	--h4: 1.25rem;
+	--h5: 1rem;
 
-  /* Text colours */
 
-  --headingColour:   var(--black);
-  --bodyColour:      var(--charcoal);
-  --linkColour:      var(--black);
-  --hoverColour:     black;
-  --captionColour:   var(--grey);
-  --selectionColour: var(--red);
-  --menuTextColour:  var(--bluepale);  /* used for hamburger menu text only */
+	/* Colours -- see http://all-grid.local/about/colour-palette */
 
-  /* Background colours */
+	/* Text colours */
 
-  --backgroundColour:       white;
-  --menuBackgroundColour:   var(--white);  /* used for hamburger menu background only */
-  --footerBackgroundColour: var(--bluepale);
-  --codeBackgroundColour:   var(--silver);
+	--headingColour: 	var(--black);
+	--bodyColour:			var(--charcoal);
+	--linkColour:			var(--black);
+	--hoverColour: 		black;
+	--captionColour: 	var(--grey);
+	--selectionColour: var(--red);
+	--menuTextColour:	var(--bluepale);	/* used for hamburger menu text only */
+
+	/* Background colours */
+
+	--backgroundColour: 			white;
+	--menuBackgroundColour: 	var(--white);	/* used for hamburger menu background only */
+	--footerBackgroundColour: var(--bluepale);
+	--codeBackgroundColour: 	var(--silver);
+
+	/* Fonts */
+
+	--sans: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+	--serif: Baskerville, Georgia, serif;
+	--baseFont: var(--serif);
+	--headingFont: var(--serif); /* typically headings within an excerpt or body field (all-grid uses .all-grid--uifont for most headings */
+
+
 }
 
 .all-grid--uifont {
-  //font-family: Baskerville, serif;
-  font-size: calc(.5rem + var(--uifontsize));
-  line-height: 1.1;
-  letter-spacing: -.04em;
-  text-transform: none;
-  font-weight: var(--type-weight);
+	font-family: inherit;
+	font-size: calc(.5rem + var(--uifontsize));
+	line-height: 1.1;
+	letter-spacing: -.04em;
+	text-transform: none;
+	font-weight: var(--type-weight);
 }
 
 
+	/* Background colour mix (used for grid items without article images) */
 
-body {
-  font-family: Baskerville, serif;
+.bg--mix:nth-child(5n+1) {
+		background-color: var(--silver);
 }
+.bg--mix:nth-child(5n+2) {
+		background-color: var(--grey);
+}
+.bg--mix:nth-child(5n+3) {
+		background-color: var(--grey1);
+}
+.bg--mix:nth-child(5n+4) {
+		background-color: var(--grey2);
+}
+.bg--mix:nth-child(5n+5) {
+		background-color: var(--grey3);
+}
+
+
 
 .all-grid__header > h3,
 .all-grid__header > h3 a,
 .all-grid--hero [itemprop="description"],
 .all-grid__thumb [itemprop="description"] {
-  font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
-  font-size: var(--h4);
-  font-weight: 200;
-  color: var(--grey);
+	//font-family: var(--sans);
+	font-size: var(--h3);
+	font-weight: 400;
+	color: var(--grey);
 }
 
-.all-grid__thumb [itemprop="description"] {
-  color: inherit;
-}
 
 .detail-page [itemprop="description"]{
-  color: var(--bluepale);
+	color: var(--charcoal);
 }
