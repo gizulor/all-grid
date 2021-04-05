@@ -15,7 +15,7 @@
 	</txp:images>
 <txp:else />
 	<txp:if_yield name="random-bg-colour">
-		<txp:variable name="image-orientation" value='omitted bgr--set1'/>
+		<txp:variable name="image-orientation" value='omitted bg--mix'/>
 	<txp:else />
 		<txp:variable name="image-orientation" value='omitted' />
 	</txp:if_yield>

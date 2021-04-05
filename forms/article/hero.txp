@@ -36,5 +36,6 @@
 		<div class="all-grid all-grid--detail">
 			<txp::figure offset="1" limit="10" class="" crop/>
 		</div>
+		
 	</txp:if_article_image>
 </txp:if_individual_article>

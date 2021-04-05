@@ -3,7 +3,7 @@
 ======================================*/
 .all-grid__thumb {
 	position: relative;
-	
+
 	&.has--image-landscape {
 		grid-column: span 3;
 		grid-row: span 2;
@@ -32,15 +32,15 @@
 		span {
 			@extend .line-clamp;
 		}
+		text-shadow: 0 0 .75rem rgba(black,.25);
+		transition: transform .3s ease;
+		transform-origin: bottom left;
+	}
+	&:hover [itemprop="headline"] {
+    transform: scale(1.01);
 	}
 	
-	// a:hover [itemprop="headline"] {
-	// 	background-color: transparent;
-	// 	span {
-	// 		color: white;
-	// 	}
-	// }
-	// 
+
 	&.has--image-omitted {
 		grid-row: span 2;
 		grid-column: span 2;
@@ -56,6 +56,9 @@
 			@include breakpoint($portrait) {
 				display: none;
 			}
+		}
+		[itemprop="headline"] {
+			text-shadow: none;
 		}
 	}
 

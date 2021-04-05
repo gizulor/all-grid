@@ -702,7 +702,12 @@ figcaption p {
     padding-right: var(--grid-spacer);
     padding-bottom: var(--grid-spacer);
     align-items: flex-end;
-    color: white; }
+    color: white;
+    text-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.25);
+    transition: transform .3s ease;
+    transform-origin: bottom left; }
+  .all-grid__thumb:hover [itemprop="headline"] {
+    transform: scale(1.01); }
   .all-grid__thumb.has--image-omitted {
     grid-row: span 2;
     grid-column: span 2;
@@ -715,6 +720,9 @@ figcaption p {
       @media (max-aspect-ratio: 1/1) {
         .all-grid__thumb.has--image-omitted [itemprop="description"] {
           display: none; } }
+    .all-grid__thumb.has--image-omitted [itemprop="headline"] {
+      text-shadow: none; }
+
 /* 	Colour Palette: see /themes/all-grid/sass/colours/colours-corbu.htm */
 /* ===================================
     colour palette as classes
@@ -839,7 +847,7 @@ figcaption p {
 .t--greenpale1 {
   color: var(--greenpale1); }
 
-.bg--blue, .bgr--set1:nth-child(5n+3) {
+.bg--blue, .bg--saturated2:nth-child(5n+3) {
   background-color: var(--blue); }
 
 .t--blue {
@@ -857,7 +865,7 @@ figcaption p {
 .t--bluedark {
   color: var(--bluedark); }
 
-.bg--green, .bgr--set1:nth-child(5n+2) {
+.bg--green, .bg--saturated2:nth-child(5n+2) {
   background-color: var(--green); }
 
 .t--green {
@@ -929,7 +937,7 @@ figcaption p {
 .t--yelloworange1 {
   color: var(--yelloworange1); }
 
-.bg--yellow, .bgr--set1:nth-child(5n+1) {
+.bg--yellow, .bg--saturated2:nth-child(5n+1) {
   background-color: var(--yellow); }
 
 .t--yellow {
@@ -989,13 +997,13 @@ figcaption p {
 .t--redbeige {
   color: var(--redbeige); }
 
-.bg--red, .bgr--set1:nth-child(5n+5) {
+.bg--red, .bg--saturated2:nth-child(5n+5) {
   background-color: var(--red); }
 
 .t--red {
   color: var(--red); }
 
-.bg--pink, .bgr--set1:nth-child(5n+4) {
+.bg--pink, .bg--saturated2:nth-child(5n+4) {
   background-color: var(--pink); }
 
 .t--pink {

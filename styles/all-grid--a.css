@@ -20,6 +20,8 @@
 	--h5: 1rem;
 
 
+	/* Colours -- see http://all-grid.local/about/colour-palette */
+
 	/* Text colours */
 
 	--headingColour: var(--white);
@@ -55,6 +57,26 @@
 	text-transform: lowercase;
 	font-weight: var(--type-weight);
 }
+
+
+	/* Background colour mix (used for grid items without article images) */
+
+.bg--mix:nth-child(5n+1) {
+		background-color: var(--olive);
+}
+.bg--mix:nth-child(5n+2) {
+		background-color: var(--green2);
+}
+.bg--mix:nth-child(5n+3) {
+		background-color: var(--orange);
+}
+.bg--mix:nth-child(5n+4) {
+		background-color: var(--purple);
+}
+.bg--mix:nth-child(5n+5) {
+		background-color: var(--redbeige);
+}
+
 
 /* add other css overrides to the main all-grid stylesheet here eg.
 

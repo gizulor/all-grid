@@ -1,31 +1,14 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<title><txp:error_status /></title>
+<txp:output_form form="head" />
 
-	<txp:css format="link" />
-	<txp:css format="link" name="colours-only"/>
-	<txp:css format="link" name="all-grid"/>
-
-	<meta name="generator" content="Textpattern CMS">
-	<meta name="robots" content="none">
-
-	<!-- content feeds -->
-	<txp:feed_link flavor="atom" format="link" label="Atom" />
-	<txp:feed_link flavor="rss" format="link" label="RSS" />
-</head>
-
-<body class="error-page" itemscope itemtype="https://schema.org/WebPage">
-
-	<txp::body_header menu="hamburger" />
+	<txp::body_header menu='<txp:variable name="menu" />' />
 
 	<!-- Main content -->
-	<main id="main" aria-label="<txp:text item="main_content" />" class="all-grids all-grid--centered">
+	<main id="main" aria-label="<txp:text item="main_content" />" class="all-grid all-grid--centered">
 		<h1 class="error-status all-grid--uifont bgr--<txp::random_number to="20" />"><txp:error_status /></h1>
-		<p class="error-msg all-grid--uifont bgr--<txp::random_number to="20" />"><txp:error_message /></p>
+		<p class="error-msg all-grid--uifont">Computer says<br />“<txp:error_message />”</p>
 		<txp:output_form form="body_aside" />
 	</main>
 

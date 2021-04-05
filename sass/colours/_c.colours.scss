@@ -410,27 +410,46 @@
 }
 
 // ===================================
-// Random Colour Palettes
+// Preset Colour Palettes
 // ===================================
 
 
-.bgr--set1 { //5 background colours in this set
-	// &:nth-of-type(5n+1) {
-	// 	@extend .bg--yellow;
-	// }
-	// &:nth-of-type(5n+2) {
-	// 	@extend .bg--green;
-	// }
-	// &:nth-of-type(5n+3) {
-	// 	@extend .bg--blue;
-	// }
-	// &:nth-of-type(5n+4) {
-	// 	@extend .bg--pink;
-	// }
-	// &:nth-of-type(5n+5) {
-	// 	@extend .bg--red;
-	// }
-	
+// .bg--mix { 
+// 	// &:nth-of-type(5n+1) {
+// 	// 	@extend .bg--yellow;
+// 	// }
+// 	// &:nth-of-type(5n+2) {
+// 	// 	@extend .bg--green;
+// 	// }
+// 	// &:nth-of-type(5n+3) {
+// 	// 	@extend .bg--blue;
+// 	// }
+// 	// &:nth-of-type(5n+4) {
+// 	// 	@extend .bg--pink;
+// 	// }
+// 	// &:nth-of-type(5n+5) {
+// 	// 	@extend .bg--red;
+// 	// }
+// 	
+// 	&:nth-child(5n+1) {
+// 		//@extend .bg--olive;
+// 	}
+// 	&:nth-child(5n+2) {
+// 		@extend .bg--green2;
+// 	}
+// 	&:nth-child(5n+3) {
+// 		@extend .bg--orange;
+// 	}
+// 	&:nth-child(5n+4) {
+// 		@extend .bg--purple;
+// 	}
+// 	&:nth-child(5n+5) {
+// 		@extend .bg--redbeige;
+// 	}
+// }
+
+
+.bg--saturated2 { 
 	&:nth-child(5n+1) {
 		@extend .bg--yellow;
 	}
@@ -449,3 +468,7 @@
 }
 
 
+
+// ===================================
+// Random Colour Palettes
+// ===================================

@@ -1,7 +1,7 @@
 :root {
 
 	--grid-base: 15vw; /* grid-base determines the size of the grid. Pixel units also work. */
-	--grid-spacer: 2vw;
+	--grid-spacer: 1rem;
 	--hamburger-track-width: 7vw;	/* hamburger option is position fixed - allow for its vertical track */
 
 	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
@@ -20,10 +20,12 @@
 	--h5: 1rem;
 
 
+	/* Colours -- see http://all-grid.local/about/colour-palette */
+
 	/* Text colours */
 
-	--headingColour: 	var(--black);
-	--bodyColour:			var(--black);
+	--headingColour: 	var(--charcoal);
+	--bodyColour:			var(--charcoal);
 	--linkColour:			var(--black);
 	--hoverColour: 		black;
 	--captionColour: 	var(--grey);
@@ -54,6 +56,25 @@
 	letter-spacing: -.04em;
 	/* text-transform: lowercase; */
 	font-weight: var(--type-weight);
+}
+
+
+	/* Background colour mix (used for grid items without article images) */
+
+.bg--mix:nth-child(5n+1) {
+		background-color: var(--beigepink);
+}
+.bg--mix:nth-child(5n+2) {
+		background-color: var(--greenpale);
+}
+.bg--mix:nth-child(5n+3) {
+		background-color: var(--orangepale);
+}
+.bg--mix:nth-child(5n+4) {
+		background-color: var(--bluepale);
+}
+.bg--mix:nth-child(5n+5) {
+		background-color: var(--yellowbeige2);
 }
 
 	/* add other css overrides to the main all-grid stylesheet here eg.
