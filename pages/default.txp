@@ -2,10 +2,6 @@
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
 <txp:output_form form="head" />
-<!-- <img src="/routes.php?path=/images/1.jpg&w=300&h=400"> -->
-
-<!-- <img src="/routes.php?1.jpg&w=100&h=400"> --> 
-
 
 	<txp::body_header menu='<txp:variable name="menu" />' />
 
