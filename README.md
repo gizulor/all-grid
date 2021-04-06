@@ -1,4 +1,4 @@
-Note to self: don't inadvertantly commit changes to your repository unless you know how to undo it.
+Note to self: don't inadvertently commit changes to your repository unless you know how to undo it.
 
 Note to others: while this repository should behave itself, it doesn't currently match the demo site, and includes odd snippets of code that are still in-progress.
 
