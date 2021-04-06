@@ -449,23 +449,6 @@
 // }
 
 
-.bg--saturated2 { 
-	&:nth-child(5n+1) {
-		@extend .bg--yellow;
-	}
-	&:nth-child(5n+2) {
-		@extend .bg--green;
-	}
-	&:nth-child(5n+3) {
-		@extend .bg--blue;
-	}
-	&:nth-child(5n+4) {
-		@extend .bg--pink;
-	}
-	&:nth-child(5n+5) {
-		@extend .bg--red;
-	}
-}
 
 
 

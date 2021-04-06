@@ -23,7 +23,7 @@
 			</aside>
 		</header>
 	</div>
-	<div itemprop="articleBody" class="typeset">
+	<div itemprop="articleBody" class="typeset flow">
 		<txp:body />
 	</div>
 	<txp:if_article_list>

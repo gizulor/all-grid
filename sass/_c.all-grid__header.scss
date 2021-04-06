@@ -10,7 +10,7 @@
 	justify-content: center;
 }
 	.header--hamburger {
-		padding-right: 10vw;  // allow space for hamburger button
+		padding-right: var(--hamburger-track-width);  // allow space for hamburger button
 	}
 
 

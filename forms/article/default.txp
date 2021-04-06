@@ -23,13 +23,15 @@
 			</p>
 		</txp:if_section>
 		
-		<txp:if_article_category>
-			<txp:hide><!-- display the category description if available --></txp:hide>
-			<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="p" trim>
-		
-				<txp:evaluate><span class="t--grey3 t-lc t--small">[<txp:meta_description type="category" format="" wraptag="" />]</span></txp:evaluate>
-			</txp:category_list>
-		</txp:if_article_category>
+		<txp:hide>
+			<txp:if_article_category>
+				<txp:hide><!-- display the category description if available --></txp:hide>
+				<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="p" trim>
+			
+					<txp:evaluate><span class="t--grey3 t-lcz t--small"><txp:category link><txp:category title /> [<txp:meta_description type="category" format="" wraptag="" />]</txp:category></span></txp:evaluate>
+				</txp:category_list>
+			</txp:if_article_category>
+		</txp:hide>
 	</header>
 
 	<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont">
@@ -55,7 +57,7 @@
 <txp:if_article_category>
 	<ul itemprop="keywords" class="all-grid--centered list-bare">
 		<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
-			<txp:category title link  class='all-grid--uifont link--plain <txp:variable name="random-textcolour" />' />
+			<txp:category title link class='all-grid--uifont link--plain' />
 			<txp:evaluate><txp:meta_description type="category" format="" wraptag="p" class=" t-lc"/></txp:evaluate>
 		</txp:category_list>
 	</ul>
