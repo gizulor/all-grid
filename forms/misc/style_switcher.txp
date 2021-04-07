@@ -19,5 +19,5 @@
 		</nav>
 	</txp:variable>
 	<link rel="stylesheet" href="<txp:page_url type="theme_path" />/switcher/all-grid-switch.css">
-	<script defer src="<txp:page_url type="theme_path" />/switcher/styleswitcher-min.js" />
+	<script defer src="<txp:page_url type="theme_path" />/switcher/styleswitcher-min.js"></script>
 </txp:if_variable>

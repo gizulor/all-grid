@@ -8,7 +8,9 @@
 				<ul class="smd_switcher"></ul>
 			</txp:evaluate>
 		<txp:else />
-			<h3 class="all-grid--uifont"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
+			<txp:if_category not>
+				<h3 class="all-grid--uifont"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
+			</txp:if_category>
 		</txp:if_section>
 
 		<button class="hamburger hamburger-cancel all-grid--uifont" onclick="toggleMenu(event)">
