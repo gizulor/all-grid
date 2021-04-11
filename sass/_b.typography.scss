@@ -193,10 +193,11 @@ abbr {
 
 
 blockquote {
+	padding-top: var(--grid-spacer);
 	p:first-child:before {
 		font-family: var(--serif);
 		content: "“";
-		font-size: 2em;
+		font-size: var(--h1);
 		position: absolute;
 		margin-left: -.5em;
 		margin-top: -.125em;
@@ -207,7 +208,7 @@ blockquote {
 	p:last-child:after {
 		font-family: var(--serif);
 		content: "”";
-		font-size: 2em;
+		font-size: var(--h1);
 		position: absolute;
 		margin-right: -.5em;
 		margin-top: -.125em;

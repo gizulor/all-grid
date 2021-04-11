@@ -40,22 +40,3 @@ body {
       left: 100%;
       top: 0;
       margin-left: .25em; }
-
-.preset {
-  font-family: Menlo, Courier, monospace;
-  background-color: var(--white);
-  font-size: 10px;
-  font-weight: 300;
-  padding: var(--grid-spacer);
-  margin-top: var(--grid-spacer);
-  margin-right: 1em;
-  vertical-align: top; }
-  .preset dt {
-    color: var(--grey); }
-    .preset dt:first-child {
-      color: var(--black); }
-    .preset dt:before {
-      content: '// '; }
-  .preset dd {
-    padding-left: 3ch;
-    color: var(--charcoal); }

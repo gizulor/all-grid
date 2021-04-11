@@ -22,7 +22,7 @@
 	--h5: 1rem;
 
 
-	/* Colours -- see http://all-grid.local/about/colour-palette */
+	/* Colours -- see http://all-grid.all-sorts.biz/about/colour-palette */
 
 	/* Text colours */
 
@@ -83,8 +83,7 @@
 
 .all-grid__header > h3,
 .all-grid__header > h3 a,
-.all-grid--hero [itemprop="description"],
-.all-grid__thumb [itemprop="description"] {
+.all-grid--hero [itemprop="description"] {
 	//font-family: var(--sans);
 	font-size: var(--h3);
 	font-weight: 400;

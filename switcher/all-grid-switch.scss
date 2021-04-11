@@ -52,28 +52,3 @@ body {
 }
 
 
-// demo only
-.preset {
-	font-family: Menlo, Courier, monospace;
-	background-color: var(--white);
-	font-size: 10px;
-	font-weight: 300;
-	padding: var(--grid-spacer);
-	margin-top: var(--grid-spacer);
-	margin-right: 1em;
-	vertical-align: top;
-	dt {
-		&:first-child {
-			color: var(--black);
-		}
-		color: var(--grey);
-		&:before {
-			content: '// ';
-		}
-	}
-	
-	dd {
-		padding-left: 3ch;
-		color: var(--charcoal);
-	}
-}

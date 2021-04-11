@@ -1,61 +1,62 @@
 <txp:output_form form="head_globals" />
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-		<title><txp:page_title /></title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<title><txp:page_title /></title>
 
+	<!-- if you prefer to build your css locally or without browser caching problems… -->
+	<txp:if_logged_in name="user-name">
+		<txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
+		<!-- <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:variable name="cache-buster" />"> -->
+		<link rel="stylesheet" href="https://localhost/themes/all-grid/styles/all-grid.css?v=<txp:variable name="cache-buster" />">
+		<txp:if_variable name="style-switcher" value="1" not>
+			<txp:css format="link"/>
+		</txp:if_variable>
+	<txp:else />
+		<txp:css format="link" name="all-grid"/>
+		<txp:if_variable name="style-switcher" value="1" not>
+			<txp:css format="link"/>
+		</txp:if_variable>
+	</txp:if_logged_in>
 
-		<!-- if you prefer to build your css locally… -->
- 		<txp:if_logged_in name="login-name">
-		 
-			<txp:hide><link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>"></txp:hide>
-			<link rel="stylesheet" href="https://localhost/themes/all-grid/styles/all-grid.css?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>">
-	 		<txp:css format="link"/>
-			<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />" title="default" />
-		<txp:else />
-			<txp:css format="link" name="all-grid"/>
-	 		<txp:css format="link"/>
-			<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />" title="default" />
-		</txp:if_logged_in>
-
-		<txp:output_form form="style_switcher" />
-		
-		<meta name="generator" content="Textpattern CMS">
+	<txp:output_form form="style_switcher" />
 	
-		<txp:if_search>
-			<meta name="robots" content="none">
+	<meta name="generator" content="Textpattern CMS">
+
+	<txp:if_search>
+		<meta name="robots" content="none">
+	<txp:else />
+		<txp:if_author>
+			<meta name="robots" content="noindex, follow">
 		<txp:else />
-			<txp:if_author>
+			<txp:meta_description />
+			<txp:if_category>
 				<meta name="robots" content="noindex, follow">
 			<txp:else />
-				<txp:meta_description />
-				<txp:if_category>
-					<meta name="robots" content="noindex, follow">
+				<txp:variable name="page" value='<txp:page_url type="pg" />' />
+				<txp:if_variable name="page" value="1">
+					<meta name="robots" content="index, follow">
+					<link rel="canonical" href="<txp:site_url />">
+					<script type="application/ld+json">
+						{
+							"@context": "https://schema.org",
+							"@type": "WebSite",
+							"headline": "<txp:site_name escape="json" />",
+							<txp:if_description>"description": "<txp:meta_description format="" escape="json" />",</txp:if_description>
+							"url": "<txp:site_url escape="json" />"
+						}
+					</script>
 				<txp:else />
-					<txp:variable name="page" value='<txp:page_url type="pg" />' />
-					<txp:if_variable name="page" value="1">
-						<meta name="robots" content="index, follow">
-						<link rel="canonical" href="<txp:site_url />">
-						<script type="application/ld+json">
-							{
-								"@context": "https://schema.org",
-								"@type": "WebSite",
-								"headline": "<txp:site_name escape="json" />",
-								<txp:if_description>"description": "<txp:meta_description format="" escape="json" />",</txp:if_description>
-								"url": "<txp:site_url escape="json" />"
-							}
-						</script>
-					<txp:else />
-						<meta name="robots" content="noindex, follow">
-					</txp:if_variable>
-				</txp:if_category>
-			</txp:if_author>
-		</txp:if_search>
-	
-		<!-- content feeds -->
-		<txp:feed_link flavor="atom" format="link" label="Atom" />
-		<txp:feed_link flavor="rss" format="link" label="RSS" />
-	</head>
+					<meta name="robots" content="noindex, follow">
+				</txp:if_variable>
+			</txp:if_category>
+		</txp:if_author>
+	</txp:if_search>
+
+	<!-- content feeds -->
+	<txp:feed_link flavor="atom" format="link" label="Atom" />
+	<txp:feed_link flavor="rss" format="link" label="RSS" />
+</head>
 
 
 <txp:if_section name=",default">

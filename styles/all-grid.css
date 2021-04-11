@@ -174,27 +174,26 @@ sub {
 abbr {
   border-bottom: 1px dotted var(--linkColour); }
 
-blockquote p:first-child:before {
-  font-family: var(--serif);
-  content: "“";
-  font-size: 2em;
-  position: absolute;
-  margin-left: -.5em;
-  margin-top: -.125em; }
-
-blockquote p {
-  word-break: hyphenate; }
-
-blockquote p:last-child:after {
-  font-family: var(--serif);
-  content: "”";
-  font-size: 2em;
-  position: absolute;
-  margin-right: -.5em;
-  margin-top: -.125em; }
-
-blockquote + p {
-  color: var(--captionColour); }
+blockquote {
+  padding-top: var(--grid-spacer); }
+  blockquote p:first-child:before {
+    font-family: var(--serif);
+    content: "“";
+    font-size: var(--h1);
+    position: absolute;
+    margin-left: -.5em;
+    margin-top: -.125em; }
+  blockquote p {
+    word-break: hyphenate; }
+  blockquote p:last-child:after {
+    font-family: var(--serif);
+    content: "”";
+    font-size: var(--h1);
+    position: absolute;
+    margin-right: -.5em;
+    margin-top: -.125em; }
+  blockquote + p {
+    color: var(--captionColour); }
 
 cite {
   font-family: var(--serif);
@@ -636,7 +635,7 @@ figcaption p {
   justify-content: center; }
 
 .header--hamburger {
-  padding-right: 10vw; }
+  padding-right: var(--hamburger-track-width); }
 
 .all-grid__menu > ul {
   display: flex;
@@ -847,7 +846,7 @@ figcaption p {
 .t--greenpale1 {
   color: var(--greenpale1); }
 
-.bg--blue, .bg--saturated2:nth-child(5n+3) {
+.bg--blue {
   background-color: var(--blue); }
 
 .t--blue {
@@ -865,7 +864,7 @@ figcaption p {
 .t--bluedark {
   color: var(--bluedark); }
 
-.bg--green, .bg--saturated2:nth-child(5n+2) {
+.bg--green {
   background-color: var(--green); }
 
 .t--green {
@@ -937,7 +936,7 @@ figcaption p {
 .t--yelloworange1 {
   color: var(--yelloworange1); }
 
-.bg--yellow, .bg--saturated2:nth-child(5n+1) {
+.bg--yellow {
   background-color: var(--yellow); }
 
 .t--yellow {
@@ -997,13 +996,13 @@ figcaption p {
 .t--redbeige {
   color: var(--redbeige); }
 
-.bg--red, .bg--saturated2:nth-child(5n+5) {
+.bg--red {
   background-color: var(--red); }
 
 .t--red {
   color: var(--red); }
 
-.bg--pink, .bg--saturated2:nth-child(5n+4) {
+.bg--pink {
   background-color: var(--pink); }
 
 .t--pink {

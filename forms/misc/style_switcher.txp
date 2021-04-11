@@ -1,23 +1,26 @@
-<txp:if_variable name="style-switcher" value="1">
-
-	<txp:hide><!-- Set up your alternate styles here. The name attribute should match one of those use in Textpattern's Presentation: Style tab --></txp:hide>
-	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--b" />?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" title="B" />
-	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--c" />?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" title="C" />
-	<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--d" />?v=<txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php>" title="D" />
+<txp:if_logged_in>
+	<txp:if_variable name="style-switcher" value="1">
 	
-	<txp:hide><!-- Set up your alternate style widget buttons here. The setActiveStyleSheet() attribute should correspond with a link 'title' above --></txp:hide>
-	<txp:variable name="all-grid-switch__nav">
-		<nav class="all-grid-switch">
-			<p>demo:</p>
-			<ul class="list-bare">
-				<li><a class="switcher switcher--default" href="/" onclick="setActiveStyleSheet('default'); return false;" title="default">A</a></li>
-				<li><a class="switcher switcher--B" href="/" onclick="setActiveStyleSheet('B'); return false;" title="sans, black on white preset">B</a></li>
-				<li><a class="switcher switcher--C" href="/" onclick="setActiveStyleSheet('C'); return false;" title="sans, red on LC-white preset">C</a></li>
-				<li><a class="switcher switcher--D" href="/" onclick="setActiveStyleSheet('D'); return false;" title="serif, calm preset">D</a></li>
-				<li><a class="switcher" href="/about/style-switched"  title="all-grid, switched">?</a></li>
-			</ul>
-		</nav>
-	</txp:variable>
-	<link rel="stylesheet" href="<txp:page_url type="theme_path" />/switcher/all-grid-switch.css">
-	<script defer src="<txp:page_url type="theme_path" />/switcher/styleswitcher-min.js"></script>
-</txp:if_variable>
+		<txp:hide><!-- Set up your alternate styles here. The name attribute should match one of those use in Textpattern's Presentation: Style tab --></txp:hide>
+		<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />?v=<txp:variable name="cache-buster" />" title="default" />
+		<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--b" />?v=<txp:variable name="cache-buster" />" title="B" />
+		<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--c" />?v=<txp:variable name="cache-buster" />" title="C" />
+		<link rel="alternate stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--d" />?v=<txp:variable name="cache-buster" />" title="D" />
+		
+		<txp:hide><!-- Set up your alternate style widget buttons here. The setActiveStyleSheet() attribute should correspond with a link 'title' above --></txp:hide>
+		<txp:variable name="all-grid-switch__nav">
+			<nav class="all-grid-switch">
+				<p>demo:</p>
+				<ul class="list-bare">
+					<li><a class="switcher switcher--default" href="/" onclick="setActiveStyleSheet('default'); return false;" title="default">A</a></li>
+					<li><a class="switcher switcher--B" href="/" onclick="setActiveStyleSheet('B'); return false;" title="sans, black on white preset">B</a></li>
+					<li><a class="switcher switcher--C" href="/" onclick="setActiveStyleSheet('C'); return false;" title="sans, red on LC-white preset">C</a></li>
+					<li><a class="switcher switcher--D" href="/" onclick="setActiveStyleSheet('D'); return false;" title="serif, calm preset">D</a></li>
+					<li><a class="switcher" href="/about/style-switched"  title="all-grid, switched">?</a></li>
+				</ul>
+			</nav>
+		</txp:variable>
+		<link rel="stylesheet" href="<txp:page_url type="theme_path" />/switcher/all-grid-switch.css">
+		<script defer src="<txp:page_url type="theme_path" />/switcher/styleswitcher-min.js"></script>
+	</txp:if_variable>
+</txp:if_logged_in>

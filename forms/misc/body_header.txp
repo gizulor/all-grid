@@ -1,4 +1,5 @@
 <txp:hide><!--  Call this form by using <txp::body_header /> or <txp::body_header menu="hamburger" /> --></txp:hide>
+
 <txp:if_yield name="menu" value="hamburger">
 	<header class="all-grid__header header--hamburger">
 		<h1 class="all-grid--uifont"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>

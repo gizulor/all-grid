@@ -1,7 +1,3 @@
-Note to self: don't inadvertently commit changes to your repository unless you know how to undo it.
-
-Note to others: while this repository should behave itself, it doesn't currently match the demo site, and includes odd snippets of code that are still in-progress.
-
 # A Textpattern Theme for image-rich websites
 
 Suitable for small to large sites with flexible image display requirements.
@@ -37,3 +33,5 @@ all-grid includes [SLIR(Smart Lencioni Image Resizer)](/slir/), a PHP script to 
 ## typography
 
 Font sizes adjust automatically depending on the width of the viewport, and can be changed using the set up variables in the theme stylesheet. 
+
+More at the [Demo Site](https://all-grid.all-sorts.biz).

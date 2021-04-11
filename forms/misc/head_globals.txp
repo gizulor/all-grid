@@ -1,6 +1,2 @@
 <txp:variable name="menu" value="hamburger" />
-<txp:if_section name="about">
-	<!-- demo only -->
-	<txp:variable name="menu" value="" />
-</txp:if_section>
-<txp:variable name="style-switcher" value="1" />
+<txp:variable name="style-switcher" value="0" />

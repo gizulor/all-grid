@@ -5,7 +5,6 @@
 .hamburger {
 	position: fixed;
 	z-index: 20;
-	//top: 0;
 	right: var(--grid-spacer);
 	width: 1em;
 	height: 1em;
@@ -16,7 +15,6 @@
 	vertical-align: middle;
 	border: 0 none;
 	background: transparent;
-	//font-size: calc(.5rem + var(--uifontsize));
 	
 	&::-moz-focus-inner { //Button height fix for Firefox
 	  padding: 0;

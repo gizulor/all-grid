@@ -22,35 +22,27 @@
 				<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
 			</p>
 		</txp:if_section>
-		
 		<txp:hide>
 			<txp:if_article_category>
 				<txp:hide><!-- display the category description if available --></txp:hide>
 				<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="p" trim>
-			
 					<txp:evaluate><span class="t--grey3 t-lcz t--small"><txp:category link><txp:category title /> [<txp:meta_description type="category" format="" wraptag="" />]</txp:category></span></txp:evaluate>
 				</txp:category_list>
 			</txp:if_article_category>
 		</txp:hide>
 	</header>
-
-	<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont">
-		<txp:excerpt />
-	</aside>
-
-
-	
-
+	<txp:evaluate>
+		<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont">
+			<txp:excerpt />
+		</aside>
+	</txp:evaluate>
 	<div itemprop="articleBody" class="flow typeset">
 		<txp:body />
 	</div>
+
 	<txp:if_article_image>
 		<txp::figure limit="10" offset="1" class="" crop />
 	</txp:if_article_image>
-	
-	
-	
-	
 
 </article>
 
