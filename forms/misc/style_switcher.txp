@@ -1,5 +1,4 @@
-<txp:if_logged_in>
-	<txp:if_variable name="style-switcher" value="1">
+<txp:if_variable name="style-switcher" value="1">
 	
 		<txp:hide><!-- Set up your alternate styles here. The name attribute should match one of those use in Textpattern's Presentation: Style tab --></txp:hide>
 		<link rel="stylesheet" type="text/css" href="<txp:css format="flat.url" name="all-grid--a" />?v=<txp:variable name="cache-buster" />" title="default" />
@@ -23,4 +22,3 @@
 		<link rel="stylesheet" href="<txp:page_url type="theme_path" />/switcher/all-grid-switch.css">
 		<script defer src="<txp:page_url type="theme_path" />/switcher/styleswitcher-min.js"></script>
 	</txp:if_variable>
-</txp:if_logged_in>
