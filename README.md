@@ -3,7 +3,8 @@
 Suitable for small to large sites with flexible image display requirements.
 
 
-![all-grid screenshot](/styles/img/all-grid-theme.jpg)
+![](https://all-grid.all-sorts.biz/themes/all-grid/styles/img/all-grid-theme-composite.jpg)
+
 
 all-grid is free and open source software, and requires Textpattern v4.80 and above.
 
