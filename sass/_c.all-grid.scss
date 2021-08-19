@@ -13,7 +13,7 @@
 	grid-auto-flow: dense;
 	grid-template-columns: repeat(auto-fill, minmax(var(--grid-base), 1fr));
 	.listing-page :not(.all-grid--hero) & {
-		grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
+		//grid-auto-rows: var(--grid-base);//minmax(10vw,var(--grid-base));
 	}
 }
 
@@ -28,7 +28,7 @@
 
 .all-grid--detail { // used on detail pages
 	grid-template-columns: repeat(3, 1fr);
-	
+
 	[itemprop="articleBody"]{
 		position: relative; // to aid in positioning the image edit button if image is in body field.
 	}
@@ -40,7 +40,7 @@
 	justify-content: center;
 	align-items: center;
 	min-height: calc(var(--grid-base) * 3);
-	
+
 	> * {
 		padding: var(--grid-spacer);
 	}
@@ -67,7 +67,7 @@
 			padding: calc(var(--grid-spacer) * 2);
 		}
 	}
-	
+
 	&.has--image-portrait {
 		[itemprop="articleBody"]{
 			@extend .flow;
@@ -103,7 +103,7 @@
 			}
 		}
 	}
-	
+
 }
 
 
@@ -123,24 +123,24 @@
 			display: none;
 		}
 	}
-	
+
 	.all-grid--hero__text{
 		z-index: 2;
 		grid-area: 1 / 1 / 2 / 2;
 		display: grid;
 		align-items: flex-end;
 		padding: calc(var(--grid-spacer) * 2);
-		
+
 		.has--image-portrait &{
 			align-items: flex-start;
 			[itemprop="description"] {
 				margin-right: 50%;
 			}
 		}
-		
+
 	}
-	
-	
+
+
 
 
 
@@ -168,7 +168,7 @@
 			}
 		}
 	}
-	
+
 
 	&.has--image-landscape  {
 		grid-column: span 3;
@@ -177,9 +177,9 @@
 			grid-column: span 3;
 			grid-row: span 2;
 		}
-		
+
 	}
-	
+
 	.image--is-first {
 		figcaption {
 			position: absolute;
@@ -188,7 +188,7 @@
 			p, a {
 				color: white;
 			}
-			
+
 		}
 	}
 
@@ -197,7 +197,7 @@
 	[itemprop="articleBody"] {
 		padding: var(--grid-spacer);
 	}
-	
+
 	[itemprop="description"] {
 		grid-column: span 2;
 		.hamburger--is-active & {
@@ -225,12 +225,12 @@
 				}
 			}
 		}
-		
+
 		.image--is-portrait  {
 			grid-column: span 1;
 			grid-row: span 2;
 		}
-		
+
 		.image--is-square  {
 			grid-row: span 2;
 			grid-column: span 2;

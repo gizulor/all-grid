@@ -7,11 +7,23 @@
 // o object
 // c component
 
+
+// ===================================
+// Breakpoints
+// ===================================
+
+$mobile: 320px;
+$small: 640px;
+$medium: 960px;
+$desktop: 1280px;
+$landscape: ('min-aspect-ratio' '1/1');
+$portrait: ('max-aspect-ratio' '1/1');
+
 @import "breakpoint-2.x.x/stylesheets/_breakpoint.scss";
 @import "t.mixins";
 @import "t.quantity-queries";
 
-@import "s.config";
+
 
 
 
@@ -39,7 +51,7 @@
 @import "c.all-grid__header"; // header and site menu options
 @import "c.all-grid__thumb"; // thumbnails (normally found on list pages)
 
-@import "colours/s.colours-setup"; 
+@import "colours/s.colours-setup";
 
 // utilities trump all other classes
 

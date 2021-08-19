@@ -2,6 +2,7 @@
 	globals
 ======================================*/
 
+
 * {
 	box-sizing: border-box;
 }
@@ -15,6 +16,10 @@ html {
 	font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	height: 100%;
+	$minScreen: 20rem;	// 320px
+	$maxScreen: 160rem; // 2560px
+	$minFont: .81rem;
+	$maxFont: 1.62rem;
 	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
 }
 
@@ -26,10 +31,18 @@ body {
 	background-color: var(--backgroundColour);
 	line-height: var(--baseline);
 	min-height: 100%;
-	@include breakpoint($portrait) {
-	}
-	
-	@include breakpoint($landscape) {
-	}
+// 	@include breakpoint($portrait) {
+// 	}
+//
+// 	@include breakpoint($landscape) {
+// 	}
 	overflow-x: hidden;
+	padding: var(--body-padding);
+
+	max-width: var(--body-max-width);
+	margin-left: auto;
+	margin-right: auto;
+	> * {
+		border: 1px solid green;
+	}
 }

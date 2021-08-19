@@ -1,0 +1,97 @@
+:root {
+	/* grid-base determines the size of the grid. Pixel units also work */
+	--grid-base: 15vw;
+	--grid-spacer: 2rem;
+	/* hamburger option is position fixed - allow for its vertical track */
+	--hamburger-track-width: 7vw;
+
+	/* body width and padding */
+	--body-padding: var(--grid-spacer);
+	--body-max-width: 1280px;
+
+
+	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
+	--uifontsize: 4vmin; /* 4vmin = loud, 1.5vmin = quiet, other units work too */
+	--type-weight: 500;
+
+
+	/* typography: limited to containers with the .typography class */
+
+	--type-measure: clamp(40rem, 62vw, 60rem);
+	--baseline: 1.5rem;
+	--h1: 3rem;
+	--h2: 2rem;
+	--h3: 1.5rem;
+	--h4: 1.25rem;
+	--h5: 1rem;
+
+
+	/* Colours -- see http://all-grid.all-sorts.biz/about/colour-palette */
+
+	/* Text colours */
+
+	--headingColour: var(--white);
+	--bodyColour: var(--white);
+	--linkColour: var(--white);
+	--hoverColour: white;
+	--captionColour: var(--grey);
+	--selectionColour: var(--red);
+	--menuTextColour: var(--charcoal); /* used for hamburger menu text only */
+
+	/* Background colours */
+
+	--backgroundColour: var(--black);
+	--menuBackgroundColour: var(--yellow); /* used for hamburger menu background only */
+	--footerBackgroundColour: var(--black);
+	--codeBackgroundColour: var(--charcoal);
+
+
+	/* Fonts */
+
+	--sans: system-ui, -apple-system, Helvetica, Arial, sans-serif;
+	--serif: Baskerville, Georgia, serif;
+	--baseFont: var(--sans);
+	--headingFont: var(--sans); /* typically headings within an excerpt or body field (all-grid uses .all-grid--uifont for most headings */
+
+}
+
+.all-grid--uifont {
+	font-family: var(--sans);
+	font-size: calc(.5rem + var(--uifontsize));
+	line-height: 1.1;
+	letter-spacing: -0.04em;
+	text-transform: lowercase;
+	font-weight: var(--type-weight);
+}
+
+
+	/* Background colour mix (used for grid items without article images) */
+
+.bg--mix:nth-child(5n+1) {
+		background-color: var(--olive);
+}
+.bg--mix:nth-child(5n+2) {
+		background-color: var(--green2);
+}
+.bg--mix:nth-child(5n+3) {
+		background-color: var(--orange);
+}
+.bg--mix:nth-child(5n+4) {
+		background-color: var(--purple);
+}
+.bg--mix:nth-child(5n+5) {
+		background-color: var(--redbeige);
+}
+
+
+
+@import "_all-grid";
+
+
+/* add other css overrides to the main all-grid stylesheet here eg.
+
+	.all-grid {
+		padding-left: var(--grid-spacer);
+		padding-right: var(--grid-spacer);
+	}
+*/
