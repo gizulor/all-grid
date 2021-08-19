@@ -10,15 +10,15 @@
 		<txp::figure limit="1" class=" all-grid--hero__image image--fill hide-figcaption" crop />
 	</txp:if_article_image>
 	<div class="all-grid--hero__overlay"></div>
-	
+
 	<div class="all-grid--hero__text">
 		<header class="flow <txp:if_article_image not > all-grid--hero--noimage</txp:if_article_image>">
-			<h1 itemprop="headline" class="all-grid--uifont">
+			<h1 itemprop="headline">
 				<txp:title />
 				<txp:output_form form="little-hand" />
 			</h1>
-	
-			<aside itemprop="description" class="flow t-hyphens all-grid--uifont  h4-style typeset">
+
+			<aside itemprop="description" class="flow t-hyphens  h4-style typeset">
 				<txp:excerpt />
 			</aside>
 		</header>
@@ -36,6 +36,6 @@
 		<div class="all-grid all-grid--detail">
 			<txp::figure offset="1" limit="10" class="" crop/>
 		</div>
-		
+
 	</txp:if_article_image>
 </txp:if_individual_article>

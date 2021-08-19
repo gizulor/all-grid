@@ -5,7 +5,7 @@
 		<txp::figure limit="1" class=" image--is-first" crop />
 	</txp:if_article_image>
 	<header class="flow">
-		<h1 itemprop="headline" class="all-grid--uifont">
+		<h1 itemprop="headline">
 			<txp:title />
 			<txp:output_form form="little-hand" />
 		</h1>
@@ -32,7 +32,7 @@
 		</txp:hide>
 	</header>
 	<txp:evaluate>
-		<aside itemprop="description" class="flow typeset t-hyphens all-grid--uifont">
+		<aside itemprop="description" class="flow typeset t-hyphens">
 			<txp:excerpt />
 		</aside>
 	</txp:evaluate>
@@ -49,7 +49,7 @@
 <txp:if_article_category>
 	<ul itemprop="keywords" class="all-grid--centered list-bare">
 		<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
-			<txp:category title link class='all-grid--uifont link--plain' />
+			<txp:category title link class='link--plain' />
 			<txp:evaluate><txp:meta_description type="category" format="" wraptag="p" class=" t-lc"/></txp:evaluate>
 		</txp:category_list>
 	</ul>

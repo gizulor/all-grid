@@ -1,24 +1,24 @@
 <txp:hide><!--  Call this form by using <txp::body_header /> or <txp::body_header menu="hamburger" /> --></txp:hide>
 
 <txp:if_yield name="menu" value="hamburger">
-	<header class="all-grid__header header--hamburger">
-		<h1 class="all-grid--uifont"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
+	<header class="all-grid__header header--hamburger t-ui">
+		<h1><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
 		<txp:if_section name=",default">
 			<txp:evaluate>
-				<h3 class="all-grid--uifont"><txp:site_slogan /></h3>
+				<h3><txp:site_slogan /></h3>
 				<ul class="smd_switcher"></ul>
 			</txp:evaluate>
 		<txp:else />
 			<txp:if_category not>
-				<h3 class="all-grid--uifont"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
+				<h3><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
 			</txp:if_category>
 		</txp:if_section>
 
-		<button class="hamburger hamburger-cancel all-grid--uifont" onclick="toggleMenu(event)">
+		<button class="hamburger hamburger-cancel" onclick="toggleMenu(event)">
 		  <span class="icon"></span>
 		</button>
 
-		<nav id="navigation" class="all-grid__menu menu--hamburger all-grid--uifont" aria-label="<txp:text item="site_nav" />" itemscope itemtype="https://schema.org/SiteNavigationElement">
+		<nav id="navigation" class="all-grid__menu menu--hamburger" aria-label="<txp:text item="site_nav" />" itemscope itemtype="https://schema.org/SiteNavigationElement">
 			<txp:section_list  wraptag="ul" break="" class="list-bare flow" include_default="1" default_title="Home">
 				<li<txp:if_section name='<txp:section />'> class="active"</txp:if_section>>
 					<a class="link--plain" itemprop="url" href="<txp:section url />"><txp:section title /></a>
@@ -41,8 +41,8 @@
 <txp:else />
 
 	<txp:hide><!-- Default menu --></txp:hide>
-	<header class="all-grid__header flow">
-		<h1 class="all-grid--uifont u-pb"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
+	<header class="all-grid__header flow t-ui">
+		<h1 class="u-pb"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
 		<nav class="all-grid__menu t-lc" aria-label="<txp:text item="site_nav" />" itemscope itemtype="https://schema.org/SiteNavigationElement">
 			<txp:section_list  wraptag="ul" break="" class="list-bare" include_default="0">
 				<li<txp:if_section name='<txp:section />'> class="active"</txp:if_section>>

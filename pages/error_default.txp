@@ -7,8 +7,8 @@
 
 	<!-- Main content -->
 	<main id="main" aria-label="<txp:text item="main_content" />" class="all-grid all-grid--centered">
-		<h1 class="error-status all-grid--uifont bgr--<txp::random_number to="20" />"><txp:error_status /></h1>
-		<p class="error-msg all-grid--uifont">Computer says<br />“<txp:error_message />”</p>
+		<h1 class="error-status bgr--<txp::random_number to="20" />"><txp:error_status /></h1>
+		<p class="error-msg">Computer says<br />“<txp:error_message />”</p>
 		<txp:output_form form="body_aside" />
 	</main>
 

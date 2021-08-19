@@ -8,9 +8,8 @@
   /* body width and padding */
   --body-padding: var(--grid-spacer);
   --body-max-width: 1280px;
-  /* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
-  --uifontsize: 4vmin;
-  /* 4vmin = loud, 1.5vmin = quiet, other units work too */
+  /* UI fontsize: containers with the .t-ui class */
+  --uifontsize: 1rem;
   --type-weight: 500;
   /* typography: limited to containers with the .typography class */
   --type-measure: clamp(40rem, 62vw, 60rem);
@@ -40,16 +39,7 @@
   --sans: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   --serif: Baskerville, Georgia, serif;
   --baseFont: var(--sans);
-  --headingFont: var(--sans);
-  /* typically headings within an excerpt or body field (all-grid uses .all-grid--uifont for most headings */ }
-
-.all-grid--uifont {
-  font-family: var(--sans);
-  font-size: calc(.5rem + var(--uifontsize));
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  text-transform: lowercase;
-  font-weight: var(--type-weight); }
+  --headingFont: var(--sans); }
 
 /* Background colour mix (used for grid items without article images) */
 .bg--mix:nth-child(5n+1) {
@@ -136,6 +126,15 @@ body {
 ======================================*/
 .monospace, code {
   font-family: Menlo, Courier, monospace; }
+
+.t-ui > * {
+  border: 1px solid red;
+  font-family: var(--sans);
+  font-size: calc(.5rem + var(--uifontsize));
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  text-transform: lowercase;
+  font-weight: var(--type-weight); }
 
 .t-lc, .links-pagination a, .links-keywords a {
   text-transform: lowercase; }

@@ -10,8 +10,8 @@
 	--body-max-width: 1280px;
 
 
-	/* primary fontsize: applies to all elements in your html with the .all-grid--uifont class */
-	--uifontsize: 4vmin; /* 4vmin = loud, 1.5vmin = quiet, other units work too */
+	/* UI fontsize: containers with the .t-ui class */
+	--uifontsize: 1rem;
 	--type-weight: 500;
 
 
@@ -51,18 +51,10 @@
 	--sans: system-ui, -apple-system, Helvetica, Arial, sans-serif;
 	--serif: Baskerville, Georgia, serif;
 	--baseFont: var(--sans);
-	--headingFont: var(--sans); /* typically headings within an excerpt or body field (all-grid uses .all-grid--uifont for most headings */
+	--headingFont: var(--sans);
 
 }
 
-.all-grid--uifont {
-	font-family: var(--sans);
-	font-size: calc(.5rem + var(--uifontsize));
-	line-height: 1.1;
-	letter-spacing: -0.04em;
-	text-transform: lowercase;
-	font-weight: var(--type-weight);
-}
 
 
 	/* Background colour mix (used for grid items without article images) */

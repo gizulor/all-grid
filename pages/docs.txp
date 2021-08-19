@@ -5,7 +5,7 @@
 	<txp::body_header menu='<txp:variable name="menu" />' />
 
 	<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/CreativeWork" class="flow">
-		<h1 class="all-grid--uifont">Typography</h1>
+		<header class="t-ui"><h1 >Typography</h1></header>
 <section itemprop="articleBody" class="flow typeset" >
 
 <h1>The weather is amazing, walk with me through the pathway of more success.</h1>
