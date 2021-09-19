@@ -4,8 +4,6 @@
   --grid-base: 15vmin;
   --grid-spacer: var(--ui-spacer);
   --ui-spacer: clamp(.5rem,3vw,2rem);
-  /* hamburger option is position fixed - allow for its vertical track */
-  --hamburger-track-width: 7vw;
   /* body width and padding */
   --body-padding: var(--ui-spacer);
   --bodyfront-max-width: 1280px;
