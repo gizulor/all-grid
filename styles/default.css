@@ -27,7 +27,7 @@
   --uiletter-spacing: -0.04em;
   --uitext-transform: lowercase;
   --uifont-weight: var(--heading-weight);
-  /* Colours -- see http://all-grid.all-sorts.biz/about/colour-palette */
+  /* Colours -- see http://all-grid.all-sorts.biz/home/colour-palette */
   /* Text colours */
   --headingColour: var(--white);
   --bodyColour: var(--white);
