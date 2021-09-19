@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+
+<txp:output_form form="head" bodyclass="formal-page" />
+
+	<txp::body_header menu-type="menu--formal" />
+	<txp::body_pagination />
+		<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
+
+		<!-- is this the front page? -->
+		<txp:if_section name=",default">
+			<txp:article limit="1" form="super" sort="rand()" status="sticky" wraptag="div" class="g-width-limited" />
+			<div class="all-grid--formal g-width-limited">
+				<txp:article form="thumb_super" sort="rand()" limit="20" />
+				<txp:output_form form="body_aside" wraptag="div" class="all-grid__thumb links-social has--image-omitted bg--mix" />
+			</div>
+		<txp:else />
+			<txp:if_article_list>
+				<txp:if_category><txp::category_filter /></txp:if_category>
+				<txp:article limit="1"  form="super" status="sticky"  />
+				<div class="all-grid--formal g-width-limited">
+					<txp:article limit="20" form="thumb_super" />
+				</div>
+			<txp:else />
+
+				<txp:article status="sticky" form="formal"/>
+				<txp:article status="live" form="formal" />
+				<txp:output_form form="body_aside" wraptag="div" class="links-social" />
+			</txp:if_article_list>
+
+		</txp:if_section>
+
+
+	</main>
+
+	<txp:output_form form="body_footer" />
+
+</body>
+</html>

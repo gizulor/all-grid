@@ -1,0 +1,16 @@
+<txp::images_preprocess random-bg-colour />
+<div class="all-grid__thumb has--image-<txp:variable name='image-orientation' />" itemprop itemscope itemtype="http://schema.org/Collection">
+<a class="link--plain flow" href="<txp:permlink />" itemprop="url mainEntityOfPage">
+		<txp:if_article_image>
+			<txp::figure limit="1" class="hide-figcaption" type="thumb" />
+		</txp:if_article_image>
+		<h3 itemprop="headline" class="t-hyphens u-pb">
+			<txp:title />
+		</h3>
+		<div itemprop="description" class="flow">
+			<txp:excerpt />
+						<txp::thumb__categories />
+
+		</div>
+	</a>
+</div>

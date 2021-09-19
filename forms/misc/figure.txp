@@ -1,43 +1,62 @@
 <txp:images id='<txp:if_yield name="id"><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="1" />' break="">
 	<txp::images_orientation />
-	
-	<txp:if_yield name="crop">
-		<txp:variable name="slir-crop">-c<txp:variable name="image-crop" /></txp:variable>
-	</txp:if_yield>
-	
-	
-	
+	<txp:if_variable name="pathtoslirfolder" value>
+		<txp:if_yield name="crop" value="auto">
+			<txp:variable name="slir-crop"><txp:variable name="image-crop" /></txp:variable>
+		<txp:else />
+			<txp:variable name="slir-crop"><txp:yield name="crop" /></txp:variable>
+		</txp:if_yield>
+	</txp:if_variable>
 	<txp:variable name="caption" value='<txp:image_info />' />
-	
-	
 	<txp:variable name="theimage">
-		<picture>
-			<txp:if_yield name="type" value="thumb">
-				<source srcset="<txp:page_url type="theme_path" />/slir/w1280<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 1280px)">
-				<source srcset="<txp:page_url type="theme_path" />/slir/w960<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 640px)">
-				<source srcset="<txp:page_url type="theme_path" />/slir/w640<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 300px)">
-				<img itemprop="url contentUrl" src="<txp:page_url type="theme_path" />/slir/w320<txp:variable name="slir-crop" />/<txp:image_url />" alt="<txp:image_info type='alt' />" />
-			<txp:else />
-				<source srcset="<txp:page_url type="theme_path" />/slir/w2560<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 1280px)">
-				<source srcset="<txp:page_url type="theme_path" />/slir/w1280<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 640px)">
-				<source srcset="<txp:page_url type="theme_path" />/slir/w640<txp:variable name="slir-crop" />/<txp:image_url />" media="(min-width: 300px)">
-				<img itemprop="url contentUrl" src="<txp:page_url type="theme_path" />/slir/w320<txp:variable name="slir-crop" />/<txp:image_url />" alt="<txp:image_info type='alt' />" />
-			</txp:if_yield>
-		</picture>
 
-		
-		
+		<txp:hide>
+		<!-- slir image resizing (set the pathtoslirfolder variable in form head_globals) -->
+		<img data-sizes="auto"
+			<txp:hide>data-src="<txp:variable name="pathtoslirfolder" />/w320-c<txp:variable name="slir-crop" />/<txp:image_url />"</txp:hide>
+			data-srcset="<txp:variable name="pathtoslirfolder" />/w320-c<txp:variable name="slir-crop" />/<txp:image_url /> 300w,
+				<txp:variable name="pathtoslirfolder" />/w640-c<txp:variable name="slir-crop" />/<txp:image_url /> 600w,
+				<txp:variable name="pathtoslirfolder" />/w1280-c<txp:variable name="slir-crop" />/<txp:image_url /> 1200w,
+				<txp:variable name="pathtoslirfolder" />/c<txp:variable name="slir-crop" />/<txp:image_url /> 2400w"
+			alt="<txp:image_info type='alt' />"
+			<txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
+			class="lazyload" />
+		</txp:hide>
+
+		<txp:hide>
+			<!-- smd_thumbnail image resizing (ensure your smd_thumbnail profile names match the type values below) -->
+			<img data-sizes="auto"
+				<txp:hide>data-src="<txp:smd_thumbnail type='320w' format='url' />"</txp:hide>
+				data-srcset="<txp:smd_thumbnail type='320w' format='url' /> 300w,
+					<txp:smd_thumbnail type='640w' format='url' /> 600w,
+					<txp:smd_thumbnail type='1280w' format='url' /> 1200w,
+					<txp:image_url /> 2400w"
+				alt="<txp:image_info type='alt' />"
+				<txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
+				class="lazyload" />
+		</txp:hide>
+
+		<txp:hide>
+			<!-- for out-of-the-box testing purposes; no image resizing (outputs original image) -->
+		</txp:hide>
+			<img src="<txp:image_url />"
+				alt="<txp:image_info type='alt' />"
+				<txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
+				loading="lazy" />
+
 	</txp:variable>
-	
-	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="image <txp:yield name="class" /> image--is-<txp:variable name="image-orientation" />">
+
+	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="image <txp:yield name="class" /> image--is-<txp:variable name="image-orientation" />" >
 		<txp:variable name="theimage" />
 		<meta itemprop="width" content="<txp:image_info type="w" />">
 		<meta itemprop="height" content="<txp:image_info type="h" />">
 		<txp:output_form form="little-hand">image</txp:output_form>
 		<txp:if_variable name="caption" value>
-			<figcaption itemprop="caption">
+			<figcaption itemprop="caption" class="flow">
 				<txp:image_info escape="textile" />
 			</figcaption>
 		</txp:if_variable>
 	</figure>
+
+	<txp:yield />
 </txp:images>

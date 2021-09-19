@@ -8,14 +8,14 @@
 }
 
 // UI font
+.t-ui,
 .t-ui > * {
-	border: 1px solid red;
-	font-family: var(--sans);
-	font-size: calc(.5rem + var(--uifontsize));
-	line-height: 1.1;
-	letter-spacing: -0.04em;
-	text-transform: lowercase;
-	font-weight: var(--type-weight);
+	font-family: var(--uifont-family);
+	font-size: var(--uifontsize);
+	line-height: var(--uiline-height);
+	letter-spacing: var(--uiletter-spacing);
+	text-transform: var(--uitext-transform);
+	font-weight: var(--uifont-weight);
 }
 
 
@@ -41,6 +41,20 @@
 	hyphens: auto;
 }
 
+.t-columns {
+	  column-count: 3;
+		column-gap: var(--grid-spacer);
+		@include breakpoint($portrait) {
+	  	column-count: 2;
+		}
+		.span-full,
+		iframe {
+			display: block;
+			column-span: all;
+		}
+
+}
+
 
 
 
@@ -48,6 +62,7 @@ h1, h2, h3, h4, h5, h6,
 [class*='-style']{
 	color: var(--headingColour);
 	font-family: var(--headingFont);
+	font-weight: var(--heading-weight);
 }
 
 h1,
@@ -139,7 +154,7 @@ em, i {
 // inline small text.
 small,
 .t--small {
-	line-height: var(--baseline);
+	line-height: calc(var(--baseline) * .825);
 	font-size: 0.825rem;
 }
 
@@ -203,14 +218,18 @@ abbr {
 
 
 blockquote {
-	padding-top: var(--grid-spacer);
+	@extend .flow;
+	max-width: 62%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: var(--ui-spacer);
 	p:first-child:before {
 		font-family: var(--serif);
 		content: "“";
 		font-size: var(--h1);
 		position: absolute;
 		margin-left: -.5em;
-		margin-top: -.125em;
+	//	margin-top: -.125em;
 	}
 	p {
 		word-break: hyphenate;
@@ -221,7 +240,7 @@ blockquote {
 		font-size: var(--h1);
 		position: absolute;
 		margin-right: -.5em;
-		margin-top: -.125em;
+		margin-top: .125em;
 	}
 	// p:only-child:after {
 	// 	content: "";

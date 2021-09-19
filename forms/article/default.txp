@@ -1,56 +1,45 @@
-<txp::images_preprocess />
-<article class="all-grid all-grid--detail has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Collection">
+<txp::images_preprocess random-bg-colourz/>
+<article class="g-width-limited all-grid--loose-container flow has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
 	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-	<txp:if_article_image>
-		<txp::figure limit="1" class=" image--is-first" crop />
-	</txp:if_article_image>
-	<header class="flow">
-		<h1 itemprop="headline">
-			<txp:title />
-			<txp:output_form form="little-hand" />
-		</h1>
-
-		<txp:if_section name="news,blog">
-			<txp:hide><!-- optional (use your actual section name above) --></txp:hide>
-			<p>
-				<strong>
-					<txp:text item="posted" />
-				</strong>
-				<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
-					<txp:posted />
-				</time>
-				<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
-			</p>
-		</txp:if_section>
-		<txp:hide>
+	<header class="all-grid--loose flow">
+		<h1 itemprop="headline"><txp:title /><txp:output_form form="little-hand" /></h1>
+		<txp:evaluate>
+			<aside itemprop="description" class="flow typeset">
+				<txp:excerpt />
+			</aside>
+		</txp:evaluate>
+		<txp:evaluate>
+		<aside class="flow t-ui">
 			<txp:if_article_category>
 				<txp:hide><!-- display the category description if available --></txp:hide>
-				<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="p" trim>
-					<txp:evaluate><span class="t--grey3 t-lcz t--small"><txp:category link><txp:category title /> [<txp:meta_description type="category" format="" wraptag="" />]</txp:category></span></txp:evaluate>
+				<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim wraptag="ul" class="list-bare">
+					<txp:evaluate><txp:category link class="link--plain"><txp:category title /> <txp:hide>[<txp:meta_description type="category" format="" wraptag="" />]</txp:hide></txp:category></txp:evaluate>
 				</txp:category_list>
 			</txp:if_article_category>
-		</txp:hide>
-	</header>
-	<txp:evaluate>
-		<aside itemprop="description" class="flow typeset t-hyphens">
-			<txp:excerpt />
+			<txp:if_section name="news,blog,home">
+				<txp:hide><!-- optional (use your actual section name above) --></txp:hide>
+				<p>
+					<txp:text item="posted" />
+					<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
+						<txp:posted />
+					</time>
+					<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
+				</p>
+			</txp:if_section>
+
 		</aside>
-	</txp:evaluate>
-	<div itemprop="articleBody" class="flow typeset">
+		</txp:evaluate>
+	</header>
+
+	<txp:if_article_image>
+		<txp::figure limit="1" class="image--is-first" />
+	</txp:if_article_image>
+	<div itemprop="articleBody" class="t-columns flow typeset">
 		<txp:body />
 	</div>
 
 	<txp:if_article_image>
-		<txp::figure limit="10" offset="1" class="" crop />
+		<txp::figure limit="10" offset="1" wraptag="div" class="images all-grid--loose" />
 	</txp:if_article_image>
 
 </article>
-
-<txp:if_article_category>
-	<ul itemprop="keywords" class="all-grid--centered list-bare">
-		<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim>
-			<txp:category title link class='link--plain' />
-			<txp:evaluate><txp:meta_description type="category" format="" wraptag="p" class=" t-lc"/></txp:evaluate>
-		</txp:category_list>
-	</ul>
-</txp:if_article_category>

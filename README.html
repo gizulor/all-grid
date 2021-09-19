@@ -9,40 +9,62 @@
 
 <p>Suitable for small to large sites with flexible image display requirements.</p>
 
-<figure>
-<img src="https://all-grid.all-sorts.biz/themes/all-grid/styles/img/all-grid-theme-composite.jpg" alt="" />
-<figcaption></figcaption>
-</figure>
-
 <p>all-grid is free and open source software, and requires Textpattern v4.80 and above.</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: .5rem;">
+<img src="/themes/all-grid/styles/img/all-grid-theme02.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
+<img src="/themes/all-grid/styles/img/all-grid-theme01.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
+<img src="/themes/all-grid/styles/img/all-grid-theme03.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
+<img src="/themes/all-grid/styles/img/all-grid-theme04.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
+</div>
 
 <p><a href="https://all-grid.all-sorts.biz">Demo Site</a></p>
 
 <h2 id="all-grid:">all-grid:</h2>
 
 <ul>
-<li>uses a plain ui, your imagery is the focus</li>
-<li>uses the proportion of your images to inform the grid layout</li>
-<li>treats mobiles as first class citizens (the layout is consistent across screen sizes)</li>
-<li>can be used without imagery</li>
-<li>sticky articles are given prominence on any list page</li>
+<li>all-grid uses the native proportion of your images to inform a grid layout</li>
+<li>all-grid treats mobiles as first class citizens (the layout is consistent across screen sizes)</li>
+<li>all-grid mixes articles to generate varied layouts</li>
 </ul>
 
-<h2 id="all-grid">all-grid!</h2>
+<p>A variety of layout types of available:</p>
 
-<p>Specify a <code>--grid-base</code> in the theme stylesheet, and all-grid will adjust your layout accordingly. If you use the css unit <code>vw</code> eg. <code>--grid-base: 15vw;</code>, the grid will maintain consistent proportions across all screen sizes. Use <code>px</code> eg. <code>--grid-base: 160px;</code> and the grid will change as the viewport changes.</p>
+<h2 id="gridloose">Grid Loose</h2>
 
-<p>By default, front page articles are listed randomly (try reloading the page to see how all-grid copes with various image proportions). Other sections are listed using default sorting.</p>
+<p>Displays articles which have at least one image specified in their article image field.
+Images are displayed with their original proportions, allowing an informal grid layout.</p>
 
-<h2 id="imagehandling">image handling</h2>
+<h2 id="gridloosesans">Grid Loose Sans</h2>
 
-<p>all-grid includes <a href="/slir/">SLIR(Smart Lencioni Image Resizer)</a>, a PHP script to automatically crop and resize images that you have uploaded into the <em>Content:Images</em> tab. Specify images by entering their ids in an <em>Article image</em> field.</p>
+<p>Displays articles which have no images specified in their article image field.</p>
 
-<h2 id="typography">typography</h2>
+<h2 id="gridformal">Grid Formal</h2>
 
-<p>Font sizes adjust automatically depending on the width of the viewport, and can be changed using the set up variables in the theme stylesheet.</p>
+<p>Displays articles which have at least one image specified in their article image field.
+Images are displayed at fixed proportions, resulting in a rigid grid layout.</p>
 
-<p>More at the <a href="https://all-grid.all-sorts.biz">Demo Site</a>.</p>
+<h2 id="gridformalmix">Grid Formal Mix</h2>
+
+<p>Displays a mix of articles with and without images</p>
+
+<ul>
+<li>Grid types can be assigned to different sections, and be freely mixed across the site.</li>
+<li>Choose between site menu variants: plain, hamburger-grid and hamburger-plain.</li>
+<li>Aspects like colour, typography and layout spacing can be controlled via changing values in the theme stylesheet.</li>
+</ul>
+
+<h2 id="images">Images</h2>
+
+<p>Specify images by entering their ids in an <em>Article image</em> field, or inline using the included &lt;txp::figure /&gt; shortcode.</p>
+
+<h2 id="responsiveimagesizing">Responsive image sizing</h2>
+
+<p>To ensure optimal download speeds of potentially scores of images on a page, all-grid includes <a href="https://github.com/aFarkas/lazysizes">lazysizes</a>, a Javascript library which automatically calculates the sizes attribute for images you use.</p>
+
+<p>To fully exploit this you need to install image-resizing functionality, like <a href="https://stefdawson.com/sw/plugins/smd_thumbnail">smd_thumbnail</a> or a php script like <a href="https://github.com/lencioni/SLIR">Smart Lencioni Image Resizer</a>, and then hide or unhide the relevant code block in the <em>figure.txp</em> form.</p>
+
+<p>By default, all-grid ships with no image-resizing functionality (your images are fetched at their original resolution). The all-grid demo site uses <a href="https://github.com/lencioni/SLIR">SLIR</a>.</p>
 
 </body>
 </html>

@@ -3,28 +3,27 @@
 ======================================*/
 .all-grid__thumb {
 	position: relative;
-
 	&.has--image-landscape {
 		grid-column: span 3;
 		grid-row: span 2;
 	}
-	
+
 	&.has--image-portrait  {
 		grid-column: span 2;
 		grid-row: span 3;
 	}
-	
+
 	&.has--image-square  {
 		grid-row: span 2;
 		grid-column: span 2;
 	}
-	
+
 	[itemprop="headline"] {
 		@extend .u-hug;
 		display: flex;
-		padding-left: var(--grid-spacer);
-		padding-right: var(--grid-spacer);
-		padding-bottom: var(--grid-spacer);
+		padding-left: var(--ui-spacer);
+		padding-right: var(--ui-spacer);
+		padding-bottom: var(--ui-spacer);
 		align-items: flex-end;
 		//background-color: rgba(94,96,97,.3);
 		//transition: background-color .6s ease-out;
@@ -39,13 +38,13 @@
 	&:hover [itemprop="headline"] {
     transform: scale(1.01);
 	}
-	
+
 
 	&.has--image-omitted {
 		grid-row: span 2;
 		grid-column: span 2;
 		min-height: var(--grid-base);
-		padding: var(--grid-spacer);
+		padding: var(--ui-spacer);
 		[itemprop="description"] {
 			@extend .flow;
 				@extend .line-clamp;

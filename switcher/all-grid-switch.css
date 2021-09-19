@@ -9,9 +9,10 @@ body {
   position: absolute;
   left: 0;
   top: 0;
+  display: -webkit-flex;
   display: flex;
-  padding: 0 var(--grid-spacer);
-  padding-right: calc(var(--grid-spacer) * 2);
+  padding: 0 var(--ui-spacer);
+  padding-right: calc(var(--ui-spacer) * 2);
   background-color: var(--bodyColour);
   color: var(--backgroundColour);
   font-weight: normal;
@@ -33,6 +34,7 @@ body {
       opacity: 0; }
   .all-grid-switch ul {
     position: relative;
+    display: -webkit-flex;
     display: flex; }
     .all-grid-switch ul:after {
       content: '❯';

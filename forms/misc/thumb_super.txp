@@ -1,0 +1,24 @@
+<txp::images_preprocess />
+<div class="all-grid__thumb has--image-<txp:variable name="image-orientation" />" itemprop itemscope itemtype="http://schema.org/Collection">
+	<a class="link--plain flow" href="<txp:permlink />" itemprop="url mainEntityOfPage">
+		<div class="all-grid--super">
+			<txp:if_article_image>
+				<txp::figure limit="1" class="all-grid--super__image hide-figcaption image--fill" type="thumb"/>
+			</txp:if_article_image>
+			<div class="all-grid--super__overlay"></div>
+
+			<div class="all-grid--super__text">
+				<h3 itemprop="headline" class=" t-centered t-hyphens">
+					<txp:title />
+				</h3>
+			</div>
+			<txp:if_article_image not>
+				<aside itemprop="description" class="flow typeset u-pt">
+					<txp:excerpt />
+				</aside>
+			</txp:if_article_image>
+			<txp:hide><txp::thumb__categories /></txp:hide>
+
+		</div>
+	</a>
+</div>

@@ -4,23 +4,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 	<title><txp:page_title /></title>
 
-	<!-- if you prefer to build your css locally or without browser caching problems… -->
+	<!-- if you prefer to build your css locally, using flat files or without browser caching problems… -->
 	<txp:if_logged_in name="user-name">
 		<txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
-		<!-- <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/all-grid.css?v=<txp:variable name="cache-buster" />"> -->
-		<link rel="stylesheet" href="https://localhost/themes/all-grid/styles/all-grid.css?v=<txp:variable name="cache-buster" />">
-		<txp:if_variable name="style-switcher" value="1" not>
-			<txp:css format="link"/>
-		</txp:if_variable>
+		<link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/all-grid.css?v=<txp:variable name="cache-buster" />">
+		<!-- <txp:css format="flat.link"/> -->
 	<txp:else />
-		<txp:css format="link" name="all-grid"/>
-		<txp:if_variable name="style-switcher" value="1" not>
 			<txp:css format="link"/>
-		</txp:if_variable>
 	</txp:if_logged_in>
 
+<txp:hide>
+	<txp:if_variable name="style-switcher" value="1">
+		<txp:css format="flat"/>
+	</txp:if_variable>
 	<txp:output_form form="style_switcher" />
-	
+</txp:hide>
+
+
 	<meta name="generator" content="Textpattern CMS">
 
 	<txp:if_search>
@@ -56,21 +56,22 @@
 	<!-- content feeds -->
 	<txp:feed_link flavor="atom" format="link" label="Atom" />
 	<txp:feed_link flavor="rss" format="link" label="RSS" />
+	<txp:yield />
+	<script src="<txp:page_url type="theme_path" />/js/lazysizes.min.js" async=""></script>
 </head>
 
 
 <txp:if_section name=",default">
-	<body class="front-page listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/WebPage">
+	<body class="front-page listing-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/WebPage">
 <txp:else />
 	<txp:if_search>
-		<body class="search-page listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/SearchResultsPage">
+		<body class="search-page listing-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/SearchResultsPage">
 	<txp:else />
 		<txp:if_article_list>
-			<body class="listing-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/CollectionPage">
+			<body class="listing-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CollectionPage">
 		<txp:else />
-			<body class="detail-page <txp:variable name="menu" />--is-active" itemscope itemtype="https://schema.org/CreativeWork">
+			<body class="detail-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CreativeWork">
 		</txp:if_article_list>
 	</txp:if_search>
 </txp:if_section>
-
 <txp:variable name="all-grid-switch__nav" />

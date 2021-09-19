@@ -10,8 +10,8 @@ body {
 	left: 0;
 	top: 0;
 	display: flex;
-	padding: 0 var(--grid-spacer);
-	padding-right: calc(var(--grid-spacer) * 2);
+	padding: 0 var(--ui-spacer);
+	padding-right: calc(var(--ui-spacer) * 2);
 	background-color: var(--bodyColour);
 	color: var(--backgroundColour);
 	font-weight: normal;

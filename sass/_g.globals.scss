@@ -18,8 +18,8 @@ html {
 	height: 100%;
 	$minScreen: 20rem;	// 320px
 	$maxScreen: 160rem; // 2560px
-	$minFont: .81rem;
-	$maxFont: 1.62rem;
+	$minFont: .75rem;
+	$maxFont: 1.25rem;
 	@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
 }
 
@@ -37,12 +37,24 @@ body {
 // 	@include breakpoint($landscape) {
 // 	}
 	overflow-x: hidden;
-	padding: var(--body-padding);
 
-	max-width: var(--body-max-width);
+}
+
+.g-width-limited {
+	padding: 0 var(--body-padding);
+	.front-page &{
+		max-width: var(--bodyfront-max-width);
+	}
+	.listing-page &{
+		max-width: var(--bodylist-max-width);
+	}
+	.detail-page &{
+		max-width: var(--bodydetail-max-width);
+	}
 	margin-left: auto;
 	margin-right: auto;
-	> * {
-		border: 1px solid green;
-	}
+}
+
+.g-height-limited .image img {
+height: 65vh;
 }

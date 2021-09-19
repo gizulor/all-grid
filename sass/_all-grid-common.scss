@@ -47,16 +47,15 @@ $portrait: ('max-aspect-ratio' '1/1');
 @import "c.images";
 @import "c.footer";
 
-@import "c.all-grid"; // core grid definitions
 @import "c.all-grid__header"; // header and site menu options
-@import "c.all-grid__thumb"; // thumbnails (normally found on list pages)
+//@import "c.all-grid__thumb"; // thumbnails (normally found on list pages)
 
 @import "colours/s.colours-setup";
 
 // utilities trump all other classes
 
 .u-content-padding {
-	padding: calc(var(--grid-spacer) * 2) var(--grid-spacer);
+	padding: calc(var(--ui-spacer) * 2) var(--ui-spacer);
 }
 
 .u-pt {
@@ -78,3 +77,7 @@ $portrait: ('max-aspect-ratio' '1/1');
 	display: contents;
 }
 
+.u-span-all {
+	grid-column-start: 1;
+	grid-column-end: -1;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
-<txp:output_form form="head" />
+<txp:output_form form="head" bodyclass="loose-page" />
 
 	<txp::body_header menu-type="menu--grid menu--formalz" />
 	<txp::body_pagination />
@@ -10,16 +10,16 @@
 
 		<!-- is this the front page? -->
 		<txp:if_section name=",default">
-			<txp:article limit="1" form="super" status="sticky" wraptag="div" class="g-height-limited" />
+			<txp:article limit="1" form="super" sort="rand()" status="sticky" wraptag="div" class="g-height-limited" />
 			<div class="all-grid--loose g-width-limited">
-				<txp:article form="thumb_excerpt" limit="20" />
+				<txp:article form="thumb_excerpt" sort="rand()" limit="20" />
 				<txp:output_form form="body_aside" wraptag="div" class="all-grid__thumb links-social has--image-omitted bg--mix" />
 			</div>
 		<txp:else />
 			<txp:if_article_list>
-				<txp:category_filter />
+					<txp:article form="super"  status="sticky" wraptag="div" class="g-height-limited g-width-limited"/>
+				<txp::category_filter />
 				<div class="all-grid--loose g-width-limited">
-					<txp:article form="thumb_excerpt" limit="1"  status="sticky" />
 					<txp:article form="thumb_excerpt" limit="20" />
 					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
 					<txp:output_form form="body_aside" wraptag="div" class="all-grid__thumb links-social has--image-omitted bg--mix" />
