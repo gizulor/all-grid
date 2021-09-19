@@ -4,16 +4,6 @@ Suitable for small to large sites with flexible image display requirements.
 
 all-grid is free and open source software, and requires Textpattern v4.80 and above.
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: .5rem;">
-<img src="/themes/all-grid/styles/img/all-grid-theme02.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-<img src="/themes/all-grid/styles/img/all-grid-theme01.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-<img src="/themes/all-grid/styles/img/all-grid-theme03.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-<img src="/themes/all-grid/styles/img/all-grid-theme04.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-</div>
-
-
-
-
 [Demo Site](https://all-grid.all-sorts.biz)
 
 ## all-grid:
