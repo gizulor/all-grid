@@ -11,13 +11,6 @@
 
 <p>all-grid is free and open source software, and requires Textpattern v4.80 and above.</p>
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; grid-gap: .5rem;">
-<img src="/themes/all-grid/styles/img/all-grid-theme02.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-<img src="/themes/all-grid/styles/img/all-grid-theme01.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-<img src="/themes/all-grid/styles/img/all-grid-theme03.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-<img src="/themes/all-grid/styles/img/all-grid-theme04.jpg" style="max-width: 100%; height: auto;" alt="all-grid theme for textpattern" />
-</div>
-
 <p><a href="https://all-grid.all-sorts.biz">Demo Site</a></p>
 
 <h2 id="all-grid:">all-grid:</h2>
@@ -65,6 +58,34 @@ Images are displayed at fixed proportions, resulting in a rigid grid layout.</p>
 <p>To fully exploit this you need to install image-resizing functionality, like <a href="https://stefdawson.com/sw/plugins/smd_thumbnail">smd_thumbnail</a> or a php script like <a href="https://github.com/lencioni/SLIR">Smart Lencioni Image Resizer</a>, and then hide or unhide the relevant code block in the <em>figure.txp</em> form.</p>
 
 <p>By default, all-grid ships with no image-resizing functionality (your images are fetched at their original resolution). The all-grid demo site uses <a href="https://github.com/lencioni/SLIR">SLIR</a>.</p>
+
+<h2 id="imageresizingoptions">Image resizing options</h2>
+
+<ul>
+<li>no resizing – original image displayed (default)</li>
+<li>resizing via smd_thumbnail</li>
+<li>resizing via SLIR</li>
+</ul>
+
+<p><a href="https://github.com/aFarkas/lazysizes">lazysizes.js</a> provides automatic sizes calculation for responsive images.</p>
+
+<h2 id="flexiblity">Flexiblity</h2>
+
+<p>grid-loose and grid-formal variants, freely interchangeable via:</p>
+
+<ul>
+<li>section pages</li>
+<li>article forms</li>
+</ul>
+
+<p>Layouts can be changed via:</p>
+
+<ol>
+<li>changing the content i.e. with or without article images, sticky vs. live articles, form overrides</li>
+<li>changing css variable values in the stylesheet</li>
+<li>swapping element class names in the pages and forms</li>
+<li>in the stylesheet css (the last resort :)</li>
+</ol>
 
 </body>
 </html>

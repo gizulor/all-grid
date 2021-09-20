@@ -49,5 +49,25 @@ To fully exploit this you need to install image-resizing functionality, like [sm
 
 By default, all-grid ships with no image-resizing functionality (your images are fetched at their original resolution). The all-grid demo site uses [SLIR](https://github.com/lencioni/SLIR).
 
+## Image resizing options
 
+* no resizing – original image displayed (default)
+* resizing via smd_thumbnail
+* resizing via SLIR
+
+[lazysizes.js](https://github.com/aFarkas/lazysizes) provides automatic sizes calculation for responsive images.
+
+## Flexiblity
+
+grid-loose and grid-formal variants, freely interchangeable via:
+
+* section pages
+* article forms
+
+Layouts can be changed via:
+
+1. changing the content i.e. with or without article images, sticky vs. live articles, form overrides
+2. changing css variable values in the stylesheet
+3. swapping element class names in the pages and forms
+4. in the stylesheet css (the last resort :)
 
