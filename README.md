@@ -64,7 +64,7 @@ grid-loose and grid-formal variants, freely interchangeable via:
 * section pages
 * article forms
 
-Layouts can be adjusted via:
+Layouts can be changed via:
 
 1. changing the content i.e. with or without article images, sticky vs. live articles, form overrides
 2. changing css variable values in the stylesheet

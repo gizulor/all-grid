@@ -1,8 +1,8 @@
 {
-    "title": "all grid",
-    "version": "2.0",
-    "description": "a textpattern theme for image-rich websites",
+    "title": "all-grid",
+    "version": "3.0",
+    "description": "A Textpattern theme for image-rich websites using Atomic Design",
     "author": "Gary Venter",
-    "author_uri": "https://all-sorts.biz",
+    "author_uri": "https://all-grid.all-sorts.biz",
     "txp-type": "textpattern-theme"
 }
