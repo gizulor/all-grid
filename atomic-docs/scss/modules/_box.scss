@@ -1,0 +1,10 @@
+/* scss/modules/_box.scss */
+
+$boxColor: #eee;
+
+.box{
+    background: $boxColor;
+    padding: 20px;
+    width: 300px;
+    height: 150px;
+}
