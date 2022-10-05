@@ -1,0 +1,4 @@
+<footer class="l_island">
+	<p><span  class="t-lc"><txp:text item="published_with" /></span> <a rel="external" href="https://textpattern.com/" title="<txp:text item="go_txp_com" />">Textpattern CMS</a> using <a href="https://all-grid.all-sorts.biz">all-grid</a></p>
+	<txp:if_logged_in><p>You're logged <a href="<txp:site_url />textpattern" target="txp">in</strong>.</p></txp:if_logged_in>
+</footer>

@@ -1,0 +1,33 @@
+<txp::u_debug title='page: <txp:page_url type="page" />' />
+
+<header class="o_header <txp:yield name="primaryclass" />">
+
+  <div class="o_header__child <txp:yield name="infoclass" />">
+     <h1 class="sitename a_heading <txp:yield name="headingclass" />"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
+     <p class="slogan <txp:yield name="sloganclass" />"><txp:site_slogan /></p>
+  </div>
+
+  <txp:if_yield name="hamburger">
+    <details plain class="m_hamburger">
+
+      <summary>
+        <button class="m_hamburger__button" onclick="this.classList.toggle('is-active');this.setAttribute('aria-expanded', this.classList.contains('is-active'))" aria-label="Main Menu">
+          <div class="m_hamburger__icon">
+            <div></div>
+          </div>
+        </button>
+      </summary>
+
+      <nav class="o_header__child m_hamburger__menu  <txp:yield name="navclass" />">
+
+        <h1 class="sitename a_heading <txp:yield name="headingclass" />"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
+        <txp::m_menuSections class='<txp:if_yield name="menuclass"><txp:yield name="menuclass" /><txp:else />l_column</txp:if_yield>' />
+      </nav>
+
+    </details>
+  <txp:else />
+    <nav class="o_header__child <txp:yield name="navclass" />" aria-label="<txp:text item="site_nav" />" itemscope itemtype="https://schema.org/SiteNavigationElement">
+      <txp::m_menuSections class='sitemenu <txp:if_yield name="menuclass"><txp:yield name="menuclass" /><txp:else />l_beam l_beam--wrap</txp:if_yield>' />
+    </nav>
+  </txp:if_yield>
+</header>

@@ -1,0 +1,8 @@
+<!-- components/3-atoms/a_headings.txp -->
+<div class="u_baseline-grid">
+    <h1 class="a_heading">Heading Level One</h1>
+    <h2 class="a_heading">Heading Level Two</h2>
+    <h3 class="a_heading">Heading Level Three</h3>
+    <h4 class="a_heading">Heading Level Four</h4>
+    <h5 class="a_heading">Heading Level Five</h5>
+</div>

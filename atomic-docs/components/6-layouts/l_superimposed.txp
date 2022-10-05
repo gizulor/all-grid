@@ -1,0 +1,11 @@
+<!-- components/6-layouts/l_superimposed.txp -->
+
+<div class="l_superimposed">
+    <figure class="m_thumb__image">
+        <img src="https://place-hold.it/640x480" alt />
+    </figure>
+    <div class="l_superimposed__inner bg-gradient">
+        Content
+    </div>
+
+</div>

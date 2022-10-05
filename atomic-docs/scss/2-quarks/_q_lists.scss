@@ -1,0 +1,18 @@
+/* scss/2-quarks/_q_lists.scss */
+
+ul,ol {
+    padding-left: 0;
+    list-style-position: inside;
+}
+
+dl {
+    margin-bottom: $base-line-height;
+    padding-left: 0;
+}
+dt {
+    font-weight:500;
+}
+
+dd {
+    text-indent: var(--base-unit);
+}

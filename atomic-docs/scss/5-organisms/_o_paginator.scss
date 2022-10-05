@@ -1,0 +1,9 @@
+/* scss/5-organisms/_o_paginator.scss */
+
+.o_paginator {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: var(--background-colour);
+  border-bottom: 2px solid var(--black);
+}

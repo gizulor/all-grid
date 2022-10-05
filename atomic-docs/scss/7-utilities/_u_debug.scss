@@ -1,0 +1,31 @@
+/* scss/7-utilities/_u_debug.scss */
+
+.u_debug {
+    outline: 1px solid rgba(red, .25);
+    * {
+        outline: 1px solid rgba(green, .25);
+    }
+
+    &__info{
+        position: absolute;
+        z-index: 10;
+        margin-top: my-bs(.75);
+        left: var(--base-unit);
+        font-size: .5rem;
+       .l_superimposed &,
+       .m_thumb & {
+           //opacity: 0;
+           &:hover  & {
+           // opacity: 1;
+           }
+            color: var(--white);
+        }
+        .has--image-omitted & {
+            color: var(--black);
+            //margin-top: - my-bs(1);
+        }
+        &.raised {
+            margin-top: - my-bs(1);
+        }
+    }
+}

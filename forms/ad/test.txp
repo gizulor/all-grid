@@ -1,0 +1,7 @@
+<txp:section_list sort="on_frontpage desc,name desc" wraptag="ul" break="" class="m_menu l_beam  l_beam--wrap list-bare" include_default="0" exclude="all-grid">
+  <li class="m_menu__item<txp:if_section name='<txp:section />'> m_menu__item--active</txp:if_section> a_heading h5-style">
+    <a itemprop="url" href="<txp:section url />">
+      <txp:section title />
+    </a>
+  </li>
+</txp:section_list>

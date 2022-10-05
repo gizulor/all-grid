@@ -1,0 +1,16 @@
+<txp::u_debug class="raised" title='form: o_pagination' />
+
+<txp:if_individual_article>
+	<txp:evaluate test="link_to_prev,link_to_next">
+		<nav class="o_paginator u_p--b u_p--t <txp:yield name="class" />" aria-label="page nav">
+			<txp:link_to_next rel="prev"><span class="a_icon a_icon--flip u_m--b0 u_p--l">&#10132;</span></txp:link_to_next>
+			<txp:if_yield name="section"><span class="u_m--b0"><txp:section title  link/></span></txp:if_yield>
+			<txp:link_to_prev rel="next"><span class="a_icon u_m--b0 u_p--l">&#10132;</span></txp:link_to_prev>
+		</nav>
+	</txp:evaluate>
+<txp:else />
+
+	<txp:evaluate test="newer,older">
+		<nav class="o_paginator u_p--b u_p--t  <txp:yield name="class" />" aria-label="page nav"><txp:newer rel="prev"><span class="a_icon a_icon--flip u_m--b0">&#10132;</span> Previous</txp:newer><txp:if_yield name="section"><span class="u_m--b0"><txp:section title  link/></span></txp:if_yield><txp:older rel="next">Next <span class="a_icon u_m--b0">&#10132;</span></txp:older></nav>
+	</txp:evaluate>
+</txp:if_individual_article>

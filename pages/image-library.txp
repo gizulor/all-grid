@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
-<txp::head bodyclass="formal-page">
+
+
+<txp:output_form form="head" bodyclass="u_baseline-grid">
 <style>
-	body {
-		padding: var(--grid-spacer);
+	main {
+		padding: var(--base-unit);
 	}
 
 	.all-grid--packed {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(clamp(96px,20vw,240px),1fr));
-		grid-column-gap: calc(var(--grid-spacer) / 4);
-		grid-row-gap: var(--grid-spacer);
+		grid-template-columns: repeat(auto-fit, minmax(clamp(64px,20vw,180px),1fr));
+		grid-column-gap: calc(var(--base-unit) / 4);
+		grid-row-gap: var(--base-unit);
 		//justify-content: center;
 
 	}
@@ -31,26 +33,91 @@
 	.little-hand.image-edit {
 		display: block !important;
 	}
-</style>
-</txp::head>
 
-	<txp::body_header menu-type="menu--formal" />
+	.article-ids {
+		color: var(--white);
+		background: var(--black);
+		padding: 0.125em .25em;
+		line-height: 1;
+		font-size: .65rem;
+		//display: inline-block;
+		//margin-right: var(--base-unit--ss);
+	}
+</style>
+</txp:output_form>
+
+<txp::o_header_common />
+
+
 	<txp::body_pagination />
 
 	<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/CreativeWork" class="flow">
 
-	<section class="flow">
-		<header class="flow g-width-limited u-pb">
-			<h1 class="t-ui">Images, Categorised</h1>
+	<section>
+		<header>
+			<h1>Images, Categorised</h1>
 		</header>
-		<txp:images limit="100" wraptag="ul" break="" class="list-bare all-grid--packed" sort="category desc" pageby="limit" >
+		<txp:etc_search id="1" action='<txp:section url />' />
+		<txp:if_search>
+			<txp:etc_search_results />
+		</txp:if_search>
+
+		<txp:images limit="1000" wraptag="ul" break="" class="all-grid--packed a_list-bare" sort="category desc" pageby="limit" >
 			<txp:if_different>
-				<h1 class="t-ui"><txp:image_info type="category_title" /></h1>
+				<h2><txp:image_info type="category_title" /></h2>
 			</txp:if_different>
 			<li>
-			<a href="<txp:image_url />" class="link--plain">
-				<txp::figure id='<txp:image_info type="id" />' type="thumb"/>
-			</a>
+				<p class="b_small u_m--b0"><a href="<txp:image_url />">#<txp:image_info type="id" /></a></p>
+
+					<txp::figure id='<txp:image_info type="id" />' type="thumb"/>
+
+				<details>
+					<summary>
+						<p class="b_small u_m--b0">Appears in article ids</p>
+
+
+
+<txp:hide>
+													<txp:variable name="searchstring">%"<txp:image_info type="id" />"%</txp:variable>
+</txp:hide>
+											</summary>
+
+<txp:hide>
+					<txp:variable name="article-ids" escape="trim">
+						<txp:etc_search_results match="exact" id="1" query='<txp:variable name="searchstring" escape="" />' break=",">
+							<txp:permlink> <txp:article_id /> </txp:permlink>
+						<txp:else />
+						</txp:etc_search_results>
+					</txp:variable>
+					<txp:if_variable name="article-ids" value>
+						<p class="b_small--min u_m--b0">
+								body field: <span class="article-ids"><txp:variable name="article-ids" /></span>
+						</p>
+					</txp:if_variable>
+</txp:hide>
+
+
+
+
+
+
+					<txp:variable name="article-ids" escape="trim">
+						<txp:php>
+							$id = (int) parse('<txp:image_info type="id" />');
+							echo implode(', ', safe_column('ID', 'textpattern', "FIND_IN_SET({$id}, Image)"));
+						</txp:php>
+					</txp:variable>
+					<txp:if_variable name="article-ids" value>
+
+						<p class="b_small--min">
+								article image field: <span class="article-ids">
+									<txp:article_custom id='<txp:variable name="article-ids" />'>
+										<txp:permlink title='<txp:title />'><txp:article_id /></txp:permlink>
+									</txp:article_custom>
+								</span>
+						</p>
+					</txp:if_variable>
+				</details>
 			</li>
 		</txp:images>
 
@@ -99,7 +166,27 @@
 
 	</main>
 
-	<txp:output_form form="body_footer" />
+<txp::o_footer/>
+<txp::o_javascript>
+<txp:hide>
+	<script src="<txp:site_url />textpattern/vendors/jquery/jquery/jquery.js"></script>
 
+	<script>
+		jQuery(function () {
+			$('.article-ids').each(function() {
+				var s = $(this).text().trim();
+				var match = s.split(', ')
+				//console.log(match)
+				for (var a in match)
+				{
+						var variable = match[a]
+						$(this).html('<a href="<txp:site_url />?id=' + variable +'">' + variable + '</a>');
+						console.log(variable)
+				}
+			});
+		});
+	</script>
+</txp:hide>
+</txp::o_javascript>
 </body>
 </html>

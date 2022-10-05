@@ -1,0 +1,14 @@
+/* scss/3-atoms/_a_icon.scss */
+
+.a_icon {
+    display: inline-block;
+   &--flip {
+      transform: scaleX(-1);
+   }
+   [rel="prev"] & {
+
+   }
+   [rel="next"] & {
+
+   }
+}

@@ -1,42 +1,36 @@
 <!DOCTYPE html>
-<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+<html lang="<txp:lang />" dir="<txp:text item=" lang_dir" />">
 
-<txp:output_form form="head" />
+<txp:output_form form="head" bodyclass="u_baseline-grid">
+<style>
+	.m_thumb {
+		/* override default thumb aspect ratio */
+		--thumb-aspect-ratio: 1618/1000;
+	}
+</style>
+</txp:output_form>
 
-	<txp::body_header menu-type="menu--grid menu--formalz" />
-	<txp::body_pagination />
+<txp::o_header_common />
 
-	<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
-
-		<!-- is this the front page? -->
-		<txp:if_section name=",default">
-			<txp:article limit="1" form="super" status="sticky" wraptag="div" class="g-height-limited" />
-			<div class="all-grid--loose g-width-limited">
-				<txp:article form="thumb_excerpt" limit="20" />
-				<txp:output_form form="body_aside" wraptag="div" class="all-grid__thumb links-social has--image-omitted bg--mix" />
-			</div>
-		<txp:else />
-			<txp:if_article_list>
-				<txp:category_filter />
-				<div class="all-grid--loose g-width-limited">
-					<txp:article form="thumb_excerpt" limit="1"  status="sticky" />
-					<txp:article form="thumb_excerpt" limit="20" />
-					<!-- include elements to help the grid css algorithm fill in empty spaces (.all-grid uses grid-auto-flow: dense;) -->
-					<txp:output_form form="body_aside" wraptag="div" class="all-grid__thumb links-social has--image-omitted bg--mix" />
-				</div>
-			<txp:else />
-
-				<txp:article status="sticky" form="super"/>
-				<txp:article status="live" />
-
-			</txp:if_article_list>
-
-		</txp:if_section>
+<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
 
 
-	</main>
 
-	<txp:output_form form="body_footer" />
+<txp:if_individual_article>
+	<txp::o_pagination section class="a_heading h3-style l_island l_island--eastwest l_beam l_beam--spaced right@small" />
+</txp:if_individual_article>
+
+	<!-- this article is currently set to pan via override form -->
+	<txp:article limit="1" status="sticky" />
+
+	<txp:article listform="thumb" wraptag="ul" class="l_island a_list-bare l_grid l_grid--tri@small" break="" />
+
+
+</main>
+
+<txp::o_footer/>
+<txp::o_javascript />
 
 </body>
+
 </html>

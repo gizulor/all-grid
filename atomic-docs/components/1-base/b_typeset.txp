@@ -1,0 +1,28 @@
+<!-- components/1-base/b_typeset.txp -->
+
+<div class="u_baseline-grid l_beam">
+    <div>
+      <h1>Lorem Khaled Ipsum is a major key to success.</h1>
+      <p>To succeed you must believe. When you believe, you will succeed. The key to more success is to have a lot of pillows.</p>
+      <h2>Egg whites, turkey sausage, wheat toast, water.</h2>
+      <p>Of course they don’t want us to eat our breakfast, so we are going to enjoy our breakfast. They key is to have every key, the key to open every door.</p>
+      <p>It’s on you how you want to live your life. Everyone has a choice. I pick my choice, squeaky clean.</p> 
+      <h3>Let’s see what Chef Dee got that they don’t want us to eat.</h3>
+      <p>Life is what you make it, so let’s make it. They key is to have every key, the key to open every door. We don’t see them, we will never see them. The first of the month is coming, we have to get money, we have no choice.</p>
+      <h4>The weather is amazing.</h4>
+      <p>It cost money to eat and they don’t want you to eat. Walk with me through the pathway of more success.</p>
+      <p><small>Take this journey with me, Lion! In life there will be road blocks but we will over come it. Let’s see what Chef Dee got that they don’t want us to eat.</p></small>
+    </div>
+    <div class="b_typeset--small">
+      <h1>Lorem Khaled Ipsum is a major key to success.</h1>
+      <p>To succeed you must believe. When you believe, you will succeed. The key to more success is to have a lot of pillows.</p>
+      <h2>Egg whites, turkey sausage, wheat toast, water.</h2>
+      <p>Of course they don’t want us to eat our breakfast, so we are going to enjoy our breakfast. They key is to have every key, the key to open every door.</p>
+      <p>It’s on you how you want to live your life. Everyone has a choice. I pick my choice, squeaky clean.</p> 
+      <h3>Let’s see what Chef Dee got that they don’t want us to eat.</h3>
+      <p>Life is what you make it, so let’s make it. They key is to have every key, the key to open every door. We don’t see them, we will never see them. The first of the month is coming, we have to get money, we have no choice.</p>
+      <h4>The weather is amazing.</h4>
+      <p>It cost money to eat and they don’t want you to eat. Walk with me through the pathway of more success.</p>
+      <p><small>Take this journey with me, Lion! In life there will be road blocks but we will over come it. Let’s see what Chef Dee got that they don’t want us to eat.</p></small>
+    </div>
+</div>

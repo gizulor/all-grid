@@ -1,0 +1,50 @@
+/* scss/4-organisms/_o_header.scss */
+
+.o_header {
+  @media (orientation: landscape) {
+    aspect-ratio: 6/1;
+  }
+ // border-bottom: 2px solid var(--black);
+  &--sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: var(--background-colour);
+    //backdrop-filter: blur(.1rem);
+    //mix-blend-mode: screen;
+    // background: linear-gradient(180deg, rgba(white, 1) 81%, rgba(white,0) 100%);;
+  }
+
+  &__child {
+    //min-height: my-bs(5);
+  }
+
+
+  &--grid {
+   // @extend .l_grid, .l_grid--twin;
+    //grid-gap: 0 !important;
+   // display: grid;
+    //grid-template-columns: 1fr 1fr;
+   // align-items: end;
+    //justify-content: space-between;
+    .o_header__child {
+      display: contents;
+    }
+
+    grid-template-areas: 'sitename slogan'
+    'sitemenu sitemenu';
+
+    .sitename {
+      grid-area: sitename;
+    }
+
+    .slogan {
+      grid-area: slogan;
+      //text-align: right;
+    }
+
+    .sitemenu {
+      grid-area: sitemenu;
+    }
+  }
+}

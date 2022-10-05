@@ -1,0 +1,99 @@
+/* scss/6-layouts/_l_article-body.scss */
+
+.l_article-body {
+
+  //@extend .u_debug;
+
+  &--single {
+    max-width: var(--type-measure);
+    margin-left: auto;
+    margin-right: auto;
+
+    &:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    > div:first-child {
+      p {
+        @include heading($h4-shevy);
+      }
+    }
+
+    .aside,
+    blockquote {
+      width: 50%;
+      float: right;
+      margin-left: var(--base-unit);
+      margin-bottom: my-bs(1.5);
+      p {
+        @include heading($h5-shevy);
+      }
+
+      @media (min-width: $desktop) {
+        margin-right: calc(var(--type-measure) * -.25);
+      }
+    }
+
+
+    h2,
+    h3 {
+      margin-top: my-bs(3);
+    }
+    >figure {
+      margin-bottom: my-bs(1.5);
+      @media (min-width: $small) {
+        width: 50%;
+
+        &:nth-of-type(odd) {
+          float: right;
+          margin-left: var(--base-unit);
+        }
+
+        &:nth-of-type(even) {
+          float: left;
+          margin-right: var(--base-unit);
+        }
+
+
+        @media (min-width: $desktop) {
+          &:nth-of-type(odd) {
+            margin-right: calc(var(--type-measure) * -.25);
+          }
+
+          &:nth-of-type(even) {
+            margin-left: calc(var(--type-measure) * -.25);
+          }
+        }
+      }
+    }
+  }
+
+
+  .has--image-omitted & {
+    >p:first-of-type {
+      @extend .a_heading,
+      .h4-style;
+    }
+  }
+
+  figure {
+    &.small {
+      width: 50%;
+    }
+    +& {
+      margin-top: my-bs(3);
+      margin-bottom: my-bs(3);
+    }
+  }
+
+
+  &--twin {
+    border: 1px solid red;
+    @extend .l_grid,
+    .l_grid--twin\@small;
+  }
+
+
+}

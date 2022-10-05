@@ -1,17 +1,17 @@
 <txp:if_variable name="menu" value="hamburger">
 	<header class="all-grid__header header--hamburger g-width-limited t-ui">
-		<h1><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
+		<h1 class="a_heading"><txp:link_to_home class="link--plain"><txp:site_name /></txp:link_to_home></h1>
 		<txp:if_section name=",default">
 			<txp:evaluate>
-				<h3><txp:site_slogan /></h3>
+				<h3 class="a_heading"><txp:site_slogan /></h3>
 				<ul class="smd_switcher"></ul>
 			</txp:evaluate>
 		<txp:else />
 			<txp:if_category>
-				<h3><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
+				<h3 class="a_heading"><txp:section link title tidy escape="tidy,textile"  class="link--plain line-clamp line-clamp--1"/></h3>
 			<txp:else />
 
-			<h3><txp:section title link class="link--plain" /><txp:evaluate>: <txp:meta_description type="section" format="" wraptag="" /></txp:evaluate></h3>
+			<h3 class="a_heading"><txp:section title link class="link--plain" /><txp:evaluate>: <txp:meta_description type="section" format="" wraptag="" /></txp:evaluate></h3>
 			</txp:if_category>
 		</txp:if_section>
 

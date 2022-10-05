@@ -1,0 +1,8 @@
+<txp:if_article_category>
+  <txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" trim wraptag="ul" class='m_menu a_list-bare <txp:yield name="class" />' break="">
+    <li class="m_menu__child">
+      <txp:category title link />
+      <txp:hide><txp:meta_description type="category" format="" wraptag="" /></txp:hide>
+    </li>
+  </txp:category_list>
+</txp:if_article_category>

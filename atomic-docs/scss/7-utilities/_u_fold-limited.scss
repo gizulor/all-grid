@@ -1,0 +1,12 @@
+/* scss/7-utilities/_u_fold-limited.scss */
+
+.u_fold-limited {
+    > * {
+        @media (orientation: landscape) {
+            max-height: 66vh;
+            }
+        @media (orientation: portrait) {
+            max-height: 80vh;
+        }
+    }
+}

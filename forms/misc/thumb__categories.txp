@@ -1,1 +1,2 @@
-<txp:evaluate><aside class="thumb__categories t--small t-lc "><txp:category1 title wraptag="span"/>	<txp:category2 title wraptag="span" /></aside></txp:evaluate>
+<txp:evaluate><ul class="a_list-bare m_menu <txp:yield name="class" />">
+  <txp:category1 title wraptag="li" class="m_menu__child"/><txp:category2 title wraptag="li" class="m_menu__child"/></ul></txp:evaluate>

@@ -1,0 +1,125 @@
+/* scss/3-molecules/_m_menu.scss */
+
+@mixin menubg {
+    //left: calc(var(--base-unit) * -1);
+   // padding: my-bs(1.5) var(--base-unit);
+    background-color: var(--background-colour);
+   // box-shadow: 1px 1px .25rem rgba(black,.25);
+}
+.m_menu {
+
+
+
+  &__child {
+    &:not(.right > &){
+      margin-right: var(--base-unit);
+    }
+    .gap-small &{
+      margin-right: var(--base-unit--s)
+    }
+
+
+    &:last-child {
+      //margin-right: calc(var(--base-unit--s) * -1);
+    }
+
+    .buttons & {
+      padding: 0 var(--base-unit--ss);
+      height: min-content;
+      //border: 2px solid var(--black);
+      &--active,
+      &:hover,
+      .detail-page & {
+        background: var(--black);
+        color: var(--white);
+      }
+    }
+
+    &--active {
+      a {
+         @extend a:hover;
+        // text-underline-offset: .15em;
+        font-weight: 500;
+
+      }
+    }
+  }
+
+  &--drop-down {
+    > li {
+      position: relative;
+      z-index: 2;
+      &:hover ul {
+        @media screen and (min-width: $medium) {
+          display: block;
+          z-index: -1;
+        }
+      }
+    }
+
+    ul {
+      display: none;
+      //top: 0;
+      width: max-content;
+      position: absolute;
+      @include menubg();
+    }
+  }
+
+
+
+
+  &--compact {
+    position: relative;
+    z-index:2;
+    width: max-content;
+    &__current {
+        font-weight: 500;
+        cursor: pointer;
+        &:after{
+          content:  url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAyMyAxMyIg
+          ZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAuMDc1OTk5OSAwLjk1NDkwNUwxM
+          S40MTIgNy42ODg5MUwyMi43NDggMC45NTQ5MDZMMjIuNzQ4IDYuMTI4OTFMMTEuNDEyIDEyLjY4MDlMMC4wNzU5OTk3IDYuMTAyOTFMMC
+          4wNzU5OTk5IDAuOTU0OTA1WiIgZmlsbD0iIzI3MjcyNyIvPgo8L3N2Zz4K");
+        display: inline-block;
+        transform: scale(.62);
+       // margin-left: var(--base-unit--s);
+     }
+    }
+
+    &__holder {
+      position: relative;
+    > ul {
+        display: none;
+        // transform-origin: top;
+        // transform: scaleY(0);
+        position: absolute;
+        z-index: -1;
+        width: max-content;
+        top: 0;
+        height: max-content;
+        padding-top: my-bs(1.5);
+        padding-bottom: my-bs(2);
+        padding-left: var(--base-unit);
+        left: calc(var(--base-unit) * -1);
+        @include menubg();
+       // padding-top: my-bs(2);
+        // :hover > & {
+        //   border: 1px solid red;
+        //   transform: scaleY(1);
+        // }
+
+        .m_menu__child--active {
+          display: none;
+        }
+      }
+        }
+    &:hover ul {
+      display: block;
+     // background: var(--background-colour);
+    }
+
+
+  }
+
+}

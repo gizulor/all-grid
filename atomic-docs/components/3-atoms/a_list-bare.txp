@@ -1,0 +1,8 @@
+<!-- components/3-atoms/a_list-bare.txp -->
+
+<ul class="a_list-bare">
+    <li>Item One</li>
+    <li>Item Two</li>
+    <li>Item Three</li>
+</ul>
+

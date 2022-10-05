@@ -1,0 +1,34 @@
+/* scss/2-quarks/_q_details.scss */
+
+summary {
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+
+	&:focus {
+		outline: none;
+	}
+	&::-webkit-details-marker {
+	  display: none;
+	}
+	&:after {
+	  content: "+";
+		font-size: $h4 * 1rem;
+		@extend .a_heading !optional;
+		transition: transform .2s ease;
+		margin-left: var(--base-unit--b);
+	}
+
+	&:hover:after {
+		transform: scale(120%);
+	}
+}
+
+
+details[open] summary:after {
+  content: "-";
+}
+
+details[plain] summary:after {
+	display: none;
+}

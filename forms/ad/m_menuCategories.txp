@@ -1,0 +1,29 @@
+<txp:if_yield name="compact">
+  <div class="m_menu--compact <txp:yield name="class" />">
+    <div class="m_menu--compact__current">
+      <txp:evaluate>
+        <txp:category title />
+      <txp:else />
+        Filter by
+      </txp:evaluate>
+    </div>
+    <div class="m_menu--compact__holder">
+</txp:if_yield>
+<txp:category_list sort="name desc" wraptag="ul" break="" class='<txp:if_yield name="compact" not>m_menu </txp:if_yield>a_list-bare <txp:yield name="class" />' this_section="1">
+  <li class="m_menu__child<txp:if_category name='<txp:category />'> m_menu__child--active</txp:if_category>">
+    <txp:if_yield name="global" not>
+      <txp:article_custom section='<txp:section />' category='<txp:category />' limit="100"><txp:if_different><txp:category title link /></txp:if_different></txp:article_custom>
+    <txp:else />
+      <txp:category title link />
+    </txp:if_yield>
+    <txp:if_yield name="drop-down">
+      <txp:article_custom category='<txp:category />' wraptag="ul" break="li" class='m_menu a_list-bare'>
+       <txp:permlink><small><txp:title /></small></txp:permlink>
+      </txp:article_custom>
+    </txp:if_yield>
+  </li>
+</txp:category_list>
+<txp:if_yield name="compact">
+  </div>
+  </div>
+</txp:if_yield>

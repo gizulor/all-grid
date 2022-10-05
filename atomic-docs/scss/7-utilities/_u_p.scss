@@ -1,0 +1,31 @@
+/* scss/7-utilities/_u_p0.scss */
+
+.u_p {
+    &--t {
+        padding-top: my-bs(1.5);
+        &0 {
+            padding-top: 0;
+        }
+    }
+
+    &--l {
+        padding-left: var(--base-unit);
+        &0 {
+            padding-left: 0;
+        }
+    }
+
+    &--r {
+        padding-right: var(--base-unit);
+        &0 {
+            padding-right: 0;
+        }
+    }
+
+    &--b {
+        padding-bottom: my-bs(1.5);
+        &0 {
+            padding-bottom: 0;
+        }
+    }
+}

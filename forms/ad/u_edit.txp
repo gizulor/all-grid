@@ -1,0 +1,11 @@
+<txp:if_logged_in>
+	<txp:if_yield name="image">
+		<object class="u_edit-in-txp u_edit-in-txp--image"><a target="txp-image" href="<txp:site_url />textpattern/index.php?event=image&step=image_edit&id=<txp:image_info type="id" />" title="edit image info">
+			<img src="<txp:page_url type="theme_path" />/styles/img/edit-image.png" alt="edit image" />
+		</a></object>
+	<txp:else />
+		<object class="u_edit-in-txp"><a target="txp-article" href="<txp:site_url />textpattern/index.php?<txp:if_yield name="url"><txp:yield name="url"/><txp:else />event=article&amp;step=edit&amp;ID=<txp:article_id /></txp:if_yield>" title="edit article">
+			<img src="<txp:page_url type="theme_path" />/styles/img/edit-article.png" alt="edit article" />
+		</a></object>
+	</txp:if_yield>
+</txp:if_logged_in>

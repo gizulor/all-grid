@@ -1,0 +1,7 @@
+/* scss/7-utilities/_u_span.scss */
+
+.u_span {
+    &--2 {
+        grid-column: span 2;
+    }
+}

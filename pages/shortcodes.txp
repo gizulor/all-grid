@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item=" lang_dir" />">
+
+<txp:output_form form="head" bodyclass="u_baseline-grid">
+<!-- <link rel="stylesheet" href="//basehold.it/24"> -->
+
+  <style>
+    .u_baseline-grid {
+      //background-color: var(--yellow);
+    }
+
+    /* section>details[open]>div>*:first-child {
+      background: rgba(255, 255, 255, .3);
+      // mix-blend-mode: multiply;
+      box-shadow: 1px 1px 5px rgba(0, 0, 0, .2);
+    }
+
+    section>details>summary small {
+      // color: var(--grey);
+      font-size: 1rem;
+      letter-spacing: initial;
+    }
+
+    pre,
+    code {
+      height: 100%;
+      width: 100%;
+      mix-blend-mode: multiply;
+      color: var(--black);
+    } */
+
+  </style>
+</txp:output_form>
+
+<txp::o_header_common />
+
+<main id="main" class="l_island l_island--eastwest" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/Collection">
+
+<h1>
+  <txp:section title />
+</h1>
+
+<txp:hide>
+  <code>
+    <txp:evaluate query='fetch_form("o_header")' escape wraptag="pre" />
+  </code>
+</txp:hide>
+
+<txp::body_pagination />
+
+<section>
+  <h2>Headers</h2>
+
+  <h4>Header <small>default settings</small></h4>
+  <pre><code>&lt;txp::o_header /&gt;</code></pre>
+  <txp::o_header />
+
+  <hr />
+
+      <h4>Header <small>with grid displacement</small></h4>
+
+      <txp::o_header primaryclass="l_grid l_grid--twin@small bottom" headingclass="h3-style" sloganclass="a_heading h4-style" menuclass="l_column right a_heading h4-style" />
+      <pre><code>&lt;txp::o_header
+  primaryclass=&quot;l_grid l_grid--twin@small bottom&quot;
+  headingclass=&quot;h3-style&quot;
+  sloganclass=&quot;a_heading h4-style&quot;
+  menuclass=&quot;l_column right a_heading h4-style&quot; /&gt;</code></pre>
+
+
+
+
+  <details>
+    <summary>
+      <h4>Hamburger <small>simple styling only</small></h4>
+    </summary>
+    <div class="l_grid l_grid--twin ">
+      <txp::o_header hamburger primaryclass="l_beam space-between" headingclass="h5-style" sloganclass="a_heading h5-style" menuclass="l_column right a_heading h5-style" />
+      <pre><code>
+&lt;txp::o_header
+  hamburger
+  primaryclass=&quot;l_beam space-between&quot;
+  headingclass=&quot;h5-style&quot;
+  sloganclass=&quot;a_heading h5-style&quot;
+  menuclass=&quot;l_column right a_heading h5-style&quot; /&gt;
+</code></pre>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Category Menus</h2>
+  <details>
+    <summary>
+      <h4>Horizontal <small>l_beam l_beam--wrap</small></h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuCategories global class="l_beam l_beam--wrap" />
+      <pre><code>
+&lt;txp::m_menuCategories global class=&quot;l_beam l_beam--wrap&quot; /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Column <small>l_column</small></h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuCategories global class="l_column" />
+      <pre><code>
+&lt;txp::m_menuCategories global class=&quot;l_column&quot; /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Drop-down</h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuCategories global drop-down class="l_beam m_menu--drop-down" />
+      <pre><code>
+&lt;txp::m_menuCategories
+  global
+  drop-down
+  class=&quot;l_beam m_menu--drop-down&quot; /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Compact</h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuCategories global compact class="l_island"/>
+      <pre><code>
+&lt;txp::m_menuCategories global compact /&gt;
+            </code></pre>
+    </div>
+  </details>
+</section>
+
+<section>
+  <h2>Section Menus</h2>
+
+  <details>
+    <summary>
+      <h4>Horizontal <small>l_beam</small></h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuSections class="l_beam" />
+      <pre><code>
+&lt;txp::m_menuSections class=&quot;l_beam&quot; /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Column <small>l_column</small></h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuSections class="l_column" />
+      <pre><code>
+&lt;txp::m_menuSections class=&quot;l_column&quot; /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Drop-down</h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuSections drop-down class="l_beam m_menu--drop-down" />
+      <pre><code>
+&lt;txp::m_menuSections
+  drop-down
+  class=&quot;l_beam m_menu--drop-down&quot; /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Compact</h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+      <txp::m_menuSections compact />
+      <pre><code>
+&lt;txp::m_menuSections compact /&gt;
+            </code></pre>
+    </div>
+  </details>
+  <details>
+    <summary>
+      <h4>Hamburger <small>Simple styling only</small></h4>
+    </summary>
+    <div class="l_grid l_grid--twin">
+
+      <details plain class="m_hamburger">
+        <summary>
+          <button class="m_hamburger__button" onclick="this.classList.toggle('is-active');this.setAttribute('aria-expanded', this.classList.contains('is-active'))" aria-label="Main Menu">
+            <div class="m_hamburger__icon">
+              <div></div>
+            </div>
+          </button>
+        </summary>
+        <div class="m_hamburger__menu">
+          <txp::m_menuSections />
+        </div>
+      </details>
+      <pre><code>
+&lt;details plain class=&quot;m_hamburger&quot;&gt;
+  &lt;summary&gt;
+    &lt;button class=&quot;m_hamburger__button&quot; onclick=&quot;this.classList.toggle(&apos;is-active&apos;);this.setAttribute(&apos;aria-expanded&apos;, this.classList.contains(&apos;is-active&apos;))&quot; aria-label=&quot;Main Menu&quot;&gt;
+      &lt;div class=&quot;m_hamburger__icon&quot;&gt;
+        &lt;div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/button&gt;
+  &lt;/summary&gt;
+  &lt;div class=&quot;m_hamburger__menu&quot;&gt;
+    &lt;txp::m_menuSections /&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+            </code></pre>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+</main>
+
+<txp:output_form form="o_footer" />
+
+</body>
+
+</html>

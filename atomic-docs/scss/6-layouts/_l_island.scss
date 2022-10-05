@@ -1,0 +1,27 @@
+/* scss/6-layouts/_l_island.scss */
+
+.l_island {
+  padding: my-bs(1.5) var(--base-unit);
+ // padding:  my-bs(1) var(--base-unit);
+
+  //padding: my-bs(2); // Will return 18px * 1.8 or 32.4px
+  &--b {
+    padding: my-bs(2) var(--base-unit--b);
+  }
+  &--s {
+    padding: my-bs(.5) var(--base-unit--s);
+  }
+  &--ss {
+    padding: inherit var(--base-unit--ss);
+  }
+
+  &--eastwest {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &--northsouth {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+}

@@ -1,0 +1,3 @@
+<txp::o_header hamburger primaryclass="l_island l_column bottom u_hide--from-medium" headingclass="h3-style h2-style@medium u_m--b0 u_m--r" infoclass="l_grid l_grid--twin@small bottom" sloganclass="a_heading h5-style u_m--b0" menuclass="l_column a_heading h1-style u_m--t" />
+
+<txp::o_header primaryclass="u_hide--to-medium l_island l_column bottom" headingclass="h3-style h2-style@medium" infoclass="l_grid l_grid--twin@small bottom" sloganclass="a_heading h5-style self-right@medium" menuclass="l_beam l_beam--wrap l_beam--spaced space-betweens a_heading h5-style " />

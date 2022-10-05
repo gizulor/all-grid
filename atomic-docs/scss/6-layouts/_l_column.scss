@@ -1,0 +1,30 @@
+/* scss/5-layouts/_l_column.scss */
+
+.l_column {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &.top { // default
+        justify-content: flex-start;
+    }
+
+    &.middlev {
+        justify-content: center;
+    }
+    &.bottom {
+        justify-content: flex-end;
+    }
+
+
+    &.space-between {
+        justify-content: space-between;
+    }
+
+    &.middle {
+        align-items: center;
+    }
+    &.right {
+        align-items: flex-end;
+    }
+}

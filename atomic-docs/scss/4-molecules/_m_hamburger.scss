@@ -1,0 +1,78 @@
+/* scss/4-molecules/_m_hamburger.scss */
+
+.m_hamburger {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding-top: my-bs(1.5);
+    padding-right: var(--base-unit);
+    padding-left: var(--base-unit);
+    z-index: 100;
+
+    &[open] {
+        background-color: var(--hamburger-background-colour);
+        bottom: 0;
+    }
+
+    > summary {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__button {
+        width: 28px;
+        background-color: var(--background-colour);
+        [open] & {
+            background-color: var(--hamburger-background-colour);
+        }
+    }
+
+    &__icon {
+
+        &:after,
+        &:before,
+        & div {
+            background-color: var(--black);
+            //border-radius: 3px;
+            content: '';
+            display: block;
+            height: 2.5px;
+            margin: 7px 0;
+            transition: all .2s ease-in-out;
+        }
+
+        &:hover:after,
+        &:hover:before,
+        &:hover div {
+            opacity: .5;
+        }
+
+        .is-active & {
+            &:before {
+                transform: translateY(9.5px) rotate(135deg);
+            }
+
+            &:after {
+                transform: translateY(-9.5px) rotate(-135deg);
+            }
+
+            div {
+                transform: scale(0);
+            }
+        }
+    }
+        //border: 1px solid red;
+    &__menu {
+       // position: absolute;
+       // z-index: -1;
+        //left: 0;
+       //width: max-content;
+        //top: 0;
+        //right: 0;
+        //height: max-content;
+        //background: var(--background-colour);
+        //margin-top: var(--base-unit);
+        //right: 0;
+    }
+}

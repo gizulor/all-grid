@@ -1,3 +1,4 @@
+<txp::u_debug title='form: formal' />
 <txp::images_preprocess />
 	<article class="g-width-limited all-grid--formal-container flow has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
 		<meta itemprop="mainEntityOfPage" content="<txp:permlink />">

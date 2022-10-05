@@ -1,45 +1,70 @@
-<txp::images_preprocess random-bg-colourz/>
-<article class="g-width-limited all-grid--loose-container flow has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
-	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-	<header class="all-grid--loose flow">
-		<h1 itemprop="headline"><txp:title /><txp:output_form form="little-hand" /></h1>
-		<txp:evaluate>
-			<aside itemprop="description" class="flow typeset">
-				<txp:excerpt />
-			</aside>
-		</txp:evaluate>
-		<txp:evaluate>
-		<aside class="flow t-ui">
-			<txp:if_article_category>
-				<txp:hide><!-- display the category description if available --></txp:hide>
-				<txp:category_list categories='<txp:category1 />,<txp:category2 />' children="0" break="li" trim wraptag="ul" class="list-bare">
-					<txp:evaluate><txp:category link class="link--plain"><txp:category title /> <txp:hide>[<txp:meta_description type="category" format="" wraptag="" />]</txp:hide></txp:category></txp:evaluate>
-				</txp:category_list>
-			</txp:if_article_category>
-			<txp:if_section name="news,blog,home">
-				<txp:hide><!-- optional (use your actual section name above) --></txp:hide>
-				<p>
-					<txp:text item="posted" />
-					<time datetime="<txp:posted format="iso8601" />" itemprop="datePublished">
-						<txp:posted />
-					</time>
-					<meta itemprop="dateModified" content="<txp:modified format="iso8601" />" />
-				</p>
-			</txp:if_section>
+	<txp::u_debug title='form: default' />
+<txp::images_preprocess random-bg-colourz />
+<txp:if_article_list>
+	<article class="u_debugz u_debug__form--default <txp:if_article_list>l_island l_island--eastwest</txp:if_article_list> has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
+	<a href="<txp:permlink />" itemprop="url">
 
-		</aside>
-		</txp:evaluate>
+		<txp:if_article_image>
+			<txp::figure limit="1" class="a_image--hide-caption u_fold-limited u_m--b" />
+		</txp:if_article_image>
+
+		<div class="l_islandz l_island--northsouthz">
+			<h1 itemprop="headline" class="h3-style">
+				<txp:title />
+				<txp::u_edit />
+			</h1>
+
+			<txp::m_menuCategories_article  class="a_heading h5-style l_beam l_beam--wrap buttons u_p--bz" />
+
+			<txp::m_posted />
+
+			<txp:evaluate>
+				<aside itemprop="description">
+					<txp:excerpt />
+				</aside>
+			</txp:evaluate>
+
+		</div>
+	</a>
+	</article>
+
+<txp:else />
+	<article class="u_debug u_debug__form--default l_island l_island--eastwest has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
+	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+	<header class="l_grid l_grid--twin@small bottom u_p--b u_p--t ">
+		<div class="l_column bottom">
+			<h1 itemprop="headline" class="a_heading h0-style">
+				<txp:title />
+				<txp::u_edit />
+			</h1>
+		</div>
+		<div class="l_column bottom">
+
+
+			<txp:evaluate>
+				<aside itemprop="description" class="b_typeset--lede">
+					<txp:excerpt />
+				</aside>
+			</txp:evaluate>
+		</div>
+			<txp::m_posted />
+		<txp::m_menuCategories_article class="a_heading h5-style l_beam l_beam--wrap u_p--b buttons" />
 	</header>
 
 	<txp:if_article_image>
-		<txp::figure limit="1" class="image--is-first" />
+		<txp::figure limit="1" class="u_m--b" />
 	</txp:if_article_image>
-	<div itemprop="articleBody" class="t-columns flow typeset">
+
+	<div itemprop="articleBody" class="b_typeset l_article-body l_article-body--twin l_width-limited u_m--tt u_m--bb">
 		<txp:body />
 	</div>
 
 	<txp:if_article_image>
-		<txp::figure limit="10" offset="1" wraptag="div" class="images all-grid--loose" />
+		<div class="l_grid l_grid--tri@small l_grid--images">
+			<txp::figure offset="1" limit="10" />
+		</div>
 	</txp:if_article_image>
 
-</article>
+	</article>
+
+</txp:if_article_list>

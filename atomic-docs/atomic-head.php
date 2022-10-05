@@ -2,7 +2,4 @@
 
 
 
-<link rel="stylesheet" href="css/main.css">
-
-
-
+<link rel="stylesheet" href="../styles/main.css?v=<?php echo date('jS-F-Y-h-i-s-A');?>">

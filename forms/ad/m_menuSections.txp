@@ -1,0 +1,19 @@
+<txp:if_yield name="compact">
+  <div class="m_menu--compact">
+    <txp:if_section name='<txp:section />'>
+      <p class="m_menu--compact__current"><txp:section title /></p>
+    </txp:if_section>
+</txp:if_yield>
+<txp:section_list sort="on_frontpage desc,name asc" wraptag="ul" break="" class='m_menu a_list-bare <txp:yield name="class" />' include_default="0">
+  <li class="m_menu__child<txp:if_section name='<txp:section />'> m_menu__child--active</txp:if_section>">
+    <txp:section title link />
+    <txp:if_yield name="drop-down">
+      <txp:article_custom section='<txp:section />' wraptag="ul" break="li" class='m_menu a_list-bare'>
+        <txp:permlink><small><txp:title /></small></txp:permlink>
+      </txp:article_custom>
+    </txp:if_yield>
+  </li>
+</txp:section_list>
+<txp:if_yield name="compact">
+  </div>
+</txp:if_yield>

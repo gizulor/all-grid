@@ -1,0 +1,53 @@
+/* scss/0-settings-tools/_s_config.scss */
+
+// required as sass variables for Shevy to work
+$base-font-size: 1rem; // 16px
+//$base-font-size: clamp(0.875rem, calc(5vw * 1rem), 1.125rem);
+$base-line-height: 1.5; // 24px
+// repeated below as a css variable
+
+$base-spacing-shevy: (
+  base-font-size: $base-font-size,
+  base-line-height: $base-line-height
+);
+
+@function my-bs($factor: 1) { // Default factor of one
+  @return bs($factor, $base-spacing-shevy);
+}
+
+
+
+// Major Third type scale for headings: https://type-scale.com
+$h1: 3.052;
+$h2: 2.441;
+$h3: 1.953;
+$h4: 1.563;
+$h5: 1.25;
+$h6: 1;
+$type-measure: 72ch;
+
+:root {
+    --base-unit: 1.5rem;
+    --base-unit--ss: calc(var(--base-unit) / 4);
+    --base-unit--s: calc(var(--base-unit) / 2);
+    --base-unit--b: calc(var(--base-unit) * 2);
+    --base-line-height: 1.5rem;
+
+
+    --thumb-aspect-ratio: 1.618/1;
+    --thumb-aspect-ratio: auto;
+    --thumb-background-colour: var(--whiteLC);
+    --hamburger-background-colour: var(--whiteLC);
+    --type-measure: 72ch;
+}
+
+$mobile: 320px;
+$small: 640px;
+$medium: 960px;
+$desktop: 1318px;
+
+
+@media (orientation: landscape) {
+}
+@media (orientation: portrait) {
+}

@@ -1,0 +1,52 @@
+<!-- components/6-layouts/l_column.txp -->
+<style>
+    .source .l_columns {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: var(--base-unit);
+    }
+    .l_columns .l_column {
+        border: 1px solid var(--black);
+        min-height: calc(var(--base-unit--b)* 4);
+    }
+    .l_columns .l_column > * {
+        padding: var(--base-unit--ss);
+        margin: 0;
+    }
+
+</style>
+<div class="l_columns">
+<div class="l_column">
+    <p>top <small>(default)</small></p>
+    <p>top <small>(default)</small></p>
+    <p>top <small>(default)</small></p>
+</div>
+
+<div class="l_column middlev">
+    <p>middlev</p>
+    <p>middlev</p>
+    <p>middlev</p>
+</div>
+<div class="l_column bottom">
+    <p>bottom</p>
+    <p>bottom</p>
+    <p>bottom</p>
+</div>
+
+<div class="l_column space-between">
+    <p>space-between</p>
+    <p>space-between</p>
+    <p>space-between</p>
+</div>
+
+<div class="l_column middle">
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+</div>
+<div class="l_column right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+</div>
+</div>

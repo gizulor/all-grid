@@ -1,0 +1,14 @@
+/* scss/7-utilities/_u_hide.scss */
+
+.u_hide {
+  @media screen and (max-width: $medium) {
+    &--to-medium {
+       display: none;
+    }
+ }
+  @media screen and (min-width: $medium) {
+     &--from-medium {
+        display: none;
+     }
+  }
+}

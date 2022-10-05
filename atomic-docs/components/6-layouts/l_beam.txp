@@ -1,0 +1,55 @@
+<!-- components/6-layouts/l_beam.txp -->
+
+<style>
+    .source .l_beams {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: var(--base-unit);
+    }
+    .l_beams .l_beam {
+        border: 1px solid var(--black);
+       height: calc(var(--base-unit--b)* 3);
+        margin-bottom: var(--base-unit--ss);
+    }
+    .l_beams .l_beam > * {
+        padding: var(--base-unit--ss);
+        margin: 0;
+    }
+
+</style>
+<div class="l_beams">
+<div class="l_beam">
+    <p>top <small>(default)</small></p>
+    <p>top <small>(default)</small></p>
+    <p>top <small>(default)</small></p>
+</div>
+
+<div class="l_beam middle">
+    <p>middle</p>
+    <p>middle</p>
+    <p>middle</p>
+</div>
+<div class="l_beam right">
+    <p>right</p>
+    <p>right</p>
+    <p>right</p>
+</div>
+
+<div class="l_beam space-between">
+    <p>space-between</p>
+    <p>space-between</p>
+    <p>space-between</p>
+</div>
+
+<div class="l_beam middlev">
+    <p>middlev</p>
+    <p>middlev</p>
+    <p>middlev</p>
+</div>
+
+<div class="l_beam bottom">
+    <p>bottom</p>
+    <p>bottom</p>
+    <p>bottom</p>
+</div>
+</div>

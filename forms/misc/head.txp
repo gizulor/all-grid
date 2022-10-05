@@ -5,12 +5,13 @@
 	<title><txp:page_title /></title>
 
 	<!-- if you prefer to build your css locally, using flat files or without browser caching problems… -->
-	<txp:if_logged_in name="user-name">
+	<txp:if_logged_in name="giz">
 		<txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
-		<link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/all-grid.css?v=<txp:variable name="cache-buster" />">
+		<link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
 		<!-- <txp:css format="flat.link"/> -->
 	<txp:else />
-			<txp:css format="link"/>
+			<!-- <txp:css format="link"/> -->
+		<link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/main.css">
 	</txp:if_logged_in>
 
 <txp:hide>

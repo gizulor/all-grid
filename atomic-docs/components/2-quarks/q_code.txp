@@ -1,0 +1,4 @@
+<!-- components/2-quarks/q_code.txp -->
+
+<pre><code>This is a code block
+over two lines.</code></pre>

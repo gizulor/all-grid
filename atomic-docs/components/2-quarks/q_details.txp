@@ -1,0 +1,6 @@
+<!-- components/2-quarks/q_details.txp -->
+
+<details>
+    <summary>Congratulations, you played yourself.</summary>
+    <p>It’s on you how you want to live your life. </p>
+</details>

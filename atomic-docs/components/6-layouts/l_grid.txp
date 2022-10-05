@@ -1,0 +1,15 @@
+<!-- components/6-layouts/l_grid.txp -->
+<div class="l_grid l_grid--tri@medium">
+    <div>Child</div>
+    <div>Child</div>
+    <div>Child</div>
+    <div>Child</div>
+    <div>Child</div>
+</div>
+
+<style>
+    .source .l_grid > * {
+        border: 1px solid var(--black);
+        padding: var(--base-unit--ss);
+    }
+</style>

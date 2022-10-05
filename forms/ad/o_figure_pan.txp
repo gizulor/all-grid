@@ -1,0 +1,15 @@
+<figure class="a_image a_image--pan <txp:yield name="class" />">
+    <!-- ken-burns-carousel attributes
+        animation-direction=
+                            normal
+                            reverse
+                            random
+        animation-names=    ken-burns-center
+                            ken-burns-middle-left
+                            etc
+    -->
+<ken-burns-carousel images="<txp:images break=" "><txp:image_url />
+</txp:images>">
+</ken-burns-carousel>
+</figure>
+<txp:variable name="kenburns" value="1" />

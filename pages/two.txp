@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+
+<txp:output_form form="head" bodyclass="u_baseline-grid">
+<style>
+	.m_thumb {
+		/* override default thumb aspect ratio */
+	//	--thumb-aspect-ratio: 1/1;
+	}
+</style>
+</txp:output_form>
+
+<txp::o_header_common />
+
+
+<txp:if_individual_article>
+	<txp::o_pagination section class="a_heading h3-style l_island l_island--eastwest l_beam l_beam--spaced right@small" />
+</txp:if_individual_article>
+
+<txp:if_article_list>
+	<nav class="l_island l_grid l_grid--twin l_width-limited">
+		<div class="l_column bottom">
+			<h2 class="a_heading u_m--b0"><txp:section title link /><txp::u_edit url='event=section&step=section_edit&name=<txp:section />' /></h2>
+			<txp:meta_description type="section" format="" wraptag="small" />
+		</div>
+		<txp::m_menuCategories compact class="l_column bottom"/>
+	</nav>
+</txp:if_article_list>
+
+<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
+	<txp:if_category>
+		<txp:article_custom listform="thumb" form="thumb" category='<txp:page_url type="c" />' wraptag="ul" class="l_island l_island--eastwest a_list-bare l_grid l_grid--twin l_width-limited" break="" limit="20"/>
+	<txp:else />
+		<txp:article listform="thumb" wraptag="ul" class="l_island l_island--eastwest a_list-bare l_grid l_grid--twin l_width-limited" break="" limit="20" sort="rand()"/>
+	</txp:if_category>
+</main>
+
+<txp::o_footer />
+<txp::o_javascript />
+</body>
+</html>

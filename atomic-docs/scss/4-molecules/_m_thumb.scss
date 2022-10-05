@@ -1,0 +1,18 @@
+/* scss/4-molecules/_m_thumb.scss */
+
+.m_thumb {
+  position: relative;
+  > a {
+    //height: 100%;
+  }
+  &__image {
+    aspect-ratio: var(--thumb-aspect-ratio);
+  }
+  &__inner {
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+
+}
