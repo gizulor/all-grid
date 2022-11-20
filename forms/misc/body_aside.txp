@@ -1,3 +1,0 @@
-<txp:evaluate test="linklist">
-	<txp:linklist category="social" form="sociallinks" wraptag="ul" break="li" class="list-bare"/>
-</txp:evaluate>

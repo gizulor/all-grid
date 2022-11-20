@@ -5,5 +5,12 @@
   top: 0;
   z-index: 1;
   background-color: var(--background-colour);
-  border-bottom: 2px solid var(--black);
+ // border-bottom: 2px solid var(--black);
+  &__child {
+
+  }
+
+  a {
+    margin-bottom: 0;
+  }
 }

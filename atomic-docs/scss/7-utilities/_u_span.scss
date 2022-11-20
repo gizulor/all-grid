@@ -4,4 +4,9 @@
     &--2 {
         grid-column: span 2;
     }
+
+    &--full-width {
+        grid-column-start: 1;
+        grid-column-end: -1;
+    }
 }

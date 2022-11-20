@@ -1,11 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<g id="White_1_">
-	<path d="M82.026,14H17.974C15.779,14,14,15.779,14,17.974v64.053C14,84.221,15.779,86,17.974,86h34.483V58.118h-9.383V47.252h9.383
-		v-8.014c0-9.3,5.68-14.363,13.976-14.363c3.974,0,7.389,0.295,8.385,0.428v9.719l-5.754,0.003c-4.512,0-5.385,2.144-5.385,5.29
-		v6.938h10.76l-1.401,10.866h-9.359V86h18.348C84.221,86,86,84.221,86,82.026V17.974C86,15.779,84.221,14,82.026,14z"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <g fill="none" fill-rule="evenodd" class="page-1">
+    <g fill="#000" fill-rule="nonzero" class="social-facebook">
+      <path d="M34.013 0H1.987C.889 0 0 .89 0 1.987v32.026C0 35.111.89 36 1.987 36h17.242V22.059h-4.692v-5.433h4.691v-4.007c0-4.65 2.84-7.181 6.988-7.181 1.987 0 3.695.147 4.193.214v4.859l-2.877.002c-2.256 0-2.692 1.072-2.692 2.645v3.469h5.38l-.701 5.433h-4.68V36h9.175C35.11 36 36 35.11 36 34.013V1.987C36 .889 35.11 0 34.013 0z" class="path"/>
+    </g>
+  </g>
 </svg>

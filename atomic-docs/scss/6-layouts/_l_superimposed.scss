@@ -4,14 +4,12 @@
     position: relative;
 
 
-    &.has--image-omitted  {
+    &.has--image-omitted {
         @media (max-width: $small) {
             min-height: my-bs(6);
-        //aspect-ratio: var(--thumb-aspect-ratio);
         }
     }
 
-    //overflow: hidden;
     &--fold-limited {
         @media (orientation: landscape) {
             height: 66vh;
@@ -21,6 +19,7 @@
             height: 80vh;
         }
     }
+
     &__inner {
         position: absolute;
         top: 0;
@@ -33,45 +32,40 @@
         }
 
         &.bg-colour {
-            //background: var(--background-colour);
             background: var(--thumb-background-colour);
-            //min-height: max-content;
             color: var(--black);
         }
 
         color: var(--white);
+
         &--shiftingtiles {
             color: inherit;
+
             @media (max-width: $small) {
                 background-color: var(--background-colour);
-               // position: relative;
                 height: max-content;
                 padding-bottom: my-bs(1);
             }
-            @media (min-width: $small) {
-               // padding: var(--base-unit);
-                display: grid;
-                grid-template-columns: repeat(5,1fr);
-                grid-template-rows: repeat(4, 1fr);
-                grid-gap:  var(--shiftingtiles-gap);
-                // align-items: end;
-                // align-content: end;
 
-                > * {
+            @media (min-width: $small) {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                grid-template-rows: repeat(4, 1fr);
+                grid-gap: var(--shiftingtiles-gap);
+
+                >* {
                     background-color: var(--white);
                     padding: my-bs(.5) var(--base-unit--s);
                     margin: calc(var(--shiftingtiles-gap)* -.5);
                 }
+
                 [itemprop="headline"] {
                     grid-column-start: 2;
                     grid-row-start: 2;
                     display: grid;
                     align-items: end;
-                    // align-content: end;
-                   // align-self: end;
-                    //align-content: end;
-                   //height: 100%;
                 }
+
                 [itemprop="description"] {
                     grid-column-start: 3;
                     grid-row-start: 3;
@@ -86,13 +80,10 @@
         height: 100%;
         width: 100%;
         background-color: var(--black);
-        img {
-            //background-position: bottom;
-        }
     }
 
-    [itemprop="description"] > *:last-child {
-             margin-bottom: 0;
+    [itemprop="description"]>*:last-child {
+        margin-bottom: 0;
     }
 
 }

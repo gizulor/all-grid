@@ -3,6 +3,7 @@
 .a_image {
   position: relative; // allow for positioning of the .u_edit-in-txp component
   min-height: max-content;
+
   &--1x1 {
     aspect-ratio: 1/1;
   }
@@ -31,6 +32,7 @@
     height: 100%;
     width: 100%;
   }
+
   &--has-caption:not(.a_image--hide-caption) img {
     height: auto;
   }

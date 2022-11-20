@@ -26,12 +26,12 @@
     .buttons & {
       padding: 0 var(--base-unit--ss);
       height: min-content;
-      //border: 2px solid var(--black);
+      background: var(--black);
+      color: var(--white);
       &--active,
-      &:hover,
-      .detail-page & {
-        background: var(--black);
-        color: var(--white);
+      &:hover {
+        background: var(--white);
+        color: var(--black);
       }
     }
 
@@ -59,7 +59,6 @@
 
     ul {
       display: none;
-      //top: 0;
       width: max-content;
       position: absolute;
       @include menubg();
@@ -74,7 +73,7 @@
     z-index:2;
     width: max-content;
     &__current {
-        font-weight: 500;
+        font-weight: 400;
         cursor: pointer;
         &:after{
           content:  url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAyMyAxMyIg
@@ -83,7 +82,6 @@
           4wNzU5OTk5IDAuOTU0OTA1WiIgZmlsbD0iIzI3MjcyNyIvPgo8L3N2Zz4K");
         display: inline-block;
         transform: scale(.62);
-       // margin-left: var(--base-unit--s);
      }
     }
 
@@ -91,8 +89,6 @@
       position: relative;
     > ul {
         display: none;
-        // transform-origin: top;
-        // transform: scaleY(0);
         position: absolute;
         z-index: -1;
         width: max-content;
@@ -103,11 +99,6 @@
         padding-left: var(--base-unit);
         left: calc(var(--base-unit) * -1);
         @include menubg();
-       // padding-top: my-bs(2);
-        // :hover > & {
-        //   border: 1px solid red;
-        //   transform: scaleY(1);
-        // }
 
         .m_menu__child--active {
           display: none;
@@ -116,7 +107,6 @@
         }
     &:hover ul {
       display: block;
-     // background: var(--background-colour);
     }
 
 

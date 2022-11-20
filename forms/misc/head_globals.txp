@@ -1,3 +1,2 @@
-	<!-- hide if not using slir for image resizing -->
+<txp:hide><!-- hide if not using slir for image resizing --></txp:hide>
 <txp:variable name="pathtoslirfolder" value='<txp:site_url />slir' />
-<txp:variable name="style-switcher" value="0" />

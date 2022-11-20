@@ -1,24 +1,25 @@
-<txp::images_preprocess random-bg-colourz />
+<txp::images_preprocess />
 
 <li class="m_thumb <txp:variable name="m_thumb-class" /> has--image-<txp:variable name='image-orientation' />" itemprop itemscope itemtype="http://schema.org/CreativeWork">
 
-	<txp::u_debug title='form: thumb' />
+  <txp::u_debug title='form: thumb' />
 
-	<a class="" href="<txp:permlink />" itemprop="url">
+  <a href="<txp:permlink />" itemprop="url">
 
-		<txp:if_article_image>
-			<txp::figure class="m_thumb__image a_image--hide-caption u_m--b" type="thumb" />
-		</txp:if_article_image>
+    <txp:if_article_image>
+      <txp::figure class="m_thumb__image a_image--hide-caption u_m--b" type="thumb" />
+    </txp:if_article_image>
 
-		<h3 itemprop="headline" class="a_heading h5-style h4-style@medium"><txp:title /><txp::u_edit /></h3>
+    <h3 itemprop="headline" class="h5-style h4-style@medium"><txp:title /><txp::u_edit /></h3>
 
-		<txp:evaluate>
-			<div itemprop="description"><txp:excerpt /></div>
-		</txp:evaluate>
+    <txp:evaluate>
+      <div itemprop="description"><txp:excerpt /></div>
+    </txp:evaluate>
 
-		<txp:if_category>
-			<txp:section title /><txp::m_menuCategories_article  class="l_beam l_beam--wrap b_small" />
-		</txp:if_category>
-		</a>
+    <txp:if_category>
+      <txp:section title /><txp::m_menuCategories_article  class="l_beam l_beam--wrap b_small" />
+    </txp:if_category>
+
+  </a>
 
 </li>

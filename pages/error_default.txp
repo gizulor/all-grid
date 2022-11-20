@@ -3,16 +3,16 @@
 
 <txp:output_form form="head" />
 
-	<txp::body_header menu='<txp:variable name="menu" />' />
+<txp::o_header_common />
 
-	<!-- Main content -->
-	<main id="main" aria-label="<txp:text item="main_content" />" class="all-grid all-grid--centered">
-		<h1 class="error-status"><txp:error_status /></h1>
-		<p class="error-msg">Computer says No:<br />“<txp:error_message />”</p>
-		<txp:output_form form="body_aside" />
-	</main>
+<!-- Main content -->
+<main id="main" aria-label="<txp:text item="main_content" />" class="l_island">
+  <h1><txp:error_status /></h1>
+  <p class="h2-style">Computer says No:<br />“<txp:error_message />”</p>
+</main>
 
-	<txp:output_form form="body_footer" />
+<txp::o_footer />
+<txp::o_javascript />
 
 </body>
 </html>

@@ -90,7 +90,6 @@
 
 
   &--twin {
-    border: 1px solid red;
     @extend .l_grid,
     .l_grid--twin\@small;
   }

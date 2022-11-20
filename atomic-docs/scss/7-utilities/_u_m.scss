@@ -5,15 +5,19 @@
 
     &--t {
         margin-top: my-bs(1.5);
+
         &0 {
             margin-top: 0;
         }
     }
+
     &--tt {
         margin-top: my-bs(4.5);
     }
+
     &--l {
         margin-left: var(--base-unit);
+
         &0 {
             margin-left: 0;
         }
@@ -22,6 +26,7 @@
 
     &--r {
         margin-right: var(--base-unit);
+
         &0 {
             margin-right: 0;
         }
@@ -29,15 +34,18 @@
 
     &--b {
         margin-bottom: my-bs(1.5);
+
         &0 {
             margin-bottom: 0;
         }
     }
+
     @media (max-width: $small) {
         &--b {
             margin-bottom: my-bs(.75);
         }
     }
+
     &--bb {
         margin-bottom: my-bs(4.5);
     }

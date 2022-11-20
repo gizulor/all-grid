@@ -6,26 +6,31 @@
         outline: 1px solid rgba(green, .25);
     }
 
-    &__info{
+    &--info{
         position: absolute;
         z-index: 10;
-        margin-top: my-bs(.75);
+       top: my-bs(.5);
         left: var(--base-unit);
-        font-size: .5rem;
+        font-size: .75rem;
+        opacity: 0;
+        transition: opacity .3s linear;
        .l_superimposed &,
        .m_thumb & {
-           //opacity: 0;
-           &:hover  & {
-           // opacity: 1;
-           }
             color: var(--white);
         }
         .has--image-omitted & {
             color: var(--black);
-            //margin-top: - my-bs(1);
         }
         &.raised {
             margin-top: - my-bs(1);
         }
+        &.static {
+            position: static;
+        }
     }
+
+}
+
+*:hover > .u_debug--info {
+    opacity: 1;
 }

@@ -1,78 +1,68 @@
 <txp:output_form form="head_globals" />
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-	<title><txp:page_title /></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title><txp:page_title /></title>
 
-	<!-- if you prefer to build your css locally, using flat files or without browser caching problems… -->
-	<txp:if_logged_in name="giz">
-		<txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
-		<link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
-		<!-- <txp:css format="flat.link"/> -->
-	<txp:else />
-			<!-- <txp:css format="link"/> -->
-		<link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/main.css">
-	</txp:if_logged_in>
+  <!-- if you prefer to build your css locally, using flat files or without browser caching problems… -->
+  <txp:if_logged_in name="username">
+    <txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
+    <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
+    <!-- <txp:css format="flat.link"/> -->
+  <txp:else />
+    <txp:css format="link" name="main" />
+    <!-- <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/main.css"> -->
+  </txp:if_logged_in>
 
-<txp:hide>
-	<txp:if_variable name="style-switcher" value="1">
-		<txp:css format="flat"/>
-	</txp:if_variable>
-	<txp:output_form form="style_switcher" />
-</txp:hide>
+  <meta name="generator" content="Textpattern CMS">
 
+  <txp:if_search>
+    <meta name="robots" content="none">
+  <txp:else />
+    <txp:if_author>
+      <meta name="robots" content="noindex, follow">
+    <txp:else />
+      <txp:meta_description />
+      <txp:if_category>
+        <meta name="robots" content="noindex, follow">
+      <txp:else />
+        <txp:variable name="page" value='<txp:page_url type="pg" />' />
+        <txp:if_variable name="page" value="1">
+          <meta name="robots" content="index, follow">
+          <link rel="canonical" href="<txp:site_url />">
+          <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "headline": "<txp:site_name escape="json" />",
+              <txp:if_description>"description": "<txp:meta_description format="" escape="json" />",</txp:if_description>
+              "url": "<txp:site_url escape="json" />"
+            }
+          </script>
+        <txp:else />
+          <meta name="robots" content="noindex, follow">
+        </txp:if_variable>
+      </txp:if_category>
+    </txp:if_author>
+  </txp:if_search>
 
-	<meta name="generator" content="Textpattern CMS">
-
-	<txp:if_search>
-		<meta name="robots" content="none">
-	<txp:else />
-		<txp:if_author>
-			<meta name="robots" content="noindex, follow">
-		<txp:else />
-			<txp:meta_description />
-			<txp:if_category>
-				<meta name="robots" content="noindex, follow">
-			<txp:else />
-				<txp:variable name="page" value='<txp:page_url type="pg" />' />
-				<txp:if_variable name="page" value="1">
-					<meta name="robots" content="index, follow">
-					<link rel="canonical" href="<txp:site_url />">
-					<script type="application/ld+json">
-						{
-							"@context": "https://schema.org",
-							"@type": "WebSite",
-							"headline": "<txp:site_name escape="json" />",
-							<txp:if_description>"description": "<txp:meta_description format="" escape="json" />",</txp:if_description>
-							"url": "<txp:site_url escape="json" />"
-						}
-					</script>
-				<txp:else />
-					<meta name="robots" content="noindex, follow">
-				</txp:if_variable>
-			</txp:if_category>
-		</txp:if_author>
-	</txp:if_search>
-
-	<!-- content feeds -->
-	<txp:feed_link flavor="atom" format="link" label="Atom" />
-	<txp:feed_link flavor="rss" format="link" label="RSS" />
-	<txp:yield />
-	<script src="<txp:page_url type="theme_path" />/js/lazysizes.min.js" async=""></script>
+  <!-- content feeds -->
+  <txp:feed_link flavor="atom" format="link" label="Atom" />
+  <txp:feed_link flavor="rss" format="link" label="RSS" />
+  <txp:yield />
 </head>
 
 
 <txp:if_section name=",default">
-	<body class="front-page listing-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/WebPage">
+  <body class="front-page listing-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/WebPage">
 <txp:else />
-	<txp:if_search>
-		<body class="search-page listing-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/SearchResultsPage">
-	<txp:else />
-		<txp:if_article_list>
-			<body class="listing-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CollectionPage">
-		<txp:else />
-			<body class="detail-page <txp:yield name="bodyclass" /> <txp:variable name="menu" />--is-active <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CreativeWork">
-		</txp:if_article_list>
-	</txp:if_search>
+  <txp:if_search>
+    <body class="search-page listing-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/SearchResultsPage">
+  <txp:else />
+    <txp:if_article_list>
+      <body class="listing-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CollectionPage">
+    <txp:else />
+      <body class="detail-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CreativeWork">
+    </txp:if_article_list>
+  </txp:if_search>
 </txp:if_section>
-<txp:variable name="all-grid-switch__nav" />

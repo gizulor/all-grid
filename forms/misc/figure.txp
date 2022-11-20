@@ -1,66 +1,66 @@
 <txp:images id='<txp:if_yield name="id"><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="1" />' break="">
 
+<txp:hide>
+  <txp::images_orientation />
+</txp:hide>
 
-	<txp::images_orientation />
-	<txp:if_variable name="pathtoslirfolder" value>
-		<txp:if_yield name="crop" value="auto">
-			<txp:variable name="slir-crop"><txp:variable name="image-crop" /></txp:variable>
-		<txp:else />
-			<txp:variable name="slir-crop"><txp:yield name="crop" /></txp:variable>
-		</txp:if_yield>
-	</txp:if_variable>
-	<txp:variable name="caption" value='<txp:image_info />' />
-	<txp:variable name="theimage">
+  <txp:if_variable name="pathtoslirfolder" value>
+    <txp:if_yield name="crop" value="auto">
+      <txp:variable name="slir-crop"><txp:variable name="image-crop" /></txp:variable>
+    <txp:else />
+      <txp:variable name="slir-crop"><txp:yield name="crop" /></txp:variable>
+    </txp:if_yield>
+  </txp:if_variable>
+  <txp:variable name="caption" value='<txp:image_info />' />
+  <txp:variable name="theimage">
 
-		<txp:hide>
-		<!-- slir image resizing (set the pathtoslirfolder variable in form head_globals) -->
-		</txp:hide>
-		<img data-sizes="auto"
-			<txp:hide>data-src="<txp:variable name="pathtoslirfolder" />/w320-c<txp:variable name="slir-crop" />/<txp:image_url />"</txp:hide>
-			data-srcset="<txp:variable name="pathtoslirfolder" />/w320-c<txp:variable name="slir-crop" />/<txp:image_url /> 300w,
-				<txp:variable name="pathtoslirfolder" />/w640-c<txp:variable name="slir-crop" />/<txp:image_url /> 600w,
-				<txp:variable name="pathtoslirfolder" />/w1280-c<txp:variable name="slir-crop" />/<txp:image_url /> 1200w,
-				<txp:variable name="pathtoslirfolder" />/c<txp:variable name="slir-crop" />/<txp:image_url /> 2400w"
-			alt="<txp:image_info type='alt' />"
-			<txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-			class="lazyload" />
+    <txp:hide>
+    <!-- slir image resizing (set the pathtoslirfolder variable in form head_globals) -->
+    <img data-sizes="auto"
+      data-srcset="<txp:variable name="pathtoslirfolder" />/w320-c<txp:variable name="slir-crop" />/<txp:image_url /> 300w,
+        <txp:variable name="pathtoslirfolder" />/w640-c<txp:variable name="slir-crop" />/<txp:image_url /> 600w,
+        <txp:variable name="pathtoslirfolder" />/w1280-c<txp:variable name="slir-crop" />/<txp:image_url /> 1200w,
+        <txp:variable name="pathtoslirfolder" />/c<txp:variable name="slir-crop" />/<txp:image_url /> 2400w"
+      alt="<txp:image_info type='alt' />"
+      <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
+      class="lazyload" />
+    </txp:hide>
 
-		<txp:hide>
-			<!-- smd_thumbnail image resizing (ensure your smd_thumbnail profile names match the type values below) -->
-			<img data-sizes="auto"
-				<txp:hide>data-src="<txp:smd_thumbnail type='320w' format='url' />"</txp:hide>
-				data-srcset="<txp:smd_thumbnail type='320w' format='url' /> 300w,
-					<txp:smd_thumbnail type='640w' format='url' /> 600w,
-					<txp:smd_thumbnail type='1280w' format='url' /> 1200w,
-					<txp:image_url /> 2400w"
-				alt="<txp:image_info type='alt' />"
-				<txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-				class="lazyload" />
-		</txp:hide>
+    <txp:hide>
+      <!-- smd_thumbnail image resizing (ensure your smd_thumbnail profile names match the type values below) -->
+      <img data-sizes="auto"
+        data-srcset="<txp:smd_thumbnail type='320w' format='url' /> 300w,
+          <txp:smd_thumbnail type='640w' format='url' /> 600w,
+          <txp:smd_thumbnail type='1280w' format='url' /> 1200w,
+          <txp:image_url /> 2400w"
+        alt="<txp:image_info type='alt' />"
+        <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
+        class="lazyload" />
+    </txp:hide>
 
-		<txp:hide>
-			<!-- for out-of-the-box testing purposes; no image resizing (outputs original image) -->
-			<img src="<txp:image_url />"
-				alt="<txp:image_info type='alt' />"
-				<txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-				<txp:if_first_article not>loading="lazy" </txp:if_first_article> />
-		</txp:hide>
+    <txp:hide>
+      <!-- for out-of-the-box testing purposes; no image resizing (outputs original image) -->
+    </txp:hide>
+      <img src="<txp:image_url />"
+        alt="<txp:image_info type='alt' />"
+        <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
+        <txp:if_first_article not>loading="lazy" </txp:if_first_article> />
 
-	</txp:variable>
+  </txp:variable>
 
-	<txp:variable name="captionclass" value='<txp:image_info />' />
-	<txp:if_variable name="captionclass" value><txp:variable name="captionclass" value="a_image--has-caption" /></txp:if_variable>
-	<figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="a_image <txp:yield name="class" /> <txp:variable name="image-orientation" /> <txp:variable name="captionclass" />" >
-		<txp:variable name="theimage" />
-		<meta itemprop="width" content="<txp:image_info type="w" />">
-		<meta itemprop="height" content="<txp:image_info type="h" />">
-		<txp::u_edit image />
-		<txp:evaluate>
-			<figcaption itemprop="caption" class="b_typeset b_typeset--small">
-				<txp:image_info escape="textile" />
-			</figcaption>
-		</txp:evaluate>
-	</figure>
+  <txp:variable name="captionclass" value='<txp:image_info />' />
+  <txp:if_variable name="captionclass" value><txp:variable name="captionclass" value="a_image--has-caption" /></txp:if_variable>
+  <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="a_image <txp:yield name="class" /> <txp:variable name="image-orientation" /> <txp:variable name="captionclass" />">
+    <txp:variable name="theimage" />
+    <meta itemprop="width" content="<txp:image_info type="w" />">
+    <meta itemprop="height" content="<txp:image_info type="h" />">
+    <txp::u_edit image />
+    <txp:evaluate>
+      <figcaption itemprop="caption" class="b_typeset b_typeset--small">
+        <txp:image_info escape="textile" />
+      </figcaption>
+    </txp:evaluate>
+  </figure>
 
-	<txp:yield />
+  <txp:yield />
 </txp:images>

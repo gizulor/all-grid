@@ -3,20 +3,23 @@
 .l_grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: my-bs(1.5) 0;
+  grid-gap: my-bs(1.5) var(--base-unit--s);
 
   &--gap-small {
     grid-gap: my-bs(.5) var(--base-unit--s);
   }
+
   &--twin {
     grid-template-columns: 1fr 1fr;
   }
+
   &--tri {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   @media (min-width: $small) {
     grid-gap: my-bs(1.5) var(--base-unit);
+
     &--twin\@small {
       grid-template-columns: 1fr 1fr;
     }
@@ -97,7 +100,6 @@
 
     .portrait {
 
-      //grid-row: span 2;
       &:nth-of-type(even) {
         grid-row: span 2;
         grid-column: span 2;
@@ -111,11 +113,10 @@
 
     >*:nth-of-type(2),
     >*:nth-of-type(5) {
-    @media (min-width: $small) {
-      grid-column: span 2;
-      margin-right: 50%;
-    }
-      // margin-right:25%;
+      @media (min-width: $small) {
+        grid-column: span 2;
+        margin-right: 50%;
+      }
     }
 
   }
@@ -124,8 +125,9 @@
 .l_grid--masonry {
   display: grid;
   grid-gap: my-bs(1.5);
-    .m_thumb {
-      figure {
+
+  .m_thumb {
+    figure {
       aspect-ratio: auto;
     }
 
@@ -141,26 +143,26 @@
     &.has--image-landscape img {
       aspect-ratio: 3/2;
     }
-    }
+  }
 
-   @media (min-width: $small) {
-   grid-gap: inherit;
+  @media (min-width: $small) {
+    grid-gap: inherit;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-right: calc(var(--base-unit) * -1);
+
     .m_thumb {
       height: min-content;
       flex-direction: column;
       margin-right: var(--base-unit);
       margin-bottom: my-bs(1.5);
       position: relative;
-        width: calc(33.333% - var(--base-unit));
-        min-height: my-bs(15);
+      width: calc(33.333% - var(--base-unit));
+      min-height: my-bs(15);
 
 
     }
   }
 
 }
-

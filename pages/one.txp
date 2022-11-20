@@ -1,56 +1,40 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
-<txp:output_form form="head" bodyclass="u_baseline-grid">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
-	<style>
-		.l_long {
-			//border-top: 2px solid var(--black);
-			//border-bottom: 2px solid var(--black);
-			font-family: Merriweather;
-			font-weight: 300;
-		}
 
-		.m_thumb {
-			/* override default thumb aspect ratio */
-			--thumb-aspect-ratio: 4/3;
-		}
+<txp:output_form form="head" bodyclass="">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+  <style>
+    .l_long {
+      font-family: Merriweather;
+      font-weight: 300;
+    }
 
-	</style>
+    .m_thumb {
+      /* override default thumb aspect ratio */
+      --thumb-aspect-ratio: 4/3;
+    }
+  </style>
 </txp:output_form>
 
 <txp::o_header_common />
 
 
 
+<txp:if_individual_article>
+  <txp::o_pagination section  class="h3-styled l_beam l_beam--spaced" />
+<txp:else/>
+    <txp::o_pagination section sectiondescription category class="h3-styled l_beam l_beam--spaced space-between" />
+</txp:if_individual_article>
 
 <main id="main" class="l_width-limited" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
 
-	<txp:if_individual_article>
-	<txp::o_pagination section class="a_heading h3-style l_island l_island--eastwest l_beam l_beam--spaced right@small" />
-	</txp:if_individual_article>
+  <txp:variable name="m_thumb-class" value="l_long__thumb" />
 
-	<txp:if_article_list>
-		<nav class="l_island l_grid l_grid--tri">
-			<div class="l_column bottom u_span--2">
-				<h2 class="a_heading u_m--b0"><txp:section title link /><txp::u_edit url='event=section&step=section_edit&name=<txp:section />' /></h2>
-				<txp:meta_description type="section" format="" wraptag="small" />
-			</div>
-			<txp::m_menuCategories compact` />
-		</nav>
-	</txp:if_article_list>
+  <txp:article form="long" limit="1" status="sticky" />
 
-<txp:hide>
-	<txp::o_pagination section class="a_heading h3-style u_debug  l_island l_island--eastwest l_beam l_beam--spaced space-between rightz" />
-</txp:hide>
-
-<txp:variable name="m_thumb-class" value="l_long__thumb" />
-
-	<txp:article form="long" limit="1" status="sticky" />
-
-	<txp:article listform="thumb" form="long" wraptag="ul" class="a_list-bare l_long l_long--thumbs l_island l_island--eastwest" break="" />
-
+  <txp:article listform="thumb" form="long" wraptag="ul" class="a_list-bare l_long l_island l_island--eastwest" break=""/>
 
 </main>
 

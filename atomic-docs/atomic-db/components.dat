@@ -310,5 +310,21 @@
         "backgroundColor": "",
         "order": -37,
         "has_js": "false"
+    },
+    {
+        "component": "m_video",
+        "category": "4-molecules",
+        "description": "",
+        "backgroundColor": "",
+        "order": -38,
+        "has_js": "false"
+    },
+    {
+        "component": "q_tables",
+        "category": "2-quarks",
+        "description": "",
+        "backgroundColor": "",
+        "order": -39,
+        "has_js": "false"
     }
 ]

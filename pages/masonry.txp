@@ -1,34 +1,31 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item=" lang_dir" />">
 
-<txp:output_form form="head" bodyclass="u_baseline-grid" />
+<txp:output_form form="head" bodyclass="">
+<style>
+  .m_thumb.has--image-omitted{
+    /* override default thumb bg colour */
+    background-color: var(--whiteLC);
+  }
+</style>
+</txp:output_form>
 
 <txp::o_header_common />
 
 <main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
 
 
+  <txp:if_individual_article>
+    <txp::o_pagination section  class="h3-styled l_beam l_beam--spaced" />
+  <txp:else/>
+    <txp::o_pagination section sectiondescription category class="h3-styled l_beam l_beam--spaced space-between" />
+  </txp:if_individual_article>
 
-<txp:if_individual_article>
-	<txp::o_pagination section class="a_heading h3-style l_island l_island--eastwest l_beam l_beam--spaced right@small" />
-</txp:if_individual_article>
+  <txp:article limit="1" status="sticky" />
 
-<txp:if_article_list>
-	<nav class="l_island l_grid l_grid--twin l_grid--tri@medium">
-		<div class="l_column bottom">
-			<h2 class="a_heading u_m--b0"><txp:section title link /><txp::u_edit url='event=section&step=section_edit&name=<txp:section />' /></h2>
-			<txp:meta_description type="section" format="" wraptag="small" />
-		</div>
-		<txp::m_menuCategories compact class="l_column bottom l_beamz l_beam--wrapz l_beam--spacedz gap-smallz z u_m--tz buttonsz b_smallz"/>
-	</nav>
-</txp:if_article_list>
-
-	<!-- this article is currently set to pan via override form -->
-	<txp:article limit="1" status="sticky" />
-
-<ul id="masonry-effect" class="a_list-bare l_grid--masonry">
-	<txp:article form="long" listform="thumb_superimposed" break="" sort="rand()" limit="20"/>
-</ul>
+  <ul id="masonry-effect" class="a_list-bare l_grid--masonry">
+    <txp:article form="long" listform="thumb_super" break="" sort="rand()" limit="20"/>
+  </ul>
 
 </main>
 
@@ -40,43 +37,41 @@
 var viewport_width = window.innerWidth;
 if (viewport_width > 640 ) {
 
-	let mainId = 'masonry-effect';
-	let itemIdentifier = '#masonry-effect .m_thumb';
+  let mainId = 'masonry-effect';
+  let itemIdentifier = '#masonry-effect .m_thumb';
 
-	document.addEventListener('DOMContentLoaded', function(e) {
+  document.addEventListener('DOMContentLoaded', function(e) {
 
-			// Programmatically get the column width
-			let item = document.querySelector(itemIdentifier);
-			let parentWidth = item.parentNode.getBoundingClientRect().width;
-			let itemWidth = item.getBoundingClientRect().width + parseFloat(getComputedStyle(item).marginLeft) + parseFloat(getComputedStyle(item).marginRight);
-			let columnWidth = Math.round((1 / (itemWidth / parentWidth)));
+      // Programmatically get the column width
+      let item = document.querySelector(itemIdentifier);
+      let parentWidth = item.parentNode.getBoundingClientRect().width;
+      let itemWidth = item.getBoundingClientRect().width + parseFloat(getComputedStyle(item).marginLeft) + parseFloat(getComputedStyle(item).marginRight);
+      let columnWidth = Math.round((1 / (itemWidth / parentWidth)));
 
-			// We need this line since JS nodes are dumb
-			let arrayOfItems = Array.prototype.slice.call( document.querySelectorAll(itemIdentifier) );
-			let trackHeights = {};
-			arrayOfItems.forEach(function(item) {
-					// Get index of item
-					let thisIndex = arrayOfItems.indexOf(item);
-					// Get column this and set width
-					let thisColumn = thisIndex % columnWidth;
-					if(typeof trackHeights[thisColumn] == "undefined") {
-							trackHeights[thisColumn] = 0;
-					}
-					trackHeights[thisColumn] += item.getBoundingClientRect().height + parseFloat(getComputedStyle(item).marginBottom);
-					// If the item has an item above it, then move it to fill the gap
-					if(thisIndex - columnWidth >= 0) {
-							let getItemAbove = document.querySelector(`${itemIdentifier}:nth-of-type(${thisIndex - columnWidth + 1})`);
-							let previousBottom = getItemAbove.getBoundingClientRect().bottom;
-							let currentTop = item.getBoundingClientRect().top - parseFloat(getComputedStyle(item).marginBottom);
-							item.style.top = `-${currentTop - previousBottom}px`;
-					}
-			});
-			let max = Math.max(...Object.values(trackHeights));
-			document.getElementById(mainId).style.height = `${max}px`;
-	});
+      // We need this line since JS nodes are dumb
+      let arrayOfItems = Array.prototype.slice.call( document.querySelectorAll(itemIdentifier) );
+      let trackHeights = {};
+      arrayOfItems.forEach(function(item) {
+          // Get index of item
+          let thisIndex = arrayOfItems.indexOf(item);
+          // Get column this and set width
+          let thisColumn = thisIndex % columnWidth;
+          if(typeof trackHeights[thisColumn] == "undefined") {
+              trackHeights[thisColumn] = 0;
+          }
+          trackHeights[thisColumn] += item.getBoundingClientRect().height + parseFloat(getComputedStyle(item).marginBottom);
+          // If the item has an item above it, then move it to fill the gap
+          if(thisIndex - columnWidth >= 0) {
+              let getItemAbove = document.querySelector(`${itemIdentifier}:nth-of-type(${thisIndex - columnWidth + 1})`);
+              let previousBottom = getItemAbove.getBoundingClientRect().bottom;
+              let currentTop = item.getBoundingClientRect().top - parseFloat(getComputedStyle(item).marginBottom);
+              item.style.top = `-${currentTop - previousBottom}px`;
+          }
+      });
+      let max = Math.max(...Object.values(trackHeights));
+      document.getElementById(mainId).style.height = `${max}px`;
+  });
 }
-
-
 </script>
 </body>
 

@@ -1,16 +1,16 @@
-<txp::images_preprocess random-bg-colour />
+<txp::images_preprocess />
 
 <div class="m_thumb has--image-<txp:variable name='image-orientation' />" itemprop itemscope itemtype="http://schema.org/CreativeWork">
 <txp::u_debug title='form: thumb_noexcerpt' />
 
-	<a class="" href="<txp:permlink />" itemprop="url">
+  <a class="" href="<txp:permlink />" itemprop="url">
 
-		<txp:if_article_image>
-			<txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" />
-		</txp:if_article_image>
+    <txp:if_article_image>
+      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" />
+    </txp:if_article_image>
 
-		<h3 itemprop="headline" class="a_heading h4-style@medium"><txp:title /></h3>
+    <h3 itemprop="headline" class="h4-style@medium"><txp:title /></h3>
 
-	</a>
+  </a>
 
 </div>

@@ -1,21 +1,26 @@
 /* scss/3-atoms/_a_headings.scss */
 
-h1,h2,h3,h4,h5,h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .a_heading {
-   letter-spacing: -.05rem;
-   font-weight: 400;
+  letter-spacing: -.05rem;
+  font-weight: 400;
 }
 
 h6 {
-   letter-spacing: initial;
+  letter-spacing: initial;
 }
 
 
 
 .a_heading--ellipsis {
-   text-overflow: ellipsis;
-   overflow: hidden;
-   white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 
@@ -23,77 +28,94 @@ h6 {
 
 .h0-style {
   @include heading($h0-shevy-small);
+
   @media screen and (min-width: $desktop) {
     @include heading($h0-shevy);
   }
+
   letter-spacing: -.07em;
 }
 
 .h1-style,
-.h1-styled > * {
+.h1-styled>* {
   @include heading($h1-shevy);
 }
+
 .h2-style,
-.h2-styled > * {
+.h2-styled>* {
   @include heading($h2-shevy);
 }
+
 .h3-style,
-.h3-styled > * {
-      @include heading($h3-shevy);
+.h3-styled>* {
+  @include heading($h3-shevy);
 }
+
 .h4-style,
-.h4-styled > * {
-      @include heading($h4-shevy);
+.h4-styled>* {
+  @include heading($h4-shevy);
 }
+
 .h5-style,
-.h5-styled > * {
-      @include heading($h5-shevy);
+.h5-styled>* {
+  @include heading($h5-shevy);
 }
+
 .h6-style,
-.h6-styled > * {
-   @extend h6;
+.h6-styled>* {
+  @extend h6;
 }
 
 
 @media screen and (min-width: $medium) {
-   .h1-style\@medium {
-      @include heading($h1-shevy);
-   }
-   .h2-style\@medium {
-      @include heading($h2-shevy);
-   }
-   .h3-style\@medium {
-      @include heading($h3-shevy);
-   }
-   .h4-style\@medium {
-      @include heading($h4-shevy);
-   }
-   .h5-style\@medium {
-      @include heading($h5-shevy);
-   }
-   .h6-style\@medium {
-      font-size: $h6 * 1rem;
-   }
+  .h1-style\@medium {
+    @include heading($h1-shevy);
+  }
+
+  .h2-style\@medium {
+    @include heading($h2-shevy);
+  }
+
+  .h3-style\@medium {
+    @include heading($h3-shevy);
+  }
+
+  .h4-style\@medium {
+    @include heading($h4-shevy);
+  }
+
+  .h5-style\@medium {
+    @include heading($h5-shevy);
+  }
+
+  .h6-style\@medium {
+    font-size: $h6 * 1rem;
+  }
 
 
-      .h1-styled\@medium > * {
-         @include heading($h1-shevy);
-      }
-      .h2-styled\@medium > * {
-         @include heading($h2-shevy);
-      }
-      .h3-styled\@medium > * {
-         @include heading($h3-shevy);
-      }
-      .h4-styled\@medium > * {
-         @include heading($h4-shevy);
-      }
-      .h5-styled\@medium > * {
-         @include heading($h5-shevy);
-      }
-      .h6-styled\@medium > * {
-         font-size: $h6 * 1rem;
-      }
+  .h1-styled\@medium>* {
+    @include heading($h1-shevy);
+  }
+
+  .h2-styled\@medium>* {
+    @include heading($h2-shevy);
+  }
+
+  .h3-styled\@medium>* {
+    @include heading($h3-shevy);
+  }
+
+  .h4-styled\@medium>* {
+    @include heading($h4-shevy);
+  }
+
+  .h5-styled\@medium>* {
+    @include heading($h5-shevy);
+  }
+
+  .h6-styled\@medium>* {
+    font-size: $h6 * 1rem;
+  }
 
 
 

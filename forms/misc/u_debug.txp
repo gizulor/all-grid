@@ -1,0 +1,3 @@
+<txp:if_logged_in>
+	<span class="u_debugz u_debug--info <txp:yield name="class" />"><txp:yield name="title" /></span>
+</txp:if_logged_in>

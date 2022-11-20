@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item=" lang_dir" />">
 
-<txp:output_form form="head" bodyclass="u_baseline-grid">
-<style>
-	.m_thumb {
-		/* override default thumb aspect ratio */
-		--thumb-aspect-ratio: 1618/1000;
-	}
-</style>
+<txp:output_form form="head" bodyclass="">
+  <style>
+    .m_thumb {
+      /* override default thumb aspect ratio */
+      --thumb-aspect-ratio: 1618/1000;
+    }
+  </style>
 </txp:output_form>
 
 <txp::o_header_common />
 
 <main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
 
+  <txp:if_individual_article>
+    <txp::o_pagination section class="h3-styled l_beam l_beam--spaced" />
+  </txp:if_individual_article>
 
+  <txp:article limit="1" status="sticky" />
 
-<txp:if_individual_article>
-	<txp::o_pagination section class="a_heading h3-style l_island l_island--eastwest l_beam l_beam--spaced right@small" />
-</txp:if_individual_article>
-
-	<!-- this article is currently set to pan via override form -->
-	<txp:article limit="1" status="sticky" />
-
-	<txp:article listform="thumb" wraptag="ul" class="l_island a_list-bare l_grid l_grid--tri@small" break="" />
-
+  <txp:article listform="thumb" form="long" wraptag="ul" class="l_island a_list-bare l_grid l_grid--tri@small" break="" />
 
 </main>
 

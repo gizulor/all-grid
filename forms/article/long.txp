@@ -1,32 +1,32 @@
-<txp::u_debug title='form: long' />
+<txp::u_debug class="static" title='form: long' />
 <txp::images_preprocess />
 <article class="l_long l_long--detail l_width-limited l_island has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
-	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-	<header class="l_grid l_grid--twin@small bottom u_p--b">
-		<div class="l_column bottom">
-			<h1 itemprop="headline" class="h0-style">
-				<txp:title />
-				<txp::u_edit />
-			</h1>
-		</div>
-		<div class="l_column bottom">
-			<txp:evaluate>
-				<aside itemprop="description" class="b_typeset--lede">
-					<txp:excerpt />
-				</aside>
-			</txp:evaluate>
-		</div>
-		<txp::m_posted />
-		<txp::m_menuCategories_article class="a_heading h5-style l_beam l_beam--wrap u_p--b buttons" />
-	</header>
+  <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+  <header class="l_grid l_grid--twin@small bottom u_p--b">
+    <div class="l_column bottom">
+      <h1 itemprop="headline" class="h0-style">
+        <txp:title />
+        <txp::u_edit />
+      </h1>
+    </div>
+    <div class="l_column bottom">
+      <txp:evaluate>
+        <aside itemprop="description" class="b_typeset b_typeset--lede">
+          <txp:excerpt />
+        </aside>
+      </txp:evaluate>
+    </div>
+    <txp::m_posted />
+    <txp::m_menuCategories_article class="h5-style l_beam l_beam--wrap u_p--b buttons" />
+  </header>
 
-	<div itemprop="articleBody" class="l_article-body l_article-body--single l_article-body--twinz l_width-limited">
-		<txp:body />
-	</div>
-	<txp:if_article_image>
-		<div class="l_grid l_grid--tri@small l_grid--images">
-			<txp::figure offset="1" limit="10" />
-		</div>
-	</txp:if_article_image>
+  <div itemprop="articleBody" class="b_typeset l_article-body l_article-body--single l_article-body--twinz l_width-limited">
+    <txp:body />
+  </div>
+  <txp:if_article_image>
+    <div class="l_grid l_grid--tri@small l_grid--images">
+      <txp::figure offset="1" limit="10" />
+    </div>
+  </txp:if_article_image>
 
 </article>

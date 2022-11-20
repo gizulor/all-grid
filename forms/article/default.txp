@@ -1,70 +1,89 @@
-	<txp::u_debug title='form: default' />
 <txp::images_preprocess random-bg-colourz />
 <txp:if_article_list>
-	<article class="u_debugz u_debug__form--default <txp:if_article_list>l_island l_island--eastwest</txp:if_article_list> has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
-	<a href="<txp:permlink />" itemprop="url">
+  <article class="<txp:if_article_list>l_island l_island--eastwest</txp:if_article_list> has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
+  <a href="<txp:permlink />" itemprop="url">
 
-		<txp:if_article_image>
-			<txp::figure limit="1" class="a_image--hide-caption u_fold-limited u_m--b" />
-		</txp:if_article_image>
+    <txp:if_custom_field name="video" value>
+      <txp::m_embed autoplay background='<txp:custom_field name="video" />' />
+			<txp:hide>
+				<txp::m_embed autoplay cf='<txp:custom_field name="video" />' />
+			</txp:hide>
+    <txp:else />
+    	<txp:if_article_image>
+      	<txp::figure id='<txp:images sort="rand()" limit="1"><txp:image_info type="id" /></txp:images>' class="a_image--hide-caption" />
+    	</txp:if_article_image>
+  	</txp:if_custom_field>
 
-		<div class="l_islandz l_island--northsouthz">
-			<h1 itemprop="headline" class="h3-style">
-				<txp:title />
-				<txp::u_edit />
-			</h1>
+    <div class="l_island l_island--northsouth">
+      <h1 itemprop="headline" class="h3-style">
+        <txp:title />
+        <txp::u_edit />
+      </h1>
+      <txp:hide><txp::m_posted /></txp:hide>
+      <txp::m_menuCategories_article  class="h5-style l_beam l_beam--wrap buttons u_m--b" />
 
-			<txp::m_menuCategories_article  class="a_heading h5-style l_beam l_beam--wrap buttons u_p--bz" />
 
-			<txp::m_posted />
+      <txp:evaluate>
+        <aside itemprop="description" class="b_typeset">
+          <txp:excerpt />
+        </aside>
+      </txp:evaluate>
 
-			<txp:evaluate>
-				<aside itemprop="description">
-					<txp:excerpt />
-				</aside>
-			</txp:evaluate>
-
-		</div>
-	</a>
-	</article>
+    </div>
+  </a>
+  </article>
 
 <txp:else />
-	<article class="u_debug u_debug__form--default l_island l_island--eastwest has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
-	<meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-	<header class="l_grid l_grid--twin@small bottom u_p--b u_p--t ">
-		<div class="l_column bottom">
-			<h1 itemprop="headline" class="a_heading h0-style">
-				<txp:title />
-				<txp::u_edit />
-			</h1>
+  <txp::u_debug title='form: default' />
+
+  <article class="l_width-limited l_island l_island--eastwest has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/CreativeWork">
+  <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+
+  <header class="l_grid l_grid--twin@small bottom u_p--b u_p--t ">
+    <div class="l_column bottom">
+      <h1 itemprop="headline" class="h0-style">
+        <txp:title />
+        <txp::u_edit />
+      </h1>
+    </div>
+
+    <div class="l_column bottom">
+      <txp:evaluate>
+        <aside itemprop="description" class="b_typeset b_typeset--lede">
+          <txp:excerpt />
+        </aside>
+      </txp:evaluate>
+    </div>
+
+    <txp::m_posted />
+
+    <txp::m_menuCategories_article class="h5-style l_beam l_beam--wrap u_p--b buttons" />
+  </header>
+
+  <txp:if_article_image>
+    <txp::figure limit="1" class="u_m--b" />
+  </txp:if_article_image>
+
+  <div itemprop="articleBody" class="b_typeset l_article-body l_article-body--twin l_width-limited u_m--tt u_m--bb">
+    <txp:body />
+  </div>
+
+  <txp:if_article_image>
+    <div class="l_grid l_grid--tri@small l_grid--images">
+      <txp::figure offset="1" limit="10" />
+    </div>
+  </txp:if_article_image>
+
+	<txp:if_custom_field name="video" value>
+		<div class="l_island l_island--northsouth">
+			<txp::m_embed background='<txp:custom_field name="video" />' />
+			<txp:hide>
+				<txp::m_embed autoplay cf='<txp:custom_field name="video" />' />
+			</txp:hide>
 		</div>
-		<div class="l_column bottom">
+	</txp:if_custom_field>
 
 
-			<txp:evaluate>
-				<aside itemprop="description" class="b_typeset--lede">
-					<txp:excerpt />
-				</aside>
-			</txp:evaluate>
-		</div>
-			<txp::m_posted />
-		<txp::m_menuCategories_article class="a_heading h5-style l_beam l_beam--wrap u_p--b buttons" />
-	</header>
-
-	<txp:if_article_image>
-		<txp::figure limit="1" class="u_m--b" />
-	</txp:if_article_image>
-
-	<div itemprop="articleBody" class="b_typeset l_article-body l_article-body--twin l_width-limited u_m--tt u_m--bb">
-		<txp:body />
-	</div>
-
-	<txp:if_article_image>
-		<div class="l_grid l_grid--tri@small l_grid--images">
-			<txp::figure offset="1" limit="10" />
-		</div>
-	</txp:if_article_image>
-
-	</article>
+  </article>
 
 </txp:if_article_list>

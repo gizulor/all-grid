@@ -1,6 +1,6 @@
 <!-- components/1-base/b_typeset.txp -->
 
-<div class="u_baseline-grid l_beam">
+<div class="u_baseline-grid">
     <div>
       <h1>Lorem Khaled Ipsum is a major key to success.</h1>
       <p>To succeed you must believe. When you believe, you will succeed. The key to more success is to have a lot of pillows.</p>

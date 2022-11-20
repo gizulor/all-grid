@@ -1,22 +1,22 @@
-<txp:hide><!-- 
-	Used to determine the orientation of the first article image for layout purposes
-	If no article image is specified, a random background colour can be specified
+<txp:hide><!--
+  Used to determine the orientation of the first article image for layout purposes
+  If no article image is specified, a random background colour can be specified
 
-	Call this shortcode via:
-		<txp::images_preprocess />
-	or
-		<txp::images_preprocess random-bg-colour />
-		
+  Call this shortcode via:
+    <txp::images_preprocess />
+  or
+    <txp::images_preprocess random-bg-colour />
+
 --></txp:hide>
 
 <txp:if_article_image>
-	<txp:images  break="" limit="1">
-		<txp:output_form form="images_orientation" />
-	</txp:images>
+  <txp:images  break="" limit="1">
+    <txp:output_form form="images_orientation" />
+  </txp:images>
 <txp:else />
-	<txp:if_yield name="random-bg-colour">
-		<txp:variable name="image-orientation" value='omitted bg--mix'/>
-	<txp:else />
-		<txp:variable name="image-orientation" value='omitted' />
-	</txp:if_yield>
+  <txp:if_yield name="random-bg-colour">
+    <txp:variable name="image-orientation" value='omitted bg--mix'/>
+  <txp:else />
+    <txp:variable name="image-orientation" value='omitted' />
+  </txp:if_yield>
 </txp:if_article_image>

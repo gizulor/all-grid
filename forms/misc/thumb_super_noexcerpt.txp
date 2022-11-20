@@ -1,0 +1,20 @@
+<txp::images_preprocess />
+<li class="m_thumb <txp:if_article_image not>l_superimposed</txp:if_article_image> has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Article">
+  <txp::u_debug title='form: thumb_super_noexcerpt' />
+  <a href="<txp:permlink />" itemprop="url">
+
+    <txp:if_article_image>
+      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" />
+    </txp:if_article_image>
+
+    <div class="m_thumb__inner  <txp:if_article_image>l_superimposed__inner bg-gradient<txp:else />bg-colour</txp:if_article_image> l_column bottom l_island">
+
+      <h3 itemprop="headline" class="h4-style@medium">
+        <txp:title />
+        <txp::u_edit />
+      </h3>
+    </div>
+
+  </a>
+
+</li>

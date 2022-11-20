@@ -147,6 +147,10 @@ $shevy-ssmall: (
     @extend .a_heading, .h4-styled, .h3-styled\@medium;
   }
 
+  a {
+    text-decoration: underline;
+  }
+
   blockquote p {
     &:before {
       content: '“';

@@ -1,42 +1,33 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
-<txp:output_form form="head" bodyclass="u_baseline-grid">
+<txp:output_form form="head" bodyclass="">
 <style>
-	.m_thumb {
-		/* override default thumb aspect ratio */
-		--thumb-aspect-ratio: 2/1;
-	}
+  .m_thumb {
+    /* override default thumb aspect ratio */
+    --thumb-aspect-ratio: 2/1;
+  }
 </style>
 </txp:output_form>
 
 <txp::o_header_common />
 
 <txp:if_individual_article>
-	<txp::o_pagination section class="a_heading h3-style l_island l_island--eastwest l_beam l_beam--spaced right@small" />
+  <txp::o_pagination section  class="h3-styled l_beam l_beam--spaced" />
+<txp:else/>
+  <txp::o_pagination section sectiondescription category class="h3-styled l_beam l_beam--spaced space-between" />
 </txp:if_individual_article>
 
-<txp:if_article_list>
-	<nav class="l_island l_grid l_grid--twin">
-		<div class="l_column bottom">
-			<h2 class="a_heading u_m--b0"><txp:section title link /><txp::u_edit url='event=section&step=section_edit&name=<txp:section />' /></h2>
-			<txp:meta_description type="section" format="" wraptag="small" />
-		</div>
-		<txp::m_menuCategories compact class="l_column bottom l_beamz l_beam--wrapz l_beam--spacedz gap-smallz z u_m--tz buttonsz b_smallz"/>
-	</nav>
-</txp:if_article_list>
+<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
 
-	<main id="main" aria-label="<txp:text item="main_content" />" itemscope itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>">
-		<txp:article form="detail_shifty" limit="1" status="sticky" />
-		<txp:article  form="detail_shifty" listform="thumb_superimposed_noexcerpt" wraptag="ul" class="a_list-bare l_grid l_grid--tri@small u_m--t l_width-limited" break="" limit="20"/>
-	</main>
+  <txp:article form="shifty" limit="1" status="sticky" />
 
+  <txp:article  form="shifty" listform="thumb_super_noexcerpt" wraptag="ul" class="a_list-bare l_grid l_grid--tri@small u_m--t l_width-limited" break="" limit="20"/>
 
-
-
+</main>
 
 <txp::o_footer />
-	<txp::o_javascript />
+<txp::o_javascript />
 
 </body>
 </html>
