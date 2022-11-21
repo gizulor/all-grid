@@ -23,15 +23,16 @@
 
     .aside,
     blockquote {
+      margin-left: var(--base-unit);
+      @media (min-width: $desktop) {
       width: 50%;
       float: right;
-      margin-left: var(--base-unit);
+
       margin-bottom: my-bs(1.5);
       p {
         @include heading($h5-shevy);
       }
 
-      @media (min-width: $desktop) {
         margin-right: calc(var(--type-measure) * -.25);
       }
     }

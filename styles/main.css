@@ -1024,19 +1024,19 @@ ken-burns-carousel {
     margin-bottom: 0.62em; }
   .l_article-body--single .aside,
   .l_article-body--single blockquote {
-    width: 50%;
-    float: right;
-    margin-left: var(--base-unit);
-    margin-bottom: 1.46rem; }
-    .l_article-body--single .aside p,
-    .l_article-body--single blockquote p {
-      font-size: 1.25em;
-      line-height: 1.5em;
-      margin-bottom: 0.78em; }
+    margin-left: var(--base-unit); }
     @media (min-width: 1318px) {
       .l_article-body--single .aside,
       .l_article-body--single blockquote {
-        margin-right: calc(var(--type-measure) * -.25); } }
+        width: 50%;
+        float: right;
+        margin-bottom: 1.46rem;
+        margin-right: calc(var(--type-measure) * -.25); }
+        .l_article-body--single .aside p,
+        .l_article-body--single blockquote p {
+          font-size: 1.25em;
+          line-height: 1.5em;
+          margin-bottom: 0.78em; } }
   .l_article-body--single h2,
   .l_article-body--single h3 {
     margin-top: 2.93rem; }
