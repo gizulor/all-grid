@@ -8,8 +8,9 @@ summary {
 	&:focus {
 		outline: none;
 	}
-	&::-webkit-details-marker {
-	  display: none;
+	&::-webkit-details-marker,
+	&::marker {
+		display: none;
 	}
 	&:after {
 	  content: "+";
