@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<txp:lang />" dir="<txp:text item=" lang_dir" />">
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
 <txp:output_form form="head" bodyclass="">
   <style>
