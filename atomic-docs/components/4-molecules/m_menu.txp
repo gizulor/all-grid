@@ -1,1 +1,61 @@
 <!-- components/4-molecules/m_menu.txp -->
+<div class="l_grid l_grid--twin">
+  <ul class="m_menu a_list-bare l_beam l_beam--wrap l_beam--spaced">
+    <li class="m_menu__child m_menu__child--active"><a href="#">One</a></li>
+    <li class="m_menu__child"><a href="#">Two</a></li>
+    <li class="m_menu__child"><a href="#">Three</a></li>
+    <li class="m_menu__child"><a href="#">Four</a></li>
+    <li class="m_menu__child"><a href="#">Five</a></li>
+  </ul>
+
+  <div class="m_menu--compact m_menu--compact__holder">
+    <p class="m_menu--compact__current">One</p>
+    <ul class="m_menu  a_list-bare">
+      <li class="m_menu__child m_menu__child--active"><a href="#">One</a></li>
+      <li class="m_menu__child"><a href="#">Two</a></li>
+      <li class="m_menu__child"><a href="#">Three</a></li>
+      <li class="m_menu__child"><a href="#">Four</a></li>
+      <li class="m_menu__child"><a href="#">Five</a></li>
+    </ul>
+  </div>
+
+  <ul class="m_menu--drop-down  l_beam l_beam--wrap l_beam--spaced a_list-bare">
+    <li class="m_menu__child">
+      <a href="#">One</a>
+      <ul class="m_menu a_list-bare">
+        <li class="m_menu__child"><a href="#">1</a></li>
+        <li class="m_menu__child"><a href="#">2</a></li>
+        <li class="m_menu__child"><a href="#">3</a></li>
+        <li class="m_menu__child"><a href="#">4</a></li>
+      </ul>
+    </li>
+    <li class="m_menu__child">
+      <a href="#">Two</a>
+      <ul class="m_menu a_list-bare">
+        <li class="m_menu__child"><a href="#">1</a></li>
+        <li class="m_menu__child"><a href="#">2</a></li>
+        <li class="m_menu__child"><a href="#">3</a></li>
+        <li class="m_menu__child"><a href="#">4</a></li>
+      </ul>
+    </li>
+    <li class="m_menu__child">
+      <a href="#">Three</a>
+      <ul class="m_menu a_list-bare">
+        <li class="m_menu__child"><a href="#">1</a></li>
+        <li class="m_menu__child"><a href="#">2</a></li>
+        <li class="m_menu__child"><a href="#">3</a></li>
+        <li class="m_menu__child"><a href="#">4</a></li>
+      </ul>
+    </li>
+    <li class="m_menu__child">
+      <a href="#">Four</a>
+      <ul class="m_menu a_list-bare">
+        <li class="m_menu__child"><a href="#">1</a></li>
+        <li class="m_menu__child"><a href="#">2</a></li>
+        <li class="m_menu__child"><a href="#">3</a></li>
+        <li class="m_menu__child"><a href="#">4</a></li>
+      </ul>
+    </li>
+  </ul>
+
+</div>

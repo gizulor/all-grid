@@ -1,124 +1,12 @@
 /* scss/1-base/_b_typeset.scss */
 
-html {font-size: 100%;} /*16px*/
-
-
-body {
-  font-family: var(--sans);
-  //line-height: $base-line-height;
-  font-weight: 300;
-  color: var(--black);
-  background: var(--white);
+html {
+  font-size: 100%;
 }
 
+/*16px*/
 // Using Shevy to control vertical ryhthm of any text copy
 // https://kyleshevlin.github.io/shevy/
-
-@mixin heading($map: $shevy) {
-  $settings: settings($map);
-  $base-font-unit: base-font-unit($settings);
-  $base-unit-multiplier: base-unit-multiplier($base-font-unit);
-  $base-font-size: base-font-size($settings);
-  $base-line-height: base-line-height($settings);
-  $line-height-spacing: line-height-spacing(1, $settings);
-  $base-spacing: base-spacing(1, $settings);
-  $font-scale-length: length(map-get($settings, 'base-font-scale'));
-  $font-unit-ems-bool: if($base-font-unit == 'em', true, false);
-  $margin-bottom-bool: map-get($settings, 'margin-bottom');
-
-  @for $i from 1 through $font-scale-length {
-    $font-scale-value: get-font-scale-value($i, $settings);
-    $font-size: $base-font-size * $font-scale-value;
-    $line-height: 0;
-    $margin-bottom: 0;
-
-    // Line Height Calculation
-    @if $font-size <= $line-height-spacing {
-      $line-height: $line-height-spacing;
-    } @else {
-      $increment: 1.5;
-
-      // Use half increments, while technically breaking the baseline, they are more aesthetically pleasing and still mathematically sound
-      @while line-height-spacing($increment, $settings) <= $font-size {
-        $increment: $increment + .5;
-      }
-
-      @if $font-unit-ems-bool {
-        $line-height: line-height-spacing($increment, $settings) / $font-size;
-      } @else {
-        $line-height: line-height-spacing($increment, $settings);
-      }
-    }
-
-    // Margin Bottom Calculation
-    @if $margin-bottom-bool {
-      @if $font-unit-ems-bool {
-        $margin-bottom: $base-spacing / $font-size * $base-unit-multiplier;
-      } @else {
-        $margin-bottom: $base-spacing;
-      }
-    }
-
-    // Heading Output
-   font-size: $font-size;
-   line-height: $line-height;
-   margin-bottom: $margin-bottom;
-  }
-}
-
-$h0-shevy: (
-  base-font-scale: (5),
-  base-line-height: (1),
-  margin-bottom: true,
-);
-$h0-shevy-small: (
-  base-font-scale: (3),
-  base-line-height: (1),
-  margin-bottom: true,
-);
-
-$h1-shevy: (
-  base-font-scale: ($h1)
-);
-$h2-shevy: (
-  base-font-scale: ($h2)
-);
-$h3-shevy: (
-  base-font-scale: ($h3)
-);
-$h4-shevy: (
-  base-font-scale: ($h4)
-);
-$h5-shevy: (
-  base-font-scale: ($h5)
-);
-
-$shevy: (
-  base-font-size: $base-font-size,
-  base-line-height: $base-line-height,
-  base-font-scale: ($h1, $h2, $h3, $h4, $h5, 1), // using Major Third type scale: https://type-scale.com
-  margin-bottom: true,
-  proximity: false,
-  proximity-factor: .85
-);
-
-$shevy-small: (
-  base-font-size: $base-font-size * .875, //14px
-  base-line-height: $base-line-height,
-  base-font-scale: ($h1, $h2, $h3, $h4, $h5, 1), // using Major Third type scale: https://type-scale.com
-  margin-bottom: true,
-  proximity: false,
-  proximity-factor: .85
-);
-$shevy-ssmall: (
-  base-font-size: $base-font-size * .75, //12px
-  base-line-height: $base-line-height,
-  base-font-scale: ($h1, $h2, $h3, $h4, $h5, 1), // using Major Third type scale: https://type-scale.com
-  margin-bottom: false,
-  proximity: false,
-  proximity-factor: .85
-);
-
 
 @include headings($shevy-small);
 @include body($shevy-small);
@@ -132,19 +20,42 @@ $shevy-ssmall: (
 }
 
 
+body {
+  font-family: var(--sans);
+  font-weight: 400;
+  color: var(--black);
+  background: var(--white);
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  //@include fluid-type(font-size, $minScreen, $maxScreen, $minFont, $maxFont);
+}
+
+
+
 .b_typeset {
-  p, li {
+  overflow: auto; // allow for any floated elements
+
+  p,
+  li {
     max-width: var(--type-measure);
   }
-  &--small {
-    //@include headings($shevy-ssmall);
-    //@include body($shevy-ssmall);
-    @include headings($shevy-ssmall);
-    @include content($shevy-ssmall);
+
+  ul,
+  ol {
+    list-style-position: outside;
+    list-style-type: square;
   }
 
+
   &--lede {
-    @extend .a_heading, .h4-styled, .h3-styled\@medium;
+    @include content($shevy-lede);
+    @extend .a_heading;
+
+    .bottom & {
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   a {
@@ -155,31 +66,39 @@ $shevy-ssmall: (
     &:before {
       content: '“';
     }
+
     &:after {
       content: '”';
     }
+
     @include heading($h5-shevy);
-    margin-bottom: my-bs(1.5);
-    width: 50%;
-
-    float: right;
-    margin-left: var(--base-unit);
-
-    @media (min-width: $medium) {
-        margin-right: calc(var(--type-measure) * -.2);
-    }
-
+    margin: var(--base-unit--b) 0;
   }
 }
 
+.b_hyphenate {
+  hyphens: auto;
+}
 
-small,.b_small {
+.b_centered {
+  text-align: center;
+}
+
+small,
+.b_small {
   font-size: .875rem;
   letter-spacing: initial;
 }
 
+.b_small>* {
+  @extend small;
+}
+
 .b_small--min {
   font-size: .65rem;
- // margin-bottom: my-bs(.25);
-  //line-height: 1.25;
+}
+
+.b_columns {
+  columns: 2;
+  column-gap: var(--base-unit);
 }

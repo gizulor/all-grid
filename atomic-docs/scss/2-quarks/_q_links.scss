@@ -3,13 +3,4 @@
 a {
     color: inherit;
     text-decoration: none; // no underline by default
-    //font-weight: 400;
-
-    //transition: all .3s ease;
-    &:not(.m_thumb &):hover {
-         text-decoration: underline;
-         text-underline-offset: .15em;
-         text-decoration-thickness: 2px;
-        //text-shadow: 0 0 3px rgba(black,.25);
-    }
 }

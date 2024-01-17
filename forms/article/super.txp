@@ -1,19 +1,18 @@
-<article itemscope itemtype="http://schema.org/Article">
+<article itemscope itemtype="http://schema.org/Article" class="u_m--bvh">
 
   <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-
   <div class="l_superimposed l_superimposed--fold-limited">
     <txp::u_debug title='form: super' />
 
     <txp:if_article_image>
       <txp::figure id='<txp:images sort="rand()" limit="1"><txp:image_info type="id" /></txp:images>' class="a_image--hide-caption" />
     </txp:if_article_image>
-    <div class="l_superimposed__inner <txp:if_article_image>bg-gradient<txp:else />bg-colour</txp:if_article_image> l_column bottom l_island">
+    <div class="l_superimposed__inner txt--white <txp:if_article_image>bg-gradient<txp:else />bg-colour</txp:if_article_image> l_column bottom u_p">
 
-      <h1 itemprop="headline" class="h2-style h1-style@medium"><txp::u_edit /><txp:title /></h1>
+      <h1 itemprop="headline" class="h0-style"><txp:title /><txp::u_edit /></h1>
 
       <txp:evaluate>
-        <aside itemprop="description" class="b_typeset h6-styled"><txp:excerpt /></aside>
+        <aside itemprop="description" class="b_typeset b_typeset--lede"><txp:excerpt /></aside>
       </txp:evaluate>
 
     </div>
@@ -23,12 +22,12 @@
   <txp:if_individual_article>
 
     <txp:evaluate>
-      <div itemprop="articleBody" class="b_typeset l_article-body l_article-body--twin l_width-limited u_m--tt u_m--bb"><txp:body /></div>
+      <div itemprop="articleBody" class="b_typeset b_columns l_width-limited u_m--tt u_m--bb"><txp:body /></div>
     </txp:evaluate>
 
     <txp:if_article_image>
       <txp:evaluate>
-        <div class="l_grid l_grid--tri@small l_island">
+        <div class="l_grid l_grid--tri@small u_p">
           <txp::figure offset="1" limit="10" />
         </div>
       </txp:evaluate>

@@ -1,19 +1,11 @@
 [
     {
-        "component": "clickme",
-        "category": "jsExample",
-        "description": "You also have the option of adding a javascript file when you are creating and editing components. At the moment Atomic Docs expects the directory that your javascript files are located to be named \"js\". As is the case with the Scss files you will need to configure your build tool to compile the partial js files.",
-        "backgroundColor": "",
-        "order": 1,
-        "has_js": "true"
-    },
-    {
         "component": "s_config",
         "category": "0-settings-tools",
         "description": "",
         "backgroundColor": "",
         "order": 0,
-        "has_js": "false"
+        "has_js": "true"
     },
     {
         "component": "s_mixins",
@@ -68,7 +60,7 @@
         "category": "6-layouts",
         "description": "",
         "backgroundColor": "",
-        "order": -8,
+        "order": 1,
         "has_js": "false"
     },
     {
@@ -76,7 +68,7 @@
         "category": "6-layouts",
         "description": "",
         "backgroundColor": "",
-        "order": -9,
+        "order": 0,
         "has_js": "false"
     },
     {
@@ -100,7 +92,7 @@
         "category": "4-molecules",
         "description": "",
         "backgroundColor": "",
-        "order": -12,
+        "order": 0,
         "has_js": "false"
     },
     {
@@ -109,14 +101,6 @@
         "description": "",
         "backgroundColor": "",
         "order": 4,
-        "has_js": "false"
-    },
-    {
-        "component": "l_island",
-        "category": "6-layouts",
-        "description": "",
-        "backgroundColor": "",
-        "order": -14,
         "has_js": "false"
     },
     {
@@ -172,23 +156,23 @@
         "category": "4-molecules",
         "description": "",
         "backgroundColor": "",
-        "order": -21,
+        "order": 3,
         "has_js": "false"
     },
     {
         "component": "l_grid",
         "category": "6-layouts",
         "description": "",
-        "backgroundColor": "",
-        "order": -21,
-        "has_js": "false"
+        "backgroundColor": "#ffffff",
+        "order": 2,
+        "has_js": "true"
     },
     {
         "component": "l_superimposed",
         "category": "6-layouts",
         "description": "",
         "backgroundColor": "",
-        "order": -22,
+        "order": 4,
         "has_js": "false"
     },
     {
@@ -244,8 +228,8 @@
         "category": "4-molecules",
         "description": "",
         "backgroundColor": "",
-        "order": -29,
-        "has_js": "false"
+        "order": 4,
+        "has_js": "true"
     },
     {
         "component": "u_m",
@@ -268,7 +252,7 @@
         "category": "6-layouts",
         "description": "",
         "backgroundColor": "",
-        "order": -32,
+        "order": 3,
         "has_js": "false"
     },
     {
@@ -277,14 +261,6 @@
         "description": "",
         "backgroundColor": "",
         "order": -33,
-        "has_js": "false"
-    },
-    {
-        "component": "l_long",
-        "category": "6-layouts",
-        "description": "",
-        "backgroundColor": "",
-        "order": -34,
         "has_js": "false"
     },
     {
@@ -316,7 +292,7 @@
         "category": "4-molecules",
         "description": "",
         "backgroundColor": "",
-        "order": -38,
+        "order": 2,
         "has_js": "false"
     },
     {
@@ -325,6 +301,102 @@
         "description": "",
         "backgroundColor": "",
         "order": -39,
+        "has_js": "false"
+    },
+    {
+        "component": "u_sticky",
+        "category": "7-utilities",
+        "description": "",
+        "backgroundColor": "",
+        "order": -41,
+        "has_js": "false"
+    },
+    {
+        "component": "u_contents",
+        "category": "7-utilities",
+        "description": "",
+        "backgroundColor": "",
+        "order": -43,
+        "has_js": "false"
+    },
+    {
+        "component": "m_logo",
+        "category": "4-molecules",
+        "description": "",
+        "backgroundColor": "",
+        "order": 1,
+        "has_js": "false"
+    },
+    {
+        "component": "s_shevy-config",
+        "category": "0-settings-tools",
+        "description": "",
+        "backgroundColor": "",
+        "order": 2,
+        "has_js": "false"
+    },
+    {
+        "component": "a_ratio",
+        "category": "3-atoms",
+        "description": "",
+        "backgroundColor": "",
+        "order": -43,
+        "has_js": "false"
+    },
+    {
+        "component": "o_comments",
+        "category": "5-organisms",
+        "description": "",
+        "backgroundColor": "",
+        "order": -48,
+        "has_js": "false"
+    },
+    {
+        "component": "o_footer",
+        "category": "5-organisms",
+        "description": "",
+        "backgroundColor": "",
+        "order": -45,
+        "has_js": "false"
+    },
+    {
+        "component": "p_project",
+        "category": "8-project",
+        "description": "Project custom css and overrides to all-grid go here",
+        "backgroundColor": "",
+        "order": -44,
+        "has_js": "false"
+    },
+    {
+        "component": "l_text-columns",
+        "category": "6-layouts",
+        "description": "",
+        "backgroundColor": "",
+        "order": -46,
+        "has_js": "false"
+    },
+    {
+        "component": "o_lightbox",
+        "category": "5-organisms",
+        "description": "",
+        "backgroundColor": "",
+        "order": -48,
+        "has_js": "false"
+    },
+    {
+        "component": "a_opac",
+        "category": "3-atoms",
+        "description": "",
+        "backgroundColor": "",
+        "order": -49,
+        "has_js": "false"
+    },
+    {
+        "component": "u_filter",
+        "category": "7-utilities",
+        "description": "",
+        "backgroundColor": "",
+        "order": -51,
         "has_js": "false"
     }
 ]

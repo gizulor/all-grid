@@ -369,7 +369,7 @@ $settings = $settings->select(array());
                                   data-editorFormCat="<?php echo $cat; ?>"
                                   data-codeDest="<?php echo $setting['component_directory'] ?>">
                                 <div  class="js-copyBtn copyBtn copyBtn-markup" data-clipboard-text="" data-copy-target="<?php echo $component['component'] ?>-markup-val"><i class="fa fa-clone" aria-hidden="true"></i> Copy</div>
-                                
+
                                 <div class="atomic-editorInner" id="<?php echo $component['component'] ?>-editorInner" >
 
                                     <div class="copyBtn copyBtn-edit js-copyBtn-edit">Edit</div>

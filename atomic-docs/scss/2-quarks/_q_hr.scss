@@ -2,8 +2,11 @@
 
 hr {
     border: 0;
-    height: 2px;
+    height: my-bs(.5);
     background: var(--black);
-    margin-top: -1px;
-    margin-bottom: -1px;
+    .bg--dark & {
+        background: var(--white);
+    }
+    margin-top: my-bs(-.25);
+    margin-bottom: my-bs(.25);
 }

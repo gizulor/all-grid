@@ -1,0 +1,50 @@
+<txp:hide><txp::images_preprocess /></txp:hide>
+<txp:if_article_list>
+  <div class="u_m--bvh l_width-limited" itemscope itemtype="http://schema.org/CreativeWork">
+<txp:else />
+  <article class="u_p" itemscope itemtype="http://schema.org/CreativeWork">
+</txp:if_article_list>
+  <txp::u_debug class="static" title='form: feature' />
+  <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
+  <txp:if_custom_field name="links_to_url">
+    <a href="<txp:custom_field name="links_to_url" />">
+  </txp:if_custom_field>
+
+  <txp:if_yield name="superimposed">
+    <div class="l_superimposed  u_m--b">
+
+      <div>
+        <txp:if_custom_field name="video">
+          <txp::m_embed background='<txp:custom_field name="video" />' autoplay class="a_ratio--3x2" />
+        <txp:else/>
+          <txp::figure limit="1" class="u_m--b a_ratio--3x2"/>
+        </txp:if_custom_field>
+      </div>
+      <div class="l_superimposed__inner u_p--t- u_p--l-">
+        <h1 itemprop="headline" class="h0-style txt--white"><txp:title /><txp::u_edit /></h1>
+      </div>
+
+    </div>
+  <txp:else />
+    <h1 itemprop="headline" class="h0-style"><txp:title /><txp::u_edit /></h1>
+  </txp:if_yield>
+
+
+
+  <txp:evaluate>
+    <aside itemprop="description" class="b_typeset b_typeset--lede">
+      <txp:excerpt />
+    </aside>
+  </txp:evaluate>
+  <div itemprop="articleBody" class="b_typeset b_columns">
+    <txp:body />
+  </div>
+
+  <txp:if_custom_field name="links_to_url">
+    </a>
+  </txp:if_custom_field>
+<txp:if_article_list>
+  </div>
+<txp:else />
+  </article>
+</txp:if_article_list>

@@ -6,7 +6,7 @@
   <a class="" href="<txp:permlink />" itemprop="url">
 
     <txp:if_article_image>
-      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" />
+      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" limit="1" />
     </txp:if_article_image>
 
     <h3 itemprop="headline" class="h4-style@medium"><txp:title /></h3>

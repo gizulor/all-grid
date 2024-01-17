@@ -5,6 +5,12 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  > p {
+   margin-bottom: 0;;
+  }
+  > *:not(:first-child) {
+    display: none;
+  }
 
   &--2 {
     -webkit-line-clamp: 2;

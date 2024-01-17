@@ -1,4 +1,5 @@
-<!-- Use 'twitter', 'facebook', 'instagram', 'linkedin' as the description of each link to use the included icons - see also /themes/all-grid/sass/_c.links.scss -->
-<a rel="external" class="link--social link--social__<txp:link_description />" href="<txp:link_url />">
+<txp:hide><!-- Use 'twitter', 'facebook', 'instagram', 'linkedin' as the description of each link to use the included icons - see also /themes/all-grid/atomic-docs/scss/3-atoms/_a_icon.scss --></txp:hide>
+
+<a rel="external" class="a_icon--social a_icon--social--<txp:link_description />" href="<txp:link_url />">
 	<span><txp:link_name /></span>
 </a>

@@ -2,7 +2,6 @@
 
 figure {
    > img {
-      background-color: var(--black);
       color: transparent;
    }
 }
@@ -12,12 +11,12 @@ figcaption {
      margin-top: var(--base-unit--s);
     > p {
         //@extend small;
-       max-width: 75ch; // https://baymard.com/blog/line-length-readability
+       max-width: var(--type-measure); // https://baymard.com/blog/line-length-readability
     }
 
      a {
-       text-decoration: none;
-       font-weight: 400;
+       text-decoration: underline;
+       font-weight: bolder;
      }
 
 }

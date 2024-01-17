@@ -6,10 +6,14 @@
                             random
         animation-names=    ken-burns-center
                             ken-burns-middle-left
+                            fade
                             etc
     -->
-<ken-burns-carousel images="<txp:images break=" " limit="2"><txp:image_url />
+<ken-burns-carousel animation-names="ken-burns-center" fade-duration="1000" slide-duration="15000" images="<txp:images break=" " limit="3"><txp:image_url />
 </txp:images>">
 </ken-burns-carousel>
+
 </figure>
+  <txp:yield />
+
 <txp:variable name="kenburns" value="1" />

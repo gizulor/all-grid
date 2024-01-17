@@ -1,0 +1,23 @@
+<txp:variable name="commented"><txp:page_url type="commented" /></txp:variable>
+<details  <txp:if_variable name="commented" value>open </txp:if_variable>class="o_comments u_p" id="cpreview">
+  <txp:if_comments_allowed>
+    <summary>
+	   <h5 class="h4-style u_m--b0 ">Layout Comments</h5>
+    </summary>
+	  <txp:comments class="l_grid l_grid--twin@small l_grid--tri@medium" />
+    <txp:comments_form wraptag="div" class="u_pz" />
+  <txp:else />
+    <summary><p class="a_heading h5-style">Comments are turned off for this page.</p></summary>
+  </txp:if_comments_allowed>
+</details>
+<script>
+  if(window.location.hash) {
+      var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+      if(hash == 'cpreview') {
+        var comments = document.getElementById(hash);
+        comments.setAttribute('open',true);
+      }
+      // hash found
+  }
+
+</script>

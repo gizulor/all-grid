@@ -1,5 +1,13 @@
 <p>
-    <txp:text item="enter_comment_here" />
+    Enter a comment or question about this page
+</p>
+<p class="u_hide--always">
+    <txp:comment_web_input size="63" placeholder='<txp:page_url />'/>
+    <script>
+        var input = document.getElementById('web');
+        var val = input.getAttribute('placeholder');
+        input.value = val;
+    </script>
 </p>
 
 <!-- if there is an error, then inform user -->
@@ -7,39 +15,16 @@
     <txp:comments_error class="error_message" wraptag="ol" break="li" />
 </txp:if_comments_error>
 
-<p class="large">
-    <label for="name">
-        <txp:text item="comment_name" />
-        <b class="required" title="<txp:text item="required" />">*</b>
-    </label>
-    <br>
-    <txp:comment_name_input size="32" />
+<p>
+    <txp:comment_name_input size="63" placeholder="Name"/>
 </p>
 
-<p class="large">
-    <label for="email">
-        <txp:text item="comment_email" />
-        <b class="required" title="<txp:text item="required" />">*</b>
-    </label>
-    <br>
-    <txp:comment_email_input size="32" />
+<p>
+    <txp:comment_email_input size="63"  placeholder="Email"/>
 </p>
 
-<p class="large">
-    <label for="web">
-        <txp:text item="comment_web" />
-    </label>
-    <br>
-    <txp:comment_web_input size="32" />
-</p>
-
-<p class="small">
-    <label for="message">
-        <txp:text item="comment_message" />
-        <b class="required" title="<txp:text item="required" />">*</b>
-    </label>
-    <br>
-    <txp:comment_message_input cols="64" rows="4" />
+<p>
+    <txp:comment_message_input cols="64" rows="10" placeholder="Your Comment"/>
 </p>
 
 <!-- preview and submit buttons (note: submit button will have a class of 'disabled'

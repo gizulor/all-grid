@@ -16,12 +16,16 @@
 </if::yield>
 
 <if::yield name="file">
-  <txp:variable name="content" trim>
-    <file::download_link filename='<txp:yield name="file" />' />
-  </txp:variable>
-  <video controls="controls" src="<txp:variable name=" content" />" class="m_video">
-  Your browser does not support the video element. <a href="<txp:variable name="content" />">Download the video directly</a>.
-  </video>
+      <txp:file_download_list id='<txp:yield name="file" />'>
+      <video <txp:if_yield name="autoplay">autoplay muted playsinline loop<txp:else />controls</txp:if_yield> class="m_video <txp:yield name="class" />">
+          <source src="/files/<txp:file_download_name />" type="video/mp4" />
+      </video>
+      <txp:if_yield name="caption">
+      <p><txp:file_download_description /></p>
+      </txp:if_yield>
+    </txp:file_download_list>
+
+
 </if::yield>
 
 <if::yield name="cf">
@@ -42,7 +46,11 @@
 </if::yield>
 
 <if::yield name="background">
-   <video <txp:if_yield name="autoplay">autoplay muted playsinline loop<txp:else />controls</txp:if_yield> class="m_video">
+   <video <txp:if_yield name="autoplay">data-autoplay="" muted="" preload="none" playsinline loop</txp:if_yield> <txp:if_yield name="controls">controls</txp:if_yield> class="lazyload m_video <txp:yield name="class" />" src="<txp:yield name="background" />" />
+
+<txp:hide>
+   <video <txp:if_yield name="autoplay">autoplay muted playsinline loop</txp:if_yield> <txp:if_yield name="controls">controls</txp:if_yield> class="lazyload m_video <txp:yield name="class" />">
         <source src="<txp:yield name="background" />" type="video/mp4" />
   </video>
+</txp:hide>
 </if::yield>

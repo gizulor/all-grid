@@ -2,11 +2,11 @@
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
 <txp:output_form form="head" />
-
+  <txp::u_debug title='page: <txp:page_url type="page" />' />
 <txp::o_header_common />
 
 <!-- Main content -->
-<main id="main" aria-label="<txp:text item="main_content" />" class="l_island">
+<main id="main" aria-label="<txp:text item="main_content" />" class="u_p">
   <h1><txp:error_status /></h1>
   <p class="h2-style">Computer says No:<br />“<txp:error_message />”</p>
 </main>

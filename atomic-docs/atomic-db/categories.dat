@@ -4,16 +4,12 @@
         "order": 0
     },
     {
-        "category": "jsExample",
-        "order": 8
-    },
-    {
         "category": "1-base",
         "order": 1
     },
     {
         "category": "7-utilities",
-        "order": 7
+        "order": 8
     },
     {
         "category": "3-atoms",
@@ -34,5 +30,9 @@
     {
         "category": "2-quarks",
         "order": 2
+    },
+    {
+        "category": "8-project",
+        "order": 9
     }
 ]

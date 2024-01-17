@@ -1,1 +1,9 @@
 <!-- components/6-layouts/l_width-limited.txp -->
+
+<div class="l_width-limited">
+    <p>
+      Make your window wide enough and this paragraph will be constrained to the desktop width. 
+      Make your window wide enough and this paragraph will be constrained to the desktop width.
+      Make your window wide enough and this paragraph will be constrained to the desktop width.
+    </p>
+</div>

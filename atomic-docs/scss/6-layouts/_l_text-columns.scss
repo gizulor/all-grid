@@ -1,0 +1,13 @@
+/* scss/6-layouts/_l_text-columns.scss */
+
+.l_text-columns {
+     column-count: 2;
+     column-gap: var(--base-unit);
+     &.tri {
+        column-count: 3;
+     }
+     h1,h2, h3 {
+        column-span: all;
+     }
+
+}

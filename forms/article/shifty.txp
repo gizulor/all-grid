@@ -5,10 +5,10 @@
   <div class="l_superimposed l_superimposed--fold-limited u_m--t">
 
     <txp:if_article_image>
-      <txp::o_figure_tiles class="l_island l_island--eastwest" />
+      <txp::o_figure_tiles class="u_p--t u_p--b" />
     </txp:if_article_image>
 
-    <div class="l_superimposed__inner l_superimposed__inner--shiftingtiles  <txp:if_article_image not>bg-colour</txp:if_article_image>  l_island l_island--eastwest">
+    <div class="l_superimposed__inner l_superimposed__inner--shiftingtiles  <txp:if_article_image not>bg-colour</txp:if_article_image>  u_p--t u_p--b">
 
       <h1 itemprop="headline" class="h3-style h2-style@medium u_m--b0"><txp:title /><txp::u_edit /></h1>
 
@@ -20,10 +20,10 @@
   </div>
 
   <txp:if_individual_article>
-      <txp::m_menuCategories_article class="h5-style l_beam l_island l_beam--wrap u_p--b buttons" />
+      <txp::m_menuCategories_article class="h5-style l_beam u_p l_beam--wrap u_p--b buttons" />
   </txp:if_individual_article>
 
   <txp:evaluate>
-    <div itemprop="articleBody" class="l_island b_typeset l_grid l_grid--tri@medium l_grid--loose u_m--t l_width-limited"><txp:body /></div>
+    <div itemprop="articleBody" class="u_p b_typeset l_grid l_grid--tri@medium l_grid--loose u_m--t l_width-limited"><txp:body /></div>
   </txp:evaluate>
 </article>

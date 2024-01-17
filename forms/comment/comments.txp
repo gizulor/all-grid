@@ -1,11 +1,4 @@
-<!-- load the comment email into a variable. you will be using this below along with author email variable loaded in form: default.article.txp
-     then check the comment email variable against article author email variable, and if it matches add 'comments-author' class -->
-<txp:variable name="this_comment" value='<txp:comment_email />' />
-<txp:if_variable name="this_comment" value='<txp:author_email />'>
-    <article class="comments comments-author" itemscope itemtype="https://schema.org/Comment">
-<txp:else />
-    <article class="comments" itemscope itemtype="https://schema.org/Comment">
-</txp:if_variable>
+    <article class="u_p bg--r<txp::random_number to="5" />" itemscope itemtype="https://schema.org/Comment">
 
     <h4>
         <span class="comment-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -14,12 +7,6 @@
             </span>
         </span>
 
-        <!-- ...now check the comment email variable against article author email variable, and if it matches add '(author)' text -->
-        <txp:if_variable name="this_comment" value='<txp:author_email />'>
-            <span class="is-author">
-                (<txp:text item="author" />)
-            </span>
-        </txp:if_variable>
 
         <!-- add a permlink so people can link direct to this comment -->
         <span class="comment-anchor" itemprop="url">

@@ -1,12 +1,17 @@
 /* scss/7-utilities/_u_edit-in-txp.scss */
 
 .u_edit-in-txp {
+
   position: absolute;
   z-index: 1;
   opacity: 1;
   //text-decoration: none;
   cursor: pointer;
-
+  &.static {
+    position: static;
+    display: inline-block;
+    margin-top: -.5em;
+  }
   img {
     object-fit: contain;
     position: relative;

@@ -1,17 +1,17 @@
 <div class="o_paginator">
 	<txp:if_individual_article>
 		<txp:evaluate test="link_to_prev,link_to_next">
-			<nav class="o_paginator__child l_island l_width-limited <txp:yield name="class" />" aria-label="page nav">
+			<nav class="o_paginator__child l_width-limited <txp:yield name="class" />" aria-label="page nav">
 				<txp::u_debug class="raised" title='form: o_pagination detail' />
-				<txp:link_to_next rel="prev"><span class="a_icon a_icon--flip u_m--b0 u_p--l">&#10132;</span></txp:link_to_next>
+				<txp:link_to_next rel="prev"><span class="a_icon a_icon--flip u_m--b0 u_p--l-">&#10132;</span><txp:if_yield name="title"><txp:title /></txp:if_yield></txp:link_to_next>
 				<txp:if_yield name="section"><h3 class="u_m--b0"><txp:section title  link/></h3></txp:if_yield>
-				<txp:link_to_prev rel="next"><span class="a_icon u_m--b0 u_p--l">&#10132;</span></txp:link_to_prev>
+				<txp:link_to_prev rel="next"><txp:if_yield name="title"><txp:title /></txp:if_yield><span class="a_icon u_m--b0 u_p--l-">&#10132;</span></txp:link_to_prev>
 			</nav>
 		</txp:evaluate>
 	<txp:else />
 		<txp:evaluate test="newer,older">
 
-			<nav class="o_paginator__child l_island l_width-limited <txp:yield name="class" />" aria-label="page nav">
+			<nav class="o_paginator__child l_width-limited <txp:yield name="class" />" aria-label="page nav">
 				<txp::u_debug class="raised" title='form: o_pagination list' />
 
 				<txp:if_yield name="section">

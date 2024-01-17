@@ -8,15 +8,8 @@
     </figcaption>
 </figure>
 
-<figure class="a_image a_image--portrait">
-    <img src="https://place-hold.it/480x640" alt="Placeholder image">
-    <figcaption class="a_image__caption">
-        <p>Image caption, with a <a href="#">link</a>.</p>
-    </figcaption>
-</figure>
-
 <p>Panning variant</p>
-<figure class="a_image u_aspect-ratio--1x1 a_image--2x1@landscape a_image--pan">
+<figure class="a_image a_ratio--2x1@landscape a_image--pan">
     <!-- ken-burns-carousel attributes
         animation-direction=
                             normal
@@ -33,7 +26,7 @@
         <img src="https://www.artedomus.com/images/8734.jpg" alt />
     </noscript>
 </figure>
-<pre><code>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-loader.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
@@ -43,8 +36,7 @@
 
     window.addEventListener('WebComponentsReady', function(e) {
         const kenBurnsCarousel = document.createElement('script');
-        kenBurnsCarousel.src = '/ad/animation/ken-burns-carousel-master/src/ken-burns-carousel-min.js';
+        kenBurnsCarousel.src = '../js/ken-burns-carousel-master/src/ken-burns-carousel-min.js';
         document.head.appendChild(kenBurnsCarousel);
     });
 </script>
-</code></pre>

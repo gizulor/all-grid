@@ -4,10 +4,10 @@
   <a href="<txp:permlink />" itemprop="url">
 
     <txp:if_article_image>
-      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" />
+      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" limit="1"/>
     </txp:if_article_image>
 
-    <div class="m_thumb__inner  <txp:if_article_image>l_superimposed__inner bg-gradient<txp:else />bg-colour</txp:if_article_image> l_column bottom l_island">
+    <div class="m_thumb__inner  <txp:if_article_image>l_superimposed__inner bg-gradient<txp:else />bg-colour</txp:if_article_image> l_column bottom u_p">
 
       <h3 itemprop="headline" class="h4-style@medium">
         <txp:title />

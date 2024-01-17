@@ -16,6 +16,15 @@ $base-spacing-shevy: (
 }
 
 
+// https://www.smashingmagazine.com/2016/05/fluid-typography/
+
+
+
+$minScreen: 24rem;	// 384px
+$maxScreen: 160rem; // 2560px
+$minFont: 1rem;
+$maxFont: 1.563rem;
+
 
 // Major Third type scale for headings: https://type-scale.com
 $h1: 3.052;
@@ -32,18 +41,14 @@ $type-measure: 72ch;
     --base-unit--s: calc(var(--base-unit) / 2);
     --base-unit--b: calc(var(--base-unit) * 2);
     --base-line-height: 1.5rem;
-
-
-    --thumb-aspect-ratio: 1.618/1;
-    --thumb-aspect-ratio: auto;
     --thumb-background-colour: var(--whiteLC);
     --hamburger-background-colour: var(--whiteLC);
     --type-measure: 72ch;
 }
 
-$mobile: 320px;
-$small: 640px;
-$medium: 960px;
+$mobile: 380px;
+$small: 480px;
+$medium: 720px;
 $desktop: 1318px;
 
 

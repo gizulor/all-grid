@@ -1,0 +1,37 @@
+/* scss/3-atoms/_a_ratio.scss */
+
+.a_ratio {
+  &--1x1 {
+    aspect-ratio: 1/1;
+  }
+
+  &--2x1 {
+    aspect-ratio: 2/1;
+  }
+
+  &--1x2 {
+    aspect-ratio: 1/2;
+  }
+
+  @media (orientation: landscape) {
+    &--2x1\@landscape {
+      aspect-ratio: 2/1;
+    }
+  }
+
+  &--3x2 {
+    aspect-ratio: 3/2;
+  }
+
+  &--2x3 {
+    aspect-ratio: 2/3;
+  }
+
+  &--gm {
+    aspect-ratio: 1618/1000;
+  }
+
+  &--video {
+    aspect-ratio: 16/9;
+  }
+}

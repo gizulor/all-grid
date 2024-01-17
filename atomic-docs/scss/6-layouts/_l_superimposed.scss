@@ -2,6 +2,7 @@
 
 .l_superimposed {
     position: relative;
+    height: max-content;
 
 
     &.has--image-omitted {
@@ -12,12 +13,21 @@
 
     &--fold-limited {
         @media (orientation: landscape) {
-            height: 66vh;
+            height: 80vh;
         }
 
         @media (orientation: portrait) {
-            height: 80vh;
+            height: 60vh;
         }
+    }
+
+    &--fullscreen {
+        width: 100%;
+        height: 100vh;
+    }
+
+    &--fixed {
+        position: fixed;
     }
 
     &__inner {
@@ -33,10 +43,9 @@
 
         &.bg-colour {
             background: var(--thumb-background-colour);
-            color: var(--black);
         }
 
-        color: var(--white);
+        color: currentcolor;
 
         &--shiftingtiles {
             color: inherit;
@@ -76,10 +85,17 @@
 
     }
 
+    //     video {
+    //            object-fit: contain;
+    //     height: auto;
+    //     width: 100%;
+    //
+    //     }
+
+
     figure {
         height: 100%;
         width: 100%;
-        background-color: var(--black);
     }
 
     [itemprop="description"]>*:last-child {

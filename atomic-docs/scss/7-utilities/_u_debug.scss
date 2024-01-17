@@ -1,9 +1,9 @@
 /* scss/7-utilities/_u_debug.scss */
 
 .u_debug {
-    outline: 1px solid rgba(red, .25);
+    outline: 1px solid rgba(silver, .5);
     * {
-        outline: 1px solid rgba(green, .25);
+        outline: 1px dotted rgba(silver, .5);
     }
 
     &--info{
@@ -26,6 +26,10 @@
         }
         &.static {
             position: static;
+        }
+
+        &__holder {
+            position: relative;
         }
     }
 

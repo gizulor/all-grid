@@ -1,0 +1,29 @@
+<txp::images_preprocess />
+<div class="m_thumb sqm_panel l_superimposed <txp:variable name="thumb-class" /> <txp:if_article_image not>sqm_panel--superimposed</txp:if_article_image> has--image-<txp:variable name="image-orientation" />" itemscope itemtype="http://schema.org/Article">
+<txp:hide>
+  <txp::u_debug title='form: sq_thumb_super' />
+</txp:hide>
+  <a href="<txp:permlink />" itemprop="url">
+
+    <txp:if_article_image>
+      <txp::figure class='m_thumb__image a_image--hide-caption <txp:variable name="image-class" />' type="thumb" />
+    </txp:if_article_image>
+
+    <div class="m_thumb__inner  l_superimposed__inner sqm_panel__inner l_column a_ratio--1x1  middlev u_p">
+
+      <h3 itemprop="headline" class="h2-style@medium">
+        <txp:title />
+        <txp::u_edit />
+      </h3>
+
+      <txp:evaluate>
+        <aside itemprop="description" class="h5-styled a_heading u_clamp u_clamp--2">
+          <txp:excerpt />
+        </aside>
+      </txp:evaluate>
+
+    </div>
+
+  </a>
+
+</div>

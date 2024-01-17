@@ -1,0 +1,7 @@
+<details class="<txp:yield name="class" />">
+    <txp::u_debug title='form: o_details' />
+    <summary>
+      <h3 class="<txp:yield name="summaryclass" />"><txp:yield name="summary" /></h3>
+    </summary>
+  <txp:yield />
+</details>

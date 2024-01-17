@@ -1,4 +1,18 @@
-<txp::u_debug title='page: <txp:page_url type="page" />' />
-<txp::o_header hamburger primaryclass="l_column bottom u_hide--from-medium" headingclass="h3-style h2-style@medium u_m--b0" infoclass="l_beam l_beam--spaced bottom" sloganclass="h5-style u_m--b0" menuclass="l_column h1-style u_m--t" />
+<txp::o_header
+  hamburger
+  wraptag="div"
+  wraptagclass="l_beam l_beam--spaced bottom"
+  headerclass="l_column bottom u_hide--from-medium u_p"
+  headingclass="h3-style u_m--b0"
+  infoclass="l_beam l_beam--spaced bottom"
+  sloganclass="h5-style u_m--b0"
+  menuclass="l_column h1-style u_m--t" />
 
-<txp::o_header primaryclass="u_hide--to-medium l_column bottom l_width-limited" headingclass="h3-style h2-style@medium" infoclass="l_beam l_beam--spaced bottom" sloganclass="h5-style" menuclass="l_beam l_beam--wrap l_beam--spaced space-betweens h5-style " />
+<txp::o_header
+  menu
+  wraptag="div"
+  wraptagclass="l_beam l_beam--spaced bottom"
+  headerclass="u_hide--to-medium l_column bottom l_width-limited u_p"
+  headingclass="h2-style h1-style@desktop"
+  sloganclass="h5-style"
+  menuclass="l_beam l_beam--wrap l_beam--spaced space-betweens h5-style " />

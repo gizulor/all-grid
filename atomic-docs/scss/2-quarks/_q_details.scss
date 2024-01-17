@@ -3,8 +3,11 @@
 summary {
 	cursor: pointer;
 	display: flex;
-	justify-content: space-between;
-
+	list-style-type: none;
+	//justify-content: space-between;
+	> * {
+		margin-top: 0;
+	}
 	&:focus {
 		outline: none;
 	}
@@ -12,24 +15,25 @@ summary {
 	&::marker {
 		display: none;
 	}
-	&:after {
+	> *:after {
 	  content: "+";
-		font-size: $h4 * 1rem;
+		font-size: inherit;
 		@extend .a_heading !optional;
+		line-height: 1;
 		transition: transform .2s ease;
 		margin-left: var(--base-unit--b);
 	}
 
-	&:hover:after {
+	&:hover > * :after {
 		transform: scale(120%);
 	}
 }
 
 
-details[open] summary:after {
+details[open] summary > *:after {
   content: "-";
 }
 
-details[plain] summary:after {
+details[plain] summary> *:after {
 	display: none;
 }

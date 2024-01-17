@@ -14,11 +14,7 @@
 </style>
     <script>
       $(".gallery").shiftingtiles(function get_photos(){
-    <txp:if_variable name="pathtoslirfolder" value>
-        return [<txp:images break=",">"<txp:variable name="pathtoslirfolder" />/w1280/<txp:image_url />"<txp:hide><txp:if_last_image>,"/themes/all-grid/styles/img/transparent.png"</txp:if_last_image><txp:if_first_image>,"/themes/all-grid/styles/img/transparent.png"</txp:if_first_image></txp:hide></txp:images>];
-    <txp:else />
-        return [<txp:images break=",">"<txp:image_url />"</txp:images>];
-    </txp:if_variable>
+        return [<txp:images break=",">"<txp:image_url />"<txp:hide><txp:if_last_image>,"/themes/all-grid/styles/img/transparent.png"</txp:if_last_image><txp:if_first_image>,"/themes/all-grid/styles/img/transparent.png"</txp:if_first_image></txp:hide></txp:images>];
 
       }());
     </script>

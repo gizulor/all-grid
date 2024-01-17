@@ -1,0 +1,3 @@
+<txp:linklist id='<txp:yield name="id" />' wraptag="ul" class='a_list-bare <txp:yield name="class" />'>
+  <txp:link />
+</txp:linklist>

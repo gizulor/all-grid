@@ -1,1 +1,8 @@
 <!-- components/3-atoms/a_icon.txp -->
+
+<img src="../styles/img/edit-article.png" class="a_icon" />
+<img src="../styles/img/edit-article.png" class="a_icon a_icon--flip" />
+<img src="../styles/img/edit-article.png" class="a_icon a_icon--invert" />
+<img src="../styles/img/edit-article.png" class="a_icon a_icon--rotate-right" />
+<img src="../styles/img/edit-article.png" class="a_icon a_icon--rotate-left" />
+<img src="../styles/img/edit-article.png" class="a_icon a_icon--rotate-down" />

@@ -5,6 +5,14 @@
         grid-column: span 2;
     }
 
+    @media (min-width: $medium) {
+        &--3\@medium {
+            grid-column: span 3;
+        }
+        &--4\@medium {
+            grid-column: span 4;
+        }
+    }
     &--full-width {
         grid-column-start: 1;
         grid-column-end: -1;

@@ -4,32 +4,19 @@
   position: relative; // allow for positioning of the .u_edit-in-txp component
   min-height: max-content;
 
-  &--1x1 {
-    aspect-ratio: 1/1;
+  figcaption p {
+    margin-bottom: 0;
+    max-width: 100%;
   }
-
-  &--2x1 {
-    aspect-ratio: 2/1;
-  }
-
-  &--1x2 {
-    aspect-ratio: 1/2;
-  }
-
-  @media (orientation: landscape) {
-    &--2x1\@landscape {
-      aspect-ratio: 2/1;
-    }
-  }
-
-
-  &--gm {
-    aspect-ratio: 1618/1000;
-  }
-
   img {
     object-fit: cover;
     height: 100%;
+    width: 100%;
+  }
+
+  &--contain img {
+    object-fit: contain;
+    height: auto;
     width: 100%;
   }
 
@@ -48,6 +35,20 @@
     }
   }
 
+  &--inline {
+     // width: 50%;
+    padding-bottom: my-bs(3);
+    @media screen and (min-width: $medium) {
+      padding-bottom: inherit;
+      width: 33%;
+      float: right;
+      margin-left: var(--base-unit);
+      &.large {
+        width: 66%;
+      }
+    }
+
+  }
 
 }
 

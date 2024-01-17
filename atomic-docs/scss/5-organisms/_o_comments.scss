@@ -1,0 +1,9 @@
+/* scss/5-organisms/_o_comments.scss */
+
+.o_comments {
+  background-color: var(--yellow);
+  &[open] {
+    background-color: var(--black);
+    color: white;
+  }
+}

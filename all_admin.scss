@@ -1,0 +1,155 @@
+//auto-sizes.js is disabled in /textpattern/admin-themes/hive/hive.php
+
+[name="article_form"] {
+
+  .txp-layout { // 12x
+
+    grid-template-areas:
+  //  'xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx xxxxxx
+      'headng headng headng paging paging paging paging paging paging save__ save__ save__'
+      'title_ title_ title_ title_ title_ title_ title_ title_ title_ author author author'
+      'title_ title_ title_ title_ title_ title_ title_ title_ title_ action action action'
+      'excrpt excrpt excrpt body__ body__ body__ body__ body__ body__ srtdsp srtdsp srtdsp'
+      'cf3___ cf3___ cf3___ body__ body__ body__ body__ body__ body__ datesg datesg datesg'
+      'cfgrop cfgrop cfgrop body__ body__ body__ body__ body__ body__ catsgp catsgp catsgp'
+      'artimg artimg artimg artimg artimg artimg artimg artimg artimg metagp metagp metagp'
+      'artimg artimg artimg artimg artimg artimg artimg artimg artimg comtgp comtgp comtgp'
+      'artimg artimg artimg artimg artimg artimg artimg artimg artimg recent recent recent'
+    ;
+    grid-template-rows: min-content;
+    grid-auto-rows: auto;
+  }
+
+  .txp-layout-4col-3span,
+  .txp-layout-4col-alt,
+  #main_content,
+  #supporting_content,
+  #pane-text {
+    display: contents;
+  }
+
+  #supporting_content>* {
+    grid-column-end: -1;
+    grid-column: span 3;
+    height: max-content;
+  }
+
+  .txp-heading {
+    grid-area: headng;
+  }
+
+  .txp-save-zone {
+    grid-area: save__;
+  }
+
+  .nav-tertiary {
+    grid-area: paging;
+  }
+
+  .txp-actions {
+    grid-area: action;
+  }
+
+  #txp-write-sort-group {
+    grid-area: srtdsp;
+  }
+
+  #txp-dates-group {
+    grid-area: datesg;
+  }
+  #txp-categories-group {
+    grid-area: catsgp;
+  }
+  #txp-meta-group {
+    grid-area: metagp;
+  }
+  #txp-comments-group {
+    grid-area: comtgp;
+  }
+  #txp-image-group {
+    grid-area: artimg;
+    // position: absolute;
+    // top: 0;
+    // left: calc(100% + 1.5rem);
+    // width: 15vw;
+  }
+
+  #txp-custom-field-group {
+    grid-area: cfgrop;
+  }
+  #txp-recent-group {
+    grid-area: recent;
+  }
+
+
+  textarea {
+    height: calc(100% - 1.5rem) !important; // min-content;
+    // &:focus {
+    //  min-height: 100%;
+    //   // background: red;
+    // }
+    resize: vertical !important;
+  }
+
+  .title {
+    grid-area: title_;
+  }
+
+  .author {
+    grid-area: author;
+    align-self: end;
+  }
+
+  .txp-form-field-value {
+    height: 100%;
+  }
+
+  .body {
+    grid-area: body__;
+
+  }
+
+  .excerpt {
+    grid-area: excrpt;
+  }
+
+
+  .custom-1,
+  .video {
+    grid-area: cf1___;
+  }
+
+  .custom-3,
+  .cf-details {
+    grid-area: cf3___;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-content: start;
+    grid-gap: 0 1rem;
+
+    .txp-form-field-value {
+      grid-column: span 2;
+    }
+
+    .txp-form-field-instructions {
+      margin-top: .25rem;
+    }
+  }
+}
+
+#txp-image-group-label+div+div {
+  display: none;
+}
+
+#txp-image-group-label.expanded+div+div {
+  display: block;
+}
+.ui-sortable-handle {
+    max-width: calc(20% - .5rem);
+
+}
+
+.bot_iu_ul_container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr !important;
+}

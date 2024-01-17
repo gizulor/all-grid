@@ -2,14 +2,24 @@
 
 .m_thumb {
   position: relative;
-  &__image {
-    aspect-ratio: var(--thumb-aspect-ratio);
-  }
   &__inner {
     > *:last-child {
       margin-bottom: 0;
     }
   }
-
+//   &.landscape figure {
+//     aspect-ratio: 3/2;
+//   }
+//   &.portrait figure {
+//     aspect-ratio: 2/3;
+//   }
+//   &.square figure {
+//     aspect-ratio: 1/1;
+//   }
+//
+//   video {
+//     aspect-ratio: 3/2;
+//     object-fit: cover;
+//   }
 
 }

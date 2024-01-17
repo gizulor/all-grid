@@ -1,11 +1,12 @@
 /* scss/2-quarks/_q_forms.scss */
 
 button {
-  padding: 0;
-	margin: 0;
 	cursor: pointer;
-	border: 0 none;
-	background: transparent;
+	border: 2px solid var(--black);
+	&.plain {
+		border: none;
+	}
+	background: var(--white);
 
 	&::-moz-focus-inner { //Button height fix for Firefox
 	  padding: 0;
@@ -17,3 +18,30 @@ button {
 	}
 }
 
+input {
+	border-bottom: 2px solid var(--black);
+}
+textarea {
+	border: 2px solid var(--black);
+}
+
+input, textarea {
+	background-color: var(--white);
+	padding: var(--base-unit--ss);
+}
+
+
+label {
+  display: none;
+}
+
+
+[type="submit"] {
+  text-align: left;
+  cursor: pointer;
+}
+
+
+.comThanks,
+.comError {
+}

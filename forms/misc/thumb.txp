@@ -1,13 +1,13 @@
 <txp::images_preprocess />
 
-<li class="m_thumb <txp:variable name="m_thumb-class" /> has--image-<txp:variable name='image-orientation' />" itemprop itemscope itemtype="http://schema.org/CreativeWork">
+<li class="m_thumb <txp:variable name="m_thumb-class" /> has--image-<txp:variable name='image-orientation' /> <txp:if_article_image not> u_p bg-colour l_column middlev</txp:if_article_image>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
 
   <txp::u_debug title='form: thumb' />
 
   <a href="<txp:permlink />" itemprop="url">
 
     <txp:if_article_image>
-      <txp::figure class="m_thumb__image a_image--hide-caption u_m--b" type="thumb" />
+      <txp::figure class="m_thumb__image a_image--hide-caption u_m--b" type="thumb" limit="1" />
     </txp:if_article_image>
 
     <h3 itemprop="headline" class="h5-style h4-style@medium"><txp:title /><txp::u_edit /></h3>

@@ -1,47 +1,24 @@
 /* scss/4-organisms/_o_header.scss */
 
 .o_header {
-
-  padding: my-bs(1.5) var(--base-unit);
-
-  @media (orientation: landscape) {
-    aspect-ratio: 6/1;
-  }
-
   &--sticky {
     position: sticky;
     top: 0;
     z-index: 100;
     background-color: var(--background-colour);
-    //backdrop-filter: blur(.1rem);
-    //mix-blend-mode: screen;
-    // background: linear-gradient(180deg, rgba(white, 1) 81%, rgba(white,0) 100%);;
   }
-
-  &__child {
-
+  h1:nth-child(1) {
+    position: relative;
+    z-index: 1;
   }
+  // .banner-active & {
+  //   display: block;
+  //    position: fixed;
+  //    top: 0;
+  //   z-index: 100;
+  //   ~ .sqm_panel {
+  //     display: none;
+  //   }
+  // }
 
-
-  &--grid {
-
-    .o_header__child {
-      display: contents;
-    }
-
-    grid-template-areas: 'sitename slogan'
-    'sitemenu sitemenu';
-
-    .sitename {
-      grid-area: sitename;
-    }
-
-    .slogan {
-      grid-area: slogan;
-    }
-
-    .sitemenu {
-      grid-area: sitemenu;
-    }
-  }
 }

@@ -27,13 +27,16 @@ h6 {
 
 
 .h0-style {
-  @include heading($h0-shevy-small);
+  //font-size: 10vw;
+  line-height: .75;
+  letter-spacing: -.05em;
+  word-break: break-word;
+  font-size: clamp(3rem,10vw, 6rem);
 
-  @media screen and (min-width: $desktop) {
-    @include heading($h0-shevy);
+  &.max {
+    //font-size: 15vw;
+      font-size: clamp(3rem,15vw, 12rem);
   }
-
-  letter-spacing: -.07em;
 }
 
 .h1-style,
@@ -68,6 +71,7 @@ h6 {
 
 
 @media screen and (min-width: $medium) {
+
   .h1-style\@medium {
     @include heading($h1-shevy);
   }

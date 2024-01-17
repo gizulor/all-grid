@@ -1,14 +1,13 @@
 /* scss/3-molecules/_m_menu.scss */
 
 @mixin menubg {
-    //left: calc(var(--base-unit) * -1);
-   // padding: my-bs(1.5) var(--base-unit);
-    background-color: var(--background-colour);
-   // box-shadow: 1px 1px .25rem rgba(black,.25);
+    background-color: var(--whiteLC);
 }
 .m_menu {
 
-
+  > a:empty {
+    display: none;
+  }
 
   &__child {
     &:not(.right > &){
@@ -18,10 +17,6 @@
       margin-right: var(--base-unit--s)
     }
 
-
-    &:last-child {
-      //margin-right: calc(var(--base-unit--s) * -1);
-    }
 
     .buttons & {
       padding: 0 var(--base-unit--ss);
@@ -59,7 +54,7 @@
 
     ul {
       display: none;
-      width: max-content;
+      width: 100%;
       position: absolute;
       @include menubg();
     }

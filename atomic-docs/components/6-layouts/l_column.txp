@@ -1,3 +1,4 @@
+<h4>.l_column, .l_beam and .l_grid classes handle the majority of layout requirements.</h4>
 <!-- components/6-layouts/l_column.txp -->
 <style>
     .source .l_columns {

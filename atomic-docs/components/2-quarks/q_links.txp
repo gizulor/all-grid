@@ -1,3 +1,5 @@
 <!-- components/2-quarks/q_links.txp -->
 
-A <a href="?">link</a>.
+<p>A <a href="#">link</a>, no underline is default.</p>
+
+<p class="b_typeset">A <a href="#">link</a> is underlined if it is within a <code>b_typeset</code> class.</p>

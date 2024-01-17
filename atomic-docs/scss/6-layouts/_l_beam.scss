@@ -9,7 +9,7 @@
     }
 
     &--spaced>* {
-        margin-right: var(--base-unit--ss);
+        margin-right: var(--base-unit);
     }
 
     &.middle {
@@ -25,6 +25,11 @@
     }
 
     @media (min-width: $small) {
+        &\@small {
+            display: flex;
+
+        }
+
         &.right\@small {
             justify-content: flex-end;
 
@@ -32,6 +37,8 @@
                 margin-right: 0;
             }
         }
+
+
     }
 
     &.space-between {

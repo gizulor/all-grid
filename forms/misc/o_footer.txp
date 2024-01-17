@@ -1,4 +1,18 @@
-<footer class="l_island">
-	<p><span  class="t-lc"><txp:text item="published_with" /></span> <a rel="external" href="https://textpattern.com/" title="<txp:text item="go_txp_com" />">Textpattern CMS</a> using <a href="https://all-grid.all-sorts.biz">all-grid</a></p>
-	<txp:if_logged_in><p>You're logged <a href="<txp:site_url />textpattern" target="txp">in</a>.</p></txp:if_logged_in>
+<footer class="u_p <txp:yield name=" class" />">
+	<txp:yield />
+	<p><txp:text item="published_with" /> <a rel="external" href="https://textpattern.com/" title="<txp:text item=" go_txp_com" />">Textpattern CMS</a> using <a href="https://all-grid.all-sorts.biz">all-grid</a></p>
+	<txp:if_logged_in>
+		<p>You're logged <a href="<txp:site_url />textpattern" target="txp">in</a>.</p>
+	</txp:if_logged_in>
 </footer>
+<txp:hide>
+	<txp:if_logged_in>
+		<txp:if_article_list>
+			<txp:article limit="1">
+				<txp::o_comments />
+			</txp:article>
+		<txp:else />
+			<txp::o_comments />
+		</txp:if_article_list>
+	</txp:if_logged_in>
+</txp:hide>

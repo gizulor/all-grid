@@ -1,1 +1,5 @@
 <!-- components/4-molecules/m_video.txp -->
+
+<video controls class="m_video">
+    <source src="https://all-grid.all-sorts.biz/files/Wairarapa%20DIY.mp4" type="video/mp4">
+</video>

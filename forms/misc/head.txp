@@ -1,17 +1,14 @@
-<txp:output_form form="head_globals" />
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title><txp:page_title /></title>
-
-  <!-- if you prefer to build your css locally, using flat files or without browser caching problems… -->
-  <txp:if_logged_in name="username">
-    <txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
+  <txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
+  <txp:if_logged_in name="giz">
     <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
     <!-- <txp:css format="flat.link"/> -->
   <txp:else />
-    <txp:css format="link" name="main" />
-    <!-- <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/main.css"> -->
+    <!-- <txp:css format="link" name="main" /> -->
+    <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/main.css?v=<txp:variable name="cache-buster" />">
   </txp:if_logged_in>
 
   <meta name="generator" content="Textpattern CMS">
@@ -22,14 +19,18 @@
     <txp:if_author>
       <meta name="robots" content="noindex, follow">
     <txp:else />
-      <txp:meta_description />
+      <txp:if_description>
+        <txp:meta_description />
+      </txp:if_description>
       <txp:if_category>
-        <meta name="robots" content="noindex, follow">
+        <meta name="robots" content="index, follow">
       <txp:else />
         <txp:variable name="page" value='<txp:page_url type="pg" />' />
         <txp:if_variable name="page" value="1">
           <meta name="robots" content="index, follow">
-          <link rel="canonical" href="<txp:site_url />">
+          <txp:if_article_list>
+          <link rel="canonical" href="<txp:site_url /><txp:if_section name=",default,home" not><txp:section /></txp:if_section>">
+        <txp:else />
           <script type="application/ld+json">
             {
               "@context": "https://schema.org",
@@ -39,12 +40,64 @@
               "url": "<txp:site_url escape="json" />"
             }
           </script>
+        </txp:if_article_list>
         <txp:else />
           <meta name="robots" content="noindex, follow">
         </txp:if_variable>
       </txp:if_category>
     </txp:if_author>
   </txp:if_search>
+
+  <txp:if_individual_article>
+    <link rel="canonical" href="<txp:permlink />">
+	  <meta property="og:title" content="<txp:title no_widow='0' />">
+    <txp:if_description>
+	    <meta property="og:description" content="<txp:meta_description format="" />">
+    <txp:else />
+	    <meta property="og:description" content="<txp:excerpt escape="tags" />">
+    </txp:if_description>
+	  <meta property="og:type" content="article">
+	  <meta property="og:url" content="<txp:permlink />">
+	  <meta property="og:site_name" content="<txp:site_name />">
+	  <txp:if_article_image>
+		  <txp:images break="" limit="4">
+			  <meta property="og:image" content="<txp:image_url />" data-addsearch="no_crop"/>
+			  <meta property="og:image:width" content="<txp:image_info type="w" />" />
+			  <meta property="og:image:height" content="<txp:image_info type="h" />" />
+		  </txp:images>
+	  </txp:if_article_image>
+  <txp:else />
+      <txp:if_section name=",default">
+        <meta property="og:title" content="<txp:site_name />">
+      <txp:else />
+        <meta property="og:title" content="<txp:section title /> <txp:category title />">
+      </txp:if_section>
+      <meta property="og:description" content='<txp:meta_description format="" />'>
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="<txp:site_url /><txp:page_url />">
+      <meta property="og:site_name" content="<txp:site_name />">
+
+      <txp:hide><!-- Plain <txp:article tag breaks page! --></txp:hide>
+      <txp:article_custom section='<txp:section />' status="5" limit="1">
+        <txp:if_article_image>
+          <txp:images break="" limit="1">
+            <meta property="og:image" content="<txp:image_url />" data-addsearch="no_crop" >
+            <meta property="og:image:width" content="<txp:image_info type="w" />" >
+            <meta property="og:image:height" content="<txp:image_info type="h" />" >
+          </txp:images>
+        </txp:if_article_image>
+      </txp:article_custom>
+
+      <txp:article limit="4">
+        <txp:if_article_image>
+          <txp:images break="" limit="1">
+            <meta property="og:image" content="<txp:image_url />" data-addsearch="no_crop"/>
+            <meta property="og:image:width" content="<txp:image_info type="w" />" >
+            <meta property="og:image:height" content="<txp:image_info type="h" />" >
+          </txp:images>
+        </txp:if_article_image>
+      </txp:article>
+  </txp:if_individual_article>
 
   <!-- content feeds -->
   <txp:feed_link flavor="atom" format="link" label="Atom" />

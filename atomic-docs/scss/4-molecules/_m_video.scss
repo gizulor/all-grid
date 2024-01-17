@@ -2,5 +2,17 @@
 
 .m_video {
   position: relative;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  &__holder--crop-top {
+   overflow: hidden;
+    > video {
+      margin-top: -1px;
+    }
+   // transform: scale(1.1);
+  }
+  + p { // caption
+    text-align: center;
+  }
 }

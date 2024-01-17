@@ -1,8 +1,18 @@
 <!-- components/3-atoms/a_headings.txp -->
+<div class="l_grid l_grid--twin">
 <div class="u_baseline-grid">
     <h1 class="a_heading">Heading Level One</h1>
     <h2 class="a_heading">Heading Level Two</h2>
     <h3 class="a_heading">Heading Level Three</h3>
     <h4 class="a_heading">Heading Level Four</h4>
     <h5 class="a_heading">Heading Level Five</h5>
+    <h6 class="a_heading">Heading Level Six</h6>
+</div>
+<div class="u_baseline-grid">
+    <h1 class="a_heading h2-style">h1 styled as h2</h1>
+    <h1 class="a_heading h3-style">h1 styled as h3</h1>
+    <h1 class="a_heading h4-style">h1 styled as h4</h1>
+    <h1 class="a_heading h5-style">h1 styled as h4</h1>
+    <h3 class="a_heading a_heading--ellipsis" style="max-width: 20ch">Long heading truncated if a width is set</h3>
+</div>
 </div>

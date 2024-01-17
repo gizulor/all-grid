@@ -1,0 +1,1 @@
+itemtype="https://schema.org/<txp:if_article_list>Collection<txp:else />CreativeWork</txp:if_article_list>"
