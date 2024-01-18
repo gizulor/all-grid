@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title><txp:page_title /></title>
   <txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
-  <txp:if_logged_in name="giz">
+  <txp:if_logged_in name="username">
     <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
     <!-- <txp:css format="flat.link"/> -->
   <txp:else />

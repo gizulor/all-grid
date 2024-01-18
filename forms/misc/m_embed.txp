@@ -28,7 +28,7 @@
 
 </if::yield>
 
-<if::yield name="cf">
+<if::yield name="social">
   <txp:if_yield name="autoplay">
     <txp:variable name="video-mute" value="true" />
     <txp:variable name="video-autoplay" value="1" />
