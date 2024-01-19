@@ -26,12 +26,15 @@ Upload to your Textpattern Themes folder via ftp, and use the Textpattern Themes
 For full functionality, [glz_custom_fields](http://github.com/jools-r/glz_custom_fields) is required, with custom fields:
 
 *video*
+
 Uses shortcode m_embed.txp — eg. `<txp::m_embed background='<txp:custom_field name="video" />' />` , `<txp::m_embed social='<txp:custom_field name="video" />' />` , `<txp::m_embed file='<txp:custom_field name="video" />' />` etc.
 
 *links_to_url*
+
 Used to override txp:permlink on list pages
 
 *details* configure as a textarea
+
 Not used by allgrid, but useful if you use all_admin.scss and require another textarea for your project
 
 
