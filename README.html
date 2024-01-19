@@ -33,26 +33,14 @@
 
 <p>For full functionality, <a href="http://github.com/jools-r/glz_custom_fields">glz_custom_fields</a> is required, with custom fields:</p>
 
-<dl>
-<dt>video</dt>
-<dd>Uses shortcode m_embed.txp — eg.
+<p><em>video</em>
+Uses shortcode m_embed.txp — eg. <code>&lt;txp::m_embed background='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;</code> , <code>&lt;txp::m_embed social='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;</code> , <code>&lt;txp::m_embed file='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;</code> etc.</p>
 
-<pre><code>```
-&lt;txp::m_embed background='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;
-&lt;txp::m_embed social='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;
-&lt;txp::m_embed file='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;
-```
-etc.
-</code></pre>
+<p><em>links_to_url</em>
+Used to override txp:permlink on list pages</p>
 
-<p></dd>
-<dt>links_to_url</dt>
-<dd>Used to override txp:permlink on list pages</dd>
-<dt>details</dt>
-<dd>Configure as a textarea</dd>
-<dd>Not used by allgrid, but useful if you use all_admin.scss and require another textarea for your project</dd></p>
-
-</dl>
+<p><em>details</em> configure as a textarea
+Not used by allgrid, but useful if you use all_admin.scss and require another textarea for your project</p>
 
 <h2 id="usage">Usage</h2>
 
