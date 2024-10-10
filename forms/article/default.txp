@@ -57,10 +57,10 @@
     </txp:if_article_image>
 
 	  <txp:if_custom_field name="video" value>
-		  <div class="u_p--l u_p--r">
-			  <txp::m_embed background='<txp:custom_field name="video" />' />
-			  <txp:hide>
+		  <div class="u_p--l u_p--r m_video a_ratio--video">
 				  <txp::m_embed autoplay social='<txp:custom_field name="video" />' />
+			  <txp:hide>
+        <txp::m_embed background='<txp:custom_field name="video" />' />
 			  </txp:hide>
 		  </div>
 	  </txp:if_custom_field>
