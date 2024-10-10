@@ -36,12 +36,25 @@
     <txp:variable name="video-mute" value="false" />
   </txp:if_yield>
 
+
+
+  <txp:variable name="video-url" value='<txp:yield name="social" />' />
+  <txp:php>
+    global $variable;
+    $url = $variable['video-url'];
+    $host =  parse_url($url, PHP_URL_HOST);
+    $variable['url3'] = $host;
+  </txp:php>
+
+<txp:hide>
     <txp:rah_repeat value='<txp:custom_field name="video" />' delimiter="/" assign="url1, url2, url3" ></txp:rah_repeat>
-    <txp:if_variable name="url3" value="vimeo.com">
-      <iframe class="lazyload" src="<txp:custom_field name="video" trim="https://vimeo.com/" replace="https://player.vimeo.com/video/"/>?autoplay=<txp:variable name="video-autoplay" />&loop=1&title=0&byline=0&portrait=0&muted=<txp:variable name="video-mute" />" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index: 0;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-    <txp:else />
-      <iframe  class="lazyload" src="<txp:custom_field name="video" trim="https://youtu.be/" replace="https://www.youtube-nocookie.com/embed/"/>?autoplay=<txp:variable name="video-autoplay" />&mute=<txp:variable name="video-mute" />&loop=1&modestbranding=1&controls=0" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index: 0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </txp:if_variable>
+</txp:hide>
+
+  <txp:if_variable name="url3" value="vimeo.com">
+    <iframe class="lazyload" src="<txp:custom_field name="video" trim="https://vimeo.com/" replace="https://player.vimeo.com/video/"/>?autoplay=<txp:variable name="video-autoplay" />&loop=1&title=0&byline=0&portrait=0&muted=<txp:variable name="video-mute" />" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index: 0;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <txp:else />
+    <iframe  class="lazyload" src="<txp:custom_field name="video" trim="https://youtu.be/" replace="https://www.youtube-nocookie.com/embed/"/>?autoplay=<txp:variable name="video-autoplay" />&mute=<txp:variable name="video-mute" />&loop=1&modestbranding=1&controls=0" style="position:absolute;top:0;left:0;width:100%;height:100%;z-index: 0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </txp:if_variable>
 
 </if::yield>
 
