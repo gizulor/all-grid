@@ -1,7 +1,7 @@
-
 <txp:images id='<txp:if_yield name="id"><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="10" />' category='<txp:yield name="category" />' break="">
   <txp:variable name="caption" value='<txp:image_info />' />
-  <txp::images_orientation />
+
+<txp::images_orientation />
 
   <txp:variable name="theimage">
 
@@ -9,10 +9,14 @@
       <a href="<txp:image_url />" onclick="lightbox('<txp:image_url />');return false;">
     </txp:if_yield>
 
-    <txp:variable name="image-category" value='<txp:image_info type="category" />' />
 
-    <txp:if_variable name="image-category" value="svg">
+    <txp:variable name="image-type" value='<txp:image_info type="ext" />' />
+
+    <txp:if_variable name="image-type" value=".svg">
+      <txp:image />
+<txp:hide>
       <img src="<txp:site_url />files/<txp:image_info type='alt' />" alt="<txp:image_info type='name' />" <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>/>
+</txp:hide>
     <txp:else />
       <!-- slir image resizing -->
       <txp:variable name="pathtoslirfolder" value='<txp:page_url type="theme_path" />/slir' />
@@ -83,6 +87,7 @@
         <txp:image_info escape="textile" />
       </figcaption>
     </txp:evaluate>
+
   </figure>
 
   <txp:yield />
