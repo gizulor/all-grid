@@ -2,7 +2,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title><txp:page_title /></title>
-  <txp:variable name="cache-buster"><txp:php> echo date('jS-F-Y-h-i-s-A');</txp:php></txp:variable>
+
+
+  <txp:variable name="cache-buster"><txp:php>
+    // Mamp
+    echo date('jS-F-Y-h-i-s-A');
+
+    // Live
+    // echo filemtime(getcwd() . '/themes/all-grid/styles/css/main.css');
+  </txp:php></txp:variable>
+
   <txp:if_logged_in name="username">
     <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
     <!-- <txp:css format="flat.link"/> -->
