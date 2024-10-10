@@ -1,21 +1,15 @@
+<txp:variable name="ratio"><txp:evaluate query='<txp:image_info type="w" /> div <txp:image_info type="h" />' /></txp:variable>
+<txp:variable name="image-orientation" trim>
 <txp:php>
-  $h = image_info(array('type' => 'h'));
-  $w = image_info(array('type' => 'w'));
-
-  $r = $h/$w;
-  global $orientation, $crop;
-
-  $orientation = 'square';
-  $crop = '1:1';
-  if($r > 1.1) {
-    $orientation = 'portrait';
-    $crop = '1000:1618';
-  } else if($r < 0.9) {
-    $orientation = 'landscape';
-    $crop = '1618:1000';
-  }
-
   global $variable;
-  $variable['image-orientation'] = $orientation; // required
-  $variable['image-crop'] = $crop;
-</txp:php>
+
+  $r = $variable['ratio'];
+
+  if($r < .9) {
+    echo 'portrait';
+  } else if ($r > 1.1) {
+    echo 'landscape';
+  } else {
+    echo 'square';
+  }
+</txp:php></txp:variable>
