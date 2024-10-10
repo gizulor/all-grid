@@ -33,7 +33,7 @@
       }
 
       @if $font-unit-ems-bool {
-        $line-height: line-height-spacing($increment, $settings) / $font-size;
+        $line-height: calc(line-height-spacing($increment, $settings) / $font-size);
       } @else {
         $line-height: line-height-spacing($increment, $settings);
       }
@@ -42,7 +42,7 @@
     // Margin Bottom Calculation
     @if $margin-bottom-bool {
       @if $font-unit-ems-bool {
-        $margin-bottom: $base-spacing / $font-size * $base-unit-multiplier;
+        $margin-bottom: calc($base-spacing / $font-size) * $base-unit-multiplier;
       } @else {
         $margin-bottom: $base-spacing;
       }

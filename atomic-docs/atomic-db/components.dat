@@ -398,5 +398,13 @@
         "backgroundColor": "",
         "order": -51,
         "has_js": "false"
+    },
+    {
+        "component": "q_html",
+        "category": "2-quarks",
+        "description": "",
+        "backgroundColor": "",
+        "order": -49,
+        "has_js": "false"
     }
 ]
