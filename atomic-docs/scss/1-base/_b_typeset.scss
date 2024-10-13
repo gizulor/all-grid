@@ -60,6 +60,8 @@ body {
   }
 
   blockquote p {
+    @include heading($h5-shevy);
+    margin: var(--base-unit--b) 0;
     &:before {
       content: '“';
     }
@@ -68,8 +70,6 @@ body {
       content: '”';
     }
 
-    @include heading($h5-shevy);
-    margin: var(--base-unit--b) 0;
   }
 }
 

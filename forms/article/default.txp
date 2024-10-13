@@ -1,7 +1,6 @@
 <txp::images_preprocess />
 
 <txp:if_article_list>
-
   <div class="u_p u_m--bvh <txp:variable name="thumb-class" /> m_thumb <txp:if_variable name="image-orientation" value="omitted">l_column middlev bg--thumbs-no-image<txp:else /><txp:variable name="image-orientation" /></txp:if_variable>" itemscope itemtype="http://schema.org/CreativeWork">
     <txp::u_debug  title='form: default' />
     <a href="<txp:permlink />" itemprop="url">

@@ -1,6 +1,6 @@
 <txp::images_preprocess />
 
-<li class="m_thumb <txp:variable name="m_thumb-class" /> has--image-<txp:variable name='image-orientation' /> <txp:if_article_image not> u_p bg-colour l_column middlev</txp:if_article_image>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
+<li class="m_thumb <txp:variable name="thumb-class" /> has--image-<txp:variable name='image-orientation' /> <txp:if_article_image not> u_p bg-colour l_column middlev</txp:if_article_image>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
 
   <txp::u_debug title='form: thumb' />
 

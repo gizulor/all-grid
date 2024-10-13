@@ -3,10 +3,10 @@
 button {
 	cursor: pointer;
 	border: 2px solid var(--black);
+	background: var(--white);
 	&.plain {
 		border: none;
 	}
-	background: var(--white);
 
 	&::-moz-focus-inner { //Button height fix for Firefox
 	  padding: 0;

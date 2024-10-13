@@ -36,6 +36,7 @@
         right: 0;
         bottom: 0;
         left: 0;
+        color: currentcolor;
 
         &.bg-gradient {
             background: var(--superimposed-bg);
@@ -45,7 +46,6 @@
             background: var(--thumb-background-colour);
         }
 
-        color: currentcolor;
 
         &--shiftingtiles {
             color: inherit;

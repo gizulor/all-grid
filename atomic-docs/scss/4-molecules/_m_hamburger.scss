@@ -23,12 +23,11 @@
     &__button {
         width: calc(var(--base-unit));
         background-color: var(--background-colour);
-
+        border: 0;
         [open] & {
             background-color: var(--hamburger-background-colour);
         }
 
-        border: 0;
         // transition: transform .3s ease-in-out;
         // &:hover {
         //     transform: scale(1.2);

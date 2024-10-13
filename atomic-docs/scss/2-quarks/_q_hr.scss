@@ -4,9 +4,9 @@ hr {
     border: 0;
     height: my-bs(.5);
     background: var(--black);
+    margin-top: my-bs(-.25);
+    margin-bottom: my-bs(.25);
     .bg--dark & {
         background: var(--white);
     }
-    margin-top: my-bs(-.25);
-    margin-bottom: my-bs(.25);
 }
