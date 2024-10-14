@@ -1,13 +1,11 @@
 /* scss/6-layouts/_l_width-limited.scss */
 
 .l_width-limited {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   max-width: $desktop;
   &--large {
+    margin-inline: auto;
     max-width: $large;
-    margin-left: auto;
-    margin-right: auto;
   }
 
 }
