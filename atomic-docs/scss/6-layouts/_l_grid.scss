@@ -3,7 +3,6 @@
 .l_grid {
   display: grid;
   grid-gap: my-bs(1.5) var(--base-unit);
-
   @media (max-width: $small) {
     display: block;
 
@@ -81,6 +80,10 @@
 
   }
 
+  &--auto {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
 
 
   .self-right {
@@ -129,7 +132,7 @@
     }
 
 
-    &.staggered {
+    &.staggered { // applies to image galleries only
 
       // grid-template-rows: auto min-content;
       // grid-auto-flow: dense;
