@@ -1,7 +1,7 @@
 <txp:images id='<txp:if_yield name="id"><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="10" />' category='<txp:yield name="category" />' break="">
   <txp:variable name="caption" value='<txp:image_info />' />
 
-<txp::images_orientation />
+  <txp::images_orientation />
 
   <txp:variable name="theimage">
 
@@ -14,11 +14,7 @@
 
     <txp:if_variable name="image-type" value=".svg">
       <txp:image />
-<txp:hide>
-      <img src="<txp:site_url />files/<txp:image_info type='alt' />" alt="<txp:image_info type='name' />" <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>/>
-</txp:hide>
     <txp:else />
-      <!-- slir image resizing -->
       <txp:variable name="pathtoslirfolder" value='<txp:page_url type="theme_path" />/slir' />
 
       <txp:if_yield name="crop">
@@ -45,26 +41,6 @@
             class="lazyload" />
       </txp:if_variable>
 
-      <txp:hide>
-        <!-- smd_thumbnail image resizing (ensure your smd_thumbnail profile names match the type values below) -->
-        <img data-sizes="auto"
-          data-srcset="<txp:smd_thumbnail type='320w' format='url' /> 300w,
-            <txp:smd_thumbnail type='640w' format='url' /> 600w,
-            <txp:smd_thumbnail type='1280w' format='url' /> 1200w,
-            <txp:image_url /> 2400w"
-          alt="<txp:image_info type='alt' />"
-          <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-          class="lazyload" />
-      </txp:hide>
-
-      <txp:hide>
-        <!-- for out-of-the-box testing purposes; no image resizing (outputs original image) -->
-        <img src="<txp:image_url />"
-          alt="<txp:image_info type='alt' />"
-          <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-          <txp:if_first_article not>loading="lazy" </txp:if_first_article> />
-      </txp:hide>
-
     </txp:if_variable>
 
     <txp:if_yield name="lightbox">
@@ -84,7 +60,7 @@
     <txp::u_edit image />
     <txp:evaluate>
       <figcaption itemprop="caption" class="<txp:yield name="captionclass" />">
-        <txp:image_info escape="textile" />
+        <object><txp:image_info escape="textile" /></object>
       </figcaption>
     </txp:evaluate>
 
