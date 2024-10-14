@@ -111,6 +111,9 @@
   <!-- content feeds -->
   <txp:feed_link flavor="atom" format="link" label="Atom" />
   <txp:feed_link flavor="rss" format="link" label="RSS" />
+
+  <script src="<txp:page_url type="theme_path" />/js/lazysizes/lazysizes.min.js"></script>
+
   <txp:yield />
 </head>
 

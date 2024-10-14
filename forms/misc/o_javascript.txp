@@ -1,4 +1,3 @@
-<script src="<txp:page_url type="theme_path" />/js/lazysizes/lazysizes.min.js"></script>
 
 <txp:hide><!-- Used to lazyload an autoplaying video tag --></txp:hide>
 <script src="<txp:page_url type="theme_path" />/js/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js"></script>
