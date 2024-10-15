@@ -52,7 +52,7 @@
     <div itemprop="articleBody" class="b_typeset b_columns l_width-limited u_m--tt u_m--bb"><txp:body /></div>
 
     <txp:if_article_image>
-      <div class="l_grid l_grid--tri@small l_grid--images"><txp::figure offset="1" limit="10" /></div>
+      <div class="l_grid l_grid--tri@small l_grid--images staggered"><txp::figure offset="1" limit="10" /></div>
     </txp:if_article_image>
 
 	  <txp:if_custom_field name="video" value>

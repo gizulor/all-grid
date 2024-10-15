@@ -11,8 +11,8 @@
 <txp::o_header
   menu
   wraptag="div"
-  wraptagclass="l_beam l_beam--spaced bottom"
-  headerclass="u_hide--to-medium l_column bottom l_width-limited u_p"
+  wraptagclass="l_beam l_beam--spaced bottom l_width-limited--large"
+  headerclass="u_hide--to-medium l_column bottom  o_header--sticky u_p"
   headingclass="h2-style h1-style@desktop"
   sloganclass="h5-style"
-  menuclass="l_beam l_beam--wrap l_beam--spaced space-betweens h5-style " />
+  menuclass="l_width-limited--large l_beam l_beam--wrap l_beam--spaced space-betweens h5-style " />

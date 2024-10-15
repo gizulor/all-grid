@@ -1035,21 +1035,40 @@ ken-burns-carousel {
 /* scss/4-molecules/_m_thumb.scss */
 .m_thumb {
   position: relative;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-gap: 0;
+}
+.m_thumb.has--2-rows {
+  grid-row: span 2;
+}
+.m_thumb.has--3-rows {
+  grid-row: span 3;
+}
+.m_thumb > a {
+  display: contents;
+}
+.m_thumb figure {
+  align-self: end;
 }
 .m_thumb__inner > *:last-child {
   margin-bottom: 0;
 }
 
 /* scss/4-organisms/_o_header.scss */
+.listing-page .o_header {
+  min-height: 25vh;
+}
 .o_header--sticky {
   position: sticky;
   top: 0;
   z-index: 100;
   background-color: var(--background-colour);
 }
-.o_header h1:nth-child(1) {
-  position: relative;
-  z-index: 1;
+@media (min-width: 720px) {
+  .listing-page .o_header--sticky {
+    top: calc(8.2875rem - 25vh);
+  }
 }
 
 /* scss/5-organisms/_o_paginator.scss */
@@ -1252,6 +1271,9 @@ ken-burns-carousel {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+.l_grid--auto {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 .l_grid .self-right {
   justify-self: end;
 }
@@ -1308,14 +1330,12 @@ ken-burns-carousel {
 
 /* scss/6-layouts/_l_width-limited.scss */
 .l_width-limited {
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
   max-width: 1318px;
 }
 .l_width-limited--large {
+  margin-inline: auto;
   max-width: 1720px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* scss/6-layouts/_l_superimposed.scss */

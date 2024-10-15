@@ -1,13 +1,15 @@
 <txp::images_preprocess />
 
-<li class="m_thumb <txp:variable name="thumb-class" /> has--image-<txp:variable name='image-orientation' /> <txp:if_article_image not> u_p bg-colour l_column middlev</txp:if_article_image>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
+<li class="m_thumb <txp:variable name="thumb-class" /> has--image-<txp:variable name='image-orientation' /> has--3-rows <txp:if_article_image not> bg-colourz </txp:if_article_image>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
 
   <txp::u_debug title='form: thumb' />
 
   <a href="<txp:permlink />" itemprop="url">
 
     <txp:if_article_image>
-      <txp::figure class="m_thumb__image a_image--hide-caption u_m--b" type="thumb" limit="1" />
+      <txp::figure class='m_thumb__image a_image--hide-caption u_m--b bg--r<txp::random_number to="14" />' type="thumb" limit="1" />
+    <txp:else />
+      <div class="m_thumb__image bg--r<txp::random_number to="14" /> bg-colourz u_m--b"> </div>
     </txp:if_article_image>
 
     <h3 itemprop="headline" class="h5-style h4-style@medium"><txp:title /><txp::u_edit /></h3>
@@ -15,10 +17,6 @@
     <txp:evaluate>
       <div itemprop="description"><txp:excerpt /></div>
     </txp:evaluate>
-
-    <txp:if_category>
-      <txp:section title /><txp::m_menuCategories_article  class="l_beam l_beam--wrap b_small" />
-    </txp:if_category>
 
   </a>
 
