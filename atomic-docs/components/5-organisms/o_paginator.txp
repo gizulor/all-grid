@@ -1,9 +1,0 @@
-<!-- components/5-organisms/o_paginator.txp -->
-
-<div class="o_paginator">
-	<nav class="o_paginator__child h3-styled u_p l_beam l_beam--spaced" aria-label="page nav">
-		<a title="Previous Title" rel="prev" href="#"><span class="a_icon a_icon--flip u_m--b0 u_p--l">➔</span></a>
-		<h3 class="u_m--b0"><a href="#">Optional Section Title</a></h3>
-		<a title="Next Title" rel="next" href="#"><span class="a_icon u_m--b0 u_p--l">➔</span></a>
-	</nav>
-</div>

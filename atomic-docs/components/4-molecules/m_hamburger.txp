@@ -1,7 +1,0 @@
-<!-- components/4-molecules/m_hamburger.txp -->
-
-<button class="plain m_hamburger__button" onclick="this.classList.toggle('is-active');this.setAttribute('aria-expanded', this.classList.contains('is-active'))" aria-label="Main Menu">
-    <div class="m_hamburger__icon">
-        <div></div>
-    </div>
-</button>
