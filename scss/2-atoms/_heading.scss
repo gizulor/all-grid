@@ -1,0 +1,57 @@
+h1,
+.h1-style {
+  font-size: var(--h1);
+  line-height: 1;
+// margin-bottom: calc(var(--h1)*.5);
+}
+
+h2,
+.h2-style {
+  font-size: var(--h2);
+  line-height: 1;
+  //margin-bottom: 1.5em;
+}
+
+h3,
+.h3-style {
+  font-size: var(--h3);
+  line-height: 1;
+  //margin-bottom: 1.5em;
+}
+
+h4,
+.h4-style {
+  font-size: var(--h4);
+  line-height: 1;
+ // margin-bottom: 1.5em;
+}
+
+h5,
+.h5-style {
+  font-size: var(--h5);
+  line-height: 1
+  //margin-bottom: 1.5em;
+}
+
+h6 {
+  font-size: var(--h6);
+  font-weight: var(--font-heavy);
+}
+
+// Variable font-scaling
+.h0-style {
+  --min-fs: 3;
+   --max-fs: 6;
+   //--min-vw: 20;
+   //--max-vw: 108;
+
+   --min-fs-rem: var(--min-fs) * 1rem;
+    --max-fs-rem: var(--max-fs) * 1rem;
+    --min-vw-rem: var(--min-vw) * 1rem;
+
+   --slope: (var(--max-fs) - var(--min-fs)) * (100vw - var(--min-vw-rem)) / (var(--max-vw) - var(--min-vw));
+   font-size: clamp(var(--min-fs-rem), var(--min-fs-rem) + var(--slope), var(--max-fs-rem));
+   line-height: 1.25cap;
+   //margin-bottom: .25cap;
+
+}

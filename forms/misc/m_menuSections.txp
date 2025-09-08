@@ -5,7 +5,7 @@
     </txp:if_section>
 </txp:if_yield>
 <ul <txp:if_yield name="onclick">onclick="<txp:yield name="onclick" />" </txp:if_yield> class='m_menu a_list-bare <txp:yield name="class" />'>
-<txp:section_list sections='<txp:yield name="sections" />'  break=""  include_default="0">
+<txp:section_list sections='<txp:yield name="sections" />' break=""  include_default="0" exclude='<txp:yield name="sectionsexclude" />'>
   <li class="m_menu__child<txp:if_section name='<txp:section />'> m_menu__child--active</txp:if_section>">
     <txp:section title link  />
     <txp:if_yield name="drop-down">

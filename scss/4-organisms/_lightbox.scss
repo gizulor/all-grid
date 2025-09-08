@@ -1,0 +1,90 @@
+.o_lightbox {
+
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  z-index: 200;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--white);
+  background-color: rgba(white, .8);
+  backdrop-filter: blur(4em) saturate(600%) brightness(50%);
+
+  &__content {
+    max-height: 100%;
+    //filter: drop-shadow(0 0 3em rgba(black,.5));
+  }
+
+  &__caption {
+    text-align: center;
+    // color: #ccc;
+    //padding: 10px 0;
+    //height: 150px;
+  }
+  &__link {
+    position: relative;
+    display: block;
+    &:hover .o_lightbox__prompt{
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+  }
+
+  &__prompt {
+    border-left: 0;
+    border-top: 0;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-bottom: var(--base-unit--b)  solid var(--clr-bg);
+    border-left: var(--base-unit--b)  solid transparent;
+    //box-shadow: 0 0 1em rgba(black,.5);
+    transform: translate(var(--base-unit--b), var(--base-unit--b));
+    opacity: 0;
+    transition: transform .3s ease-in .3s;
+
+  }
+}
+
+
+.o_lightbox__content,
+.o_lightbox__caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0)
+  }
+
+  to {
+    transform: scale(1)
+  }
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: var(--black);
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  opacity: .5;
+  text-decoration: none;
+  cursor: pointer;
+}

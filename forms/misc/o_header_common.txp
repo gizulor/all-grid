@@ -1,18 +1,35 @@
 <txp::o_header
-  hamburger
+  headerclass="o_header--sticky u_p l_beam space-between bottom l_width-limited--large"
   wraptag="div"
-  wraptagclass="l_beam l_beam--spaced bottom"
-  headerclass="l_column bottom u_hide--from-medium u_p"
-  headingclass="h3-style u_m--b0"
-  infoclass="l_beam l_beam--spaced bottom"
-  sloganclass="h5-style u_m--b0"
-  menuclass="l_column h1-style u_m--t" />
-
-<txp::o_header
-  menu
-  wraptag="div"
-  wraptagclass="l_beam l_beam--spaced bottom l_width-limited--large"
-  headerclass="u_hide--to-medium l_column bottom  o_header--sticky u_p"
-  headingclass="h2-style h1-style@desktop"
+  wraptagclass="l_beam "
+  headingclass="h3-style"
   sloganclass="h5-style"
-  menuclass="l_width-limited--large l_beam l_beam--wrap l_beam--spaced space-betweens h5-style " />
+  menu
+  sectionsz="section1,section2"
+  sectionsexclude="home"
+  menuclass="l_beam h5-style " />
+
+<txp:hide>
+  <!-- hamburger for mobile, normal for desktop requires 2 menus -->
+    <txp::o_header
+    headerclass="u_hide--from-medium o_header--sticky u_p l_beam l_beam--nowrap space-between bottom"
+    hamburger
+    wraptag="div"
+    wraptagclass="l_beam"
+    headingclass="h3-style"
+    sloganclass="b_small"
+    menuclass="l_column h3-style h1-style@desktop"
+    navclass="l_column middlev u_m--l"
+     />
+
+  <txp::o_header
+    headerclass="u_hide--to-medium o_header--sticky u_p l_beam l_beam--nowrap space-between bottom l_width-limited--large"
+    wraptag="div"
+    wraptagclass="l_beam "
+    headingclass="h5-style"
+    sloganclass="h5-style"
+    menu
+    sectionsz="section1,section2"
+    sectionsexclude="home,spare"
+    menuclass="l_beam h5-style " />
+</txp:hide>

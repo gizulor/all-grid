@@ -1,0 +1,11 @@
+@use "../0-settings/breakpoints";
+
+.l_width-limited {
+  margin-inline: auto;
+  max-width: breakpoints.$desktop;
+  &--large {
+    margin-inline: auto;
+    max-width: breakpoints.$large;
+  }
+
+}

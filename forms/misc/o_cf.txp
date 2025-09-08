@@ -1,0 +1,2 @@
+<txp:variable name="urlprefix" value='<txp:yield name="urlprefix" />' />
+<txp:custom_field name="test" breakby="|" breakform="o_cf_break" wraptag="ul"  />

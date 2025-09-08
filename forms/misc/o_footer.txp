@@ -1,10 +1,10 @@
 <footer class="u_p <txp:yield name=" class" />">
 	<txp:yield />
-	<p><txp:text item="published_with" /> <a rel="external" href="https://textpattern.com/" title="<txp:text item=" go_txp_com" />">Textpattern CMS</a> using <a href="https://all-grid.all-sorts.biz">all-grid</a></p>
+	<p class="b_small"><a href="https://all-grid.all-sorts.biz">all-grid</a> <small>on</small> <a rel="external" href="https://textpattern.com/" title="<txp:text item=" go_txp_com" />">txp</a> <small>by</small> <a href="https://all-sorts.biz">all-sorts</a>
 	<txp:if_logged_in>
-		<p>You're logged <a href="<txp:site_url />textpattern" target="txp">in</a>.</p>
-		<p><a href="<txp:page_url type="theme_path" />/atomic-docs/atomic-core/?cat=0-settings-tools" target="ad">AtomicDocs</a></p>
+		<br />(you're logged <a href="<txp:site_url />textpattern" target="txp">in)</a>
 	</txp:if_logged_in>
+	</p>
 </footer>
 <txp:hide>
 	<txp:if_logged_in>

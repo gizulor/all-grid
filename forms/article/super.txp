@@ -1,12 +1,13 @@
-<article itemscope itemtype="http://schema.org/Article" class="u_m--bvh">
+<article class=" l_grid l_grid--twin@medium l_gap--large u_p--l u_p--r l_width-limited--large" itemscope itemtype="http://schema.org/CreativeWork">
 
   <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
-  <div class="l_superimposed l_superimposed--fold-limited">
+  <div class="l_superimposed u_span--full-width">
     <txp::u_debug title='form: super' />
 
     <txp:if_article_image>
-      <txp::figure id='<txp:images sort="rand()" limit="1"><txp:image_info type="id" /></txp:images>' class="a_image--hide-caption" />
+      <txp::figure id='<txp:custom_field name="article_image" />' sort="rand()" limit="1" nocaption class="a_image--height-limited"/>
     </txp:if_article_image>
+
     <div class="l_superimposed__inner txt--white <txp:if_article_image>bg-gradient<txp:else />bg-colour</txp:if_article_image> l_column bottom u_p">
 
       <h1 itemprop="headline" class="h0-style"><txp:title /><txp::u_edit /></h1>
@@ -22,15 +23,15 @@
   <txp:if_individual_article>
 
     <txp:evaluate>
-      <div itemprop="articleBody" class="b_typeset b_columns l_width-limited u_m--tt u_m--bb"><txp:body /></div>
+      <div itemprop="articleBody" class="b_typeset b_columns l_width-limitedz"><txp:body /></div>
     </txp:evaluate>
 
+  <txp::m_embed controls class="u_span--full-width" />
+
+
+
     <txp:if_article_image>
-      <txp:evaluate>
-        <div class="l_grid l_grid--tri@small u_p">
-          <txp::figure offset="1" limit="10" />
-        </div>
-      </txp:evaluate>
+      <txp::gallery tri id='<txp:custom_field name="article_image" />' offset="1" limit="50"  classgallery="u_span--full-width" />
     </txp:if_article_image>
 
   </txp:if_individual_article>

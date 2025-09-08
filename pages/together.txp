@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+
+<txp:output_form form="head" bodyclass="" />
+
+<txp::u_debug title='page: <txp:page_url type="page" />' />
+
+<txp::o_header_common />
+
+
+<main aria-label="<txp:text item="main_content" />" itemscope <txp::a_itemtype />>
+<txp::together />
+<hr />
+<txp::o_footer/>
+<txp::o_javascript>
+
+</txp::o_javascript>
+
+</body>
+
+</html>

@@ -1,0 +1,163 @@
+// forms
+button,
+[type="submit"] {
+  cursor: pointer;
+  border: var(--border-width) solid var(--clr-border);
+  color: var(--clr-text);
+  padding: var(--base-unit--ss);
+  // &:hover {
+  //   background-color: var(--clr-brand);
+  // }
+}
+
+[type="submit"] {
+  padding-left: var(--base-unit--s);
+  padding-right: var(--base-unit--s);
+  text-align: left;
+  cursor: pointer;
+  background-color: var(--clr-brand);
+}
+
+label {
+  display: inline-block; // allow margins, and for beam or column placement by parent class
+}
+
+input,
+textarea {
+  font-family: var(--font-input);
+  padding: var(--base-unit--ss);
+  border: var(--border-width) solid var(--clr-border);
+  border-radius: 0;
+  color: inherit;
+
+  @media (max-width: 960px) {
+    padding: calc(var(--base-unit--ss)/2) var(--base-unit--ss);
+  }
+
+  &:placeholder {
+    font-family: var(--sans);
+  }
+
+  &:focus {
+    animation: focus .9s ease-out forwards;
+    outline: calc(var(--border-width) *2) solid var(--clr-brand);
+    //outline: none;
+  }
+}
+
+// fix inputs with a large size attribute
+@media (max-width: 640px) {
+
+  input[size="64"],
+  input[size="32"],
+  textarea[cols="40"] {
+    //width: clamp(18ch, 90vw, 32ch);
+    width: 100%;
+  }
+}
+
+.date,
+.time {
+  text-wrap: balance;
+}
+
+textarea {
+  appearance: none;
+  width: 100%;
+  //height: auto;
+  //min-height: calc(var(--base-unit)* 5.5);
+  // &[rows="16"] {
+  //   height: auto; // calc(var(--base-unit)* 5.5);
+  // }
+  max-height: 75vh;
+  padding-top: var(--base-unit--ss);
+  padding-bottom: var(--base-unit);
+  vertical-align: top;
+
+  //border: var(--border-width) solid currentcolor;
+  &:empty {
+   // min-height: var(--base-unit--b);
+  }
+
+  &:focus {
+    min-height: calc(var(--base-unit)* 12);
+    min-width: 16ch;
+  }
+
+  // fix textareas  with a large size attribute
+  &[rows] {
+    //height: calc(var(--base-unit) * 2.5);
+  }
+}
+
+// auto-growing textarea see https://chriscoyier.net/2023/09/29/css-solves-auto-expanding-textareas-probably-eventually/
+.txp-form-field-value:has(textarea) {
+  display: grid;
+
+  &:after {
+    content: attr(data-replicated-value) " "; // Needed to preventy jumpy behavior
+    white-space: pre-wrap;
+    visibility: hidden; // Hidden from view, clicks, and screen readers
+  }
+
+  &>textarea {
+    resize: none; //user resizing breaks auto sizing
+    overflow: hidden; // hide Firefox scrollbar on growth
+  }
+
+  &>textarea,
+  &:after {
+    /* Identical styling may be required if modifying core */
+    grid-area: 1 / 1 / 2 / 2; // Place on top
+  }
+}
+
+select {
+  width: max-content;
+  appearance: none;
+  border: var(--border-width) solid var(--clr-border);
+  color: var(--clr-text);
+  border-radius: 0;
+  padding: var(--base-unit--ss);
+  padding-right: var(--base-unit);
+  background-repeat: no-repeat;
+  background-position: calc(100% - var(--base-unit--ss)) center;
+  background-size: .75em;
+  // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 7l4 4 4-4-1.5-1.5L8 8 5.5 5.5'/%3E%3C/svg%3E");
+  background-image: url('data:image/svg+xml;base64,ICA8c3ZnIHZpZXdCb3g9IjAgMCAxMyA3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBvbHlsaW5lIHN0cm9rZT0iIzAwMDAwMCIgcG9pbnRzPSIwIDAuNjIyNzQxNjk5IDYuMjgxMjUgNi41IDEyLjU2MjUgMC42MjI3NDE2OTkiPjwvcG9seWxpbmU+PC9nPjwvc3ZnPgo=');
+
+  &:hover {
+    border-color: var(--clr-brand);
+  }
+
+  // <svg viewBox="0 0 13 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><polyline stroke="#000000" points="0 0.622741699 6.28125 6.5 12.5625 0.622741699"></polyline></g></svg>
+  @media (max-width: 960px) {
+    padding: calc(var(--base-unit--ss)/2) var(--base-unit--ss);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M4 7l4 4 4-4-1.5-1.5L8 8 5.5 5.5'/%3E%3C/svg%3E");
+  }
+}
+
+[type="checkbox"],
+[type="radio"] {
+  margin: 0;
+  accent-color: var(--clr-brand);
+}
+
+// *:has(> select) [type="submit"] {
+//   text-align: left;
+//   cursor: pointer;
+// }
+// .comThanks,
+// .comError {}
+@keyframes focus {
+  from {
+    background-color: var(--clr-brand);
+  }
+
+  to {
+    background-color: var(--clr-bg);
+  }
+}

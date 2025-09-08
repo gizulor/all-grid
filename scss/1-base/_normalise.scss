@@ -1,0 +1,124 @@
+// Box sizing rules
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+// Set core root defaults
+html {
+  font-size: 100%;
+
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+
+// Remove default margin
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+ul,
+ol,
+li,
+dl,
+dd,
+code,
+pre {
+  margin: 0;
+  font-weight: inherit;
+  font-size: inherit;
+  line-height: var(--base-line-height);
+}
+
+
+
+
+
+
+// Default list styles on ul, ol
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+// bold
+dt,
+strong,
+th{
+  font-weight: var(--font-heavy);
+}
+
+
+// Hoz rules
+hr {
+    border: 0;
+    height: var(--border-width);
+    background: var(--clr-text);
+}
+
+// Make images easier to work with
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+// Inherit fonts for inputs and buttons
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  background: transparent;
+  border: 0;
+}
+
+iframe,video {
+  width: 100%;
+  border: 0;
+}
+
+::selection {
+  background-color: var(--clr-brand);
+  color: var(--white);
+}
+
+pre {
+  overflow: auto;
+  width: var(--type-measure);
+  max-width: 100%;
+}
+
+code {
+  -webkit-hyphens: none;
+  hyphens: none;
+  font-size: .8rem;
+  opacity: .62;
+  //max-width: 100%;
+}
+
+// Remove all animations, transitions and smooth scroll for people that prefer not to see them
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

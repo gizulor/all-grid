@@ -1,0 +1,16 @@
+.u_self-position {
+  &--bottom {
+    align-self: end;
+  }
+
+  &--middlev {
+    align-self: center;
+  }
+
+  &--middle {
+    justify-self: center;
+  }
+  &--right {
+    justify-self: end;
+  }
+}

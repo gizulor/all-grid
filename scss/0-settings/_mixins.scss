@@ -1,0 +1,15 @@
+@mixin hozScroll($columns, $gap, $padding) {
+	//.hoz-scroll {
+		display: grid;
+		grid-gap: $gap;
+		grid-auto-flow: column;
+		grid-auto-columns: $columns;
+		overflow-x: scroll;
+		scroll-snap-type: x proximity;
+		padding: $padding;
+	//}
+}
+
+@mixin hozScrollBg {
+	border-inline-end: var(--base-unit--ss) solid var(--clr-brand);
+}

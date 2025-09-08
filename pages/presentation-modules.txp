@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+
+<txp:output_form form="head" bodyclass="" />
+
+<txp::u_debug title='page: <txp:page_url type="page" />' />
+
+<txp::o_header_common />
+
+<main class="b_typeset l_width-limited l_width-limited--large u_p" aria-label="<txp:text item="main_content" />" itemscope <txp::a_itemtype />>
+  <txp:section title wraptag="h1" />
+
+    <details>
+    <summary><h2>Form: Shifty</h2></summary>
+    <p>For Shifty to display, specify article images on an article using forms/article/shifty.txp</p>
+    <txp:article limit="1" sort="rand()" form="shifty" article_image />
+  </details>
+  <hr />
+  <details>
+    <summary><h2>Form: Super pan</h2></summary>
+    <p>For Super pan to display, specify article images on an article using forms/article/super_pan.txp</p>
+    <txp:article limit="1" sort="rand()" form="super_pan" />
+  </details>
+    <hr />
+  <details>
+    <summary><h2>Form: Carousel</h2></summary>
+    <p>Use Carousel by specifying its shortcode:</p>
+    <code>&lt;txp::o_carousel id=&apos;&lt;txp:variable name=&quot;images&quot; /&gt;&apos; class=&quot;a_ratio--gm&quot; /&gt;</code>
+
+  <txp:variable name="images" trim>
+    <txp:images sort="category desc, rand()" limit="10" break=","><txp:image_info type="id" /></txp:images>
+  </txp:variable>
+    <txp::o_carousel id='<txp:variable name="images" />' class="a_ratio--gm u_m--tt" classfigure=""/>
+  </details>
+  <hr />
+
+  <details>
+  <summary><h2>All together now</h2></summary>
+    <p><a href="/together/">View the site using multiple viewports</a> for quick responsive testing.</p>
+    <p>Create a section with name <em>together</em> and assign /pages/together.txp to it.</p>
+  </details>
+
+</main>
+
+<txp::o_footer/>
+<txp::o_javascript />
+
+</body>
+
+</html>

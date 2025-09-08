@@ -3,14 +3,14 @@
 
   <txp::images_orientation />
 
-  <txp:variable name="theimage">
+  <txp:variable name="theimage" trim>
 
     <txp:if_yield name="lightbox">
-      <a href="<txp:image_url />" onclick="lightbox('<txp:image_url />');return false;">
+      <a class="o_lightbox__link" href="<txp:image_url />" onclick="lightbox('<txp:image_url />');return false;"><span class="o_lightbox__prompt"></span>
     </txp:if_yield>
 
 
-    <txp:variable name="image-type" value='<txp:image_info type="ext" />' />
+<txp:variable name="image-type" value='<txp:image_info type="ext" />' />
 
     <txp:if_variable name="image-type" value=".svg">
       <txp:image />
@@ -39,9 +39,9 @@
             alt="<txp:image_info type='alt' />"
             <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
             class="lazyload" />
-      </txp:if_variable>
-
     </txp:if_variable>
+    </txp:if_variable>
+
 
     <txp:if_yield name="lightbox">
       </a>
@@ -52,20 +52,26 @@
 
   <txp:variable name="captionclass" value='<txp:image_info />' />
   <txp:if_variable name="captionclass" value><txp:variable name="captionclass" value="a_image--has-caption" /></txp:if_variable>
+  <txp:if_yield name="wraptag"><<txp:yield name="wraptag" /> class="<txp:yield name="wraptagclass" />"></txp:if_yield>
 
   <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject" class="a_image <txp:yield name="class" /> <txp:variable name="image-orientation" /> <txp:variable name="captionclass" />">
     <txp:variable name="theimage" />
     <meta itemprop="width" content="<txp:image_info type="w" />">
     <meta itemprop="height" content="<txp:image_info type="h" />">
+
     <txp::u_edit image />
-    <txp:evaluate>
-      <figcaption itemprop="caption" class="<txp:yield name="captionclass" />">
-        <object><txp:image_info escape="textile" /></object>
-      </figcaption>
-    </txp:evaluate>
+
+    <txp:if_yield name="nocaption" not>
+      <txp:evaluate>
+        <figcaption itemprop="caption" class="<txp:yield name="captionclass" />">
+          <object><txp:image_info escape="textile" /></object>
+        </figcaption>
+      </txp:evaluate>
+    </txp:if_yield>
 
   </figure>
 
   <txp:yield />
+  <txp:if_yield name="wraptag"></<txp:yield name="wraptag" />></txp:if_yield>
 
 </txp:images>

@@ -1,0 +1,133 @@
+@use "0-settings/breakpoints";
+
+// body:has(.u_debug--info) {
+.u_debug--breakpoint,
+.u_debug--info {
+  display: none;
+}
+
+.u_debug {
+  outline: 1px solid rgba(silver, .5);
+
+  * {
+    outline: 1px dotted rgba(silver, .5);
+  }
+
+  .u_debug--breakpoint {
+    position: absolute;
+    display: none;
+    width: 0px;
+    top: 0;
+    z-index: 101;
+    bottom: 0;
+    outline: none;
+
+    span {
+      outline: none;
+      font-size: xx-small;
+      transform: rotateZ(90deg);
+      transform-origin: bottom left;
+      display: block;
+    }
+
+    @media (min-width: breakpoints.$mobile) {
+      &.mobile {
+        display: block;
+        left: breakpoints.$mobile;
+        border-left: 1px dotted var(--red-500);
+        color: var(--red-500);
+      }
+    }
+
+    @media (min-width: breakpoints.$small) {
+      &.small {
+        display: block;
+        left: breakpoints.$small;
+        border-left: 1px dotted var(--yellow-500);
+        color: var(--yellow-500);
+      }
+    }
+
+    @media (min-width: breakpoints.$medium) {
+      &.medium {
+        display: block;
+        left: breakpoints.$medium;
+        border-left: 1px dotted var(--green-500);
+        color: var(--green-500);
+      }
+    }
+
+    @media (min-width: breakpoints.$desktop) {
+      &.desktop {
+        display: block;
+        left: breakpoints.$desktop;
+        border-left: 1px dotted var(--blue-500);
+        color: var(--blue-500);
+      }
+    }
+  }
+
+  .u_debug--info {
+    position: absolute;
+    z-index: 10;
+    top: 0; //my-bs(.5);
+    left: 0; //var(--base-unit);
+    font-size: .5rem;
+    opacity: 0;
+    display: block;
+    transition: opacity .3s linear;
+
+    .l_superimposed &,
+    .m_thumb & {
+      //filter: invert(100%);
+    }
+
+    .has--image-omitted & {
+      color: currentcolor;
+    }
+
+    .u_debug.raised {
+      margin-top: var(--base-unit--neg);
+    }
+
+    .u_debug.static {
+      position: static;
+    }
+  }
+
+  *:has(>.u_debug--info) {
+    position: relative;
+  }
+
+  *:has(>.u_debug--info):hover .u_debug--info {
+    opacity: 1;
+  }
+
+  >.u_debug--info:first-of-type {
+    top: .25rem;
+    right: .25rem;
+    left: auto;
+    opacity: .75;
+    z-index: 200;
+  }
+}
+
+.u_debug-toggle {
+  cursor: pointer;
+  position: absolute;
+  display: block;
+  left: 1rem;
+  top: .25rem;
+  background-color: var(--clr-bg);
+  z-index: 200;
+
+  &:hover {
+    &:after {
+      content: 'Toggle debugging aides';
+      font-size: .75rem;
+    }
+    path {
+      fill: red;
+    }
+  }
+}

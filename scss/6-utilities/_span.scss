@@ -1,0 +1,31 @@
+.u_span {
+  &--full-width {
+    grid-column-start: 1;
+    grid-column-end: -1;
+
+  }
+  &--2rows {
+    grid-row: span 2;
+  }
+
+  &--3rows {
+    grid-row: span 3;
+  }
+
+  &--4rows {
+    grid-row: span 4;
+  }
+
+  &--5rows {
+    grid-row: span 5;
+  }
+
+  &--2cols {
+    grid-column: span 2;
+  }
+
+  &--3cols {
+    grid-column: span 3;
+  }
+
+}

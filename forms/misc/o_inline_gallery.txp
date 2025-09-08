@@ -1,3 +1,3 @@
 <div class="l_grid l_grid--mobile l_grid--twin l_grid--quad@small l_grid--gap-small self-bottom u_p <txp:yield name="class" />">
-  <txp::figure limit="16" id='<txp:yield name="id" />' lightbox class="a_image--hide-caption a_ratio--1x1" />
+  <txp::figure limit="16" id='<txp:yield name="id" />' lightbox class="a_ratio--1x1" />
 </div>

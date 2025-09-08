@@ -1,0 +1,29 @@
+.u_baseline-grid {
+  //background: var(--white) repeat url(img/u_baseline-12.svg);
+ // background: transparent;
+ // background-image: url(//basehold.it/24); /* 24px baseline */
+  //background-image: url(//basehold.it/i/24/0/0/0/0.85); /* with RGBA colour */
+ // background-repeat: repeat;
+
+    position: relative;
+
+  &:after {
+    position: absolute;
+    width: auto;
+    height: auto;
+    z-index: 9999;
+    content: '';
+    display: block;
+    pointer-events: none;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url(//basehold.it/i/24/0/0/0/0.15);
+    background-size: 2px 24px;
+  }
+
+  &:active:after {
+    display: none;
+  }
+}

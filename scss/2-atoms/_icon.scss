@@ -1,0 +1,141 @@
+@font-face {
+  font-family: 'core-line';
+  src: url('/themes/all-grid/styles/fonts/core-line/fonts/core-line.ttf?7vrldv') format('truetype'),
+    url('/themes/all-grid/styles/fonts/core-line/fonts/core-line.woff?7vrldv') format('woff'),
+    url('/themes/all-grid/styles/fonts/core-line/fonts/core-line.svg?7vrldv#core-line') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+.a_icon {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'core-line' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  //line-height: 1;
+  display: inline-block;
+  font-size: 0; // hide text
+
+  &:before {
+    font-size: initial;
+    display: inline-block;
+  }
+
+  &--large:before {
+    font-size: 1.563rem;
+  }
+
+  &:hover {
+    opacity: .5;
+  }
+  &--invert{
+    filter: invert(100%);
+  }
+}
+
+// alphabetical order by default when re-importing svgs to icomoon
+.a_icon--add:before,
+.a_icon--plus:before {
+  content: "\e900";
+}
+
+.a_icon--alert:before {
+  content: "\e901";
+}
+
+.a_icon--arrow { // right default
+  &:before {
+    content: "\e902";
+
+  }
+}
+.a_icon--arrowcirc { // right default
+  &:before {
+    content: "\e903";
+
+  }
+}
+.a_icon--arrowcirc-left:before {
+    content: "\e903";
+  transform: rotateZ(180deg);
+}
+
+.a_icon--arrow-left:before {
+  content: "\e902";
+  transform: rotateZ(180deg);
+}
+
+.a_icon--arrow-up:before {
+  content: "\e902";
+  transform: rotateZ(-90deg);
+}
+
+.a_icon--arrow-down:before {
+  content: "\e902";
+  transform: rotateZ(90deg);
+}
+
+.a_icon--check:before {
+  content: "\e904";
+}
+
+.a_icon--check2:before {
+  content: "\e905";
+}
+
+.a_icon--circ:before {
+  content: "\e906";
+}
+
+.a_icon--close:before {
+  content: "\e907";
+}
+
+.a_icon--close2:before {
+  content: "\e908";
+}
+
+.a_icon--extlink:before {
+  content: "\e909";
+}
+
+.a_icon--help:before {
+  content: "\e90a";
+}
+
+.a_icon--info:before {
+  content: "\e90b";
+}
+
+.a_icon--pencil:before {
+  content: "\e90c";
+}
+
+.a_icon--subtract:before {
+  content: "\e90d";
+}
+
+.a_icon--txp:before {
+  content: "\e90e";
+}
+
+.desc,
+.asc {
+  &:after {
+    content: '>'; // placeholder
+    display: inline-block;
+    margin-inline-start: var(--base-unit--ss);
+  }
+}
+
+.desc:after {
+  transform: rotateZ(90deg) scaleX(.5);
+}
+
+.asc:after {
+  transform: rotateZ(-90deg) scaleX(.5);
+}

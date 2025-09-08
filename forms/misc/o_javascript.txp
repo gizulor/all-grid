@@ -1,6 +1,12 @@
 
 <txp:hide><!-- Used to lazyload an autoplaying video tag --></txp:hide>
 <script src="<txp:page_url type="theme_path" />/js/lazysizes/plugins/unveilhooks/ls.unveilhooks.min.js"></script>
+<script src="<txp:page_url type="theme_path" />/js/lazysizes/lazysizes.min.js"></script>
+
+<txp:if_variable name="carousel" value="1">
+    <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/carousel.css?v=<txp:variable name="cache-buster" />">
+    <script src="<txp:page_url type="theme_path" />/js/flickity.pkgd.min.js"></script>
+</txp:if_variable>
 
 <txp:if_variable name="kenburns" value="1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.1.0/webcomponents-loader.js"></script>
@@ -59,58 +65,3 @@ document.body.addEventListener('keypress', function(e) {
 </txp:if_variable>
 
 <txp:yield />
-
-<txp:hide>
-<script src="<txp:page_url type="theme_path" />/js/gsap/gsap.min.js"></script>
-<script src="<txp:page_url type="theme_path" />/js/gsap/ScrollTrigger.min.js"></script>
-<script>
-      gsap.registerPlugin(ScrollTrigger);
-//       ScrollTrigger.create({
-//       start: 'top -66%',
-//       //end: '+=1000%',
-//       toggleClass: {
-//         className: 'is-active',
-//         targets: '.p_diy__menu'
-//       },
-//        markers: true,
-// });
-
-
-
-      gsap.to('.p_diy__intro img', {
-      scrollTrigger: {
-          trigger: '.p_diy__menu',
-      start: 'top 40%',
-      end: 'bottom 0%',
-     scrub: 1,
-      // onEnter: function() {
-      //  //heartbeatpause();
-      // },
-     // onEnter: bannerfixed,
-   // onComplete: bannerfixed,
-    //onLeave: bannerfixed,
-   // onLeaveBack: bannerfixed,
-     //toggleClass: 'is-active',
-    pin: true,
-     //pinSpacing: true,
-      markers: true,
-      toggleActions: 'restart  pause reverse pause',
-      },
-      scale: 10,
-      opacity: 0,
-    // xPercent: -75,
-            //scale: .125,
-      //yPercent: 100,
-
-    //  y: () => -document.querySelector('.p_diy__menu').offsetTop,
-    // y: document.querySelector('.p_diy__menu').element.offsetTop,
-
-      //duration: 3,
-    });
-  function bannerfixed() {
-      document.querySelector('.p_diy__menu').classList.toggle('is-active')
-
-  }
-
-</script>
-</txp:hide>

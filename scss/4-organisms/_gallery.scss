@@ -1,0 +1,82 @@
+@use "../0-settings/breakpoints";
+.o_gallery {
+  //margin-block: var(--base-unit--b);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: inherit;//var(--base-unit);
+  grid-auto-flow: dense;
+
+  figure {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    gap: 0;
+
+    > img {
+      height: auto;
+    }
+  }
+
+  &:has(.portrait:only-child) {
+    display: block;
+
+  }
+
+  &:has(.landscape:only-child) {
+    display: block;
+  }
+
+  .portrait {
+
+    > img {
+      aspect-ratio: 2/3;
+    }
+
+    &:only-child > img{
+      max-height: 80vh;
+      aspect-ratio: initial;
+      object-fit: contain;
+      object-position: left;
+    }
+  }
+
+  .square {
+    > img {
+      align-self: end;
+    }
+  }
+
+  .landscape {
+    grid-column: span 2;
+    > img {
+      aspect-ratio: 4.175/3;
+    }
+  }
+
+  @media (min-width: breakpoints.$small) {
+
+    &--quad,
+    &--tri {
+      .landscape {
+        grid-column: span 2;
+      }
+    }
+
+    &--quad {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &--tri {
+      grid-template-columns: repeat(3, 1fr);
+
+      //grid-auto-flow: dense;
+      .landscape~.landscape {
+        grid-column: span 3;
+      }
+    }
+
+    &--twin {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

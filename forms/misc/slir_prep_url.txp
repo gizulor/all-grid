@@ -1,0 +1,14 @@
+<txp:hide>
+  Preps urls used in some presentation modules so their size can be limited
+  slir doesn't handle webp, and svg doesn't need resizing.
+</txp:hide>
+<txp:variable name="image-type" value='<txp:image_info type="ext" />' />
+<txp:if_variable name="image-type" value=".svg">
+  <txp:image_url />
+<txp:else />
+  <txp:if_variable name="image-type" value=".webp">
+    <txp:image_url />
+  <txp:else />
+    <txp:page_url type="theme_path" />/slir/w<txp:if_yield name="width"><txp:yield name="width" /><txp:else />640</txp:if_yield>-c<txp:image_info type="w" />:<txp:image_info type="h" />/<txp:image_url />
+  </txp:if_variable>
+</txp:if_variable>

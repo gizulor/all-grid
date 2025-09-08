@@ -1,70 +1,42 @@
-<txp::images_preprocess />
+<txp:hide>
+  <txp::o_cf urlprefix='../<txp:page_url type="s" />?test=' />
+</txp:hide>
 
-<txp:if_article_list>
-  <div class="u_p u_m--bvh <txp:variable name="thumb-class" /> m_thumb <txp:if_variable name="image-orientation" value="omitted">l_column middlev bg--thumbs-no-image<txp:else /><txp:variable name="image-orientation" /></txp:if_variable>" itemscope itemtype="http://schema.org/CreativeWork">
-    <txp::u_debug  title='form: default' />
-    <a href="<txp:permlink />" itemprop="url">
+<article class="l_grid l_grid--twin@medium l_gap--large u_p--l u_p--r l_width-limited--large l_landscape-portrait" itemscope itemtype="http://schema.org/CreativeWork">
+  <txp::u_debug title='form: default' />
+  <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
-      <txp:if_custom_field name="video" value>
-        <txp::m_embed autoplay background='<txp:custom_field name="video" />' />
-      <txp:else />
-    	  <txp:if_article_image>
-      	  <txp::figure class="a_image--hide-caption m_thumb__image l_superimposed--fold-limited" limit="1" />
-    	  </txp:if_article_image>
-  	  </txp:if_custom_field>
-      <div>
-        <h3 itemprop="headline" class="h2-style u_m--t"><txp:title /><txp::u_edit /></h3>
-        <txp:hide>
-          <txp::m_menuCategories_article  class="h5-style l_beam l_beam--spaced l_beam--wrap buttons u_m--b" />
-        </txp:hide>
-        <txp:evaluate>
-          <aside itemprop="description" class="b_typeset b_typeset--lede">
-            <txp:excerpt />
-          </aside>
-        </txp:evaluate>
-      </div>
-    </a>
+    <header class="l_column bottom">
+    <h1 itemprop="headline" class="h0-style">
+      <txp:title />
+      <txp::u_edit />
+    </h1>
+    <txp:evaluate>
+      <aside itemprop="description" class="b_typeset b_typeset--lede">
+        <txp:excerpt />
+      </aside>
+    </txp:evaluate>
+    <txp:hide>
+      <txp::m_posted />
+    </txp:hide>
+      <txp::m_menuCategories_article class="l_beam  b_typeset" />
+  </header>
+   <txp:if_article_image>
+    <txp::figure limit="1" lightbox class="a_image--height-limited hero" />
+  </txp:if_article_image>
+ <div itemprop="articleBody" class="b_typeset u_span--full-width columns">
+    <txp:body />
   </div>
 
-<txp:else />
-  <article class="l_width-limited u_p--t u_p--b has--image-<txp:variable name="image-orientation" /> u_debug--info__holder" itemscope itemtype="http://schema.org/CreativeWork">
-    <txp::u_debug title='form: default' />
-    <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
-    <header class="l_grid l_grid--twin@small bottom u_p--b u_p--t ">
-      <div class="l_column bottom">
-        <h1 itemprop="headline" class="h0-style u_m--b0"><txp:title /><txp::u_edit /></h1>
-      </div>
-
-      <div class="l_column bottom">
-        <txp:evaluate>
-          <aside itemprop="description" class="b_typeset b_typeset--lede"><txp:excerpt /></aside>
-        </txp:evaluate>
-      </div>
-
-      <txp::m_posted />
-
-      <txp::m_menuCategories_article class="h5-style l_beam l_beam--spaced l_beam--wrap u_p--b buttons" />
-    </header>
-
-    <txp:if_article_image><txp::figure limit="1" class="u_m--b" /></txp:if_article_image>
-
-    <div itemprop="articleBody" class="b_typeset b_columns l_width-limited u_m--tt u_m--bb"><txp:body /></div>
-
-    <txp:if_article_image>
-      <div class="l_grid l_grid--tri@small l_grid--images staggered"><txp::figure offset="1" limit="10" /></div>
-    </txp:if_article_image>
-
-	  <txp:if_custom_field name="video" value>
-		  <div class="u_p--l u_p--r m_video a_ratio--video">
-				  <txp::m_embed autoplay social='<txp:custom_field name="video" />' />
-			  <txp:hide>
-        <txp::m_embed background='<txp:custom_field name="video" />' />
-			  </txp:hide>
-		  </div>
-	  </txp:if_custom_field>
+  <txp::m_embed controls class="u_span--full-width" />
 
 
-  </article>
 
-</txp:if_article_list>
+  <txp:if_article_image>
+    <txp::gallery tri id='<txp:custom_field name="article_image" />' offset="1" limit="50"  classgallery="u_span--full-width" />
+  </txp:if_article_image>
+
+
+
+</article>

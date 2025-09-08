@@ -1,0 +1,148 @@
+:root {
+    // Base colors
+    --white: white;
+    --black: hsla(0, 0%, 12%, 1);
+    --brand: var(--yellow-500);
+
+    --superimposed-bg: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
+    --superimposed-bg--white: linear-gradient(180deg, rgba(rgb(255, 255, 255), 1) 20%, rgba(rgb(255, 255, 255), .66) 100%);
+    --backdrop-filter: blur(.25em) brightness(.9);
+
+
+
+    // Greys
+    --grey-100: hsla(43, 46%, 88%, 1);
+    --grey-200: hsla(55, 3%, 73%, 1);
+    --grey-300: hsla(70, 2%, 65%, 1);
+    --grey-400: hsla(204, 4%, 59%, 1);
+    --grey-500: hsla(180, 1%, 58%, 1);
+    --grey-600: hsla(212, 4%, 53%, 1);
+    --grey-700: hsla(213, 5%, 40%, 1);
+    --grey-800: hsla(150, 2%, 37%, 1);
+    --grey-900: hsla(33, 6%, 33%, 1);
+
+    // Blues
+    --blue-100: hsla(201, 21%, 76%, 1);
+    --blue-200: hsla(201, 23%, 73%, 1);
+    --blue-300: hsla(207, 33%, 67%, 1);
+    --blue-400: hsla(205, 44%, 64%, 1);
+    --blue-500: hsla(194, 31%, 54%, 1);
+    --blue-600: hsla(220, 38%, 48%, 1);
+    --blue-700: hsla(221, 49%, 44%, 1);
+    --blue-800: hsla(201, 40%, 40%, 1);
+    --blue-900: hsla(227, 37%, 31%, 1);
+
+    // Greens
+    --green-100: hsla(147, 13%, 87%, 1);
+    --green-200: hsla(147, 19%, 81%, 1);
+    --green-300: hsla(104, 16%, 77%, 1);
+    --green-400: hsla(84, 38%, 72%, 1);
+    --green-500: hsla(84, 37%, 62%, 1);
+    --green-600: hsla(89, 29%, 49%, 1);
+    --green-700: hsla(149, 37%, 41%, 1);
+    --green-800: hsla(149, 26%, 34%, 1);
+    --green-900: hsla(122, 28%, 34%, 1);
+
+    // Reds
+    --red-100: hsla(6, 39%, 75%, 1);
+    --red-200: hsla(12, 41%, 66%, 1);
+    --red-300: hsla(14, 67%, 54%, 1);
+    --red-400: hsla(9, 61%, 50%, 1);
+    --red-500: hsla(5, 50%, 45%, 1);
+    --red-600: hsla(359, 47%, 41%, 1);
+    --red-700: hsla(353, 42%, 39%, 1);
+    --red-800: hsla(347, 44%, 40%, 1);
+
+    // Browns
+    --brown-100: hsla(24, 47%, 73%, 1);
+    --brown-200: hsla(33, 15%, 67%, 1);
+    --brown-300: hsla(24, 20%, 64%, 1);
+    --brown-400: hsla(14, 37%, 56%, 1);
+    --brown-500: hsla(33, 8%, 53%, 1);
+    --brown-600: hsla(12, 38%, 39%, 1);
+    --brown-700: hsla(12, 35%, 34%, 1);
+    --brown-800: hsla(10, 27%, 32%, 1);
+    --brown-900: hsla(17, 11%, 27%, 1);
+
+    // Accent colors
+    --yellow-300: hsla(35, 63%, 78%, 1);
+    --yellow-500: hsla(43, 89%, 53%, 1);
+    --yellow-700: hsla(52, 55%, 47%, 1);
+
+    --orange-300: hsla(31, 45%, 73%, 1);
+    --orange-500: hsla(17, 63%, 63%, 1);
+    --orange-700: hsla(29, 55%, 68%, 1);
+
+    --pink-300: hsla(18, 45%, 83%, 1);
+    --pink-500: hsla(347, 45%, 75%, 1);
+    --pink-700: hsla(358, 34%, 34%, 1);
+}
+
+// SCSS variables
+
+// Greys
+$grey-100: hsla(43, 46%, 88%, 1);
+$grey-200: hsla(55, 3%, 73%, 1);
+$grey-300: hsla(70, 2%, 65%, 1);
+$grey-400: hsla(204, 4%, 59%, 1);
+$grey-500: hsla(180, 1%, 58%, 1);
+$grey-600: hsla(212, 4%, 53%, 1);
+$grey-700: hsla(213, 5%, 40%, 1);
+$grey-800: hsla(150, 2%, 37%, 1);
+$grey-900: hsla(33, 6%, 33%, 1);
+
+// Blues
+$blue-100: hsla(201, 21%, 76%, 1);
+$blue-200: hsla(201, 23%, 73%, 1);
+$blue-300: hsla(207, 33%, 67%, 1);
+$blue-400: hsla(205, 44%, 64%, 1);
+$blue-500: hsla(194, 31%, 54%, 1);
+$blue-600: hsla(220, 38%, 48%, 1);
+$blue-700: hsla(221, 49%, 44%, 1);
+$blue-800: hsla(201, 40%, 40%, 1);
+$blue-900: hsla(227, 37%, 31%, 1);
+
+// Greens
+$green-100: hsla(147, 13%, 87%, 1);
+$green-200: hsla(147, 19%, 81%, 1);
+$green-300: hsla(104, 16%, 77%, 1);
+$green-400: hsla(84, 38%, 72%, 1);
+$green-500: hsla(84, 37%, 62%, 1);
+$green-600: hsla(89, 29%, 49%, 1);
+$green-700: hsla(149, 37%, 41%, 1);
+$green-800: hsla(149, 26%, 34%, 1);
+$green-900: hsla(122, 28%, 34%, 1);
+
+// Reds
+$red-100: hsla(6, 39%, 75%, 1);
+$red-200: hsla(12, 41%, 66%, 1);
+$red-300: hsla(14, 67%, 54%, 1);
+$red-400: hsla(9, 61%, 50%, 1);
+$red-500: hsla(5, 50%, 45%, 1);
+$red-600: hsla(359, 47%, 41%, 1);
+$red-700: hsla(353, 42%, 39%, 1);
+$red-800: hsla(347, 44%, 40%, 1);
+
+// Browns
+$brown-100: hsla(24, 47%, 73%, 1);
+$brown-200: hsla(33, 15%, 67%, 1);
+$brown-300: hsla(24, 20%, 64%, 1);
+$brown-400: hsla(14, 37%, 56%, 1);
+$brown-500: hsla(33, 8%, 53%, 1);
+$brown-600: hsla(12, 38%, 39%, 1);
+$brown-700: hsla(12, 35%, 34%, 1);
+$brown-800: hsla(10, 27%, 32%, 1);
+$brown-900: hsla(17, 11%, 27%, 1);
+
+// Accent colors
+$yellow-300: hsla(35, 63%, 78%, 1);
+$yellow-500: hsla(43, 89%, 53%, 1);
+$yellow-700: hsla(52, 55%, 47%, 1);
+
+$orange-300: hsla(31, 45%, 73%, 1);
+$orange-500: hsla(17, 63%, 63%, 1);
+$orange-700: hsla(29, 55%, 68%, 1);
+
+$pink-300: hsla(18, 45%, 83%, 1);
+$pink-500: hsla(347, 45%, 75%, 1);
+$pink-700: hsla(358, 34%, 34%, 1);

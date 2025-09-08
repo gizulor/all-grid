@@ -1,21 +1,19 @@
-<txp::images_preprocess />
-
-<li class="m_thumb <txp:variable name="thumb-class" /> has--image-<txp:variable name='image-orientation' /> has--3-rows <txp:if_article_image not> bg-colourz </txp:if_article_image>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
+<li class="m_thumb l_grid--parent-rules" itemprop itemscope itemtype="http://schema.org/CreativeWork">
 
   <txp::u_debug title='form: thumb' />
 
-  <a href="<txp:permlink />" itemprop="url">
+  <a href="<txp:permlink />" itemprop="url" class="u_contents">
 
     <txp:if_article_image>
-      <txp::figure class='m_thumb__image a_image--hide-caption u_m--b bg--r<txp::random_number to="14" />' type="thumb" limit="1" />
+      <txp::figure nocaption limit="1" class="a_ratio--1x1 u_self-position--bottomz"/>
     <txp:else />
-      <div class="m_thumb__image bg--r<txp::random_number to="14" /> bg-colourz u_m--b"> </div>
+      <div> </div>
     </txp:if_article_image>
 
-    <h3 itemprop="headline" class="h5-style h4-style@medium"><txp:title /><txp::u_edit /></h3>
+    <h3 itemprop="headline" class="h4-style"><txp:title /><txp::u_edit /></h3>
 
     <txp:evaluate>
-      <div itemprop="description"><txp:excerpt /></div>
+      <div itemprop="description b_typeset"><object><txp:excerpt /></object></div>
     </txp:evaluate>
 
   </a>

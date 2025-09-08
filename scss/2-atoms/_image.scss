@@ -1,0 +1,80 @@
+@use "../0-settings/breakpoints";
+
+.a_image {
+  position: relative; // allow for positioning of the .u_edit-in-txp component
+  display: block;
+  max-width: 100%;
+
+  figcaption {
+    margin-top: var(--base-unit--s);
+    p {
+      max-width: 100%;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+  }
+
+  img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+
+  &--height-limited img {
+    max-height: 60vh;
+  }
+
+  &--contain img {
+    object-fit: contain;
+    height: auto;
+    width: 100%;
+  }
+
+  &--has-caption img {
+    // height: max-content;
+  }
+
+  // see ken-burns-carousel
+  &--pan {
+    overflow: hidden;
+  }
+
+  &--hide-caption {
+    figcaption {
+      display: none;
+    }
+  }
+
+  figcaption:has(object:empty) {
+    display: none;
+  }
+
+  @media screen and (min-width: breakpoints.$small) {
+    &--inline {
+      width: calc(50% - var(--base-unit--s));
+      float: right;
+      clear: right;
+      margin-left: var(--base-unit);
+
+      &.large {
+        width: 66%;
+      }
+    }
+  }
+}
+
+ken-burns-carousel {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.lazyload {
+  background-color: var(--brand);
+}

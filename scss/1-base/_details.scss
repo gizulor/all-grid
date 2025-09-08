@@ -1,0 +1,38 @@
+//@use "../2-atoms/icon";
+summary {
+	cursor: pointer;
+	//margin-bottom: var(--base-unit);
+	list-style-type: none;
+	display: flex;
+	align-items: baseline;
+	gap: var(--base-unit);
+
+	&:focus {
+		outline: none;
+	}
+
+	&::-webkit-details-marker,
+	&::marker {
+		display: none;
+	}
+	&:before {
+		content: '\e900';
+		font-family: 'core-line';
+		//margin-inline-end: var(--base-unit--ss);
+		font-size: 2rem;
+	}
+	&[plain]:before {
+		display: none;
+	}
+
+}
+
+details {
+	&[open] {
+		padding-bottom: var(--base-unit);
+	//	background-color: var(--clr-brand);
+	>summary:before {
+		content: '\e90d';
+	}
+}
+}

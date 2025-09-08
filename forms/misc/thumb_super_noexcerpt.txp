@@ -1,17 +1,16 @@
-<txp::images_preprocess />
-<li class="m_thumb l_superimposed has--image-<txp:variable name="image-orientation" /> txt--white bg--r<txp::random_number to="14" /> " itemscope itemtype="http://schema.org/Article">
+<li class="m_thumb l_superimposed" itemscope itemtype="http://schema.org/Article">
   <txp::u_debug title='form: thumb_super_noexcerpt' />
   <a href="<txp:permlink />" itemprop="url">
 
     <txp:if_article_image>
-      <txp::figure class="m_thumb__image a_image--hide-caption" type="thumb" limit="1"/>
-    <txp:else />
-        <div class="m_thumb__image"> </div>
-      </txp:if_article_image>
+    <txp::figure nocaption limit="1" class="a_ratio--1x1 u_self-position--bottomz"/>
+  <txp:else />
+    <div> </div>
+  </txp:if_article_image>
 
     <div class="m_thumb__inner  <txp:if_article_image>l_superimposed__inner bg-gradient</txp:if_article_image> l_column bottom u_p">
 
-      <h3 itemprop="headline" class="h4-style@medium ">
+      <h3 itemprop="headline" class="h3-style ">
         <txp:title />
         <txp::u_edit />
       </h3>

@@ -1,0 +1,55 @@
+@use "breakpoints";
+
+:root {
+   /*
+   Variable font-scaling based on rems */
+   // https://css-tricks.com/linearly-scale-font-size-with-css-clamp-based-on-the-viewport/
+   --min-fs: .8125; // min size in rems
+   --max-fs: 1;     // max size in rems
+   --min-vw: 20;    // min viewport width in rems
+   --max-vw: 108;   // max viewport width in rems
+   /*
+
+   Type */
+   --sans: system-ui, sans-serif;
+   --serif: Baskerville, serif;
+   --mono: ui-monospace, monospace;
+   --font-body: var(--sans);
+   --font-input: var(--sans);
+   --font-normal: 300;
+   --font-heavy: 500;
+   --base-line-height: 1.5;
+   --type-measure: 72ch;
+   --border-width: 2px;
+   /*
+
+   UI spacing */
+   --base-unit: 1lh;
+   --base-unit--neg: calc(var(--base-unit) * -1);
+   --base-unit--ss: calc(var(--base-unit) / 4);
+   --base-unit--s: calc(var(--base-unit) / 2);
+   --base-unit--b: calc(var(--base-unit) * 2);
+   --gap: var(--base-unit);
+   /*
+
+   UI colour assignments */
+   --clr-text: var(--black);
+   --clr-bg: var(--white);
+   --clr-brand: var(--black);
+   --clr-border: var(--clr-text);
+   --clr-success: var(--green-600);
+   --clr-warning: var(--yellow-500);
+   --clr-error: var(--red-500);
+
+   @media (max-width: breakpoints.$medium) {
+      --gap: var(--base-unit--ss) var(--base-unit--s);
+   }
+
+   //color-scheme: light dark;
+   //    @media (prefers-color-scheme: dark) {
+   //        --clr-text: oklch(from var(--white) .9 c h);
+   //        --clr-bg: oklch(from var(--black) .3 c h);
+   //        --clr-brand: oklch(from var(--yellow-500) .6 c h);
+   //
+   //    }
+}

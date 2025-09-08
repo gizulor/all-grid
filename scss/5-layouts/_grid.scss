@@ -1,0 +1,117 @@
+@use "../0-settings/breakpoints";
+
+.l_grid {
+  display: grid;
+  width: 100%;
+  //gap: var(--base-unit);
+
+  @media (max-width: breakpoints.$mobile) {
+    width: 100%;
+  }
+
+  &--twin {
+    grid-template-columns: 1fr 1fr;
+
+    @media (min-width: breakpoints.$mobile) {
+      &\@mobile {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: breakpoints.$small) {
+      &\@small {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: breakpoints.$medium) {
+      &\@medium {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  }
+
+  &--tri {
+    grid-template-columns: 1fr 1fr 1fr;
+
+    @media (min-width: breakpoints.$small) {
+      &\@small {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    @media (min-width: breakpoints.$medium) {
+      &\@medium {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+  }
+
+  &--auto {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+
+    @media (max-width: breakpoints.$small) {
+      &-mobile {
+       grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+       gap: var(--base-unit--b) var(--base-unit) ;
+      }
+    }
+  }
+
+  &--parent-rules {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    &:has(.a_image, .m_video){
+      grid-row: span 4;
+    }
+  }
+
+  &.staggered {
+    grid-auto-flow: dense;
+
+    .landscape {
+      grid-column: span 2;
+
+      @media (min-width: breakpoints.$desktop) {
+        grid-row: span 2;
+      }
+
+      &:nth-of-type(even) {
+        grid-column-end: -1;
+      }
+    }
+
+    .portrait {}
+  }
+
+  &.top {
+    align-items: start;
+  }
+
+  &.middlev {
+    align-items: center;
+    align-content: center;
+  }
+
+  &.bottom {
+    align-items: end;
+    align-content: end;
+  }
+
+  &.space-between {
+    justify-content: space-between;
+  }
+
+  &.left {
+    justify-content: start;
+  }
+
+  &.middle {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: end;
+  }
+}

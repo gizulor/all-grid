@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title><txp:page_title /></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=contain">
+ <title><txp:page_title /></title>
 
 
   <txp:variable name="cache-buster"><txp:php>
@@ -12,12 +12,10 @@
     // echo filemtime(getcwd() . '/themes/all-grid/styles/css/main.css');
   </txp:php></txp:variable>
 
-  <txp:if_logged_in name="username">
-    <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/main.css?v=<txp:variable name="cache-buster" />">
-    <!-- <txp:css format="flat.link"/> -->
+  <txp:if_logged_in name="giz">
+    <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/default.css?v=<txp:variable name="cache-buster" />">
   <txp:else />
-    <!-- <txp:css format="link" name="main" /> -->
-    <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/main.css?v=<txp:variable name="cache-buster" />">
+    <txp:css format="link" name="default" />
   </txp:if_logged_in>
 
   <meta name="generator" content="Textpattern CMS">
@@ -87,7 +85,7 @@
       <meta property="og:site_name" content="<txp:site_name />">
 
       <txp:hide><!-- Plain <txp:article tag breaks page! --></txp:hide>
-      <txp:article_custom section='<txp:section />' status="5" limit="1">
+      <txp:article_custom allowoverride="0" section='<txp:section />' status="5" limit="1">
         <txp:if_article_image>
           <txp:images break="" limit="1">
             <meta property="og:image" content="<txp:image_url />" data-addsearch="no_crop" >
@@ -97,7 +95,7 @@
         </txp:if_article_image>
       </txp:article_custom>
 
-      <txp:article limit="4">
+      <txp:article limit="4" allowoverride="0" >
         <txp:if_article_image>
           <txp:images break="" limit="1">
             <meta property="og:image" content="<txp:image_url />" data-addsearch="no_crop"/>

@@ -5,71 +5,11 @@
 </head>
 <body>
 
-<h1 id="all-grid:atextpatternthemeforimage-richwebsites">all-grid: a Textpattern theme for image-rich websites</h1>
+<h1 id="all-grid:atextpatternthemeforbusywebsites">all-grid: a Textpattern theme for busy websites</h1>
 
-<p><a href="https://all-grid.all-sorts.biz">Demonstration Site</a></p>
-
-<p><!-- <picture>
-  <img width="480" alt="all-grid" src="https://all-grid.local/images/517.webp">
-</picture> --></p>
+<p><a href="https://all-grid.all-sorts.biz">Demonstration and Documentation Site</a></p>
 
 <p>Mix Textpattern pages and forms with a library of css classes to generate varied layouts. all-grid is the template I use as a starting point in my website development.</p>
-
-<h2 id="modulardesigncomponentlibrary">Modular Design Component Library</h2>
-
-<p>Atomic Design principles guide the naming of css classes and Textpattern forms.</p>
-
-<h2 id="incorporateimagesampvideoanywhichway">Incorporate Images &amp; Video any which way</h2>
-
-<p>Responsive images served automatically, flexible typography on a baseline grid. Article images are displayed in groups, others can be displayed inline with your body copy.</p>
-
-<h2 id="toolstosimplifywebdevelopment">Tools to simplify Web Development</h2>
-
-<p>Article edit and image edit links simplify workflow (if you’re logged into Textpattern’s admin interface); the public site includes article-edit links and image-edit links. Know which <em>Page</em> or <em>Form</em> is being used ; hover over an element on the page, and its <em>Form</em> or <em>Page</em> name is revealed — useful in large sites with a variety of <em>Forms</em> in use.</p>
-
-<h2 id="installation">Installation</h2>
-
-<p>Upload to your Textpattern Themes folder via ftp, and use the Textpattern Themes tab to load the theme from disk. Assign section(s) to all-grid.</p>
-
-<p>For full functionality, <a href="http://github.com/jools-r/glz_custom_fields">glz_custom_fields</a> is required, with custom fields:</p>
-
-<p><em>video</em></p>
-
-<p>Uses shortcode m_embed.txp — eg. <code>&lt;txp::m_embed background='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;</code> , <code>&lt;txp::m_embed social='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;</code> , <code>&lt;txp::m_embed file='&lt;txp:custom_field name=&quot;video&quot; /&gt;' /&gt;</code> etc.</p>
-
-<p><em>links_to_url</em></p>
-
-<p>Used to override txp:permlink on list pages</p>
-
-<p><em>details</em> configure as a textarea</p>
-
-<p>Not used by allgrid, but useful if you use all_admin.scss and require another textarea for your project</p>
-
-<h2 id="usage">Usage</h2>
-
-<p>Experiment with article status: sticky, and override form. Do the same with the minimal <a href="https://github.com/gizulor/all-grid/blob/master/pages/default.txp">default page</a>, using classes derived from <a href="https://github.com/gizulor/all-grid/blob/master/atomic-docs/scss/6-layouts">layouts classes</a> and others.</p>
-
-<p>Use <code>&lt;txp::figure id=&quot;1&quot; lightbox class=&quot;a_image--inline large&quot; captionclass=&quot;b_small&quot; /&gt;</code> or <code>&lt;txp::o_inline_gallery id=&quot;1,2,3&quot; /&gt;</code> in an article field (or in a <em>Page</em> or <em>Form</em>).</p>
-
-<p>While it is possible to edit <em>styles/main.css</em> directly, it is preferable to edit the scss stubs in the AtomicDocs instead, and then use a utility to build your css (I use CodeKit).</p>
-
-<h2 id="includes:">Includes:</h2>
-
-<h3 id="slirhttps:github.comlencionislirimageresizingscript"><a href="https://github.com/lencioni/SLIR">SLIR</a> image resizing script</h3>
-
-<p>All image requests are made by the <em>Form</em> <a href="https://github.com/gizulor/all-grid/blob/master/forms/misc/figure.txp">figure.txp</a>, which is configured to use SLIR by default (and run under php8). Code blocks can be hidden/un-hidden to use smd_thumbnail or display the original image instead.</p>
-
-<h3 id="lazysizes.js">lazysizes.js</h3>
-
-<p>Automatic responsive image sizes (and video autoplay when in view).</p>
-
-<h3 id="atomicdocsstylelibrarytohelpmanagescss">atomicdocs style library to help manage scss</h3>
-
-<p>A link to the library is available in the site footer <em>forms/o_footer.txp</em> if you&#8217;re logged in.</p>
-
-<h3 id="grid-basedcssfortextpatternsadmin:writepanel">grid-based css for Textpattern&#8217;s Admin:Write panel</h3>
-
-<p>See <a href="https://github.com/gizulor/all-grid/blob/master/all_admin.scss">all_admin.scss</a>. Place in your admin theme eg. <em>/textpattern/admin-themes/hive/assets/css/all_admin.css</em> and update Textpattern&#8217;s config.php accordingly.</p>
 
 <p>all-grid is free and open source software, and requires Textpattern v4.80 and above.</p>
 

@@ -1,0 +1,17 @@
+<div class="
+  o_gallery
+  <txp:if_yield name="quad">
+    o_gallery--quad
+  <txp:else />
+    <txp:if_yield name="tri">
+      o_gallery--tri
+      <txp:else />
+        o_gallery--twin
+    </txp:if_yield>
+  </txp:if_yield>
+
+  <txp:yield name="classgallery" />
+">
+
+  <txp::figure offset='<txp:yield name="offset" />' limit='<txp:yield name="limit" />' id='<txp:yield name="id" />' break=""  />
+</div>

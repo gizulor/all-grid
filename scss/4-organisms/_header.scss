@@ -1,0 +1,30 @@
+@use "../0-settings/breakpoints";
+
+.o_header {
+  --header-height-min: calc(var(--base-unit) * 4);
+  --header-height-max: 20vh;
+
+  .listing-page & {}
+
+  height: var(--header-height-max);
+  min-height: var(--header-height-min);
+
+  @media (min-width: breakpoints.$small) {
+    &--sticky {
+      position: sticky;
+      top: calc(var(--header-height-min) - var(--header-height-max));
+      z-index: 100;
+      background-color: var(--clr-bg);
+
+      .listing-page & {
+        //top: calc(my-bs(8.5) - 25vh);
+      }
+    }
+  }
+
+  &:has(.a_icon--hamburger.is-active) {
+    >div:first-child {
+      display: none; // hide site title if burger is active
+    }
+  }
+}

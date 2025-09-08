@@ -1,0 +1,113 @@
+@use "../0-settings/breakpoints";
+
+@mixin menubg {
+  background-color: var(--whiteLC);
+}
+
+.m_menu {
+  >a:empty {
+    display: none;
+  }
+
+  &__child {
+    &--active {
+      a {
+        @extend a, :hover;
+        // text-underline-offset: .15em;
+        font-weight: var(--font-heavy);
+      }
+    }
+  }
+
+  &--hamburger {
+    .a_icon--hamburger {
+      position: fixed;
+      top: 0;
+      right: 0;
+
+    }
+    nav {
+      display: none;
+    }
+    &:has(.is-active)  {
+      nav {
+         position: fixed;
+         z-index: -1;
+         top: 0;
+         right: 0;
+        background-color: var(--brand);
+        //left: 0;
+        width: max-content;
+        bottom: 0;
+        display: flex;
+        overflow: auto;
+      }
+
+    }
+
+  }
+
+  &--drop-down {
+    >li {
+      position: relative;
+      z-index: 2;
+
+      &:hover ul {
+        @media screen and (min-width: breakpoints.$medium) {
+          display: block;
+          z-index: -1;
+        }
+      }
+    }
+
+    ul {
+      display: none;
+      width: 100%;
+      position: absolute;
+      @include menubg();
+    }
+  }
+
+  &--compact {
+    position: relative;
+    z-index: 2;
+    width: max-content;
+
+    &__current {
+      font-weight: 400;
+      cursor: pointer;
+
+      &:after {
+        content: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAyMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAuMDc1OTk5OSAwLjk1NDkwNUwxMS40MTIgNy42ODg5MUwyMi43NDggMC45NTQ5MDZMMjIuNzQ4IDYuMTI4OTFMMTEuNDEyIDEyLjY4MDlMMC4wNzU5OTk3IDYuMTAyOTFMMC4wNzU5OTk5IDAuOTU0OTA1WiIgZmlsbD0iIzI3MjcyNyIvPgo8L3N2Zz4K");
+        display: inline-block;
+        transform: scale(.62);
+      }
+    }
+
+    &__holder {
+      position: relative;
+
+      >ul {
+        display: none;
+        position: absolute;
+        z-index: -1;
+        width: max-content;
+        top: 0;
+        height: max-content;
+        padding-top: my-bs(1.5);
+        padding-bottom: my-bs(2);
+        padding-left: var(--base-unit);
+        left: calc(var(--base-unit) * -1);
+        @include menubg();
+
+        .m_menu__child--active {
+          display: none;
+        }
+      }
+    }
+
+    &:hover ul {
+      display: block;
+    }
+  }
+}

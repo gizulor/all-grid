@@ -2,3 +2,5 @@
 *.DS_Store
 atomic-docs/styles/main.css.map
 atomic-docs.zip
+pages/default_all-grid.txp
+forms/misc/o_inline_gallery.txp

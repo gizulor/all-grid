@@ -1,0 +1,59 @@
+// tables
+@use "../5-layouts/beam";
+
+//@use "../2-atoms/icon";
+table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  //container-type: inline-size;
+  --min-fs: .6875;
+  --max-fs: 1;
+  --min-vw: 20;
+  --max-vw: 60;
+  --min-fs-rem: var(--min-fs) * 1rem;
+  --max-fs-rem: var(--max-fs) * 1rem;
+  --min-vw-rem: var(--min-vw) * 1rem;
+  --slope: (var(--max-fs) - var(--min-fs)) * (100vw - var(--min-vw-rem)) / (var(--max-vw) - var(--min-vw));
+
+  input,
+  textarea,
+  select {
+    padding: 0 var(--base-unit--ss);
+  }
+}
+
+tr {
+  border-bottom: var(--border-width) solid currentcolor;
+}
+
+td,
+th {
+  text-align: start;
+  vertical-align: baseline;
+  padding: var(--base-unit--ss);
+  // word-break: break-word;
+  // hyphens: auto;
+}
+
+// th {
+//   td:nth-child(1) {
+//     position: sticky;
+//     inset-inline-start: 0;
+//     z-index: 1;
+//         background-color: var(--clr-bg);
+//   }
+//
+// }
+
+@media (max-width: 1280px) {
+
+  th,
+  td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 1;
+    font-size: clamp(var(--min-fs-rem), var(--min-fs-rem) + var(--slope), var(--max-fs-rem));
+  }
+}

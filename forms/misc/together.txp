@@ -1,0 +1,121 @@
+ <link rel="stylesheet" href="<txp:page_url type="theme_path" />/styles/together.css">
+
+  <div class="together u_p">
+
+  <txp:variable name="url">
+    <txp:evaluate><txp:page_url type="url" /><txp:else /><txp:site_url /></txp:evaluate>
+  </txp:variable>
+  <section class="together__screen">
+    <div class="together__window mobile portrait">
+      <div class="chrome top">mobile portrait</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+  <section class="together__screen">
+    <div class="together__window mobile landscape">
+      <div class="chrome top">mobile landscape</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+
+
+  <section class="together__screen">
+    <div class="together__window small portrait">
+      <div class="chrome top">small portrait</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+  <section class="together__screen">
+    <div class="together__window small landscape">
+      <div class="chrome top">small landscape</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+
+
+  <section class="together__screen">
+    <div class="together__window medium portrait">
+      <div class="chrome top">medium portrait</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+  <section class="together__screen">
+    <div class="together__window medium landscape">
+      <div class="chrome top">medium landscape</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+
+
+
+  <section class="together__screen">
+    <div class="together__window large portrait">
+      <div class="chrome top">large portrait</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+  <section class="together__screen">
+    <div class="together__window large landscape">
+      <div class="chrome top">large landscape</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+
+
+  <section class="together__screen">
+    <div class="together__window desktop">
+      <div class="chrome top">desktop</div>
+      <iframe src="<txp:variable name="url" />"></iframe>
+      <div class="chrome bottom"></div>
+    </div>
+  </section>
+
+
+</div>
+<script src="/textpattern/vendors/jquery/jquery/jquery.js"></script>
+<script>
+  $(document).ready(function() {
+    function init() {
+      const winW = $('.together').width();
+      const vp = $('.together__window');
+      vp.each(function() {
+        const vpW = $(this).width();
+        if (winW < vpW) {
+          const scale = winW / vpW;
+          $(this).css('transform', 'scale(' + scale + ')');
+          // const offsetW = -1 * (vpW  - (scale * vpW)/2  ) + 'px';
+          // const offsetH = -1 * (vpH  - scale * vpH ) + 'px';
+          // $(this).css('marginLeft', offsetW );
+          // $(this).css('marginBottom', offsetH );
+          // $(this).parent().css('width', scale * vpW + 'px');
+          // $(this).parent().css('height', scale * vpH + 'px');
+         } else {
+          $(this).removeAttr('style');
+        }
+      });
+      //console.log('winW: ' + winW + 'iframeHolderW: ' + iframeHolderW);
+    }
+
+    function debounce(func, timeout = 100) {
+      let timer;
+      return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => { func.apply(this, args); }, timeout);
+      };
+    }
+
+    const processChange = debounce(() => init());
+    window.addEventListener("resize", processChange);
+
+     init();
+
+  });
+</script>

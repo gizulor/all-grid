@@ -1,0 +1,18 @@
+// Set core body defaults
+body {
+  min-height: 100vh;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: var(--sans);
+  font-weight: var(--font-normal);
+  // Variable font-scaling
+  --min-fs-rem: var(--min-fs) * 1rem;
+  --max-fs-rem: var(--max-fs) * 1rem;
+  --min-vw-rem: var(--min-vw) * 1rem;
+  --slope: (var(--max-fs) - var(--min-fs)) * (100vw - var(--min-vw-rem)) / (var(--max-vw) - var(--min-vw));
+  font-size: clamp(var(--min-fs-rem), var(--min-fs-rem) + var(--slope), var(--max-fs-rem));
+
+    color: var(--clr-text);
+    background-color: var(--clr-bg);
+
+}

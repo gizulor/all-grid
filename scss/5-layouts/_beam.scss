@@ -1,0 +1,48 @@
+%beam,
+.l_beam {
+  display: flex;
+  gap: var(--gap);
+  align-items: baseline;
+  flex-wrap: wrap;
+  &--nowrap {
+  flex-wrap: nowrap;
+  }
+  &.middle {
+    justify-content: center;
+  }
+
+  &.right {
+    justify-content: flex-end;
+  }
+
+  //   @media (min-width: $small) {
+  //     &\@small {
+  //       display: flex;
+  //     }
+  //
+  //     &.right\@small {
+  //       justify-content: flex-end;
+  //
+  //       > :last-child {
+  //         margin-right: 0;
+  //       }
+  //     }
+  //   }
+  &.space-between {
+    justify-content: space-between;
+  }
+  &.space-around {
+    justify-content: space-around;
+  }
+  &.space-evenly {
+    justify-content: space-evenly;
+  }
+
+  &.middlev {
+    align-items: center;
+  }
+
+  &.bottom {
+    align-items: flex-end;
+  }
+}

@@ -1,0 +1,17 @@
+<div class="<txp:yield name="class" /> carousel js-flickity" data-flickity='{
+  "setGallerySize": false,
+  "contain": true,
+  "groupCells": false,
+  "autoPlay": false,
+  "imagesLoaded": true,
+  "percentPosition": false
+}'>
+<txp:hide>https://flickity.metafizzy.co/options</txp:hide>
+
+<txp:images id='<txp:yield name="id" />' break="">
+  <img src="<txp:image_url />" alt />
+</txp:images>
+</div>
+
+<txp:variable name="carousel" value="1" />
+

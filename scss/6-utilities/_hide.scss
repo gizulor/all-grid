@@ -1,0 +1,45 @@
+@use "../0-settings/breakpoints";
+
+.u_hide {
+  display: none;
+
+  @media screen and (max-width: breakpoints.$small) {
+    &--to-small {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: breakpoints.$small) {
+    &--from-small {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: breakpoints.$medium) {
+    &--to-medium {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: breakpoints.$medium) {
+    &--from-medium {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: breakpoints.$desktop) {
+    &--to-desktop {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: breakpoints.$desktop) {
+    &--from-desktop {
+      display: none;
+    }
+  }
+
+  &--always {
+    display: none;
+  }
+}
