@@ -1449,7 +1449,7 @@ ken-burns-carousel {
 }
 
 .l_landscape-portrait:has(.hero.landscape) .hero {
-  grid-row-start: 1;
+  grid-row-start: 2;
   grid-column-start: 1;
   grid-column-end: -1;
 }
