@@ -1493,7 +1493,6 @@ ken-burns-carousel {
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
-  top: var(--base-unit--ss);
 }
 .u_edit-in-txp:hover {
   filter: invert(100%);
