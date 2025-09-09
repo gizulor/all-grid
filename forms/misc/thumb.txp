@@ -7,13 +7,13 @@
     <txp:if_article_image>
       <txp::figure nocaption limit="1" class="a_ratio--1x1 u_self-position--bottomz"/>
     <txp:else />
-      <div> </div>
+      <div class="bg--<txp::random_number to="3" />"> </div>
     </txp:if_article_image>
 
     <h3 itemprop="headline" class="h4-style"><txp:title /><txp::u_edit /></h3>
 
     <txp:evaluate>
-      <div itemprop="description b_typeset"><object><txp:excerpt /></object></div>
+      <div itemprop="description b_typeset"><object class=" u_clamp u_clamp--4"><txp:excerpt /></object></div>
     </txp:evaluate>
 
   </a>

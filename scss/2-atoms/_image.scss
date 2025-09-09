@@ -23,9 +23,15 @@
     width: 100%;
   }
 
-  &--height-limited img {
-    max-height: 60vh;
+  &--height-limited  {
+    &.landscape img {
+   height: 65vh;
+ //  aspect-ratio: 2/1;
+    }
+  &.portrait img {
+    height: 65vh;
   }
+}
 
   &--contain img {
     object-fit: contain;

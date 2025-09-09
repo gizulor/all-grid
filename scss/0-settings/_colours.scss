@@ -9,9 +9,10 @@
     --backdrop-filter: blur(.25em) brightness(.9);
 
 
+    --corbu-white: hsla(43, 46%, 88%, 1);
 
     // Greys
-    --grey-100: hsla(43, 46%, 88%, 1);
+    --grey-100: hsla(43, 13%, 84%, 1);
     --grey-200: hsla(55, 3%, 73%, 1);
     --grey-300: hsla(70, 2%, 65%, 1);
     --grey-400: hsla(204, 4%, 59%, 1);
@@ -80,8 +81,9 @@
 
 // SCSS variables
 
+$corbu-white: hsla(43, 13%, 84%, 1);
 // Greys
-$grey-100: hsla(43, 46%, 88%, 1);
+$grey-100: hsla(55, 24%, 79%, 1);
 $grey-200: hsla(55, 3%, 73%, 1);
 $grey-300: hsla(70, 2%, 65%, 1);
 $grey-400: hsla(204, 4%, 59%, 1);

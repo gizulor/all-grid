@@ -6,13 +6,10 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 
-  >p {
-    margin-bottom: 0;
-  }
 
-  >*:not(:first-child) {
-    display: none;
-  }
+  // >*:not(:first-child) {
+  //   display: none;
+  // }
 
   &--2 {
     line-clamp: 2;
@@ -22,5 +19,9 @@
   &--3 {
     line-clamp: 3;
     -webkit-line-clamp: 3;
+  }
+  &--4 {
+    line-clamp:4;
+    -webkit-line-clamp: 4;
   }
 }

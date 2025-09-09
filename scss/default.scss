@@ -16,35 +16,24 @@
 
 // atoms
 @use "2-atoms/list-bare";
- @use "2-atoms/icon"; // core-line
+@use "2-atoms/icon"; // core-line
 @use "2-atoms/iconanimate";
 @use "2-atoms/heading";
 @use "2-atoms/image";
 @use "2-atoms/ratio";
-// @use "2-atoms/txp-actions";
-// @use "2-atoms/nav-tertiary";
-// @use "2-atoms/prev-next";
-// @use "2-atoms/txp-footer";
+@use "2-atoms/bg";
 
 // molecules
 @use "3-molecules/thumb";
 @use "3-molecules/menu";
 @use "3-molecules/video";
-// @use "3-molecules/form-field";
-//  @use "3-molecules/txp-search";
-//  @use "3-molecules/txp-save-zone";
-// @use "3-molecules/txp-details";
-//@use "3-molecules/com-image";
-//@use "3-molecules/txp-listtables";
-//
+
 // organisms
-//@use "4-organisms/dialog";
 @use "4-organisms/header";
 @use "4-organisms/gallery";
 @use "4-organisms/lightbox";
 
 // layouts
-
 @use "5-layouts/beam";
 @use "5-layouts/column";
 @use "5-layouts/edges";
@@ -55,7 +44,6 @@
 @use "5-layouts/landscape-portrait";
 
 // utilities
-
 @use "6-utilities/hide";
 @use "6-utilities/edit-in-txp";
 @use "6-utilities/clamp";

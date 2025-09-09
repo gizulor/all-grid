@@ -18,9 +18,7 @@
 
     </div>
     <txp:evaluate>
-      <div itemprop="description" class="h6-styled u_clamp u_clamp--2 u_p--t-"><object>
-          <txp:excerpt />
-        </object></div>
+      <div itemprop="description b_typeset"><object class=" u_clamp u_clamp--3"><txp:excerpt /></object></div>
     </txp:evaluate>
 
   </a>

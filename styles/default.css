@@ -52,7 +52,8 @@
   --superimposed-bg: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%);
   --superimposed-bg--white: linear-gradient(180deg, rgba(rgb(255, 255, 255), 1) 20%, rgba(rgb(255, 255, 255), .66) 100%);
   --backdrop-filter: blur(.25em) brightness(.9);
-  --grey-100: hsla(43, 46%, 88%, 1);
+  --corbu-white: hsla(43, 46%, 88%, 1);
+  --grey-100: hsla(43, 13%, 84%, 1);
   --grey-200: hsla(55, 3%, 73%, 1);
   --grey-300: hsla(70, 2%, 65%, 1);
   --grey-400: hsla(204, 4%, 59%, 1);
@@ -633,6 +634,7 @@ summary {
   cursor: pointer;
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   gap: var(--base-unit);
 }
@@ -849,8 +851,11 @@ a {
   height: 100%;
   width: 100%;
 }
-.a_image--height-limited img {
-  max-height: 60vh;
+.a_image--height-limited.landscape img {
+  height: 65vh;
+}
+.a_image--height-limited.portrait img {
+  height: 65vh;
 }
 .a_image--contain img {
   -o-object-fit: contain;
@@ -919,19 +924,28 @@ ken-burns-carousel {
   aspect-ratio: 16/9;
 }
 
+.bg {
+  background-color: var(--brand);
+}
+.bg--1 {
+  background-color: var(--grey-200);
+}
+.bg--2 {
+  background-color: var(--grey-300);
+}
+.bg--3 {
+  background-color: var(--grey-400);
+}
+
 /* scss/4-molecules/_m_thumb.scss */
 .m_thumb {
   position: relative;
+  gap: var(--base-unit);
 }
 .m_thumb > a {
   text-decoration: none;
 }
-.m_thumb--parent-rulesz {
-  display: grid;
-  grid-template-rows: subgrid;
-  grid-gap: 0;
-  grid-row: span 3;
-}
+
 .m_menu > a:empty {
   display: none;
 }
@@ -1352,9 +1366,6 @@ ken-burns-carousel {
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
-.l_grid--parent-rules:has(.a_image, .m_video) {
-  grid-row: span 4;
-}
 .l_grid.staggered {
   grid-auto-flow: dense;
 }
@@ -1514,12 +1525,6 @@ ken-burns-carousel {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
-.u_clamp > p {
-  margin-bottom: 0;
-}
-.u_clamp > *:not(:first-child) {
-  display: none;
-}
 .u_clamp--2 {
   line-clamp: 2;
   -webkit-line-clamp: 2;
@@ -1527,6 +1532,10 @@ ken-burns-carousel {
 .u_clamp--3 {
   line-clamp: 3;
   -webkit-line-clamp: 3;
+}
+.u_clamp--4 {
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
 }
 
 .u_contents {

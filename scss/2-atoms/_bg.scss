@@ -1,0 +1,15 @@
+.bg {
+    background-color: var(--brand);
+    // background-color: oklch(from var(--brand) l c h / .8);
+  &--1 {
+    background-color: var(--grey-200);
+  }
+
+  &--2 {
+    background-color: var(--grey-300);
+  }
+
+  &--3 {
+    background-color: var(--grey-400);
+  }
+}
