@@ -1,11 +1,13 @@
 /* scss/7-utilities/_u_edit-in-txp.scss */
 
 .u_edit-in-txp {
+  a {
+   display: block;
+  }
   position: absolute;
   z-index: 1;
   opacity: 1;
 
-  //text-decoration: none;
   cursor: pointer;
   &.static {
     position: static;
@@ -15,7 +17,7 @@
   img {
     object-fit: contain;
     position: relative;
-    //top: var(--base-unit--ss);
+      height: auto !important;
   }
 
   &:hover {

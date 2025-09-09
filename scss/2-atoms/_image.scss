@@ -7,14 +7,14 @@
 
   figcaption {
     margin-top: var(--base-unit--s);
+
     p {
       max-width: 100%;
+
       &:last-child {
         margin-bottom: 0;
       }
-
     }
-
   }
 
   img {
@@ -23,15 +23,15 @@
     width: 100%;
   }
 
-  &--height-limited  {
+  &--height-limited {
     &.landscape img {
-   height: 65vh;
- //  aspect-ratio: 2/1;
+      height: 65vh;
     }
-  &.portrait img {
-    height: 65vh;
+
+    &.portrait img {
+      height: 65vh;
+    }
   }
-}
 
   &--contain img {
     object-fit: contain;

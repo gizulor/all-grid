@@ -1495,6 +1495,9 @@ ken-burns-carousel {
   opacity: 1;
   cursor: pointer;
 }
+.u_edit-in-txp a {
+  display: block;
+}
 .u_edit-in-txp.static {
   position: static;
   display: inline-block;
@@ -1504,6 +1507,7 @@ ken-burns-carousel {
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
+  height: auto !important;
 }
 .u_edit-in-txp:hover {
   filter: invert(100%);
