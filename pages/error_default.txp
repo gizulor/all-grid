@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
 
-<txp:output_form form="head" />
+<txp:output_form form="head">
+  <style>
+    main {
+      min-height: 75vh;
+    }
+  </style>
+</txp:output_form>
   <txp::u_debug title='page: <txp:page_url type="page" />' />
 <txp::o_header_common />
 
 <!-- Main content -->
-<main id="main" aria-label="<txp:text item="main_content" />" class="u_p">
-  <h1><txp:error_status /></h1>
+<main id="main" aria-label="<txp:text item="main_content" />" class="u_p l_width-limited--large l_column middle middlev">
+  <h1 class="h0-style"><txp:error_status /></h1>
   <p class="h2-style">Computer says No:<br />“<txp:error_message />”</p>
 </main>
 
-<txp::o_footer />
+<txp::o_footer class="u_p l_width-limited--large" />
 <txp::o_javascript />
 
 </body>

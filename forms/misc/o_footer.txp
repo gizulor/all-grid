@@ -1,6 +1,6 @@
-<footer class="u_p <txp:yield name=" class" />">
+<footer class="u_p <txp:yield name="class" />">
 	<txp:yield />
-	<p class="b_small"><a href="https://all-grid.all-sorts.biz">all-grid</a> <small>on</small> <a rel="external" href="https://textpattern.com/" title="<txp:text item=" go_txp_com" />">txp</a> <small>by</small> <a href="https://all-sorts.biz">all-sorts</a>
+	<p class="b_small"><a href="https://all-grid.all-sorts.biz">all-grid</a> <small>on</small> <a rel="external" href="https://textpattern.com/" title="<txp:text item="go_txp_com" />">txp</a> <small>by</small> <a href="https://all-sorts.biz">all-sorts</a>
 	<txp:if_logged_in>
 		<br />(you're logged <a href="<txp:site_url />textpattern" target="txp">in)</a>
 	</txp:if_logged_in>

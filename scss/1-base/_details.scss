@@ -4,6 +4,7 @@ summary {
 	//margin-bottom: var(--base-unit);
 	list-style-type: none;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: baseline;
 	gap: var(--base-unit);
 

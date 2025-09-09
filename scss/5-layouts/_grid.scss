@@ -62,9 +62,9 @@
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
-    &:has(.a_image, .m_video){
-      grid-row: span 4;
-    }
+    // &:has(.a_image, .m_video){
+    //   grid-row: span 3;
+    // }
   }
 
   &.staggered {

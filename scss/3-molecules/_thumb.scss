@@ -1,41 +1,9 @@
 /* scss/4-molecules/_m_thumb.scss */
 .m_thumb {
   position: relative;
+  gap: var(--base-unit);
 
   >a {
     text-decoration: none;
   }
-  &--parent-rulesz {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-gap: 0;
-    grid-row: span 3; // use as default
-
-    figure {
-      //align-self: end;
-    }
-
-    // >a {
-    //   display: contents;
-    // }
-  }
-
-  &:has(.l_superimposed) {
-    //align-items: end;
-  }
-
-  //   &.landscape figure {
-  //     aspect-ratio: 3/2;
-  //   }
-  //   &.portrait figure {
-  //     aspect-ratio: 2/3;
-  //   }
-  //   &.square figure {
-  //     aspect-ratio: 1/1;
-  //   }
-  //
-  //   video {
-  //     aspect-ratio: 3/2;
-  //     object-fit: cover;
-  //   }
 }

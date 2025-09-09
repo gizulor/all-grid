@@ -11,10 +11,9 @@
 <main aria-label="<txp:text item="main_content" />" itemscope <txp::a_itemtype />>
 <txp::together />
 <hr />
-<txp::o_footer/>
-<txp::o_javascript>
+<txp::o_footer class="u_p l_width-limited--large" />
+<txp::o_javascript />
 
-</txp::o_javascript>
 
 </body>
 

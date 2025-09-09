@@ -78,7 +78,7 @@
   </nav>
 </main>
 
-<txp::o_footer />
+<txp::o_footer class="u_p l_width-limited--large" />
 <txp::o_javascript />
 </body>
 

@@ -10,12 +10,6 @@
 <main class="b_typeset l_width-limited l_width-limited--large u_p" aria-label="<txp:text item="main_content" />" itemscope <txp::a_itemtype />>
   <txp:section title wraptag="h1" />
 
-    <details>
-    <summary><h2>Form: Shifty</h2></summary>
-    <p>For Shifty to display, specify article images on an article using forms/article/shifty.txp</p>
-    <txp:article limit="1" sort="rand()" form="shifty" article_image />
-  </details>
-  <hr />
   <details>
     <summary><h2>Form: Super pan</h2></summary>
     <p>For Super pan to display, specify article images on an article using forms/article/super_pan.txp</p>
@@ -33,16 +27,21 @@
     <txp::o_carousel id='<txp:variable name="images" />' class="a_ratio--gm u_m--tt" classfigure=""/>
   </details>
   <hr />
-
-  <details>
-  <summary><h2>All together now</h2></summary>
-    <p><a href="/together/">View the site using multiple viewports</a> for quick responsive testing.</p>
-    <p>Create a section with name <em>together</em> and assign /pages/together.txp to it.</p>
+    <details>
+    <summary><h2>Form: Shifty</h2></summary>
+    <p>For Shifty to display, specify article images on an article using forms/article/shifty.txp</p>
+    <txp:article limit="1" sort="rand()" form="shifty" article_image />
   </details>
+  <hr />
+    <details>
+  <summary><h2>All together now</h2></summary>
+
+  <txp::together />
+    </details>
 
 </main>
 
-<txp::o_footer/>
+<txp::o_footer class="u_p l_width-limited--large" />
 <txp::o_javascript />
 
 </body>
