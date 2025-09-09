@@ -1366,6 +1366,9 @@ ken-burns-carousel {
   grid-template-rows: subgrid;
   grid-row: span 3;
 }
+.l_grid--parent-rules:has([itemprop=articleBody]) {
+  grid-row: span 4;
+}
 .l_grid.staggered {
   grid-auto-flow: dense;
 }
