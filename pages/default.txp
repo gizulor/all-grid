@@ -13,12 +13,8 @@
   </txp:if_individual_article>
 
 
-  <txp:if_article_list>
   <txp:article status="sticky" form="feature" limit="1"  wraptag="div" class="u_p l_width-limited--large l_grid l_gap--large" />
-    <txp:article listform="thumb" allowoverride="0" wraptag="ul" limit="36" class="u_p a_list-bare l_width-limited--large l_grid  l_grid--auto l_grid--auto-mobile l_gap--large" />
-  <txp:else />
-    <txp:article wraptag="div" class="u_p l_width-limited--large l_grid  l_grid--auto l_grid--auto-mobile l_gap--large" />
-  </txp:if_article_list>
+  <txp:article listform="thumb" allowoverride='<if::individual_article />' wraptag="ul" limit="36" class="u_p a_list-bare l_width-limited--large l_grid  l_grid--auto l_grid--auto-mobile l_gap--large" />
 
 </main>
 
