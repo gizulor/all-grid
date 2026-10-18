@@ -1,27 +1,27 @@
-	<txp:if_individual_article>
-		<txp:evaluate test="link_to_prev,link_to_next">
-			<nav class="o_paginator <txp:yield name="class" />" aria-label="page nav">
-				<txp:link_to_next rel="prev"><span class="a_icon a_icon--large a_icon--arrowcirc-left">&#10132;</span><txp:if_yield name="title"><txp:title /></txp:if_yield></txp:link_to_next>
-				<txp:if_yield name="section"><p class="o_paginator__current"><txp:section title  link/></p></txp:if_yield>
-				<txp:link_to_prev rel="next"><txp:if_yield name="title"><txp:title /></txp:if_yield><span class="a_icon a_icon--large a_icon--arrowcirc">&#10132;</span></txp:link_to_prev>
-			</nav>
-		</txp:evaluate>
-	<txp:else />
-		<txp:evaluate test="newer,older">
+  <txp:if_individual_article>
+  <txp:evaluate test="link_to_prev,link_to_next">
+    <nav class="o_paginator <txp:yield name="class" />" aria-label="page nav">
+      <txp:link_to_next><span class="a_icon a_icon--large a_icon--arrowcirc-left">&#10132;</span><txp:if_yield name="title"><txp:title /></txp:if_yield></txp:link_to_next>
+      <txp:if_yield name="section"><p class="o_paginator__current"><txp:section title  link/></p></txp:if_yield>
+      <txp:link_to_prev><txp:if_yield name="title"><txp:title /></txp:if_yield><span class="a_icon a_icon--large a_icon--arrowcirc">&#10132;</span></txp:link_to_prev>
+    </nav>
+  </txp:evaluate>
+<txp:else />
+  <txp:evaluate test="newer,older">
 
-			<nav class="o_paginator <txp:yield name="class" />" aria-label="page nav">
+    <nav class="o_paginator <txp:yield name="class" />" aria-label="page nav">
 
-				<txp:if_yield name="section">
-						<p class="o_paginator__current"><txp:section title  link/></p>
-						<txp:if_yield name="sectiondescription">
-							<txp:meta_description type="section" format="" wraptag="small" />
-						</txp:if_yield>
-				</txp:if_yield>
+      <txp:if_yield name="section">
+          <p class="o_paginator__current"><txp:section title  link/></p>
+          <txp:if_yield name="sectiondescription">
+            <txp:meta_description type="section" format="" wraptag="small" />
+          </txp:if_yield>
+      </txp:if_yield>
 
-				<txp:if_yield name="category"><txp::m_menuCategories compact class="l_column bottom"/></txp:if_yield>
-				<txp:article pgonly="1" limit="20" />
-				<txp:newer rel="prev"><span class="a_icon a_icon--large a_icon--arrowcirc-left">&#10132;</span> Previous</txp:newer>
-				<txp:older rel="next">Next <span class="a_icon a_icon--large a_icon--arrowcirc">&#10132;</span></txp:older>
-			</nav>
-		</txp:evaluate>
-	</txp:if_individual_article>
+      <txp:if_yield name="category"><txp::m_menuCategories compact class="l_column bottom"/></txp:if_yield>
+      <txp:article pgonly="1" limit="20" />
+      <txp:newer><span class="a_icon a_icon--large a_icon--arrowcirc-left">&#10132;</span> Previous</txp:newer>
+      <txp:older>Next <span class="a_icon a_icon--large a_icon--arrowcirc">&#10132;</span></txp:older>
+    </nav>
+  </txp:evaluate>
+</txp:if_individual_article>
