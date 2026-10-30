@@ -12,12 +12,12 @@
 <txp::o_header_common />
 
 <!-- Main content -->
-<main id="main" aria-label="<txp:text item="main_content" />" class="u_p l_width-limited--large l_column middle middlev">
+<main id="main" aria-label="<txp:text item="main_content" />" class="u_gutter l_width-limited l_width-limited--large l_column  middlev">
   <h1 class="h0-style"><txp:error_status /></h1>
-  <p class="h2-style">Computer says No:<br />“<txp:error_message />”</p>
+  <p class="h2-style">Computer says no:<br />“<txp:error_message />”</p>
 </main>
 
-<txp::o_footer class="u_p l_width-limited--large" />
+<txp::o_footer class="u_p l_width-limited l_width-limited--large" />
 <txp::o_javascript />
 
 </body>

@@ -1,35 +1,20 @@
-<txp::o_header
-  headerclass="o_header--sticky u_p l_beam space-between bottom l_width-limited--large"
-  wraptag="div"
-  wraptagclass="l_beam "
-  headingclass="h3-style"
-  sloganclass="h5-style"
-  menu
-  sectionsz="section1,section2"
-  sectionsexclude="home"
-  menuclass="l_beam h5-style " />
-
 <txp:hide>
-  <!-- hamburger for mobile, normal for desktop requires 2 menus -->
-    <txp::o_header
-    headerclass="u_hide--from-medium o_header--sticky u_p l_beam l_beam--nowrap space-between bottom"
-    hamburger
-    wraptag="div"
-    wraptagclass="l_beam"
-    headingclass="h3-style"
-    sloganclass="b_small"
-    menuclass="l_column h3-style h1-style@desktop"
-    navclass="l_column middlev u_m--l"
-     />
+  The header for most pages. Switches and knobs: see o_header and scss/4-organisms/_o_header.scss.
+  Or open the debug toolbar's Header panel, try things, and Copy the tag back in here.
 
-  <txp::o_header
-    headerclass="u_hide--to-medium o_header--sticky u_p l_beam l_beam--nowrap space-between bottom l_width-limited--large"
-    wraptag="div"
-    wraptagclass="l_beam "
-    headingclass="h5-style"
-    sloganclass="h5-style"
-    menu
-    sectionsz="section1,section2"
-    sectionsexclude="home,spare"
-    menuclass="l_beam h5-style " />
+  o_header--over-hero: over the image on pages with a .u_hero (see pages/default.txp,
+  the sticky article's class), a normal header everywhere else. No TXP logic needed.
+
+  Overlay menu on phones, inline from medium up (replaces the old two-header hamburger set-up):
+  <txp::o_header class="o_header--split o_header--sticky" style="--o-header-max: 1720px" menu="overlay" inline="medium" />
 </txp:hide>
+<txp::o_header
+  class='
+    o_header--split
+    o_header--sticky
+    o_header--forehead
+  '
+  style="--o-header-max: var(--width-large)"
+  menu="overlay"
+  inline="medium"
+/>

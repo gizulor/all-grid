@@ -1,0 +1,41 @@
+/* scss/2-atoms/_a_image.scss — <figure class="a_image"> wrapping a TXP image */
+
+@use "../0-settings/index" as s;
+
+.a_image {
+
+
+  img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  &--contain img {
+    block-size: auto;
+    object-fit: contain;
+  }
+
+  &--fold-limited img {
+      max-block-size: 66vh;
+  }
+
+  &--pan {
+    overflow: hidden;   // ken-burns-carousel
+  }
+
+  &--hide-caption figcaption,
+  figcaption:empty {
+    display: none;
+  }
+
+  &--inline {
+    @include s.from(small) {
+      float: inline-end;
+      clear: inline-end;
+      inline-size: calc(50% - var(--base-unit--s));
+      margin-inline-start: var(--base-unit);
+      margin-block-end: var(--base-unit);
+    }
+  }
+}

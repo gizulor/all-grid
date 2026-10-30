@@ -1,0 +1,15 @@
+/* scss/5-layouts/_l_beam.scss — row that wraps. Defaults: start, baseline. */
+
+@use "../0-settings/index" as s;
+
+.l_beam {
+  @include s.beam;
+
+  &--nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &--auto {
+    inline-size: max-content;
+  }
+}

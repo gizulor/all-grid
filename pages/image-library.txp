@@ -11,7 +11,7 @@
       display: grid;
       justify-content: center;
       align-items: center;
-      font-size: .65rem;
+      font-size: .75rem;
     }
   </style>
 </txp:output_form>
@@ -34,18 +34,6 @@
     <txp:hide>responsive thumbs</txp:hide>
     <txp::figure id='<txp:image_info type="id" />' class="a_image--contain" captionclass="b_small" />
 
-    <txp:hide>
-      txp thumbs
-      <figure itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
-          <txp:thumbnail />
-          <txp::u_edit image />
-          <txp:evaluate>
-            <figcaption itemprop="caption" class="b_typeset b_small">
-              <txp:image_info escape="textile" />
-            </figcaption>
-          </txp:evaluate>
-      </figure>
-    </txp:hide>
 
     <div class="l_beam l_beam--wrap l_gap--small">
       <span class="b_small"><a href="<txp:image_url />">#<txp:image_info type="id" /></a></span>
@@ -78,7 +66,7 @@
   </nav>
 </main>
 
-<txp::o_footer class="u_p l_width-limited--large" />
+<txp::o_footer />
 <txp::o_javascript />
 </body>
 

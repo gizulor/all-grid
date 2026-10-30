@@ -1,0 +1,58 @@
+// scss/0-settings/_breakpoints.scss
+// Mobile-first. A class suffix `@name` ALWAYS means "from this width up":
+// .l_grid--tri@medium, .middle@small, .u_hide@desktop, .h3-style@medium
+
+@use "sass:map";
+
+$breakpoints: (
+  mobile: 380px,
+  small: 720px,
+  medium: 960px,
+  desktop: 1280px,
+  large: 1720px,
+) !default;
+
+// Which breakpoints get generated `@name` class variants (keeps the CSS lean)
+$responsive: (small, medium, desktop) !default;
+
+@function bp($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`. Expected one of: #{map.keys($breakpoints)}";
+  }
+  @return map.get($breakpoints, $name);
+}
+
+@mixin from($name) {
+  @media (width >= bp($name)) { @content; }
+}
+
+@mixin until($name) {
+  @media (width < bp($name)) { @content; }
+}
+
+// Responsive class sets.
+// Pass a map of selector → declarations. Outputs every base rule first, then each
+// breakpoint's `@name` variants grouped together, so a later base class can never
+// beat an earlier class's responsive variant.
+//
+// @include s.responsive((
+//   ".middle": (--l-x: center),
+//   ".right":  (--l-x: end),
+// ));
+@mixin responsive($rules, $breakpoint-list: $responsive) {
+  @each $selector, $declarations in $rules {
+    #{$selector} {
+      @each $property, $value in $declarations { #{$property}: #{$value}; }
+    }
+  }
+
+  @each $name in $breakpoint-list {
+    @include from($name) {
+      @each $selector, $declarations in $rules {
+        #{$selector}\@#{$name} {
+          @each $property, $value in $declarations { #{$property}: #{$value}; }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+/* scss/1-base/_b_body.scss */
+
+html {
+  font-size: var(--font-size);
+  line-height: var(--line-height);   // also sets 1rlh = --base-unit
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  min-height: 100dvh;
+  font-family: var(--font-body);
+  font-weight: var(--font-normal);
+  color: var(--clr-text);
+  background-color: var(--clr-bg);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+p,
+li,
+figcaption {
+  text-wrap: pretty;
+}
+
+strong,
+b,
+dt,
+th {
+  font-weight: var(--font-heavy);
+}
+
+small {
+  font-size: var(--small);
+}
+
+hr {
+  border: 0;
+  block-size: var(--border-width);
+  background-color: currentcolor;
+}
+
+::selection {
+  background-color: var(--clr-brand);
+  color: var(--clr-bg);
+}
+
+:focus-visible {
+  outline: var(--border-width) solid var(--clr-brand);
+  outline-offset: var(--border-width);
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: var(--small);
+}
+
+pre {
+  overflow: auto;
+  white-space: pre-wrap;
+}

@@ -1,0 +1,146 @@
+// scss/0-settings/_corbu.scss
+// Le Corbusier's 63 architectural colours: the 1931 and 1959 Polychromie architecturale.
+// Values: sRGB from lescouleurs.ch (Les Couleurs Suisse, who hold the licence).
+//
+// Sass only: nothing reaches the CSS until 1-base/_b_colours.scss includes the mixin,
+// which writes each one as a custom property: --bleu-outremer-31, --jaune-vif …
+//
+// Names are Corbusier's, without accents or articles ("l'ocre rouge" → ocre-rouge).
+// Ten names come in both palettes with different values, so they keep the year: gris-31, gris-59.
+//
+// The 1931 colours come in families: one pigment, getting paler. The last digit of
+// the code is the step, 0 = full strength (32020 bleu outremer → 32024 outremer gris).
+// So "a lighter version of this" is the next name down in the same family.
+// The 1959 colours (4320A–W) are single, stronger shades.
+//
+// While designing, all 63 are written out (about 3 KB). Once the design settles, list
+// just the ones in use, in default.scss:
+//   @use "kit/0-settings/index" as s with ($corbu-use: (blanc, bleu-outremer-31, jaune-vif));
+// The kit's own colours ($corbu-kit) are always written, whatever the list.
+
+@use "sass:list";
+@use "sass:map";
+
+$corbu: (
+
+  // 1931 · blanc — white
+  blanc:                   #eadbc0,   // 32001  white (cream)
+
+  // 1931 · gris — greys
+  gris-fonce-31:           #5e6061,   // 32010  dark grey
+  gris-31:                 #929494,   // 32011  grey
+  gris-moyen:              #a7a8a5,   // 32012  medium grey
+  gris-clair-31:           #bcbbb6,   // 32013  light grey
+
+  // 1931 · outremer — ultramarine
+  bleu-outremer-31:        #4d6aa8,   // 32020  ultramarine blue
+  outremer-moyen:          #8fabc9,   // 32021  medium ultramarine
+  outremer-clair:          #abbdc8,   // 32022  light ultramarine
+  outremer-pale:           #b6c6ce,   // 32023  pale ultramarine
+  outremer-gris:           #d9e1dd,   // 32024  greyed ultramarine
+
+  // 1931 · céruléen — cerulean
+  bleu-ceruleen-31:        #3e6e90,   // 32030  cerulean blue
+  ceruleen-vif:            #679dae,   // 32031  bright cerulean
+  ceruleen-moyen:          #8ab5ba,   // 32032  medium cerulean
+  ceruleen-clair:          #a8c4c1,   // 32033  light cerulean
+  ceruleen-pale:           #c6d5cc,   // 32034  pale cerulean
+
+  // 1931 · vert anglais — English green
+  vert-anglais:            #406e58,   // 32040  English green
+  vert-anglais-clair:      #91afa1,   // 32041  light English green
+  vert-anglais-pale:       #becbb7,   // 32042  pale English green
+
+  // 1931 · vert — green
+  vert-fonce:              #3e6f42,   // 32050  dark green
+  vert-31:                 #7fa25a,   // 32051  green
+  vert-clair:              #abc17a,   // 32052  light green
+  vert-jaune-clair:        #c4d39b,   // 32053  light yellow-green
+
+  // 1931 · ocre — ochre
+  ocre:                    #eacfa6,   // 32060  ochre
+
+  // 1931 · orange
+  "orange":                #d46c40,   // 32080  orange (quoted: unquoted, Sass reads it as the CSS colour)
+  orange-clair:            #dc8d67,   // 32081  light orange
+  orange-pale:             #eacfb9,   // 32082  pale orange
+
+  // 1931 · vermillon — vermilion
+  rouge-vermillon-31:      #9b3738,   // 32090  vermilion red
+  rose-pale:               #e6cdbf,   // 32091  pale pink
+
+  // 1931 · carmin, rubia — carmine, madder
+  rouge-carmin:            #8f3a43,   // 32100  carmine red
+  rouge-rubia:             #943a4d,   // 32101  madder red
+  rose-clair:              #d6afa6,   // 32102  light pink
+
+  // 1931 · ocre rouge — red ochre
+  ocre-rouge:              #8b4d3e,   // 32110  red ochre
+  ocre-rouge-moyen:        #cd9886,   // 32111  medium red ochre
+  ocre-rouge-clair:        #dbbeaa,   // 32112  light red ochre
+
+  // 1931 · terre sienne — sienna
+  terre-sienne-brulee-31:  #68443c,   // 32120  burnt sienna
+  terre-sienne-brique:     #b67b66,   // 32121  brick sienna
+  terre-sienne-claire-31:  #d8b29a,   // 32122  light sienna
+  terre-sienne-pale:       #e2cbb5,   // 32123  pale sienna
+
+  // 1931 · ombre brûlée — burnt umber
+  terre-ombre-brulee-31:   #4c423d,   // 32130  burnt umber
+  ombre-brulee-claire:     #b7a392,   // 32131  light burnt umber
+
+  // 1931 · ombre naturelle — raw umber
+  ombre-naturelle-31:      #5a5550,   // 32140  raw umber
+  ombre-naturelle-moyenne: #928a7e,   // 32141  medium raw umber
+  ombre-naturelle-claire:  #b7ac9d,   // 32142  light raw umber
+
+  // 1959
+  rouge-vermillon-59:      #ac443a,   // 4320A  vermilion red
+  blanc-ivoire:            #eae4d7,   // 4320B  ivory white
+  rose-vif:                #dba3af,   // 4320C  bright pink
+  terre-sienne-brulee-59:  #744438,   // 4320D  burnt sienna
+  noir-ivoire:             #3a3b3b,   // 4320E  ivory black
+  vert-olive-vif:          #b8a136,   // 4320F  bright olive green
+  vert-59:                 #428f70,   // 4320G  green
+  gris-59:                 #81868b,   // 4320H  grey
+  terre-ombre-brulee-59:   #403c3a,   // 4320J  burnt umber
+  bleu-outremer-59:        #3957a5,   // 4320K  ultramarine blue
+  ocre-jaune-clair:        #dbb07f,   // 4320L  light yellow ochre
+  rubis:                   #74393b,   // 4320M  ruby
+  bleu-ceruleen-59:        #7aa7cb,   // 4320N  cerulean blue
+  gris-clair-59:           #92969a,   // 4320O  light grey
+  terre-sienne-claire-59:  #ddbf99,   // 4320P  light sienna
+  ombre-naturelle-59:      #45423e,   // 4320R  raw umber
+  orange-vif:              #c45e3a,   // 4320S  bright orange
+  bleu-outremer-fonce:     #313d6b,   // 4320T  dark ultramarine
+  gris-fonce-59:           #60646a,   // 4320U  dark grey
+  jaune-vif:               #f2bb1d,   // 4320W  bright yellow
+);
+
+// Used by the kit itself (1-base/_b_colours.scss, 2-atoms/_a_bg.scss), so always written.
+$corbu-kit: (blanc-ivoire, gris-moyen, gris-59, gris-fonce-31, vert-31, jaune-vif, rouge-vermillon-59);
+
+// all, or a list of names
+$corbu-use: all !default;
+
+// Writes the colours as custom properties. Use inside a rule: :root { @include s.corbu; }
+// A misspelt name stops the compile, rather than leaving a var() that quietly fails.
+@mixin corbu($names: $corbu-use) {
+  @if $names == all {
+    $names: map.keys($corbu);
+  } @else {
+    @each $name in $corbu-kit {
+      @if not list.index($names, $name) {
+        $names: list.append($names, $name, comma);
+      }
+    }
+  }
+
+  @each $name in $names {
+    $name: "" + $name;   // a string, even for orange
+    @if not map.has-key($corbu, $name) {
+      @error "No Corbusier colour called `#{$name}`. See kit/0-settings/_corbu.scss.";
+    }
+    --#{$name}: #{map.get($corbu, $name)};
+  }
+}

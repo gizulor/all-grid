@@ -1,0 +1,65 @@
+/* scss/1-base/_b_reset.scss — merged from v1 _b_reset and all-grid _normalise */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+h1, h2, h3, h4, h5, h6,
+p, figure, blockquote,
+ul, ol, dl, dd,
+pre {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: inherit;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+img,
+picture,
+svg,
+video,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

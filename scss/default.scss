@@ -1,55 +1,21 @@
+/* scss/default.scss — all-grid entry point
 
-// settings
-@use "0-settings/breakpoints";
-@use "0-settings/config";
-@use "0-settings/colours";
-@use "0-settings/mixins";
+   Every file is loaded with @use, so CodeKit (and any other tool) can see it and
+   recompile this file when it changes.
+   The ORDER below is the cascade: when two selectors are equally specific, the later
+   file wins. So keep selectors flat (one class, BEM), and put each site partial
+   straight after the kit folder it extends. */
 
-// base
-@use "1-base/normalise";
-@use "1-base/body";
-@use "1-base/tables";
-@use "1-base/forms";
-@use "1-base/typeset";
-@use "1-base/details";
-@use "1-base/link";
+@use "kit/0-settings/index" as s;   // configure here, e.g.  @use "0-settings/index" as s with ($breakpoints: (…));
 
-// atoms
-@use "2-atoms/list-bare";
-@use "2-atoms/icon"; // core-line
-@use "2-atoms/iconanimate";
-@use "2-atoms/heading";
-@use "2-atoms/image";
-@use "2-atoms/ratio";
-@use "2-atoms/bg";
-
-// molecules
-@use "3-molecules/thumb";
-@use "3-molecules/menu";
-@use "3-molecules/video";
-
-// organisms
-@use "4-organisms/header";
-@use "4-organisms/gallery";
-@use "4-organisms/lightbox";
-
-// layouts
-@use "5-layouts/beam";
-@use "5-layouts/column";
-@use "5-layouts/edges";
-@use "5-layouts/grid";
-@use "5-layouts/width-limited";
-@use "5-layouts/height-limited";
-@use "5-layouts/superimposed";
-@use "5-layouts/landscape-portrait";
-
-// utilities
-@use "6-utilities/hide";
-@use "6-utilities/edit-in-txp";
-@use "6-utilities/clamp";
-@use "6-utilities/contents";
-@use "6-utilities/span";
-@use "6-utilities/self-position";
-//@use "6-utilities/baseline";
-
-@use "debug";
+@use "kit/1-base/index" as base;
+@use "site/_tokens";
+@use "site/_colours"; // after the kit's tokens, so these win
+@use "kit/7-vendor/index" as vendor;
+@use "kit/2-atoms/index" as atoms;
+@use "kit/3-molecules/index" as molecules;
+@use "kit/4-organisms/index" as organisms;
+@use "site/_header"; // after the kit's tokens, so these win
+@use "kit/5-layouts/index" as layouts;
+@use "kit/6-utilities/index" as utilities;
+@use "kit/debug";

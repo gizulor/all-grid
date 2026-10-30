@@ -2,6 +2,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=contain">
  <title><txp:page_title /></title>
+<style>
+   body > pre {
+     display: none;
+   }
+
+   <txp:if_logged_in group="publisher">
+     body > pre {
+       display: block;
+       position: fixed;
+       top: 0;
+       z-index: var(--z-overlay);
+       font-size: small;
+       padding: var(--base-unit--ss)  var(--gutter);
+       background: var(--clr-error);
+       color: white;
+     }
+   </txp:if_logged_in>
+ </style>
 
 
   <txp:variable name="cache-buster"><txp:php>
@@ -12,8 +30,8 @@
     // echo filemtime(getcwd() . '/themes/all-grid/styles/css/main.css');
   </txp:php></txp:variable>
 
-  <txp:if_logged_in name="giz">
-    <link rel="stylesheet" href="https://localhost:5757/themes/all-grid/styles/default.css?v=<txp:variable name="cache-buster" />">
+  <txp:if_logged_in name="username">
+    <link rel="stylesheet" href="https://localhost/themes/all-grid/styles/default.css?v=<txp:variable name="cache-buster" />">
   <txp:else />
     <txp:css format="link" name="default" />
   </txp:if_logged_in>
@@ -110,7 +128,6 @@
   <txp:feed_link flavor="atom" format="link" label="Atom" />
   <txp:feed_link flavor="rss" format="link" label="RSS" />
 
-  <script src="<txp:page_url type="theme_path" />/js/lazysizes/lazysizes.min.js"></script>
 
   <txp:yield />
 </head>
@@ -123,7 +140,7 @@
     <body class="search-page listing-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/SearchResultsPage">
   <txp:else />
     <txp:if_article_list>
-      <body class="listing-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CollectionPage">
+      <body class="list-page <txp:section/>-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CollectionPage">
     <txp:else />
       <body class="detail-page <txp:yield name="bodyclass" />" itemscope itemtype="https://schema.org/CreativeWork">
     </txp:if_article_list>

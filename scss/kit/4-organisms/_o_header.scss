@@ -1,0 +1,212 @@
+/* scss/4-organisms/_o_header.scss
+   The site header: brand (name + slogan, or a logo), nav, and an optional extra slot.
+   Markup comes from forms/misc/o_header.txp. Each switch below is independent, so
+   mix freely: class="o_header--split o_header--sticky o_header--shrink"
+   (the debug toolbar's Header panel flips them live and copies the tag for you).
+
+   Arrangement (pick one; each also has @small @medium @desktop variants)
+     --split      brand left, nav right (default)
+     --inline     nav straight after the brand
+     --stacked    nav on its own row below
+     --centred    everything centred, one per row
+
+   Position
+     --sticky     sticks to the top of the window
+     --over       sits on top of what follows (a full-width image), transparent
+                  with white ink. With --sticky it's fixed instead.
+     --over-hero  --over, but only on pages that have a .u_hero (the full-width image
+                  or block the header should sit on). Elsewhere it's a normal header.
+                  So one header serves every page: the content decides, not TXP logic.
+                  Mark the hero in the page or form: class="l_superimposed u_hero"
+                  (or put u_hero in the body class to force it for a whole page)
+     --forehead   empty space above, on windows tall enough to spare it
+
+   Once scrolled (js/o_header.js adds .is-scrolled when a sticky header is stuck)
+     --shrink     less padding, smaller name, no slogan
+     --solidify   page colours and a hairline: for --over headers
+
+   Knobs (style="--o-header-name: var(--h1)", or per site on :root)
+     --o-header-name / -name-small     site name size, before and after --shrink
+     --o-header-slogan                 slogan size
+     --o-header-nav                    nav link size
+     --o-header-pad / -pad-small       padding above and below
+     --o-header-max                    width to line up with, e.g. 1720px for l_width-limited--large;
+                                       the background stays full width
+     --o-header-align                  vertical alignment: end | center | start | last baseline
+     --o-header-bg / -ink              colours
+     --o-header-over-bg / -over-ink    colours with --over
+     --o-header-solid-bg / -solid-ink  colours with --solidify, once scrolled
+     --o-header-forehead               space above with --forehead (default 25svh) */
+
+@use "../0-settings/index" as s;
+
+.o_header {
+  display: flex;
+  flex-direction: var(--o-header-dir, row);
+  flex-wrap: wrap;                 // the nav drops below the brand when there's no room
+  align-items: var(--o-header-align, end);
+  gap: var(--base-unit--s) var(--gap);
+  padding-block: var(--o-header-pad, var(--base-unit));
+  // Content lines up with an l_width-limited box of the same width (gutter inside it),
+  // while the background runs full width
+  padding-inline: max(var(--gutter), (100% - var(--o-header-max, 100%)) / 2 + var(--gutter));
+  background: var(--o-header-bg, var(--clr-bg));
+  color: var(--o-header-ink, var(--clr-text));
+  text-align: var(--o-header-text-align, start);
+  transition:
+    padding var(--duration) var(--ease),
+    background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+}
+
+.o_header__brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: last baseline;
+  justify-content: var(--o-header-brand-justify, start);
+  gap: 0 var(--base-unit--s);
+  color: inherit;
+
+  &:hover {
+    text-decoration-line: none;
+  }
+}
+
+.o_header__name {
+  font-family: var(--font-heading);
+  font-size: var(--o-header-name, var(--h3));
+  line-height: 1.1;
+  transition: font-size var(--duration) var(--ease);
+}
+
+.o_header__slogan {
+  font-size: var(--o-header-slogan, var(--h5));
+  line-height: 1.3;
+}
+
+// Logo: sitename='<txp:output_form form="logo" />' puts an <svg> in the name
+.o_header__name svg {
+  display: block;
+  block-size: var(--logo-height, 1lh);
+  inline-size: auto;
+  fill: currentcolor;
+}
+
+// margin-inline-start: auto is what pushes an item to the far end
+.o_header__nav {
+  order: var(--o-header-nav-order, 1);
+  flex-basis: var(--o-header-nav-basis, auto);
+  margin-inline-start: var(--o-header-nav-push, auto);
+  --m-menu-size: var(--o-header-nav, var(--h5));
+  --m-menu-justify: var(--o-header-nav-justify, start);
+}
+
+.o_header__extra {
+  order: 2;
+  margin-inline-start: var(--o-header-extra-push, 0);
+}
+
+// Arrangement ---------------------------------------------------------------
+// Each one only sets the switches above, so they can be swapped at a breakpoint:
+// class="o_header--stacked o_header--split@medium"
+@include s.responsive((
+  ".o_header--split": (
+    --m-menu-drop: span-inline-start,
+    --o-header-dir: row,
+    --o-header-align: end,
+    --o-header-nav-order: 1,
+    --o-header-nav-basis: auto,
+    --o-header-nav-push: auto,
+    --o-header-extra-push: 0,
+    --o-header-nav-justify: start,
+    --o-header-brand-justify: start,
+    --o-header-text-align: start,
+  ),
+  ".o_header--inline": (
+    --m-menu-drop: span-inline-end,
+    --o-header-dir: row,
+    --o-header-align: end,
+    --o-header-nav-order: 1,
+    --o-header-nav-basis: auto,
+    --o-header-nav-push: 0,
+    --o-header-extra-push: auto,
+    --o-header-nav-justify: start,
+    --o-header-brand-justify: start,
+    --o-header-text-align: start,
+  ),
+  ".o_header--stacked": (
+    --m-menu-drop: span-inline-end,
+    --o-header-dir: row,
+    --o-header-align: end,
+    --o-header-nav-order: 3,
+    --o-header-nav-basis: 100%,
+    --o-header-nav-push: 0,
+    --o-header-extra-push: auto,
+    --o-header-nav-justify: start,
+    --o-header-brand-justify: start,
+    --o-header-text-align: start,
+  ),
+  ".o_header--centred": (
+    --m-menu-drop: center,
+    --o-header-dir: column,
+    --o-header-align: center,
+    --o-header-nav-order: 1,
+    --o-header-nav-basis: auto,
+    --o-header-nav-push: 0,
+    --o-header-extra-push: 0,
+    --o-header-nav-justify: center,
+    --o-header-brand-justify: center,
+    --o-header-text-align: center,
+  ),
+));
+
+// Position ------------------------------------------------------------------
+.o_header--sticky {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-sticky);
+}
+
+// :where() keeps the page test out of the specificity, so --over-hero weighs the same
+// as --over, and --solidify still wins once scrolled
+.o_header--over,
+:where(:root:has(.u_hero)) .o_header--over-hero {
+  position: absolute;
+  inset-inline: 0;
+  inset-block-start: 0;
+  z-index: var(--z-sticky);
+  background: var(--o-header-over-bg, transparent);
+  color: var(--o-header-over-ink, var(--white));
+}
+
+.o_header--over.o_header--sticky,
+:where(:root:has(.u_hero)) .o_header--over-hero.o_header--sticky {
+  position: fixed;
+    margin-block-start: initial;
+}
+
+@media (height >= 40rem) {
+  .o_header--forehead {
+    margin-block-start: var(--o-header-forehead, 12svh);
+  }
+}
+
+// Once scrolled -------------------------------------------------------------
+.o_header--shrink.is-scrolled {
+  padding-block: var(--o-header-pad-small, var(--base-unit--s));
+}
+
+.o_header--shrink.is-scrolled .o_header__name {
+  font-size: var(--o-header-name-small, var(--h5));
+}
+
+.o_header--shrink.is-scrolled .o_header__slogan {
+  display: none;
+}
+
+.o_header--solidify.is-scrolled {
+  background: var(--o-header-solid-bg, var(--clr-bg));
+  color: var(--o-header-solid-ink, var(--clr-text));
+  box-shadow: 0 1px 0 color-mix(in oklch, currentcolor 15%, transparent);
+}

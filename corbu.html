@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corbusier palette · all-grid</title>
+<!-- The theme's own compiled CSS: the swatches show what the site actually has -->
+<link rel="stylesheet" href="styles/default.css">
+<style>
+  /* corbu.html — a browser for the palette in scss/kit/0-settings/_corbu.scss.
+     Each swatch reads its custom property from styles/default.css, so a colour
+     trimmed out with $corbu-use shows as hatched. Click a swatch to copy var(--name). */
+  body { padding: var(--base-unit) var(--gutter) var(--base-unit--bb); background: var(--white); color: var(--black); }
+  .cp-intro { max-inline-size: var(--type-measure); margin-block-end: var(--base-unit--b); }
+  .cp-intro p { margin-block: 0 var(--base-unit--s); color: var(--gris-fonce-31, #5e6061); }
+  .cp-section { margin-block: var(--base-unit--b) var(--base-unit); }
+  .cp-family { display: grid; grid-template-columns: 12rem 1fr; gap: var(--base-unit--s) var(--base-unit); margin-block-end: var(--base-unit--s); align-items: start; }
+  .cp-family h3 { margin: 0; padding-block-start: var(--base-unit--ss); font-size: 1em; font-weight: var(--font-heavy); }
+  .cp-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: 4px; }
+  .cp-swatch { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;
+    min-block-size: 8.5rem; padding: .6rem .7rem; font-size: .8125rem; line-height: 1.3; background: var(--c); color: var(--ink); position: relative; }
+  .cp-swatch:focus-visible { outline: 2px solid var(--black); outline-offset: 2px; }
+  .cp-swatch b { display: block; font-size: 1rem; font-weight: var(--font-heavy); }
+  .cp-swatch code { font: inherit; font-family: var(--font-mono); font-size: .75rem; opacity: .85; }
+  .cp-swatch small { display: block; opacity: .75; }
+  .cp-swatch.is-missing { background: repeating-linear-gradient(-45deg, #f4f4f4 0 6px, #fff 6px 12px); color: #888; outline: 1px dashed #bbb; outline-offset: -1px; }
+  .cp-swatch.is-missing::after { content: "not in the CSS"; position: absolute; inset-block-start: .6rem; inset-inline-end: .7rem; font-size: .6875rem; }
+  .cp-swatch.is-used::before { content: attr(data-used); position: absolute; inset-block-start: .6rem; inset-inline-end: .7rem; font-family: var(--font-mono); font-size: .6875rem; }
+  .cp-semantic { display: grid; grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); gap: 4px; margin-block-end: var(--base-unit--b); }
+  .cp-token { display: flex; gap: .6rem; align-items: center; font-size: .8125rem; line-height: 1.3; }
+  .cp-token i { flex: none; inline-size: 2.25rem; block-size: 2.25rem; background: var(--c); outline: 1px solid rgb(0 0 0 / .1); outline-offset: -1px; }
+  .cp-token code { font-family: var(--font-mono); font-size: .75rem; }
+  .cp-toast { position: fixed; inset-block-end: 1rem; inset-inline-start: 50%; translate: -50% 0; padding: .4rem .8rem; background: var(--black); color: var(--white);
+    font-family: var(--font-mono); font-size: .8125rem; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .cp-toast.is-on { opacity: 1; }
+  @media (width < 720px) { .cp-family { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="cp-intro">
+  <h1 class="h2-style">Le Corbusier · Polychromie architecturale</h1>
+  <p>The 63 colours of 1931 and 1959, as named in <code>scss/kit/0-settings/_corbu.scss</code>. Click a swatch to copy <code>var(--name)</code>.</p>
+  <p>Each 1931 family is one pigment getting paler, left to right: the last digit of the code is the step. Hatched swatches have been trimmed out with <code>$corbu-use</code>; a corner label shows which semantic token uses a colour.</p>
+</div>
+
+<h2 class="h4-style cp-section">In use: the semantic tokens</h2>
+<div class="cp-semantic" id="cp-semantic"></div>
+
+<h2 class="h4-style cp-section">1931 · in families, full strength → palest</h2>
+<div id="cp-1931"></div>
+
+<h2 class="h4-style cp-section">1959 · single, stronger shades</h2>
+<div id="cp-1959"></div>
+
+<div class="cp-toast" id="cp-toast" role="status"></div>
+
+<script>
+const COLOURS = [
+{
+"code": "32001",
+"slug": "blanc",
+"name": "blanc",
+"en": "white (cream)",
+"hex": "#eadbc0",
+"shade": "White",
+"text": "The cream white. Balanced, with stable aesthetics. The first mural ‘Velvet’ shade"
+},
+{
+"code": "32010",
+"slug": "gris-fonce-31",
+"name": "gris foncé 31",
+"en": "dark grey",
+"hex": "#5e6061",
+"shade": "Grey & Black",
+"text": "The iron grey. Soft, warm, expressive. The darkest shade of 1931"
+},
+{
+"code": "32011",
+"slug": "gris-31",
+"name": "gris 31",
+"en": "grey",
+"hex": "#929494",
+"shade": "Grey & Black",
+"text": "The medium grey. Elegant and restrained. It can place the walls into shadow"
+},
+{
+"code": "32012",
+"slug": "gris-moyen",
+"name": "gris moyen",
+"en": "medium grey",
+"hex": "#a7a8a5",
+"shade": "Grey & Black",
+"text": "The discreet grey. Natural, neutral, discreetly calm. The second ‘Velvet’ shade"
+},
+{
+"code": "32013",
+"slug": "gris-clair-31",
+"name": "gris clair 31",
+"en": "light grey",
+"hex": "#bcbbb6",
+"shade": "Grey & Black",
+"text": "The pearl grey. Weakly luminescent and airy. The third mural ‘Velvet’ shade"
+},
+{
+"code": "32020",
+"slug": "bleu-outremer-31",
+"name": "bleu outremer 31",
+"en": "ultramarine blue",
+"hex": "#4d6aa8",
+"shade": "Blue",
+"text": "The luminous ultramarin. Dynamic, imposing and much in demand"
+},
+{
+"code": "32021",
+"slug": "outremer-moyen",
+"name": "outremer moyen",
+"en": "medium ultramarine",
+"hex": "#8fabc9",
+"shade": "Blue",
+"text": "The lucent sky blue. Like the sky on a clear, sunny day in summer"
+},
+{
+"code": "32022",
+"slug": "outremer-clair",
+"name": "outremer clair",
+"en": "light ultramarine",
+"hex": "#abbdc8",
+"shade": "Blue",
+"text": "The brightened ultramarine. A space atmosphere that loosens up. The first ‘Space’ shade"
+},
+{
+"code": "32023",
+"slug": "outremer-pale",
+"name": "outremer pâle",
+"en": "pale ultramarine",
+"hex": "#b6c6ce",
+"shade": "Blue",
+"text": "The light ultramarine. An atmosphere that recedes gently. The second ‘Space’ shade"
+},
+{
+"code": "32024",
+"slug": "outremer-gris",
+"name": "outremer gris",
+"en": "greyed ultramarine",
+"hex": "#d9e1dd",
+"shade": "Blue",
+"text": "The blue grey. The imagination. A restrained atmosphere. The third ‘Space’ shade"
+},
+{
+"code": "32030",
+"slug": "bleu-ceruleen-31",
+"name": "bleu céruléen 31",
+"en": "cerulean blue",
+"hex": "#3e6e90",
+"shade": "Blue",
+"text": "The powerful cerulean. Appears dynamic and attracts the attention"
+},
+{
+"code": "32031",
+"slug": "ceruleen-vif",
+"name": "céruléen vif",
+"en": "bright cerulean",
+"hex": "#679dae",
+"shade": "Blue",
+"text": "The luminous cerulean. Warm, sensual, Mediterranean. The colour tends towards the observer"
+},
+{
+"code": "32032",
+"slug": "ceruleen-moyen",
+"name": "céruléen moyen",
+"en": "medium cerulean",
+"hex": "#8ab5ba",
+"shade": "Blue",
+"text": "The summery sky. Static, does not come forward anymore. The first mural ‘Sky’ shade"
+},
+{
+"code": "32033",
+"slug": "ceruleen-clair",
+"name": "céruléen clair",
+"en": "light cerulean",
+"hex": "#a8c4c1",
+"shade": "Blue",
+"text": "The sky reflected in the water. Subordinates itself. The second mural ‘Sky’ shade"
+},
+{
+"code": "32034",
+"slug": "ceruleen-pale",
+"name": "céruléen pâle",
+"en": "pale cerulean",
+"hex": "#c6d5cc",
+"shade": "Blue",
+"text": "The sky reflected in ocean waves. Somewhat greenish. The third mural ‘Sky’ colour shade"
+},
+{
+"code": "32040",
+"slug": "vert-anglais",
+"name": "vert anglais",
+"en": "English green",
+"hex": "#406e58",
+"shade": "Green",
+"text": "The english green. Reminds of aristocracy, also of freshness of the forest"
+},
+{
+"code": "32041",
+"slug": "vert-anglais-clair",
+"name": "vert anglais clair",
+"en": "light English green",
+"hex": "#91afa1",
+"shade": "Green",
+"text": "The slightly greyed english green. Like a discreet Verona green"
+},
+{
+"code": "32042",
+"slug": "vert-anglais-pale",
+"name": "vert anglais pâle",
+"en": "pale English green",
+"hex": "#becbb7",
+"shade": "Green",
+"text": "The mild grey green. The colour shade links retentively to the landscape"
+},
+{
+"code": "32050",
+"slug": "vert-fonce",
+"name": "vert foncé",
+"en": "dark green",
+"hex": "#3e6f42",
+"shade": "Green",
+"text": "The rich brilliant green. A deep and very neutral green; expressing the summer"
+},
+{
+"code": "32051",
+"slug": "vert-31",
+"name": "vert 31",
+"en": "green",
+"hex": "#7fa25a",
+"shade": "Green",
+"text": "The vernal green. Very expressive. The first tone of the ‘Scenery’ atmosphere"
+},
+{
+"code": "32052",
+"slug": "vert-clair",
+"name": "vert clair",
+"en": "light green",
+"hex": "#abc17a",
+"shade": "Green",
+"text": "The green of spring. Natural and fruitful. The second shade representing ‘Scenery’"
+},
+{
+"code": "32053",
+"slug": "vert-jaune-clair",
+"name": "vert jaune clair",
+"en": "light yellow-green",
+"hex": "#c4d39b",
+"shade": "Green",
+"text": "The pale green. Gentle, smooth and balanced. The third tone with the mural value of ‘Scenery’"
+},
+{
+"code": "32060",
+"slug": "ocre",
+"name": "ocre",
+"en": "ochre",
+"hex": "#eacfa6",
+"shade": "Ochre & Yellow",
+"text": "The natural sand. Restrained and very elegant. The first tone with mural value of ‘Sand’"
+},
+{
+"code": "32080",
+"slug": "orange",
+"name": "orange",
+"en": "orange",
+"hex": "#d46c40",
+"shade": "Orange",
+"text": "The shiny orange. A dynamic, youthful and optimistic colour"
+},
+{
+"code": "32081",
+"slug": "orange-clair",
+"name": "orange clair",
+"en": "light orange",
+"hex": "#dc8d67",
+"shade": "Orange",
+"text": "The orange apricot. A dynamic, touching and consistently attractive ton"
+},
+{
+"code": "32082",
+"slug": "orange-pale",
+"name": "orange pâle",
+"en": "pale orange",
+"hex": "#eacfb9",
+"shade": "Orange",
+"text": "The sandy orange. Earthy, gentle and constructive. The second mural ‘Sand’ colour"
+},
+{
+"code": "32090",
+"slug": "rouge-vermillon-31",
+"name": "rouge vermillon 31",
+"en": "vermilion red",
+"hex": "#9b3738",
+"shade": "Red",
+"text": "The deep dynamic red. Or the luminescent vermilion red"
+},
+{
+"code": "32091",
+"slug": "rose-pale",
+"name": "rose pâle",
+"en": "pale pink",
+"hex": "#e6cdbf",
+"shade": "Red",
+"text": "The gentle pink. Earthy, warm and restrained. The first shade with ‘Masonry’ significance"
+},
+{
+"code": "32100",
+"slug": "rouge-carmin",
+"name": "rouge carmin",
+"en": "carmine red",
+"hex": "#8f3a43",
+"shade": "Red",
+"text": "The noble carmine red. Steeped in history, dignified and brilliant"
+},
+{
+"code": "32101",
+"slug": "rouge-rubia",
+"name": "rouge rubia",
+"en": "madder red",
+"hex": "#943a4d",
+"shade": "Red",
+"text": "The artistic red. The tradition-rich red of famous painters"
+},
+{
+"code": "32102",
+"slug": "rose-clair",
+"name": "rose clair",
+"en": "light pink",
+"hex": "#d6afa6",
+"shade": "Red",
+"text": "The bright pink. Or the medium dynamic rose"
+},
+{
+"code": "32110",
+"slug": "ocre-rouge",
+"name": "l'ocre rouge",
+"en": "red ochre",
+"hex": "#8b4d3e",
+"shade": "Red ochre & Brown",
+"text": "The red of ancient architecture. An earthy and deeply luminescent nuance"
+},
+{
+"code": "32111",
+"slug": "ocre-rouge-moyen",
+"name": "l'ocre rouge moyen",
+"en": "medium red ochre",
+"hex": "#cd9886",
+"shade": "Red ochre & Brown",
+"text": "The medium Terracotta. An earthy and warm tone, which emphasises comfort"
+},
+{
+"code": "32112",
+"slug": "ocre-rouge-clair",
+"name": "l'ocre rouge clair",
+"en": "light red ochre",
+"hex": "#dbbeaa",
+"shade": "Red ochre & Brown",
+"text": "The bright red ochre. Earthy and stable. The second shade with ‘Masonry’ significance"
+},
+{
+"code": "32120",
+"slug": "terre-sienne-brulee-31",
+"name": "terre sienne brûlée 31",
+"en": "burnt sienna",
+"hex": "#68443c",
+"shade": "Red ochre & Brown",
+"text": "The deeply burnt sienna. It fixes the wall impressively"
+},
+{
+"code": "32121",
+"slug": "terre-sienne-brique",
+"name": "terre sienne brique",
+"en": "brick sienna",
+"hex": "#b67b66",
+"shade": "Red ochre & Brown",
+"text": "The light brick red. Suited for timeless colour combinations"
+},
+{
+"code": "32122",
+"slug": "terre-sienne-claire-31",
+"name": "terre sienne claire 31",
+"en": "light sienna",
+"hex": "#d8b29a",
+"shade": "Red ochre & Brown",
+"text": "The colour of the summery masonry. Loamy and soft. The third ‘Masonry’ shade"
+},
+{
+"code": "32123",
+"slug": "terre-sienne-pale",
+"name": "terre sienne pâle",
+"en": "pale sienna",
+"hex": "#e2cbb5",
+"shade": "Red ochre & Brown",
+"text": "The pale sienna. A sandy, discreet and stable colour shade"
+},
+{
+"code": "32130",
+"slug": "terre-ombre-brulee-31",
+"name": "terre d'ombre brûlée 31",
+"en": "burnt umber",
+"hex": "#4c423d",
+"shade": "Umber",
+"text": "The marron. Deeply red brown, burnt. Like a chestnut"
+},
+{
+"code": "32131",
+"slug": "ombre-brulee-claire",
+"name": "ombre brûlée claire",
+"en": "light burnt umber",
+"hex": "#b7a392",
+"shade": "Umber",
+"text": "The burnt umber. An ideal background colour. The third shade with mural value of ‘Sand’"
+},
+{
+"code": "32140",
+"slug": "ombre-naturelle-31",
+"name": "ombre naturelle 31",
+"en": "raw umber",
+"hex": "#5a5550",
+"shade": "Umber",
+"text": "The dark natural umber. An elegant brown grey colour"
+},
+{
+"code": "32141",
+"slug": "ombre-naturelle-moyenne",
+"name": "ombre naturelle moyenne",
+"en": "medium raw umber",
+"hex": "#928a7e",
+"shade": "Umber",
+"text": "The grey brown natural umber. A balanced, aesthetic and appealing colour"
+},
+{
+"code": "32142",
+"slug": "ombre-naturelle-claire",
+"name": "ombre naturelle claire",
+"en": "light raw umber",
+"hex": "#b7ac9d",
+"shade": "Umber",
+"text": "The discrete natural umber. As shadow colour, ideal for combinations"
+},
+{
+"code": "4320A",
+"slug": "rouge-vermillon-59",
+"name": "rouge vermillon 59",
+"en": "vermilion red",
+"hex": "#ac443a",
+"shade": "Red",
+"text": "The cinnabar red. A fiery shade which catches the eye and reduces the space"
+},
+{
+"code": "4320B",
+"slug": "blanc-ivoire",
+"name": "blanc ivoire",
+"en": "ivory white",
+"hex": "#eae4d7",
+"shade": "White",
+"text": "The ivory white. Elegant, charming, chalky. The calm background colour"
+},
+{
+"code": "4320C",
+"slug": "rose-vif",
+"name": "rose vif",
+"en": "bright pink",
+"hex": "#dba3af",
+"shade": "Red",
+"text": "The luminous pink. Less earthy and mostly used as complement to other luscious colours"
+},
+{
+"code": "4320D",
+"slug": "terre-sienne-brulee-59",
+"name": "terre sienne brûlée 59",
+"en": "burnt sienna",
+"hex": "#744438",
+"shade": "Red ochre & Brown",
+"text": "The deep brown sienna. A burnt, rich, dynamic and stable colour tone"
+},
+{
+"code": "4320E",
+"slug": "noir-ivoire",
+"name": "noir d'ivoire",
+"en": "ivory black",
+"hex": "#3a3b3b",
+"shade": "Grey & Black",
+"text": "The ivory black. Black as the night. Le Corbusier’s only, impressive black tone"
+},
+{
+"code": "4320F",
+"slug": "vert-olive-vif",
+"name": "vert olive vif",
+"en": "bright olive green",
+"hex": "#b8a136",
+"shade": "Green",
+"text": "The olive green. Green yellow or yellow green? A unique classic"
+},
+{
+"code": "4320G",
+"slug": "vert-59",
+"name": "vert 59",
+"en": "green",
+"hex": "#428f70",
+"shade": "Green",
+"text": "The emerald green. A dynamic shade with luminous power"
+},
+{
+"code": "4320H",
+"slug": "gris-59",
+"name": "gris 59",
+"en": "grey",
+"hex": "#81868b",
+"shade": "Grey & Black",
+"text": "The dynamic medium grey. It reacts stable and dynamic in any light"
+},
+{
+"code": "4320J",
+"slug": "terre-ombre-brulee-59",
+"name": "terre d'ombre brûlée 59",
+"en": "burnt umber",
+"hex": "#403c3a",
+"shade": "Umber",
+"text": "The dark burnt umber. Resembles mahogany. It can camouflage and hide"
+},
+{
+"code": "4320K",
+"slug": "bleu-outremer-59",
+"name": "bleu outremer 59",
+"en": "ultramarine blue",
+"hex": "#3957a5",
+"shade": "Blue",
+"text": "The spectacular ultramarine. An impressive colour shade which moves worlds"
+},
+{
+"code": "4320L",
+"slug": "ocre-jaune-clair",
+"name": "ocre jaune clair",
+"en": "light yellow ochre",
+"hex": "#dbb07f",
+"shade": "Ochre & Yellow",
+"text": "The golden ochre. A deep, powerful and very present colour tone"
+},
+{
+"code": "4320M",
+"slug": "rubis",
+"name": "le rubis",
+"en": "ruby",
+"hex": "#74393b",
+"shade": "Red",
+"text": "The ruby. It is darksome and shining, velvety, festive and luxurious"
+},
+{
+"code": "4320N",
+"slug": "bleu-ceruleen-59",
+"name": "bleu céruléen 59",
+"en": "cerulean blue",
+"hex": "#7aa7cb",
+"shade": "Blue",
+"text": "Represents sky and sea. The colour shade is virtually infinitely combinable"
+},
+{
+"code": "4320O",
+"slug": "gris-clair-59",
+"name": "gris clair 59",
+"en": "light grey",
+"hex": "#92969a",
+"shade": "Grey & Black",
+"text": "The grey in the morning. Somewhat cool. The shade is receding in contrast to white"
+},
+{
+"code": "4320P",
+"slug": "terre-sienne-claire-59",
+"name": "terre sienne claire 59",
+"en": "light sienna",
+"hex": "#ddbf99",
+"shade": "Ochre & Yellow",
+"text": "The natural sienna ochre. Earthy, warm and softer than yellow"
+},
+{
+"code": "4320R",
+"slug": "ombre-naturelle-59",
+"name": "ombre naturelle 59",
+"en": "raw umber",
+"hex": "#45423e",
+"shade": "Umber",
+"text": "The deeply dark natural umber. Camouflaging, emphasising other colours"
+},
+{
+"code": "4320S",
+"slug": "orange-vif",
+"name": "orange vif",
+"en": "bright orange",
+"hex": "#c45e3a",
+"shade": "Orange",
+"text": "The powerful orange. Saturated and energetic. It steps forward and unfolds bold effects"
+},
+{
+"code": "4320T",
+"slug": "bleu-outremer-fonce",
+"name": "bleu outremer foncé",
+"en": "dark ultramarine",
+"hex": "#313d6b",
+"shade": "Blue",
+"text": "The profound ultramarine blue. A fascinating shade which reflects infinity"
+},
+{
+"code": "4320U",
+"slug": "gris-fonce-59",
+"name": "gris foncé 59",
+"en": "dark grey",
+"hex": "#60646a",
+"shade": "Grey & Black",
+"text": "The dark grey. Strong, rich and close to a metallic effect"
+},
+{
+"code": "4320W",
+"slug": "jaune-vif",
+"name": "le jaune vif",
+"en": "bright yellow",
+"hex": "#f2bb1d",
+"shade": "Ochre & Yellow",
+"text": "The yellow colour of the sun. It shines impressively in good light"
+}
+];
+const FAMILIES = [{"pre": "3200", "head": "blanc — white"}, {"pre": "3201", "head": "gris — greys"}, {"pre": "3202", "head": "outremer — ultramarine"}, {"pre": "3203", "head": "céruléen — cerulean"}, {"pre": "3204", "head": "vert anglais — English green"}, {"pre": "3205", "head": "vert — green"}, {"pre": "3206", "head": "ocre — ochre"}, {"pre": "3208", "head": "orange"}, {"pre": "3209", "head": "vermillon — vermilion"}, {"pre": "3210", "head": "carmin, rubia — carmine, madder"}, {"pre": "3211", "head": "ocre rouge — red ochre"}, {"pre": "3212", "head": "terre sienne — sienna"}, {"pre": "3213", "head": "ombre brûlée — burnt umber"}, {"pre": "3214", "head": "ombre naturelle — raw umber"}];
+const SEMANTIC = ['--clr-text', '--clr-bg', '--clr-brand', '--clr-muted', '--clr-surface', '--clr-success', '--clr-warning', '--clr-error', '--brand'];
+
+(() => {
+  const root = getComputedStyle(document.documentElement);
+  const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
+
+  // Resolve any colour to "rgb(r, g, b)" via a probe element, so tokens can be matched to names
+  const probe = make('i'); probe.style.display = 'none'; document.body.append(probe);
+  const resolve = value => { probe.style.color = ''; probe.style.color = value; return getComputedStyle(probe).color; };
+  const byRgb = new Map(COLOURS.map(c => [resolve(c.hex), c]));
+
+  // Semantic tokens, and which palette colour each lands on
+  const usedBy = new Map();
+  const semantic = document.getElementById('cp-semantic');
+  SEMANTIC.forEach(token => {
+    const raw = root.getPropertyValue(token).trim();
+    if (!raw) return;
+    const rgb = resolve(`var(${token})`);
+    const match = byRgb.get(rgb);
+    if (match) usedBy.set(match.slug, [...(usedBy.get(match.slug) || []), token.replace('--clr-', '')]);
+    const row = make('div', 'cp-token');
+    const chip = make('i'); chip.style.setProperty('--c', `var(${token})`);
+    const label = make('div');
+    label.append(make('code', null, token), document.createElement('br'), match ? `${match.name} (--${match.slug})` : rgb);
+    row.append(chip, label);
+    semantic.append(row);
+  });
+
+  const toast = document.getElementById('cp-toast');
+  let toastTimer = 0;
+  const say = text => { toast.textContent = text; toast.classList.add('is-on'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('is-on'), 1200); };
+
+  // Black or white text, by contrast
+  const ink = hex => {
+    const [r, g, b] = [1, 3, 5].map(i => parseInt(hex.slice(i, i + 2), 16) / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
+    return .2126 * r + .7152 * g + .0722 * b > .3 ? '#1f1f1f' : '#fff';
+  };
+
+  const swatch = c => {
+    const b = make('button', 'cp-swatch');
+    b.type = 'button';
+    b.title = c.text;
+    const present = root.getPropertyValue('--' + c.slug).trim() !== '';
+    b.style.setProperty('--c', `var(--${c.slug})`);
+    b.style.setProperty('--ink', ink(c.hex));
+    if (!present) b.classList.add('is-missing');
+    if (usedBy.has(c.slug)) { b.classList.add('is-used'); b.dataset.used = usedBy.get(c.slug).join(' · '); }
+    const top = make('span');
+    top.append(make('b', null, c.name), make('small', null, c.en));
+    const bottom = make('span');
+    bottom.append(make('code', null, '--' + c.slug), make('small', null, `${c.code} · ${c.hex}`));
+    b.append(top, bottom);
+    b.addEventListener('click', () => {
+      const text = `var(--${c.slug})`;
+      (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(() => say(`Copied ${text}`), () => say(text));
+    });
+    return b;
+  };
+
+  const s1931 = document.getElementById('cp-1931');
+  FAMILIES.forEach(f => {
+    const fam = make('div', 'cp-family');
+    const row = make('div', 'cp-row');
+    COLOURS.filter(c => c.code.startsWith(f.pre)).forEach(c => row.append(swatch(c)));
+    fam.append(make('h3', null, f.head), row);
+    s1931.append(fam);
+  });
+
+  const s1959 = document.getElementById('cp-1959');
+  const shades = [...new Set(COLOURS.filter(c => c.code.startsWith('4320')).map(c => c.shade))];
+  shades.forEach(shade => {
+    const fam = make('div', 'cp-family');
+    const row = make('div', 'cp-row');
+    COLOURS.filter(c => c.code.startsWith('4320') && c.shade === shade).forEach(c => row.append(swatch(c)));
+    fam.append(make('h3', null, shade), row);
+    s1959.append(fam);
+  });
+})();
+</script>
+</body>
+</html>

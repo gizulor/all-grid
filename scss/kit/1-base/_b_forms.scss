@@ -1,0 +1,68 @@
+/* scss/1-base/_b_forms.scss — bare elements; styled buttons are .a_button */
+
+@use "../0-settings/index" as s;
+
+label {
+  display: inline-block;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-input);
+  padding: var(--base-unit--ss) var(--base-unit--s);
+  border: var(--border-width) solid var(--clr-border);
+  border-radius: 0;
+  background-color: transparent;
+
+  &:focus-visible {
+    @include s.focus-ring;
+  }
+
+  &::placeholder {
+    color: var(--clr-muted);
+  }
+}
+
+textarea {
+  inline-size: 100%;
+  max-block-size: 75vh;
+  field-sizing: content;   // auto-grow where supported (replaces the JS/:after trick)
+  min-block-size: calc(var(--base-unit) * 4);
+}
+
+select {
+  appearance: none;
+  padding-inline-end: var(--base-unit--b);
+  background-repeat: no-repeat;
+  background-position: right var(--base-unit--s) center;
+  background-size: .75em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 7'%3E%3Cpolyline fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' points='0 .6 6.3 6.5 12.6 .6'/%3E%3C/svg%3E");
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+[type="submit"] {
+  cursor: pointer;
+}
+
+[type="checkbox"],
+[type="radio"] {
+  margin: 0;
+  accent-color: var(--clr-brand);
+}
+
+[type="text"],
+[type="email"],
+[type="search"],
+[type="tel"],
+[type="url"] {
+  @include s.until(small) {
+    inline-size: 100%;
+  }
+}

@@ -1,0 +1,6 @@
+/* site/_tokens.scss
+   Site overrides of kit tokens. Loaded straight after the kit's base, so these win.*/
+
+:root {
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

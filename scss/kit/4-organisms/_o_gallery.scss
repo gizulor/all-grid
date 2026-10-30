@@ -1,0 +1,48 @@
+/* scss/4-organisms/_o_gallery.scss
+   Image gallery from v1 Artedomus, tidied. Figures carry .landscape / .portrait /
+   .square (from TXP image dimensions); captions line up via subgrid. */
+
+@use "../0-settings/index" as s;
+
+.o_gallery {
+  @include s.grid($cols: 2);
+  grid-auto-flow: dense;
+  margin-block: var(--base-unit--b);
+
+  figure {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 2;
+    gap: 0;
+
+    img {
+      block-size: 100%;
+    }
+  }
+
+  .landscape,
+  .square {
+    grid-column: span 2;
+  }
+
+  .landscape img { aspect-ratio: 3 / 2; }
+  .portrait img  { aspect-ratio: 2 / 3; }
+
+  // Pairs of landscapes sit side by side
+  .landscape:has(+ .landscape),
+  .landscape + .landscape {
+    grid-column: span 1;
+  }
+
+  // A lone image doesn't stretch to the full width
+  &:has(> figure:only-child) {
+    display: block;
+    max-inline-size: var(--type-measure);
+    margin-inline: auto;
+  }
+
+  @include s.from(small) {
+    &--tri  { --l-cols: 3; }
+    &--quad { --l-cols: 4; }
+  }
+}

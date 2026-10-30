@@ -1,0 +1,33 @@
+// scss/0-settings/_mixins.scss
+
+// Heading size by level (0–6) — shared by h1–h6 elements and .hN-style classes
+@mixin heading($level) {
+  font-size: var(--h#{$level});
+  line-height: var(--heading-line-height);
+  @if $level == 6 { font-weight: var(--font-heavy); }
+}
+
+@mixin visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+// Horizontal scroll strip (from all-grid)
+@mixin hoz-scroll($columns: 80%, $gap: var(--gap)) {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: $columns;
+  gap: $gap;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  > * { scroll-snap-align: start; }
+}
+
+@mixin focus-ring {
+  outline: var(--border-width) solid var(--clr-brand);
+  outline-offset: var(--border-width);
+}

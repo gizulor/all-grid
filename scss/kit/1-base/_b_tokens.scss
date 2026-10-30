@@ -1,0 +1,67 @@
+/* scss/1-base/_b_tokens.scss
+   Design tokens as custom properties. Sites override these (see sites/artedomus/_tokens.scss);
+   components should only ever read tokens, never raw values. */
+
+@use "../0-settings/index" as s;
+
+:root {
+  /* Type ---------------------------------------------------------------- */
+  --font-sans: system-ui, sans-serif;
+  --font-serif: Baskerville, serif;
+  --font-mono: ui-monospace, monospace;
+  --font-body: var(--font-sans);
+  --font-heading: var(--font-body);
+  --font-input: var(--font-body);
+  --font-normal: 400;
+  --font-heavy: 600;
+
+  // Applied to <html>, so rem — and the rlh spacing below — scale with it
+  --font-size: #{s.fluid(.875rem, 1rem)};
+  --line-height: 1.5;
+  --heading-line-height: 1.15;
+  --type-measure: 84ch;
+
+  // Major Third scale (em, so a heading inside small text scales with it)
+  --h0-min: 2rem;                  // display size: see .h0-style in 2-atoms/_a_heading.scss
+  --h0-fluid: min(11vmin, 9rem);
+  --h0-max: 5rem;
+  --h1: 3.052em;
+  --h2: 2.441em;
+  --h3: 1.953em;
+  --h4: 1.563em;
+  --h5: 1.25em;
+  --h6: 1em;
+  --small: .875em;
+  --smallest: .75em;
+
+  /* Space ---------------------------------------------------------------
+     One root line-height. `rlh`, not `lh`: lh resolves wherever it's used, so
+     padding inside an h1 would balloon; rlh is the same rhythm everywhere. */
+  --base-unit: 1rlh;
+  --base-unit--ss: calc(var(--base-unit) / 4);
+  --base-unit--s: calc(var(--base-unit) / 2);
+  --base-unit--b: calc(var(--base-unit) * 2);
+  --base-unit--bb: calc(var(--base-unit) * 4);
+  --base-unit--neg: calc(var(--base-unit) * -1);
+
+  --gap: var(--base-unit);
+  --gutter: var(--base-unit);   // page-edge padding
+
+  @include s.until(medium) {
+    --gap: var(--base-unit--s);
+    --gutter: var(--base-unit--s);
+  }
+
+  /* Viewport widths ---------------------------------------------------------------
+  See _breakpoints.scss */
+  --width-desktop: 1280px;
+  --width-large: 1720px;
+
+  /* Lines, motion, stacking --------------------------------------------- */
+  --border-width: 2px;
+  --duration: .3s;
+  --ease: ease;
+  --z-sticky: 100;
+  --z-menu: 200;
+  --z-overlay: 1000;
+}

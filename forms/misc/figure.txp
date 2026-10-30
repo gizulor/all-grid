@@ -1,4 +1,4 @@
-<txp:images id='<txp:if_yield name="id"><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="10" />' category='<txp:yield name="category" />' break="">
+<txp:images id='<txp:if_yield name="id" value><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' offset='<txp:yield name="offset" default="0" />' limit='<txp:yield name="limit" default="10" />' category='<txp:yield name="category" />' break="">
   <txp:variable name="caption" value='<txp:image_info />' />
 
   <txp::images_orientation />
@@ -15,31 +15,16 @@
     <txp:if_variable name="image-type" value=".svg">
       <txp:image />
     <txp:else />
-      <txp:variable name="pathtoslirfolder" value='<txp:page_url type="theme_path" />/slir' />
+    <img srcset="<txp:image_url thumbnail width="320" /> 320w,
+    <txp:image_url thumbnail width="640" /> 640w,
+    <txp:image_url thumbnail width="1280" /> 1280w,
+    <txp:image_url thumbnail width="2560" /> 2560w"
+    sizes="auto"
+    width="<txp:image_info type="w" />"
+    height="<txp:image_info type="h" />"
+    loading="lazy"
+    alt="<txp:image_info type="alt" default='<txp:image_info type="name" trim='<txp:image_info type="ext" />' />' />" />
 
-      <txp:if_yield name="crop">
-        <txp:variable name="slir-crop"><txp:yield name="crop" /></txp:variable>
-      <txp:else />
-        <txp:variable name="slir-crop"><txp:image_info type="w" />:<txp:image_info type="h" /></txp:variable>
-      </txp:if_yield>
-
-      <txp:variable name="image-type" value='<txp:image_info type="ext" />' />
-      <txp:if_variable name="image-type" value=".webp">
-        <img
-          src="<txp:image_url />"
-            alt="<txp:image_info type='alt' />"
-            <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-             />
-      <txp:else />
-        <img data-sizes="auto"
-          data-srcset="<txp:variable name="pathtoslirfolder" />/w320-c<txp:variable name="slir-crop" />/<txp:image_url /> 300w,
-            <txp:variable name="pathtoslirfolder" />/w640-c<txp:variable name="slir-crop" />/<txp:image_url /> 600w,
-            <txp:variable name="pathtoslirfolder" />/w1280-c<txp:variable name="slir-crop" />/<txp:image_url /> 1200w,
-            <txp:variable name="pathtoslirfolder" />/c<txp:variable name="slir-crop" />/<txp:image_url /> 2400w"
-            alt="<txp:image_info type='alt' />"
-            <txp:if_yield name="aspect-ratio">style="aspect-ratio: <txp:yield name="aspect-ratio" />;"</txp:if_yield>
-            class="lazyload" />
-    </txp:if_variable>
     </txp:if_variable>
 
 

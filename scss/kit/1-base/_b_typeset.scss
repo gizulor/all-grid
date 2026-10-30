@@ -1,0 +1,92 @@
+/* scss/1-base/_b_typeset.scss
+   .b_typeset — long-form prose wrapper for TXP body/excerpt output.
+   Flow spacing (owl selector) instead of per-element margins, so whatever
+   Textile produces gets consistent rhythm. */
+
+@use "../0-settings/index" as s;
+
+.b_typeset {
+  --flow-space: var(--base-unit);
+
+  > * + * {
+    margin-block-start: var(--flow-space);
+  }
+
+  > :is(h2, h3, h4) {
+    --flow-space: var(--base-unit--b);
+  }
+
+  > :is(h2, h3, h4, h5, h6) + * {
+    --flow-space: var(--base-unit--s);
+  }
+
+  > :is(p, ul, ol, dl, blockquote, pre, table, details) {
+    max-inline-size: var(--type-measure);
+  }
+
+  a:not([class]) {
+    text-decoration-line: underline;
+  }
+
+  ul,
+  ol {
+    padding-inline-start: var(--base-unit);
+  }
+
+  ul {
+    list-style-type: square;
+  }
+
+  li + li {
+    margin-block-start: var(--base-unit--ss);
+  }
+
+  blockquote {
+    font-family: var(--font-serif);
+    font-size: var(--h5);
+    padding-inline-start: var(--base-unit);
+  }
+
+  hr {
+    margin-block: var(--base-unit--b);
+  }
+
+  &--lede {
+    font-size: var(--h4);
+    line-height: 1.35;
+  }
+
+  &--columns {
+    @include s.from(small) {
+      columns: 2 36ch;
+      column-gap: var(--base-unit--b);
+    }
+  }
+}
+
+.b_small {
+  font-size: var(--small);
+}
+
+.b_smallest {
+  font-size: var(--smallest);
+}
+
+.b_muted {
+  color: var(--clr-muted);
+}
+
+.b_centered {
+  text-align: center;
+}
+
+.b_caps {
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  font-size: var(--smallest);
+}
+
+.b_lc {
+  text-transform: lowercase;
+}
+

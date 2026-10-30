@@ -1,0 +1,8 @@
+/* scss/5-layouts/_l_column.scss — vertical stack. Defaults: start, start.
+   Add .u_fill (or give it a height) for .middlev / .bottom to have room to act. */
+
+@use "../0-settings/index" as s;
+
+.l_column {
+  @include s.column;
+}

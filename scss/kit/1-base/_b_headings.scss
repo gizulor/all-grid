@@ -1,0 +1,15 @@
+/* scss/1-base/_b_headings.scss — elements only; the .hN-style classes live in 2-atoms */
+
+@use "../0-settings/index" as s;
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    @include s.heading($i);
+  }
+}

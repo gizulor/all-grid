@@ -1,0 +1,51 @@
+/* scss/2-atoms/_a_button.scss — for <button>, <a> or [type=submit] */
+
+.a_button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--base-unit--s);
+  padding: var(--base-unit--ss) var(--base-unit--s);
+  border: var(--border-width) solid var(--clr-border);
+  background-color: transparent;
+  color: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--duration) var(--ease),
+    color var(--duration) var(--ease);
+
+  &:hover {
+    background-color: var(--clr-text);
+    color: var(--clr-bg);
+    text-decoration: none;
+  }
+
+  &--solid {
+    background-color: var(--clr-text);
+    color: var(--clr-bg);
+
+    &:hover {
+      background-color: transparent;
+      color: var(--clr-text);
+    }
+  }
+
+  // Over images (v1 m_button--cta)
+  &--scrim {
+    --clr-text: var(--white);
+    --clr-bg: var(--black);
+    background-color: color-mix(in oklch, var(--black) 20%, transparent);
+  }
+
+  &--plain {
+    padding: 0;
+    border: 0;
+
+    &:hover {
+      background-color: transparent;
+      color: inherit;
+      opacity: .6;
+    }
+  }
+}

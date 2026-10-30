@@ -1,0 +1,60 @@
+/* scss/5-layouts/_l_grid.scss
+   .l_grid                       1 column
+   .l_grid--twin / --tri / --quad   fixed counts, each with @small @medium @desktop
+   .l_grid--auto                 as many as fit; tune with style="--l-min: 12rem"
+   .l_grid__sub                  child that subgrids rows (v1 l_grid--sub, all-grid --parent-rules)
+   .l_grid--stagger              every second column sits lower, with @small @medium @desktop
+
+   e.g. class="l_grid l_grid--twin l_grid--quad@medium" */
+
+@use "../0-settings/index" as s;
+
+.l_grid {
+  @include s.grid;
+
+}
+
+
+@include s.responsive((
+  ".l_grid--twin": (--l-cols: 2),
+  ".l_grid--tri": (--l-cols: 3),
+  ".l_grid--quad": (--l-cols: 4),
+));
+
+.l_grid--auto {
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--l-min, 16rem), 100%), 1fr));
+  &--tight {
+    @include s.until(medium) {
+      --l-min: 10rem;
+    }
+  }
+}
+
+.l_grid--dense {
+  grid-auto-flow: dense;
+}
+
+// Stagger: every second item sits lower, by --l-stagger (default half its own height).
+// In 2 or 4 columns (--twin, --quad) that's every second column. Not for 3 columns,
+// where even items fall in different columns row by row.
+// Use a width variant so phones (one column) don't stagger: l_grid--twin@small l_grid--stagger@small
+// The items move but the grid doesn't, so the last row overhangs whatever follows:
+// leave room below (u_m--b…, or padding on the next thing).
+.l_grid--stagger > :nth-child(even) {
+  translate: 0 var(--l-stagger, 50%);
+}
+
+@each $name in s.$responsive {
+  @include s.from($name) {
+    .l_grid--stagger\@#{$name} > :nth-child(even) {
+      translate: 0 var(--l-stagger, 50%);
+    }
+  }
+}
+
+.l_grid__sub {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span var(--l-rows, 3);
+  gap: calc(var(--gap)*.75);
+}

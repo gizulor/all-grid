@@ -1,0 +1,57 @@
+/* scss/5-layouts/_l_superimposed.scss
+   Children share one grid cell instead of absolute positioning: the container
+   grows to fit the copy, so text can't spill out of a short image.
+   __inner keeps its v1 name and is a column, so .bottom / .middlev / .middle work on it.
+
+   <div class="l_superimposed">
+     <figure>…</figure>
+     <div class="l_superimposed__inner bottom">…</div>
+   </div>
+
+   --grow: the image grows with the copy (at least --l-min-block tall)
+   --fullscreen: at least the window's height */
+
+@use "../0-settings/index" as s;
+
+.l_superimposed {
+  @include s.superimposed;
+  --l-cols: 1;
+
+  &__inner {
+    @include s.column;
+    position: relative;   // paints above the image even when the image is positioned
+                          // (u_edit-in-txp makes its figure position: relative)
+    padding: var(--base-unit);
+    color: var(--white);
+
+    &.scrim {
+      background: var(--clr-scrim);
+    }
+  }
+
+  // The image grows with the copy instead of the copy squeezing into the image:
+  // at least --l-min-block tall (default 66svh, the old fold limit), taller when the
+  // copy needs it. The image is cropped to fit (object-fit: cover), never distorted.
+  &--grow {
+    position: relative;
+    min-block-size: var(--l-min-block, 80svh);
+
+    > :is(figure, picture, img, video) {
+      position: absolute;
+      inset: 0;
+    }
+
+    > figure :is(img, video) {
+      block-size: 100%;
+      max-block-size: none;
+    }
+  }
+
+  &--fullscreen {
+    min-block-size: 100dvh;
+
+    > :is(figure, img, video) {
+      block-size: 100%;
+    }
+  }
+}

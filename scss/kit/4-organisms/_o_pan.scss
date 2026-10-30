@@ -1,0 +1,96 @@
+/* scss/4-organisms/_o_pan.scss
+   Ken Burns slideshow: the images crossfade, each one slowly zooming while it shows.
+   Markup from forms/misc/o_figure_pan.txp; js/o_pan.js runs it.
+
+   <figure class="o_pan a_ratio--2x1" data-zoom="random" data-drift="center top-left">
+     <img …> <img …> <img …>
+   </figure>
+
+   Without the script (or before it starts) the first image just sits there.
+   One image: it zooms in and out, slowly, for ever.
+   Reduced motion (an OS setting): no zoom, the crossfade stays.
+
+   Knobs (style="--o-pan-slide: 10s", or per site on :root)
+     --o-pan-slide   time each image shows (default 7s)
+     --o-pan-fade    crossfade (default 1.5s)
+     --o-pan-zoom    how far it zooms (default 1.2)
+
+   Set on the figure, read by the script
+     data-zoom    in | out | alternate | random (default)
+     data-drift   which point it zooms towards, picked at random per slide from:
+                  center top top-left top-right left right bottom bottom-left bottom-right
+                  (default: all of them)
+     data-order   random: shuffle; otherwise in page order */
+
+
+
+
+.o_pan {
+  display: grid;
+  z-index: 0;
+  overflow: hidden;
+
+  > img {
+    grid-area: 1 / 1;          // all images in one cell, stacked
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    transform-origin: var(--o-pan-origin, 50% 50%);
+  }
+
+  > img:not(:first-child) {
+    opacity: 0;
+  }
+
+  // Running (the script adds .is-running): the new image fades in on top of the
+  // old one, which stays put underneath until the fade is done
+  &.is-running > img {
+    opacity: 0;
+  }
+
+  &.is-running > .is-current {
+    z-index: 2;
+    opacity: 1;
+    transition: opacity var(--o-pan-fade, 1.5s) ease;
+  }
+
+  &.is-running > .is-leaving {
+    z-index: 1;
+    opacity: 1;
+  }
+
+  // The zoom lasts the slide plus the fade, so an image keeps moving while it fades out
+  &.is-running > .is-current,
+  &.is-running > .is-leaving {
+    animation: o-pan-in calc(var(--o-pan-slide, 7s) + var(--o-pan-fade, 1.5s)) linear both;
+  }
+
+  &.is-running > .is-out {
+    animation-name: o-pan-out;
+  }
+
+  &.is-running > .is-solo {
+    animation: o-pan-in calc(var(--o-pan-slide, 7s) * 2) ease-in-out infinite alternate;
+  }
+
+  // Off screen, or the tab is hidden
+  &.is-paused > img {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes o-pan-in {
+  from { scale: 1; }
+  to   { scale: var(--o-pan-zoom, 1.2); }
+}
+
+@keyframes o-pan-out {
+  from { scale: var(--o-pan-zoom, 1.2); }
+  to   { scale: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o_pan > img {
+    animation: none !important;
+  }
+}

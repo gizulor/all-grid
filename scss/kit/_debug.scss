@@ -1,0 +1,241 @@
+// scss/_debug.scss
+// Styles for js/u_debug.js, the debugging aides shown to logged-in users.
+// The script builds everything below; nothing here affects pages without it.
+//
+//   body.u_debug          dotted outline on every element (also works by hand: bodyclass="u_debug")
+//   body.u_debug--grid    shows the baseline grid, gutters and breakpoint lines
+//   .u_debug-ui           overlay for labels, container boxes and the grid. Absolutely
+//                         positioned and pointer-events: none, so it never changes page layout
+//   .u_debug-bar          the toolbar, fixed bottom-right, with the Header panel above its buttons
+//
+// The debug UI uses fixed px sizes and its own colours, so no site styling can make it
+// unreadable. Loaded last, so it sits above everything else.
+
+@use "0-settings/index" as s;
+
+// Breakpoints handed to the script, from the same map the CSS uses:
+// "mobile:380px small:720px medium:960px desktop:1280px large:1720px"
+$_bp-string: "";
+@each $name, $width in s.$breakpoints {
+  $_bp-string: $_bp-string + "#{$name}:#{$width} ";
+}
+
+:root {
+  --u-debug-breakpoints: "#{$_bp-string}";
+}
+
+$_ink: #f2f2f2;
+$_ink-dim: #a3a3a3;
+$_panel: #1d1d1f;
+$_accent: #ff5a36;
+$_baseline: rgb(0 160 255 / .1);
+$_half-line: rgb(0 160 255 / .05);
+$_gutter: rgb(255 0 170 / .07);
+$_container: rgb(0 150 110);
+$_mono: 500 10px / 1.3 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+$_top: 2147483000;
+
+// Outlines ------------------------------------------------------------------
+.u_debug *:not(:where(.u_debug-ui, .u_debug-ui *, .u_debug-bar, .u_debug-bar *, :focus-visible)) {
+  outline: 1px dotted color-mix(in oklch, var(--clr-brand) 15%, transparent);
+  outline-offset: -1px;
+}
+
+// Overlay -------------------------------------------------------------------
+.u_debug-ui {
+  position: absolute;
+  inset: 0 0 auto 0;
+  overflow: clip;            // clip, not hidden: keeps sticky breakpoint labels working
+  pointer-events: none;
+  z-index: $_top;
+  font: $_mono;
+  color: $_ink;
+  text-align: start;
+}
+
+.u_debug-ui__grid {
+  display: none;
+  position: absolute;
+  inset: 0;
+  // --base-unit is 1rlh, so these are the kit's real rhythm lines
+  background-image:
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--base-unit) - 1px), $_baseline 0 var(--base-unit)),
+    repeating-linear-gradient(to bottom, transparent 0 calc(var(--base-unit--s) - 1px), $_half-line 0 var(--base-unit--s));
+
+  .u_debug--grid & {
+    display: block;
+  }
+
+  // Page gutters (--gutter)
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    inline-size: var(--gutter);
+    background-color: $_gutter;
+  }
+
+  &::before { inset-inline-start: 0; }
+  &::after  { inset-inline-end: 0; }
+}
+
+.u_debug-ui__bp {
+  position: absolute;
+  inset-block: 0;
+  border-inline-start: 1px dashed currentcolor;
+
+  span {
+    position: sticky;
+    inset-block-start: 6px;
+    display: inline-block;
+    margin-inline-start: 3px;
+    padding: 1px 4px;
+    background-color: $_panel;
+    color: inherit;
+    white-space: nowrap;
+  }
+}
+
+.u_debug-ui__label {
+  position: absolute;
+  padding: 1px 4px;
+  background-color: rgb(29 29 31 / .8);
+  white-space: nowrap;
+  opacity: 0.6;
+  &.is-active {
+    background-color: $_accent;
+    opacity: 1;
+    z-index: 1;
+  }
+}
+
+.u_debug-ui__box {
+  position: absolute;
+  outline: 2px solid $_accent;
+  outline-offset: -1px;
+}
+
+.u_debug-ui__container {
+  position: absolute;
+  border: 1px dashed $_container;
+
+  span {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    padding: 1px 4px;
+    background-color: $_container;
+    color: #fff;
+    white-space: nowrap;
+  }
+}
+
+// Toolbar -------------------------------------------------------------------
+.u_debug-bar {
+  position: fixed;
+  z-index: $_top + 1;
+  inset-block-end: max(var(--base-unit), env(safe-area-inset-bottom, 0px));
+  inset-inline-start: max(8px, env(safe-area-inset-left, 0px));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  max-inline-size: calc(100vw - 16px);
+  padding: 3px;
+  border-radius: 6px;
+  background-color: $_panel;
+  color: $_ink;
+  font: 500 11px / 1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  box-shadow: 0 2px 12px rgb(0 0 0 / .3);
+
+  button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 5px 7px;
+    border-radius: 4px;
+    color: $_ink-dim;
+
+    &:hover {
+      color: $_ink;
+      background-color: rgb(255 255 255 / .08);
+    }
+
+    &[aria-pressed="true"] {
+      color: $_ink;
+      background-color: rgb(255 255 255 / .18);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $_accent;
+    }
+  }
+
+  &__toggle {
+    display: flex;
+
+    svg {
+      inline-size: 16px;
+      block-size: 16px;
+      fill: currentcolor;
+    }
+
+    &[aria-expanded="true"] {
+      color: $_accent !important;
+    }
+  }
+
+  &__info {
+    padding-inline: 6px;
+    white-space: nowrap;
+    color: $_ink-dim;
+
+    b {
+      color: $_ink;
+      font-weight: 600;
+    }
+  }
+
+  &:not(.is-open) > :not(.u_debug-bar__toggle) {
+    display: none;
+  }
+
+  // Header switcher: a full-width row above the buttons
+  &__panel {
+    order: -1;
+    flex-basis: 100%;
+    padding: 4px 4px 6px;
+    border-block-end: 1px solid rgb(255 255 255 / .12);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px;
+  }
+
+  &__row-label {
+    inline-size: 80px;
+    color: $_ink-dim;
+  }
+
+  &__tag {
+    flex: 1;
+    max-inline-size: 420px;
+    margin-block-start: 4px;
+    padding: 5px 7px;
+    border-radius: 4px;
+    background-color: rgb(255 255 255 / .06);
+    color: $_ink;
+    font: inherit;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    user-select: all;
+  }
+}

@@ -1,0 +1,34 @@
+/* scss/5-layouts/_l_align.scss
+   Short, shared alignment modifiers — defined ONCE, used on any layout primitive.
+   They only set axis variables; each primitive maps them to its own axes
+   (see 0-settings/_layout.scss). On a non-layout element they do nothing.
+
+     x:      .left  .middle   .right
+     y:      .top   .middlev  .bottom  .baseline  .stretch
+     spread: .space-between  .space-around  .space-evenly
+     gap:    .l_gap--none  .l_gap--small  .l_gap--large
+
+   All have @small @medium @desktop variants:  class="l_beam middle@medium"
+   Must load after the primitives (same specificity — source order decides). */
+
+@use "../0-settings/index" as s;
+
+@include s.responsive((
+  ".left": (--l-x: start),
+  ".middle": (--l-x: center),
+  ".right": (--l-x: end),
+
+  ".top": (--l-y: start),
+  ".middlev": (--l-y: center),
+  ".bottom": (--l-y: end),
+  ".baseline": (--l-y: baseline),
+  ".stretch": (--l-y: stretch),
+
+  ".space-between": (--l-spread: space-between),
+  ".space-around": (--l-spread: space-around),
+  ".space-evenly": (--l-spread: space-evenly),
+
+  ".l_gap--none": (--l-gap: 0),
+  ".l_gap--small": (--l-gap: var(--base-unit--s)),
+  ".l_gap--large": (--l-gap: var(--base-unit--b)),
+));

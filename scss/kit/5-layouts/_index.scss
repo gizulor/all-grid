@@ -1,0 +1,10 @@
+/* scss/5-layouts/_index.scss
+   Order matters here: primitives declare their defaults first,
+   then _l_align's shared modifiers (same specificity) override them. */
+
+@use "l_beam";
+@use "l_column";
+@use "l_grid";
+@use "l_superimposed";
+@use "l_width-limited";
+@use "l_align";   // keep last

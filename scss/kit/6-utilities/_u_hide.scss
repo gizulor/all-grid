@@ -1,0 +1,24 @@
+/* scss/6-utilities/_u_hide.scss
+   .u_hide                   always
+   .u_hide@medium            from medium up       (consistent with every other @bp)
+   .u_hide--until-medium     below medium
+   .u_visually-hidden        hidden but read by screen readers */
+
+@use "sass:map";
+@use "../0-settings/index" as s;
+
+@include s.responsive((
+  ".u_hide": (display: none),
+), map.keys(s.$breakpoints));
+
+@each $name, $width in s.$breakpoints {
+  @include s.until($name) {
+    .u_hide--until-#{$name} {
+      display: none;
+    }
+  }
+}
+
+.u_visually-hidden {
+  @include s.visually-hidden;
+}

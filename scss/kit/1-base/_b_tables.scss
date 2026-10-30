@@ -1,0 +1,18 @@
+/* scss/1-base/_b_tables.scss */
+
+table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--small);
+}
+
+tr {
+  border-block-end: var(--border-width) solid var(--clr-border);
+}
+
+th,
+td {
+  text-align: start;
+  vertical-align: baseline;
+  padding: var(--base-unit--ss) var(--base-unit--s) var(--base-unit--ss) 0;
+}

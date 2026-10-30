@@ -1,0 +1,60 @@
+// scss/0-settings/_layout.scss
+// Layout primitives as mixins — the single source of truth.
+// The l_ classes (5-layouts) just @include these. Components can @include them too,
+// so a header owns its layout instead of wearing six classes in the markup.
+//
+// Alignment is driven by three axis variables, set by the shared short modifiers
+// in 5-layouts/_l_align.scss:
+//
+//   --l-x       horizontal   .left  .middle   .right
+//   --l-y       vertical     .top   .middlev  .bottom  .baseline
+//   --l-spread  main axis    .space-between  .space-around  .space-evenly
+//
+// Each primitive maps x/y onto its own axes (so `.middle` means "horizontally
+// centred" on a beam, a column AND a grid) and declares its own defaults, so values
+// never leak into a nested layout. `initial` makes var() fall back.
+
+@mixin _axes($x, $y, $spread) {
+  --l-x: #{$x};
+  --l-y: #{$y};
+  --l-spread: #{$spread};
+  --l-gap: var(--gap);
+  gap: var(--l-gap);
+}
+
+// Row of things that wraps. (all-grid .l_beam)
+@mixin beam($x: start, $y: baseline, $spread: initial, $wrap: wrap) {
+  @include _axes($x, $y, $spread);
+  display: flex;
+  flex-wrap: $wrap;
+  justify-content: var(--l-spread, var(--l-x));
+  align-items: var(--l-y);
+}
+
+// Stack of things. (all-grid .l_column)
+@mixin column($x: start, $y: start, $spread: initial) {
+  @include _axes($x, $y, $spread);
+  display: flex;
+  flex-direction: column;
+  justify-content: var(--l-spread, var(--l-y));
+  align-items: var(--l-x);
+}
+
+// Equal columns; count set by --l-cols. (all-grid .l_grid)
+// x/y align items inside their cells; spread distributes the tracks.
+@mixin grid($cols: 1, $x: normal, $y: normal, $spread: initial) {
+  @include _axes($x, $y, $spread);
+  --l-cols: #{$cols};
+  display: grid;
+  grid-template-columns: repeat(var(--l-cols), minmax(0, 1fr));
+  justify-content: var(--l-spread, normal);
+  justify-items: var(--l-x);
+  align-items: var(--l-y);
+}
+
+// Children stacked in the same cell — text over image without absolute
+// positioning; the tallest child sets the height, so copy can never overflow.
+@mixin superimposed {
+  display: grid;
+  > * { grid-area: 1 / 1; }
+}

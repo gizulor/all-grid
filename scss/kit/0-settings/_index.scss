@@ -1,0 +1,11 @@
+// scss/0-settings/_index.scss
+// Sass-only: maps, functions, mixins. Emits NO CSS, so any partial can safely
+// `@use "../0-settings/index" as s;` — and that is the ONLY thing partials should @use.
+// (A partial that @uses another CSS-emitting partial pulls that CSS in at the
+// wrong point in the cascade. Share via mixins here instead of @extend.)
+
+@forward "breakpoints";
+@forward "corbu";
+@forward "functions";
+@forward "layout";
+@forward "mixins";

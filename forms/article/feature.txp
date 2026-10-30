@@ -1,25 +1,25 @@
-<article class="o_feature l_grid--parent-rules" itemscope itemtype="http://schema.org/CreativeWork">
+<article class="o_feature <txp:yield name="article_class" />" itemscope itemtype="http://schema.org/CreativeWork">
 
-  <txp::u_debug class="static" title='form: feature' />
+  <txp::u_debug title='form: feature' />
   <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
   <txp:if_custom_field name="links_to_url">
     <a href="<txp:custom_field name="links_to_url" />" class="u_contents">
   </txp:if_custom_field>
 
-  <h1 itemprop="headline" class="h0-style u_self-position--bottom">
+  <h1 itemprop="headline"<txp:evaluate> class="<txp:yield name="article_headline" />"</txp:evaluate>>
     <txp:title />
     <txp::u_edit />
   </h1>
 
   <txp:if_article_image>
-    <txp::figure limit="1" class="a_ratio--gm" />
+    <txp::figure limit="1" class='<txp:yield name="article_figure" />' />
   <txp:else />
-    <txp::m_embed autoplay class="a_ratio--gmz" />
+    <txp::m_embed autoplay class='<txp:yield name="article_figure" />' />
   </txp:if_article_image>
 
   <txp:evaluate>
-    <aside itemprop="description" class="b_typeset b_typeset--lede">
+    <aside itemprop="description" class="b_typeset b_typeset--lede <txp:yield name="article_description" />">
       <txp:excerpt />
     </aside>
   </txp:evaluate>
@@ -27,7 +27,7 @@
   <txp:if_custom_field name="links_to_url">
     </a>
   </txp:if_custom_field>
-  <div itemprop="articleBody" class="b_typeset">
+  <div itemprop="articleBody" class="b_typeset  <txp:yield name="article_copy" />">
     <txp:body />
   </div>
 

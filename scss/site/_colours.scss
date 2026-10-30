@@ -1,0 +1,21 @@
+/* site/_colours.scss
+   This site's colour choices. The kit (1-base/_b_colours.scss) has already written
+   Le Corbusier's palette as custom properties, so pick by name. Browse them at
+   /themes/all-grid/corbu.html, or in kit/0-settings/_corbu.scss.
+   Loaded after the kit's base, so these win. Only set what differs from the kit.
+
+   While designing, you can try colours straight in your browser’s Inspector.
+   Change --brand: var(--black) to var(--rouge-rubia) on :root and the whole
+   site follows, because every Corbusier name is already in the CSS.
+   When a design settles, list the colours you used in
+   $corbu-use (scss/kit/0-settings/_corbu.scss), then reload corbu.html.
+   Anything hatched has been trimmed out, which makes it easy to check you
+   haven’t dropped one you still need.*/
+
+:root {
+  //--brand: var(--jaune-vif);
+  //--clr-bg: var(--blanc-ivoire);
+  //--clr-text: var(--noir-ivoire);
+  //--clr-surface: var(--outremer-gris);
+}
+

@@ -1,19 +1,31 @@
-<figure class="a_image a_image--pan <txp:yield name="class" />" >
-    <!-- ken-burns-carousel attributes
-        animation-direction=
-                            normal
-                            reverse
-                            random
-        animation-names=    ken-burns-center
-                            ken-burns-middle-left
-                            fade
-                            etc
-    -->
-<ken-burns-carousel animation-names="ken-burns-center" fade-duration="1000" slide-duration="7000" images="<txp:images break=" " sort="rand()" limit="3"><txp:image_url />
-</txp:images>">
-</ken-burns-carousel>
+<txp:hide>
+  o_figure_pan — Ken Burns slideshow: the article's images crossfade, each slowly zooming.
+  Styles and knobs: scss/4-organisms/_o_pan.scss. Script: js/o_pan.js (loaded once, below).
 
+  <txp::o_figure_pan class="a_ratio--2x1" />
+  <txp::o_figure_pan class="a_ratio--16x9" style="--o-pan-slide: 10s" zoom="in" drift="center top" limit="8" />
+
+  class    extra classes: set a ratio, or the images decide the height
+  style    knobs: --o-pan-slide, --o-pan-fade, --o-pan-zoom
+  id       image ids (default: the article image field)
+  limit    how many (default 5), picked at random
+  zoom     in, out, alternate or random (default)
+  drift    which points it zooms towards, e.g. "center top-left bottom-right" (default: all)
+  order    random: shuffle as it goes (they already arrive in random order)
+</txp:hide>
+<figure class="a_image o_pan <txp:yield name="class" />"<txp:if_yield name="style" value> style="<txp:yield name="style" />"</txp:if_yield><txp:if_yield name="zoom" value> data-zoom="<txp:yield name="zoom" />"</txp:if_yield><txp:if_yield name="drift" value> data-drift="<txp:yield name="drift" />"</txp:if_yield><txp:if_yield name="order" value> data-order="<txp:yield name="order" />"</txp:if_yield>>
+  <txp:images id='<txp:if_yield name="id" value><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield>' sort="rand()" limit='<txp:if_yield name="limit" value><txp:yield name="limit" /><txp:else />5</txp:if_yield>' break="">
+    <img srcset="<txp:image_url thumbnail width="640" /> 640w,
+      <txp:image_url thumbnail width="1280" /> 1280w,
+      <txp:image_url thumbnail width="2560" /> 2560w"
+      sizes="auto"
+      width="<txp:image_info type="w" />"
+      height="<txp:image_info type="h" />"
+      loading="lazy"
+      alt="<txp:image_info type="alt" />" />
+  </txp:images>
 </figure>
-  <txp:yield />
-
-<txp:variable name="kenburns" value="1" />
+<txp:if_variable name="o_pan_js" value="1"><txp:else /><txp:variable name="o_pan_js" value="1" />
+<script src="<txp:page_url type="theme_path" />/js/o_pan.js?v=<txp:variable name="cache-buster" />" defer></script>
+</txp:if_variable>
+<txp:yield />

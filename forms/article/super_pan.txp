@@ -1,20 +1,23 @@
-<article itemscope itemtype="http://schema.org/Article" class="l_grid l_gap--large u_p l_width-limited--large">
+<article<txp:evaluate> class="<txp:yield name="article_class" />"</txp:evaluate> itemscope itemtype="http://schema.org/CreativeWork">
 
   <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
-  <div class="l_superimposed ">
+  <div class="l_superimposed u_span--full-width <txp:yield name="article_headerz" />">
     <txp::u_debug title='form: super_pan' />
     <txp:if_article_image>
-      <txp::o_figure_pan class="a_ratio--2x1 u_m--b0" />
+      <txp::o_figure_pan class='a_ratio--2x1 <txp:yield name="article_figure" />' />
     </txp:if_article_image>
 
-    <div class="l_superimposed__inner txt--white l_column bottom u_p">
+    <div class="l_superimposed__inner scrim l_column bottom u_p">
 
-      <h1 itemprop="headline" class="h0-style"><txp:title /><txp::u_edit /></h1>
+      <h1 itemprop="headline"<txp:evaluate> class="<txp:yield name="article_headline" />"</txp:evaluate>>
+        <txp:title /><txp::u_edit /></h1>
 
-      <txp:evaluate>
-        <aside itemprop="description" class="b_typeset b_typeset--lede"><txp:excerpt /></aside>
-      </txp:evaluate>
+        <txp:evaluate>
+          <aside itemprop="description" class="b_typeset b_typeset--lede <txp:yield name="article_description" />">
+            <txp:excerpt />
+          </aside>
+        </txp:evaluate>
 
     </div>
 
@@ -23,13 +26,18 @@
   <txp:if_individual_article>
 
     <txp:evaluate>
-      <div itemprop="articleBody" class="b_typeset b_columns u_m--tvh u_m--bvh"><txp:body /></div>
-    </txp:evaluate>
-  <txp::m_embed controls class="u_m--bvh" />
+    <div itemprop="articleBody" class="b_typeset <txp:yield name="article_copy" />">
+      <txp:body />
+    </div>
+  </txp:evaluate>
 
+  <txp::m_embed controls class="u_span--full-width" />
+
+<txp:hide>
     <txp:if_article_image>
-      <txp::gallery tri id='<txp:custom_field name="article_image" />' offset="1" limit="50"  />
-    </txp:if_article_image>
+    <txp::gallery tri id='<txp:custom_field name="article_image" />' offset="1" limit="50"  gallery_class="u_span--full-width" />
+  </txp:if_article_image>
+</txp:hide>
 
   </txp:if_individual_article>
 

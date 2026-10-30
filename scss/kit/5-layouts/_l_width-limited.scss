@@ -1,0 +1,15 @@
+/* scss/5-layouts/_l_width-limited.scss */
+
+@use "../0-settings/index" as s;
+
+.l_width-limited {
+  max-inline-size: var(--l-max, #{s.bp(desktop)});
+  // Centred with computed margins, not auto: inside a grid or flex parent (l_superimposed,
+  // l_grid…) auto margins shrink the box to its content; these let it stretch up to --l-max
+  margin-inline: max(0px, (100% - var(--l-max, #{s.bp(desktop)})) / 2);
+
+  &--large   { --l-max: #{s.bp(large)}; }
+  &--measure { --l-max: var(--type-measure); }
+
+
+}

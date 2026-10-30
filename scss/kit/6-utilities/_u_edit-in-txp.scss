@@ -1,0 +1,42 @@
+/* scss/6-utilities/_u_edit-in-txp.scss — admin "edit" link overlaid on articles/images */
+
+// Anchor for the link. :where() gives it zero specificity, so any component that
+// sets its own position (sticky header, absolute overlay…) still wins.
+:where(*:has(> .u_edit-in-txp)) {
+  position: relative;
+}
+
+// The link itself: utilities load last, so it looks the same in every component.
+.u_edit-in-txp {
+  position: absolute;
+  z-index: 1;
+  inset-block-end:  0;
+  //inset-inline-end: var(--base-unit--neg);
+  opacity: .5;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  a {
+    display: block;   // a real box around the icon, not a 0×0 inline wrapper
+  }
+
+  // The icon keeps its size wherever it lands. Resets:
+  // - img { max-inline-size: 100% } from the base reset: at the end of a full line
+  //   (a long headline) the link has no room, so 100% of nothing shrinks it to 0
+  // - .a_image img { block-size: 100%; max-block-size; object-fit: cover }, which
+  //   also hits this icon when it sits inside a figure
+  img {
+    inline-size: var(--base-unit);
+    max-inline-size: none;
+    block-size: auto;
+    max-block-size: none;
+    object-fit: contain;
+  }
+
+  &--image {
+    filter: invert(100%);
+  }
+}

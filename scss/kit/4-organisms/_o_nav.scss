@@ -1,0 +1,21 @@
+/* scss/4-organisms/_o_nav.scss
+   The nav on its own, outside the header (forms/misc/o_nav.txp, called directly).
+   The menu itself is styled by 3-molecules/_m_menu.scss; this only places the bar.
+
+     .o_nav--sticky   a bar that sticks to the top of the window, for pages whose
+                      header scrolls away: <txp::o_header nav="0" /> … <txp::o_nav class="o_nav--sticky" />
+
+   Knobs: --o-nav-bg, --o-nav-pad */
+
+.o_nav--sticky {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: var(--z-sticky);
+  padding: var(--o-nav-pad, var(--base-unit--s)) var(--gutter);
+  background: var(--o-nav-bg, var(--clr-bg));
+  transition: box-shadow var(--duration) var(--ease);
+
+  &.is-scrolled {
+    box-shadow: 0 1px 0 color-mix(in oklch, currentcolor 15%, transparent);
+  }
+}

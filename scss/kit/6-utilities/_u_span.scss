@@ -1,0 +1,15 @@
+/* scss/6-utilities/_u_span.scss — grid-child spans, with @small @medium @desktop */
+
+@use "sass:map";
+@use "../0-settings/index" as s;
+
+$rules: (
+  ".u_span--full-width": (grid-column: "1 / -1"),
+);
+
+@for $n from 2 through 4 {
+  $rules: map.set($rules, ".u_span--#{$n}cols", (grid-column: "span #{$n}"));
+  $rules: map.set($rules, ".u_span--#{$n}rows", (grid-row: "span #{$n}"));
+}
+
+@include s.responsive($rules);

@@ -1,18 +1,37 @@
-<div class="shifty <txp:yield name="class" />"></div>
+<txp:hide>
+  o_figure_shifty — image tiles that change by themselves (shift, panels or spiral).
+  Styles, modes and knobs: scss/4-organisms/_o_tiles.scss. Script: js/o_tiles.js (loaded once, below).
 
-<txp:variable name="shiftingtiles" value="1" />
-<txp:variable name="shiftingtilesinstance">
-<style>
-:root {
-    --shiftingtiles-bg: var(--white);
-    --shiftingtiles-width: 100%;
-    --shiftingtiles-height: 100%;
-    --shiftingtiles-gap: var(--base-unit--ss);
-}
-</style>
-<script>
-  $(".shifty").shiftingtiles(function get_photos(){
-    return [<txp:images limit="10" break="," sort="rand()"> "<txp::slir_prep_url trim />" </txp:images>];
-  }());
-</script>
-</txp:variable>
+  <txp::o_figure_shifty class="a_ratio--1x1" />
+  <txp::o_figure_shifty mode="panels" class="a_ratio--16x9" style="--o-tiles-every: 9s" />
+  <txp::o_figure_shifty mode="spiral" class="a_ratio--gm" limit="20" />
+  <txp::o_figure_shifty mode="spiral" class="a_ratio--gm" style="--o-tiles-tints: var(--bleu-outremer-31), var(--jaune-vif), var(--rouge-vermillon-31), var(--noir-ivoire)" />
+    <txp::o_figure_shifty class="a_ratio--1x1">
+    <div class="o_tiles__card bg--brand"><p class="h3-style">Text on colour</p></div>
+  </txp::o_figure_shifty>
+
+  mode     shift (default), panels or spiral
+  class    extra classes: give it a ratio (default square)
+  style    knobs: --o-tiles-min, --o-tiles-every, --o-tiles-move, --o-tiles-stagger, --o-tiles-gap
+  id       image ids (default: the article image field). id="all": any image on the site,
+           which also works outside an article (a page, the splash)
+  category image category, instead of ids
+  limit    how many images (default 12), picked at random
+  Anything inside the tag joins the tiles as a card, shown only in the bigger tiles.
+</txp:hide>
+<figure class="o_tiles o_tiles--<txp:if_yield name="mode" value><txp:yield name="mode" /><txp:else />shift</txp:if_yield> <txp:yield name="class" />"<txp:if_yield name="style" value> style="<txp:yield name="style" />"</txp:if_yield>>
+  <txp:images id='<txp:if_yield name="id" value="all"><txp:else /><txp:if_yield name="id" value><txp:yield name="id" /><txp:else /><txp:custom_field name="article_image" /></txp:if_yield></txp:if_yield>' category='<txp:yield name="category" />' sort="rand()" limit='<txp:if_yield name="limit" value><txp:yield name="limit" /><txp:else />12</txp:if_yield>' break="">
+    <img srcset="<txp:image_url thumbnail width="320" /> 320w,
+      <txp:image_url thumbnail width="640" /> 640w,
+      <txp:image_url thumbnail width="1280" /> 1280w"
+      sizes="auto"
+      width="<txp:image_info type="w" />"
+      height="<txp:image_info type="h" />"
+      loading="lazy"
+      alt="<txp:image_info type="alt" />" />
+  </txp:images>
+  <txp:yield />
+</figure>
+<txp:if_variable name="o_tiles_js" value="1"><txp:else /><txp:variable name="o_tiles_js" value="1" />
+<script src="<txp:page_url type="theme_path" />/js/o_tiles.js?v=<txp:variable name="cache-buster" />" defer></script>
+</txp:if_variable>

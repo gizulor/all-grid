@@ -10,8 +10,8 @@
     </txp:if_yield>
   </txp:if_yield>
 
-  <txp:yield name="classgallery" />
+  <txp:yield name="gallery_class" />
 ">
 
-  <txp::figure offset='<txp:yield name="offset" />' limit='<txp:yield name="limit" />' id='<txp:yield name="id" />' break=""  />
+  <txp::figure offset='<txp:yield name="offset" />' limit='<txp:yield name="limit" />' id='<txp:yield name="id" />' class="" break=""  /><txp:hide> class="": the figures take no class from outside the gallery</txp:hide>
 </div>

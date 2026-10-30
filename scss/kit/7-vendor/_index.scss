@@ -1,0 +1,10 @@
+// scss/7-vendor/_index.scss
+// Third-party CSS (flickity, baguetteBox, lightbox…), copied in verbatim as partials
+// (e.g. _flickity.scss) and loaded here. Entry files load vendor straight after base,
+// so your own atoms→utilities come later and win ties.
+//
+// Vendor selectors are often more specific than one class. To override one, match
+// its selector in your organism rather than reaching for !important.
+// Site-specific skinning of a plugin belongs in the site's organisms.
+//
+// @use "flickity";

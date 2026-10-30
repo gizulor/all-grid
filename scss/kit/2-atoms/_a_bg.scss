@@ -1,0 +1,42 @@
+/* scss/2-atoms/_a_bg.scss
+   Theme scopes. A scope only swaps SEMANTIC tokens; everything inside follows —
+   text, borders (currentcolor), focus rings, the logo (--clr-brand).
+   This replaces every `.bg--brand & { … }` override in v1: components never need
+   to know which scope they're in.
+
+   Note: a token that references another (e.g. --clr-bg: var(--clr-brand)) resolves
+   where it's DECLARED, so scopes set values from the palette, not from other
+   semantic tokens. Set every semantic token a scope's contrast depends on
+   (bg, text, muted, brand), or a dark page will bleed through. */
+
+$scopes: (
+  brand: (
+    --clr-bg: var(--brand),
+    --clr-text: var(--white),
+    --clr-brand: var(--white),
+    --clr-muted: color-mix(in oklch, var(--white) 70%, transparent),
+  ),
+  surface: (
+    --clr-bg: var(--blanc-ivoire),
+    --clr-text: var(--black),     // always set bg AND text, or a dark page breaks it
+    --clr-muted: var(--gris-fonce-31),
+    --clr-brand: var(--brand),
+  ),
+  dark: (
+    --clr-bg: var(--black),
+    --clr-text: var(--white),
+    --clr-brand: var(--white),
+    --clr-muted: var(--gris-moyen),
+    color-scheme: dark,
+  ),
+);
+
+@each $name, $tokens in $scopes {
+  .bg--#{$name} {
+    @each $prop, $value in $tokens {
+      #{$prop}: #{$value};
+    }
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+  }
+}

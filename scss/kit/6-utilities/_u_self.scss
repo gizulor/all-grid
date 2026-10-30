@@ -1,0 +1,14 @@
+/* scss/6-utilities/_u_self.scss
+   Align ONE child within its beam/column/grid (all-grid u_self-position--*).
+   Same x/y vocabulary as the shared modifiers. */
+
+@use "../0-settings/index" as s;
+
+@include s.responsive((
+  ".u_self--left": (justify-self: start),
+  ".u_self--middle": (justify-self: center),
+  ".u_self--right": (justify-self: end, margin-inline-start: auto),
+  ".u_self--top": (align-self: start),
+  ".u_self--middlev": (align-self: center),
+  ".u_self--bottom": (align-self: end),
+));

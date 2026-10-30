@@ -1,0 +1,183 @@
+/* scss/4-organisms/_o_tiles.scss
+   Image tiles that change by themselves: all-grid's "shifty", without jQuery.
+   Markup from forms/misc/o_figure_shifty.txp; js/o_tiles.js runs it.
+
+   <figure class="o_tiles o_tiles--shift a_ratio--1x1">
+     <img …> <img …> …
+     <div class="o_tiles__card bg--brand"><p class="h3-style">Text on colour</p></div>
+   </figure>
+
+   Three modes
+     --shift    (default) small tiles; every few seconds one slides out as another slides in
+     --panels   the same, slower and with big panels: calm enough for a large area
+     --spiral   Fibonacci blocks (8 5 3 2 1 1) spiral in, hold, spiral out, and come back
+                with new images and a new turn. Each block arrives as a colour and its image
+                fades in over it; on the way out the image fades back to the colour, and the
+                next spiral's colours arrive over those, so it never goes back to white.
+                Best on a golden-ish box: a_ratio--gm
+
+   The tile count follows the box: as many columns and rows as fit --o-tiles-min, so
+   tiles never get too small. Some tiles span two or four cells. Cards (anything that
+   isn't an img) only go in tiles at least --o-tiles-card-min wide, so text has room.
+
+   Without the script: a plain grid of the images. Reduced motion (an OS setting):
+   fades instead of slides. Pauses off screen and in hidden tabs.
+
+   Knobs, on the figure (style="--o-tiles-min: 14rem", or a class)
+     --o-tiles-min       smallest tile           shift 10rem   panels 22rem
+     --o-tiles-every     time between changes    shift 3s      panels 7s    spiral: the hold
+     --o-tiles-move      length of a change      shift 1s      panels 2.5s  spiral 1.2s
+     --o-tiles-card-min  narrowest tile a card may use (default 15rem)
+     --o-tiles-stagger   spiral: delay between blocks (default .25s)
+     --o-tiles-tints     spiral: comma-separated colours the blocks pick from at random
+                         (default: the kit's non-white semantic colours, so a .bg-- scope
+                         or a site's own --clr-… follow). none: no colour
+     --o-tiles-gap       space between tiles (default --base-unit--ss) */
+
+// Defaults at zero specificity, so a class or style="" on the figure wins
+:where(.o_tiles) {
+  --o-tiles-min: 10rem;
+  --o-tiles-every: 3s;
+  --o-tiles-move: 1s;
+  aspect-ratio: 1;           // a_ratio--… on the figure replaces this
+}
+
+:where(.o_tiles--panels) {
+  --o-tiles-min: 22rem;
+  --o-tiles-every: 7s;
+  --o-tiles-move: 2.5s;
+}
+
+:where(.o_tiles--spiral) {
+  --o-tiles-every: 4s;
+  --o-tiles-move: 1.2s;
+  --o-tiles-tints: var(--clr-text), var(--clr-brand), var(--clr-muted),
+    var(--clr-success), var(--clr-warning), var(--clr-error);
+}
+
+.o_tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--o-tiles-min), 100%), 1fr));
+  gap: var(--o-tiles-gap, var(--base-unit--ss));
+  position: relative;
+  overflow: hidden;
+
+  > img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+  }
+
+  // Running: the script lays out --o-tiles-cols × --o-tiles-rows
+  &.is-running {
+    grid-template-columns: repeat(var(--o-tiles-cols, 1), minmax(0, 1fr));
+    grid-template-rows: repeat(var(--o-tiles-rows, 1), minmax(0, 1fr));
+  }
+}
+
+// Measure --o-tiles-min and --o-tiles-card-min in px for the script
+.o_tiles__probe {
+  position: absolute;
+  inline-size: var(--o-tiles-min);
+  block-size: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  &--card {
+    inline-size: var(--o-tiles-card-min, 15rem);
+  }
+}
+
+.o_tiles__cell {
+  display: grid;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: hidden;
+
+  > * {
+    grid-area: 1 / 1;          // old and new content stacked while they swap
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+  }
+
+  > img {
+    object-fit: cover;
+  }
+}
+
+// Text on colour: <div class="o_tiles__card bg--brand"><p class="h3-style">…</p></div>
+.o_tiles__card {
+  display: grid;
+  place-content: center;
+  padding: var(--base-unit);
+  overflow: hidden;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  text-align: center;
+}
+
+// A change: the new content slides in from one side as the old slides out the other.
+// The script sets --o-tiles-dx / --o-tiles-dy on the cell (e.g. 100% 0%)
+.o_tiles__cell > .is-entering {
+  animation: o-tiles-in var(--o-tiles-move) cubic-bezier(.65, 0, .25, 1) both;
+}
+
+.o_tiles__cell > .is-leaving {
+  animation: o-tiles-out var(--o-tiles-move) cubic-bezier(.65, 0, .25, 1) both;
+}
+
+@keyframes o-tiles-in {
+  from { translate: var(--o-tiles-dx, 100%) var(--o-tiles-dy, 0%); }
+}
+
+@keyframes o-tiles-out {
+  to { translate: calc(var(--o-tiles-dx, 100%) * -1) calc(var(--o-tiles-dy, 0%) * -1); }
+}
+
+// Spiral: blocks arrive in order (--i: 0 = the biggest), images leave in reverse.
+// .is-shown (on a block): its colour (--o-tiles-tint, set by the script) arrives.
+// .is-in (on the figure): the images fade in over the colours; without it, back out.
+// A new spiral's blocks arrive over the old ones, which go once they're covered.
+.o_tiles--spiral .o_tiles__cell {
+  --_in: calc(var(--i, 0) * var(--o-tiles-stagger, .25s));
+  --_out: calc((5 - var(--i, 0)) * var(--o-tiles-stagger, .25s));
+  --_lag: calc(var(--o-tiles-move) * .6);   // image after colour
+  background-color: var(--o-tiles-tint, transparent);
+  opacity: 0;
+  scale: .92;
+  transition:
+    opacity var(--o-tiles-move) ease,
+    scale var(--o-tiles-move) ease;
+  transition-delay: var(--_in);
+
+  &.is-shown {
+    opacity: 1;
+    scale: 1;
+  }
+
+  > * {
+    opacity: 0;
+    transition: opacity var(--o-tiles-move) ease;
+    transition-delay: var(--_out);
+  }
+}
+
+.o_tiles--spiral.is-in .o_tiles__cell > * {
+  opacity: 1;
+  transition-delay: calc(var(--_in) + var(--_lag));
+}
+
+// Off screen, or the tab is hidden
+.o_tiles.is-paused .o_tiles__cell > * {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .o_tiles__cell > .is-entering { animation-name: o-tiles-fade-in; }
+  .o_tiles__cell > .is-leaving  { animation-name: o-tiles-fade-out; }
+  .o_tiles--spiral .o_tiles__cell { scale: 1; }
+}
+
+@keyframes o-tiles-fade-in  { from { opacity: 0; } }
+@keyframes o-tiles-fade-out { to   { opacity: 0; } }

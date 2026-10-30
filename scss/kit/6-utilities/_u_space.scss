@@ -1,0 +1,50 @@
+/* scss/6-utilities/_u_space.scss
+   all-grid naming kept:  u_m / u_p  +  --t --b --l --r  +  size suffix
+     (none) = base unit    -  = half    tt/bb/ll/rr = double    0 = none
+   e.g. .u_p--t  .u_m--bb  .u_p--l-  .u_m--t0
+   Logical properties, so it's right for RTL too. */
+
+$sides: (
+  t: block-start,
+  b: block-end,
+  l: inline-start,
+  r: inline-end,
+);
+
+$properties: (
+  m: margin,
+  p: padding,
+);
+
+@each $abbr, $property in $properties {
+  .u_#{$abbr} {
+    #{$property}: var(--base-unit);
+  }
+
+  @each $side, $logical in $sides {
+    .u_#{$abbr}--#{$side} {
+      #{$property}-#{$logical}: var(--base-unit);
+    }
+
+    .u_#{$abbr}--#{$side}- {
+      #{$property}-#{$logical}: var(--base-unit--s);
+    }
+
+    .u_#{$abbr}--#{$side}#{$side} {
+      #{$property}-#{$logical}: var(--base-unit--b);
+    }
+
+    .u_#{$abbr}--#{$side}0 {
+      #{$property}-#{$logical}: 0;
+    }
+  }
+}
+
+// Page-edge padding that follows --gutter (tighter on small screens)
+.u_gutter {
+  padding-inline: var(--gutter);
+}
+
+.u_tallface {
+  padding-block: 7.5vh;
+}

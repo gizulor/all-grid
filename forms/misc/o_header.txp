@@ -1,42 +1,34 @@
-<header id="banner" class="o_header <txp:yield name="headerclass" />">
+<txp:hide>
+  o_header — site header: brand, nav, and anything you put inside the tag.
+  The look is all CSS (scss/4-organisms/_o_header.scss): pick switches with class="".
+  The debug toolbar's Header panel flips them live and copies the tag for you.
 
-  <txp:if_yield name="wraptag"><<txp:yield name="wraptag" /> class="<txp:yield name="wraptagclass" />"></txp:if_yield>
+  <txp::o_header />                                      split, inline menu
+  <txp::o_header class="o_header--split o_header--sticky o_header--shrink" />
+  <txp::o_header class="o_header--over o_header--sticky o_header--solidify" menu="overlay" />
+  <txp::o_header menu="overlay" inline="medium" />       overlay on phones, inline from medium up
+  <txp::o_header nav="0" />                              no nav (use <txp::o_nav class="o_nav--sticky" /> below)
+  <txp::o_header>search, language…</txp::o_header>       contents go in the extra slot
 
-    <h1 class="<txp:yield name="headingclass" />"><txp:link_to_home class="link--plain"><txp:if_yield name="sitename"><txp:yield name="sitename" /><txp:else /><txp:site_name /></txp:if_yield></txp:link_to_home></h1>
+  class       switches, default "o_header--split"
+  style       knobs, e.g. style="--o-header-name: var(--h1)"
+  sitename    replaces the site name; also takes a logo: sitename='<txp:output_form form="logo" />'
+  slogan="0"  hides the slogan
+  nav="0"     no nav
+  menu, inline, sections, exclude, label, id   passed on to o_nav (see that form)
+</txp:hide>
+<header class="o_header <txp:yield trim name="class"  default="o_header--split" />"<txp:if_yield name="style"> style="<txp:yield name="style" />"</txp:if_yield>>
+  <a class="o_header__brand" rel="home" href="<txp:site_url />">
+    <span class="o_header__name"><txp:yield name="sitename" default='<txp:site_name />' /></span>
+    <txp:if_yield name="slogan" value="0"><txp:else /><span class="o_header__slogan"><txp:site_slogan /></span></txp:if_yield>
+  </a>
 
-    <txp:yield />
-
-    <txp:if_yield name="sloganclass">
-      <p class="<txp:yield name="sloganclass" />"><txp:site_slogan /></p>
-    </txp:if_yield>
-
-  <txp:if_yield name="wraptag"></<txp:yield name="wraptag" />></txp:if_yield>
-
-  <txp:if_yield name="hamburger">
-
-    <div  class="m_menu--hamburger <txp:yield name="hamburgerclass" />">
-      <div class="a_icon--hamburger" onclick="this.classList.toggle('is-active');this.setAttribute('aria-expanded', this.classList.contains('is-active'))" aria-label="Main Menu">
-        <div></div>
-      </div>
-      <nav class="m_menu--hamburger__menu  u_p <txp:yield name="navclass" />">
-        <div class="l_beam">
-          <h1 class="u_m--b <txp:yield name="headingclass" />"><txp:link_to_home><txp:site_name /></txp:link_to_home></h1>
-          <txp:if_yield name="sloganclass">
-            <p class="<txp:yield name="sloganclass" />"><txp:site_slogan /></p>
-          </txp:if_yield>
-        </div>
-
-        <txp::m_menuSections exclude='<txp:yield name="sectionsexclude" />' sections='<txp:yield name="sections" />' class='<txp:if_yield name="menuclass"><txp:yield name="menuclass" /><txp:else />l_column</txp:if_yield>' />
-      </nav>
-    </div>
-
-  <txp:else />
-
-    <txp:if_yield name="menu">
-      <nav class="<txp:yield name="navclass" />" aria-label="<txp:text item="site_nav" />" itemscope itemtype="https://schema.org/SiteNavigationElement">
-        <txp::m_menuSections sections='<txp:yield name="sections" />' class='sitemenu <txp:if_yield name="menuclass"><txp:yield name="menuclass" /><txp:else />l_beam l_beam--wrap</txp:if_yield>' />
-      </nav>
-    </txp:if_yield>
-
+  <txp:if_yield name="nav" value="0"><txp:else />
+    <txp::o_nav class="o_header__nav" menu='<txp:yield name="menu" default="inline" />' inline='<txp:yield name="inline" />' sections='<txp:yield name="sections" />' exclude='<txp:yield name="exclude" default="home" />' label='<txp:yield name="label" default="Menu" />' id='<txp:yield name="id" default="main" />' />
   </txp:if_yield>
+
+  <txp:if_yield><div class="o_header__extra"><txp:yield /></div></txp:if_yield>
 </header>
+<txp:if_variable name="o_header_js" value="1"><txp:else /><txp:variable name="o_header_js" value="1" />
+<script src="<txp:page_url type="theme_path" />/js/o_header.js?v=<txp:variable name="cache-buster" />" defer></script>
+</txp:if_variable>

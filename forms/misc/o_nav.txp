@@ -1,0 +1,34 @@
+<txp:hide>
+  o_nav — the section menu. o_header calls it; call it yourself for a nav outside the header.
+  Same markup for every look; the CSS picks one (scss/3-molecules/_m_menu.scss).
+
+  <txp::o_nav class="o_nav--sticky" />                  a separate sticky bar
+  <txp::o_nav menu="compact" id="sections" />           second menu on a page: give it its own id
+  <txp::o_nav menu="overlay">contact, social…</txp::o_nav>   contents go in the menu panel
+
+  menu       inline (default) | compact | overlay
+  inline     small | medium | desktop: back to inline from that width up
+  sections   which sections, in order (default: all)
+  exclude    sections to leave out (default: home)
+  label      the button text where there's no current section (default: Menu)
+  id         unique per page (default: main)
+  class      extra classes
+</txp:hide>
+<nav class="o_nav m_menu m_menu--<txp:yield name="menu" default="inline" /><txp:if_yield name="inline" value> m_menu--inline@<txp:yield name="inline" /></txp:if_yield> <txp:yield name="class" />" aria-label="<txp:text item="site_nav" />">
+  <button class="m_menu__toggle" type="button" popovertarget="m_menu-<txp:yield name="id" default="main" />">
+    <span class="m_menu__label"><txp:yield name="label" default="Menu" /></span>
+    <txp:if_section name=",default"><txp:else /><span class="m_menu__current"><txp:section title /></span></txp:if_section>
+  </button>
+  <div class="m_menu__panel" id="m_menu-<txp:yield name="id" default="main" />" popover>
+    <button class="m_menu__close" type="button" popovertarget="m_menu-<txp:yield name="id" default="main" />" popovertargetaction="hide">Close</button>
+    <ul class="m_menu__list">
+      <txp:section_list sections='<txp:yield name="sections" />' exclude='<txp:yield name="exclude" default="home" />' include_default="0" break="">
+        <li class="m_menu__child"><a href="<txp:section url />"<txp:if_section name='<txp:section />'> aria-current="page"</txp:if_section>><txp:section title /></a></li>
+      </txp:section_list>
+    </ul>
+    <txp:if_yield><div class="m_menu__extra"><txp:yield /></div></txp:if_yield>
+  </div>
+</nav>
+<txp:if_variable name="o_header_js" value="1"><txp:else /><txp:variable name="o_header_js" value="1" />
+<script src="<txp:page_url type="theme_path" />/js/o_header.js?v=<txp:variable name="cache-buster" />" defer></script>
+</txp:if_variable>

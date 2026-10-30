@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="<txp:lang />" dir="<txp:text item="lang_dir" />">
+
+<txp:output_form form="head" bodyclass="" />
+
+<txp::u_debug breakpoints toggle title='page: <txp:page_url type="page" />' />
+
+<txp::o_header_common />
+
+<main aria-label="<txp:text item="main_content" />" itemscope <txp::a_itemtype />>
+
+  <txp:if_individual_article>
+    <txp::o_pagination section class="u_gutter u_tallface h5-style l_width-limited l_width-limited--large l_beam middlev right" />
+  </txp:if_individual_article>
+
+  <txp:if_article_list>
+
+    <txp::with article_class="u_hero l_superimposed--grow" article_inner="u_gutter l_beam bottom l_width-limited l_width-limited--large u_flow" article_headline="b_lc" article_description="b_lc h4-style h0-style@medium u_p--b"  article_figure="a_image--fold-limited" article_copy="l_width-limited l_width-limited--large u_gutter  u_tallface">
+      <txp:article status="sticky" form="super" limit="1" />
+    </txp::with>
+
+    <txp:hide>
+      <!-- plain thumb variant -->
+      <txp::with thumb_excerpt thumb_class="l_grid__sub" thumb_inner="" thumb_headline="" thumb_description=""  thumb_figure="">
+        <txp:article listform="thumb" allowoverride="0" wraptag="ul" limit="36" class="u_gutter a_list-bare l_width-limited l_width-limited--large l_grid  l_grid--auto l_grid--auto--tight l_gap--large@medium" />
+      </txp::with>
+    </txp:hide>
+
+    <txp::with thumb_excerpt thumb_class="m_thumb--over" thumb_inner="l_column bottom u_p" thumb_headline="h0-style b_lc u_p--b" thumb_description=""  thumb_figure="a_ratio--1x1">
+      <txp:article listform="thumb_super" allowoverride="0" wraptag="ul" limit="36" class="u_gutter a_list-bare l_width-limited l_width-limited--large l_grid l_grid--stagger@desktopz l_grid--autoz l_grid--twin l_grid--tri@medium l_grid--quad@desktop l_gap--large@medium" />
+    </txp::with>
+
+  <txp:else />
+
+    <txp::with article_class="u_gutter l_width-limited l_width-limited--large l_grid l_grid--twin@medium l_gap--large@medium" article_header="l_column middlev" article_headline="h0-style" article_description=""  article_figure="" article_copy="u_span--full-width l_width-limited u_tallface">
+      <txp:article />
+    </txp::with>
+
+  </txp:if_article_list>
+
+</main>
+
+<txp::o_footer class="u_p l_width-limited--large" />
+<txp::o_javascript />
+
+</body>
+
+</html>

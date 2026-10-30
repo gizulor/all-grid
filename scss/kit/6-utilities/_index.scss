@@ -1,0 +1,10 @@
+/* scss/6-utilities/_index.scss
+   Loaded last, so a utility beats any component rule of equal specificity
+   (one class). A more specific selector still wins: see the README. */
+
+@use "u_space";
+@use "u_span";
+@use "u_self";
+@use "u_hide";
+@use "u_misc";
+@use "u_edit-in-txp";

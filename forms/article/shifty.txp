@@ -3,12 +3,10 @@
   <meta itemprop="mainEntityOfPage" content="<txp:permlink />">
 
     <div class="l_column">
-      <h1 itemprop="headline" class="h0-style">
-        <txp:title />
-        <txp::u_edit />
-      </h1>
+      <h1 itemprop="headline"<txp:evaluate> class="<txp:yield name="article_headline" />"</txp:evaluate>>
+        <txp:title /><txp::u_edit /></h1>
       <txp:evaluate>
-        <aside itemprop="description" class="b_typeset b_typeset--lede">
+        <aside itemprop="description" class="b_typeset b_typeset--lede <txp:yield name="article_description" />">
           <txp:excerpt />
         </aside>
       </txp:evaluate>
@@ -21,7 +19,9 @@
 
 
     <txp:if_article_image>
-      <txp::o_figure_shifty class="a_ratio--1x1"/>
+
+      <txp::o_figure_shifty class="a_ratio--1x1" />
+
     </txp:if_article_image>
 
 

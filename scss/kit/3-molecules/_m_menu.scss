@@ -1,0 +1,231 @@
+/* scss/3-molecules/_m_menu.scss
+   One menu, three looks. The markup is the same for all of them (forms/misc/o_nav.txp);
+   the modifier on .m_menu picks the look:
+
+     .m_menu--inline     links in a row (the default)
+     .m_menu--compact    select-like: a button showing the current section opens a dropdown
+     .m_menu--overlay    a "Menu" button opens a full-page menu in big type
+
+     .m_menu--inline@small / @medium / @desktop
+                         back to inline from that width up. Replaces all-grid's two
+                         headers (hamburger + desktop): class="m_menu--overlay m_menu--inline@medium"
+
+   Markup (o_nav.txp writes it):
+     nav.m_menu
+       button.m_menu__toggle[popovertarget]   hidden when inline
+       div.m_menu__panel[popover]             the browser opens and closes it: no script
+         button.m_menu__close                 overlay only
+         ul.m_menu__list > li.m_menu__child > a[aria-current="page"]
+
+   Knobs (set on the menu, any parent, or style=""):
+     --m-menu-size           link size               (default: inherit)
+     --m-menu-gap            space between links
+     --m-menu-justify        inline row: start | end | center
+     --m-menu-drop           compact dropdown: span-inline-end (grows right, default) |
+                             span-inline-start (grows left) | center
+     --m-menu-overlay-size   overlay link size       (default: --h1)
+     --m-menu-overlay-bg     overlay colours         (default: the page's)
+     --m-menu-overlay-ink
+
+   The old forms (m_menuCategories, m_menuSections) also use .m_menu on a <ul>.
+   Nothing here styles .m_menu itself, so they're unaffected. */
+
+@use "../0-settings/index" as s;
+
+// The inline look. Used twice: as the default, and by the --inline@bp classes
+// to undo compact/overlay from a given width up.
+@mixin inline-look {
+  .m_menu__toggle,
+  .m_menu__close {
+    display: none;
+  }
+
+  .m_menu__panel {
+    display: contents;   // the popover's box disappears; its list stays in the nav
+    color: inherit;      // the browser gives popovers their own text colour
+  }
+
+  .m_menu__list {
+    flex-direction: row;
+    justify-content: var(--m-menu-justify, start);
+    gap: var(--m-menu-gap, var(--base-unit--ss) var(--base-unit));
+    font-size: var(--m-menu-size, inherit);
+  }
+}
+
+// Base ----------------------------------------------------------------------
+.m_menu {
+  anchor-scope: --m-menu;   // each menu's dropdown finds its own button
+  @include inline-look;
+}
+
+.m_menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.m_menu__toggle,
+.m_menu__close {
+  align-items: center;
+  gap: .4em;
+  color: inherit;
+  font-size: var(--m-menu-size, inherit);
+}
+
+// Current page. .m_menu__child--active is the old forms' hook.
+.m_menu [aria-current="page"],
+.m_menu__child--active > a {
+  text-decoration-line: underline;
+}
+
+// Compact: a dropdown under its button --------------------------------------
+.m_menu--compact {
+  .m_menu__toggle {
+    display: inline-flex;
+    anchor-name: --m-menu;
+
+    // chevron
+    &::after {
+      content: "";
+      inline-size: .45em;
+      block-size: .45em;
+      border-inline-end: 1px solid;
+      border-block-end: 1px solid;
+      translate: 0 -.15em;
+      rotate: 45deg;
+      transition: rotate var(--duration) var(--ease), translate var(--duration) var(--ease);
+    }
+  }
+
+  &:has(:popover-open) .m_menu__toggle::after {
+    translate: 0 .1em;
+    rotate: 225deg;
+  }
+
+  // The button shows the current section; "Menu" only where there isn't one
+  .m_menu__toggle:has(.m_menu__current) .m_menu__label {
+    display: none;
+  }
+
+  .m_menu__panel {
+    display: none;
+    position-anchor: --m-menu;
+    position-area: block-end var(--m-menu-drop, span-inline-end);
+    position-try-fallbacks: flip-inline, flip-block;
+    inset: auto;
+    min-inline-size: anchor-size(inline);
+    margin: var(--base-unit--ss) 0 0;
+    padding: var(--base-unit--s);
+    border: 1px solid color-mix(in oklch, var(--clr-text) 20%, transparent);
+    background-color: var(--clr-bg);
+    color: var(--clr-text);
+    box-shadow: 0 4px 16px rgb(0 0 0 / .08);
+
+    &:popover-open {
+      display: block;
+    }
+  }
+
+  .m_menu__list {
+    flex-direction: column;
+    gap: var(--base-unit--ss);
+  }
+}
+
+// Browsers without anchor positioning: pin the dropdown under the header's right edge
+@supports not (anchor-name: --a) {
+  .m_menu--compact .m_menu__panel {
+    inset: var(--base-unit--b) var(--gutter) auto auto;
+  }
+}
+
+// Overlay: the whole window -------------------------------------------------
+.m_menu--overlay {
+  .m_menu__toggle {
+    display: inline-flex;
+    anchor-name: --m-menu;
+  }
+
+  .m_menu__toggle .m_menu__current {
+    display: none;
+  }
+
+  .m_menu__panel {
+    display: none;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    max-inline-size: none;
+    max-block-size: none;
+    margin: 0;
+    padding: var(--base-unit--bb) var(--gutter);
+    border: 0;
+    overflow: auto;
+    align-content: center;
+    background-color: var(--m-menu-overlay-bg, var(--clr-bg));
+    color: var(--m-menu-overlay-ink, var(--clr-text));
+    opacity: 0;
+    transition:
+      opacity var(--duration) var(--ease),
+      display var(--duration) allow-discrete,
+      overlay var(--duration) allow-discrete;
+
+    &:popover-open {
+      display: grid;
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+
+  .m_menu__list {
+    flex-direction: column;
+    gap: var(--base-unit);
+    font-size: var(--m-menu-overlay-size, var(--h1));
+    //font-weight: var(--font-heavy);
+    line-height: 1.05;
+  }
+
+  // Close sits where the Menu button was (anchor positioning), else top right.
+  // fixed, not absolute: an anchor outside the panel is only reachable from the viewport.
+  .m_menu__close {
+    display: inline-flex;
+    position: fixed;
+    inset-block-start: var(--base-unit);
+    inset-inline-end: var(--gutter);
+  }
+}
+
+@supports (anchor-name: --a) {
+  .m_menu--overlay .m_menu__close {
+    position-anchor: --m-menu;
+    inset: auto;
+    top: anchor(top);
+    right: anchor(right);
+  }
+}
+
+// No page scrolling behind an open overlay
+html:has(.m_menu--overlay .m_menu__panel:popover-open) {
+  overflow: hidden;
+}
+
+// Back to inline from a width up -------------------------------------------
+@each $name in s.$responsive {
+  @include s.from($name) {
+    .m_menu--inline\@#{$name} {
+      @include inline-look;
+
+      .m_menu__list {
+        font-weight: inherit;
+        line-height: inherit;
+        text-transform: none;
+      }
+    }
+  }
+}

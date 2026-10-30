@@ -1,0 +1,42 @@
+/* scss/1-base/_b_details.scss
+   +/− marker from v1; swap the glyphs per site with --summary-closed / --summary-open
+   (e.g. an icon-font codepoint, as all-grid does with core-line). */
+
+summary {
+  --summary-closed: "+";
+  --summary-open: "−";
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--base-unit);
+
+  &::-webkit-details-marker,
+  &::marker {
+    display: none;
+  }
+
+  &::after {
+    content: var(--summary-closed);
+    font-weight: var(--font-normal);
+    font-size: 4em;
+    transition: transform var(--duration) var(--ease);
+  }
+
+  &:hover::after {
+    transform: scale(1.5);
+  }
+
+  details[open] > & {
+    margin-block-end: var(--base-unit--s);
+
+    &::after {
+      content: var(--summary-open);
+    }
+  }
+}
+
+details[open] {
+  padding-block-end: var(--base-unit);
+}

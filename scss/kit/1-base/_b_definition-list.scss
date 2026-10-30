@@ -1,0 +1,16 @@
+/* scss/1-base/_b_definition-list.scss */
+dl {
+  overflow: auto;
+}
+
+dt {
+  clear: left;
+  font-weight: var(--font-heavy);
+}
+
+dt,
+dd {
+  text-indent: 0;
+  float: left;
+  margin-inline-end: var(--base-unit--s);
+}

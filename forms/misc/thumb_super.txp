@@ -1,25 +1,25 @@
-<li class="m_thumb  m_thumb--parent-rules" itemscope itemtype="http://schema.org/Article">
+<li class="m_thumb <txp:yield name="thumb_class"/>" itemprop itemscope itemtype="http://schema.org/CreativeWork">
   <txp::u_debug title='form: thumb_super' />
   <a href="<txp:permlink />" itemprop="url">
-    <div class="l_superimposed">
       <txp:if_article_image>
-        <txp::figure nocaption limit="1" class="a_ratio--1x1 u_self-position--bottomz"/>
-        <txp:else />
-        <div> </div>
+        <txp::figure nocaption limit="1" class='m_thumb__image <txp:yield name="thumb_figure"/>'/>
+      <txp:else />
+        <div<txp:evaluate> class='<txp:yield name="thumb_figure"/>'/></txp:evaluate>> </div>
       </txp:if_article_image>
 
-      <div class="<txp:if_article_image> l_superimposed__inner l_column bottom bg-gradient</txp:if_article_image> u_p">
+      <div class="<txp:if_article_image> m_thumb__inner</txp:if_article_image> <txp:yield name="thumb_inner" />">
 
-        <h3 itemprop="headline" class="h4-style">
-          <txp:title />
-          <txp::u_edit />
-        </h3>
+        <h3 itemprop="headline" class="m_thumb__title <txp:yield name="thumb_headline"/>"><txp:title /><txp::u_edit /></h3>
       </div>
 
-    </div>
-    <txp:evaluate>
-      <div itemprop="description b_typeset"><object class=" u_clamp u_clamp--3"><txp:excerpt /></object></div>
-    </txp:evaluate>
+
+    <txp:if_yield name="thumb_excerpt">
+      <txp:evaluate>
+        <div itemprop="description" class="m_thumb__description b_typeset <txp:yield name="thumb_description"/>">
+          <object><txp:excerpt /></object>
+        </div>
+      </txp:evaluate>
+    </txp:if_yield>
 
   </a>
 

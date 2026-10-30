@@ -1,0 +1,43 @@
+/* scss/2-atoms/_a_heading.scss
+   Style anything as a heading, independent of document outline.
+   Written out plainly so each size can be tuned on its own. */
+@use "../0-settings/index" as s;
+
+.a_heading {
+  font-family: var(--font-heading);
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+
+.a_heading--ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// Sizes come from the tokens in 1-base/_b_tokens.scss.
+// Big type needs less leading, so line-height tightens as size grows.
+//
+// Every size also has "from this width up" variants, generated below:
+// class="h4-style h0-style@medium" is h4 on phones, h0 from medium up.
+//
+// h0 is the display size, tuned by three tokens (set them per site in site/_tokens.scss,
+// or for one element or page with a class or style="", since they inherit):
+//   --h0-min    smallest it gets            (default 2rem)
+//   --h0-fluid  how it grows with the window (default min(11vmin, 9rem))
+//   --h0-max    largest it gets             (default 5rem)
+// It also shrinks with the number of columns it sits in: --l-cols is inherited from
+// the nearest .l_grid (1 elsewhere, and l_superimposed resets it to 1).
+
+$_h0: "clamp(var(--h0-min, 2rem), var(--h0-fluid, min(11vmin, 9rem)) / var(--l-cols, 1), var(--h0-max, 5rem))";
+
+@include s.responsive((
+  ".h0-style": (font-size: $_h0, line-height: .9, text-wrap: balance, overflow-wrap: break-word),
+  ".h1-style": (font-size: var(--h1), line-height: 1.05),
+  ".h2-style": (font-size: var(--h2), line-height: 1.1),
+  ".h3-style": (font-size: var(--h3), line-height: 1.15),
+  ".h4-style": (font-size: var(--h4), line-height: 1.2),
+  ".h5-style": (font-size: var(--h5), line-height: 1.3),
+  ".h6-style": (font-size: var(--h6), line-height: 1.4),
+  ".p-style":  (font-size: 1rem, line-height: var(--line-height)),
+));

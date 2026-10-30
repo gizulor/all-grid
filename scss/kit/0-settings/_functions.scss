@@ -1,0 +1,17 @@
+// scss/0-settings/_functions.scss
+
+@use "sass:math";
+
+@function _round($n, $places: 4) {
+  $m: math.pow(10, $places);
+  @return math.div(math.round($n * $m), $m);
+}
+
+// fluid(min, max) → clamp() scaling linearly between two viewport widths.
+// Replaces the runtime --min-fs/--slope custom-property maths from all-grid:
+// same result, readable output.   font-size: s.fluid(.875rem, 1rem);
+@function fluid($min, $max, $min-vw: 20rem, $max-vw: 80rem) {
+  $slope: math.div($max - $min, $max-vw - $min-vw);
+  $intercept: $min - $slope * $min-vw;
+  @return clamp(#{$min}, #{_round($intercept)} + #{_round($slope * 100)}vw, #{$max});
+}

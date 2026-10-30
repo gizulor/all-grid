@@ -1,0 +1,23 @@
+/* scss/1-base/_b_media.scss */
+
+figure > img {
+  inline-size: 100%;
+  background-color: var(--clr-surface);   // placeholder tone while loading
+  color: transparent;                     // hides alt text flash
+}
+
+figcaption {
+  margin-block-start: var(--base-unit--s);
+  font-size: var(--small);
+  max-inline-size: var(--type-measure);
+}
+
+video,
+iframe {
+  inline-size: 100%;
+  border: 0;
+}
+
+video {
+  object-fit: cover;
+}

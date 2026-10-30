@@ -1,0 +1,38 @@
+/* scss/1-base/_b_colours.scss
+   Two tiers:
+   1. Palette  — raw colours, named for what they ARE: Le Corbusier's 63
+      (0-settings/_corbu.scss: --bleu-outremer-31, --jaune-vif …) plus plain white and black.
+   2. Semantic — named for what they DO (--clr-text, --clr-bg). Components read
+      only these, and theme scopes (.bg--brand) swap only these.
+   Sites choose in site/_colours.scss: --brand: var(--jaune-vif); */
+
+@use "../0-settings/index" as s;
+
+:root {
+  /* 1. Palette ---------------------------------------------------------- */
+  @include s.corbu;   // all 63 while designing; trim with $corbu-use (see _corbu.scss)
+
+  --white: hsl(0 0% 100%);
+  --black: hsl(0 0% 12%);
+  --brand: var(--black);
+
+  /* 2. Semantic --------------------------------------------------------- */
+  --clr-text: var(--black);
+  --clr-bg: var(--white);
+  --clr-brand: var(--brand);               // "brand-coloured ink": logos, accents, focus
+  --clr-muted: var(--gris-59);
+  --clr-surface: var(--blanc-ivoire);      // panels, table stripes
+  --clr-border: currentcolor;              // resolves where used, so follows any theme scope
+  --clr-success: var(--vert-31);
+  --clr-warning: var(--jaune-vif);
+  --clr-error: var(--rouge-vermillon-59);
+
+  // Scrim behind text on images (v1 --superimposed-bg)
+  --clr-scrim: linear-gradient(
+    to bottom,
+    transparent,
+    color-mix(in oklch, var(--black) 38%, transparent)
+  );
+
+  color-scheme: light;
+}

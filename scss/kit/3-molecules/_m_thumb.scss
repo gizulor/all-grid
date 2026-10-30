@@ -1,0 +1,91 @@
+/* scss/3-molecules/_m_thumb.scss
+   Article/product thumbnail. Responds to its SLOT width (container query), not the
+   viewport — the same thumb works in a 2-up, 4-up or sidebar list without
+   [data-section] or @media exceptions.
+
+   <article class="m_thumb">
+     <a href="…">
+       <figure class="m_thumb__image a_ratio--gm"><img …></figure>
+       <div class="m_thumb__inner">
+         <h3 class="m_thumb__title">…</h3>
+         <div class="m_thumb__description">…</div>
+       </div>
+     </a>
+   </article>
+
+   Modifier --over puts the inner over the image (v1 l_superimposed + m_thumb__inner). */
+
+@use "../0-settings/index" as s;
+
+.m_thumb {
+  &:not(&.l_grid__sub) {
+    container: thumb / inline-size;
+  }
+  position: relative;
+
+
+  // h0-style titles scale with the thumb's own width (container units, cqi), so they
+  // behave the same in l_grid--auto and --twin/--tri/--quad. --l-cols: 1 stops .h0-style
+  // also dividing by the column count. Tune with --m-thumb-h0 (on :root or a list).
+  --l-cols: 1;
+  --h0-fluid: var(--m-thumb-h0, 18cqi);
+
+  // A subgrid thumb (l_grid__sub) can't be a container: that breaks subgrid. So the
+  // image-and-title block inside it is the container instead (thumb_super's l_superimposed)
+  &.l_grid__sub .l_superimposed {
+    container-type: inline-size;
+  }
+
+  > a {
+    display: block;
+    text-decoration: none;
+  }
+
+  &__inner {
+    @include s.column($y: end);
+    --l-gap: var(--base-unit--ss);
+    padding-block: var(--base-unit--s);
+  }
+
+  &__title {
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    a:hover & {
+      text-decoration-line: underline;
+    }
+  }
+
+  &__description {
+    display: none;
+    font-size: var(--small);
+    color: var(--clr-muted);
+
+    @container thumb (width >= 24rem) {
+      display: block;
+    }
+  }
+
+  &--over > a {
+    @include s.superimposed;
+  }
+
+  &--over &__inner {
+    position: relative;   // above the image, as in l_superimposed
+    --clr-text: var(--white);
+    --clr-muted: var(--blanc-ivoire);
+    color: var(--clr-text);
+    background: var(--clr-scrim);
+    padding: var(--base-unit);
+
+    @container thumb (width < 20rem) {
+      padding: var(--base-unit--s);
+    }
+  }
+
+  &--over &__title {
+    @container thumb (width >= 36rem) {
+      font-size: var(--h3);
+    }
+  }
+}

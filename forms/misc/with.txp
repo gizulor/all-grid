@@ -1,0 +1,18 @@
+<txp:hide>
+  with — hands its attributes to every form called inside it. Outputs only its contents.
+
+  <txp::with article_headline="h0-style" article_figure="a_image--fold-limited">
+    <txp:article form="super" />
+  </txp::with>
+
+  Values reach EVERY form nested inside, not just the one you mean, so:
+  - prefix each name with the family of forms it's for: article_… (default, super),
+    thumb_… (thumb, thumb_super). Forms in one family share names, so you can swap
+    form="super" for form="default" (or thumb for thumb_super) without touching the page.
+  - never pass a plain name (class, id, limit, offset, category…): figure, gallery,
+    m_embed, o_footer and others read those, and would pick them up.
+  - yield's default="…" only applies when x isn't passed at all; x="" gives empty.
+    To test "set and not empty", use if_yield with a bare value attribute: name="x" value
+    (Tags in this note must be balanced, or TXP reports an unclosed tag: hence no brackets.)
+</txp:hide>
+<txp:yield />
