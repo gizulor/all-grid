@@ -1,0 +1,263 @@
+<title>sassKit Style Library</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta charset="utf-8">
+<link rel="stylesheet" href="styles/default.css">
+<style>
+/* Specimen chrome only — unlayered, so it sits above every kit layer.
+   Layout: one reading column of reference sections; playground is the one wide, interactive moment. */
+:root {
+  --sg-rule: color-mix(in oklch, var(--clr-text) 18%, transparent);
+  --sg-tile: hsl(43 13% 90%);
+  --sg-tile-ink: hsl(33 6% 28%);
+  --sg-code-bg: hsl(43 13% 94%);
+  --sg-on: hsl(33 6% 22%);
+  --sg-on-ink: hsl(0 0% 100%);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --clr-text: hsl(43 10% 88%); --clr-bg: hsl(30 4% 11%); --clr-muted: hsl(43 6% 64%);
+    --clr-surface: hsl(30 4% 18%); --brand: hsl(43 8% 46%); --clr-brand: hsl(43 10% 80%);
+    --sg-rule: color-mix(in oklch, var(--clr-text) 18%, transparent);
+    --sg-tile: hsl(30 4% 22%); --sg-tile-ink: hsl(43 10% 86%); --sg-code-bg: hsl(30 4% 15%);
+    --sg-on: hsl(43 10% 86%); --sg-on-ink: hsl(30 4% 11%);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --clr-text: hsl(43 10% 88%); --clr-bg: hsl(30 4% 11%); --clr-muted: hsl(43 6% 64%);
+  --clr-surface: hsl(30 4% 18%); --brand: hsl(43 8% 46%); --clr-brand: hsl(43 10% 80%);
+  --sg-rule: color-mix(in oklch, var(--clr-text) 18%, transparent);
+  --sg-tile: hsl(30 4% 22%); --sg-tile-ink: hsl(43 10% 86%); --sg-code-bg: hsl(30 4% 15%);
+  --sg-on: hsl(43 10% 86%); --sg-on-ink: hsl(30 4% 11%);
+  color-scheme: dark;
+}
+body { background: var(--clr-bg); color: var(--clr-text); }
+.sg { max-inline-size: 84rem; margin-inline: auto; padding-block: var(--base-unit--b) var(--base-unit--bb);
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.sg section { padding-block: var(--base-unit--b); border-block-start: var(--border-width) solid var(--clr-text); }
+.sg section > header { margin-block-end: var(--base-unit); }
+.sg h2 { font-size: var(--h3); }
+.sg section > h3 { font-size: var(--h6); margin-block: var(--base-unit) var(--base-unit--s); }
+.sg .lede { font-size: var(--h5); max-inline-size: 46ch; color: var(--clr-muted); margin-block-start: var(--base-unit--s); }
+.sg .note { max-inline-size: var(--type-measure); color: var(--clr-muted); font-size: var(--small); }
+.sg code, .sg .mono { font-family: var(--font-mono); font-size: .8125rem; }
+.sg pre { background: var(--sg-code-bg); padding: var(--base-unit--s) var(--base-unit--s); overflow-x: auto; font-size: .8125rem; white-space: pre; }
+.sg .k { font-family: var(--font-mono); font-size: .75rem; color: var(--clr-muted); }
+
+/* layer stack */
+.layers { display: flex; flex-wrap: wrap; gap: 2px; margin-block-start: var(--base-unit); counter-reset: l; }
+.layers li { list-style: none; flex: 1 1 7rem; padding: var(--base-unit--s); background: var(--sg-tile); color: var(--sg-tile-ink); }
+.layers li b { display: block; }
+.layers li span { font-size: var(--smallest); opacity: .75; }
+.layers li:nth-child(n+3) { background: color-mix(in oklch, var(--sg-tile) 70%, var(--sg-on) 30%); }
+.layers li:nth-child(n+6) { background: var(--sg-on); color: var(--sg-on-ink); }
+
+/* tokens */
+.swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(7.5rem, 1fr)); gap: var(--base-unit--s); }
+.swatch i { display: block; aspect-ratio: 3 / 2; border: 1px solid var(--sg-rule); }
+.swatch .k { display: block; margin-block-start: var(--base-unit--ss); }
+.scale { display: grid; grid-template-columns: max-content 1fr max-content; gap: var(--base-unit--s) var(--base-unit); align-items: center; }
+.scale .bar { block-size: var(--base-unit--s); background: var(--clr-text); }
+.scale .px { font-variant-numeric: tabular-nums; }
+.types { display: grid; gap: var(--base-unit--s); }
+.types > div { display: grid; grid-template-columns: 7rem 1fr; gap: var(--base-unit); align-items: baseline; border-block-end: 1px solid var(--sg-rule); padding-block-end: var(--base-unit--s); min-width: 0; }
+.types p { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+
+/* playground */
+.pg { display: grid; gap: var(--base-unit); }
+@media (width >= 960px) { .pg { grid-template-columns: 18rem 1fr; } }
+.pg fieldset { border: 0; padding: 0; margin: 0 0 var(--base-unit--s); }
+.pg legend { font-size: var(--smallest); text-transform: uppercase; letter-spacing: .06em; color: var(--clr-muted); margin-block-end: var(--base-unit--ss); }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; }
+.chips label { cursor: pointer; }
+.chips input { position: absolute; opacity: 0; pointer-events: none; }
+.chips span { display: inline-block; padding: 2px 8px; border: var(--border-width) solid var(--sg-rule); font-family: var(--font-mono); font-size: .75rem; }
+.chips input:checked + span { background: var(--sg-on); color: var(--sg-on-ink); border-color: var(--sg-on); }
+.chips input:focus-visible + span { outline: var(--border-width) solid var(--clr-brand); outline-offset: 2px; }
+.stage { block-size: 20rem; padding: var(--base-unit--s); background: repeating-linear-gradient(0deg, var(--sg-rule) 0 1px, transparent 1px 1rlh), var(--clr-bg); border: var(--border-width) solid var(--clr-text); overflow: hidden; min-width: 0; }
+.stage > div { block-size: 100%; }
+.tile { background: var(--sg-tile); color: var(--sg-tile-ink); padding: 4px 10px; }
+.tile.t1 { font-size: var(--h3); }
+.tile.t3 { font-size: var(--h5); padding-block: 14px; }
+.classline { display: flex; gap: var(--base-unit--s); align-items: center; margin-block-start: var(--base-unit--s); min-width: 0; }
+.classline pre { flex: 1; margin: 0; min-width: 0; }
+
+/* scopes & components */
+.scopes { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 2px; }
+.scopes > div { padding: var(--base-unit); display: grid; gap: var(--base-unit--s); align-content: start; border: 1px solid var(--sg-rule); }
+.logo { block-size: 1.75rem; inline-size: auto; color: var(--clr-brand); }
+.slots { display: flex; flex-wrap: wrap; gap: var(--base-unit); align-items: start; }
+.slot { border: 1px dashed var(--sg-rule); padding: var(--base-unit--s); min-width: 0; max-width: 100%; }
+.slot .k { display: block; margin-block-end: var(--base-unit--ss); }
+.util td:first-child { white-space: nowrap; font-family: var(--font-mono); font-size: .8125rem; }
+.util { display: block; overflow-x: auto; }
+.btnrow { display: flex; flex-wrap: wrap; gap: var(--base-unit--s); }
+</style>
+
+<div class="sg">
+  <header>
+    <p class="b_caps">all-grid defaults</p>
+    <h1 class="h0-style">Style library</h1>
+    <p class="lede">Every block on this page is rendered by the compiled kit. Tokens, layout primitives, theme scopes and components, with the class names you type in TXP forms.</p>
+    <ol class="layers" aria-label="Cascade layers, lowest to highest priority">
+      <li><b>base</b><span>tokens, elements</span></li>
+      <li><b>vendor</b><span>flickity, baguetteBox</span></li>
+      <li><b>atoms</b><span>a_ · .bg--</span></li>
+      <li><b>molecules</b><span>m_</span></li>
+      <li><b>organisms</b><span>o_</span></li>
+      <li><b>layouts</b><span>l_ · .middle …</span></li>
+      <li><b>utilities</b><span>u_ · no !important</span></li>
+      <li><b>debug</b><span>.u_debug</span></li>
+    </ol>
+    <p class="note" style="margin-block-start: var(--base-unit--s)">Left to right is cascade priority: a rule in a later layer wins over an earlier one whatever its specificity.</p>
+  </header>
+
+  <section id="layouts">
+    <header>
+      <h2>Layout playground</h2>
+      <p class="note">One set of short modifiers works on every primitive. They only set <code>--l-x</code>, <code>--l-y</code>, <code>--l-spread</code> and <code>--l-gap</code>; each primitive maps them to its own axes. Every modifier also has <code>@small</code> <code>@medium</code> <code>@desktop</code> variants.</p>
+    </header>
+    <div class="pg">
+      <form id="pg" onsubmit="return false">
+        <fieldset><legend>Primitive</legend><div class="chips" data-group="prim"></div></fieldset>
+        <fieldset><legend>Horizontal · --l-x</legend><div class="chips" data-group="x"></div></fieldset>
+        <fieldset><legend>Vertical · --l-y</legend><div class="chips" data-group="y"></div></fieldset>
+        <fieldset><legend>Spread · --l-spread</legend><div class="chips" data-group="spread"></div></fieldset>
+        <fieldset><legend>Gap · --l-gap</legend><div class="chips" data-group="gap"></div></fieldset>
+      </form>
+      <div style="min-width:0">
+        <div class="stage"><div id="demo"><div class="tile t1">Carrara</div><div class="tile">Pietra Grey</div><div class="tile t3">Terrazzo</div><div class="tile">Nero Marquina</div><div class="tile">Travertino</div></div></div>
+        <div class="classline"><pre id="cls"></pre><button type="button" class="a_button" id="copy">Copy</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tokens">
+    <header><h2>Tokens</h2><p class="note">Palette names what a colour is; semantic tokens name what it does. Components read only semantic tokens.</p></header>
+    <h3>Semantic</h3>
+    <div class="swatches" id="sem"></div>
+    <h3>Palette</h3>
+    <div class="swatches" id="pal"></div>
+    <h3>Space · one root line-height (<code>1rlh</code>)</h3>
+    <div class="scale" id="space"></div>
+    <h3>Type · Major Third, fluid base</h3>
+    <div class="types" id="type"></div>
+  </section>
+
+  <section id="scopes">
+    <header><h2>Theme scopes</h2><p class="note">Identical markup in four <code>.bg--</code> scopes. Scopes swap semantic tokens only, so borders, muted text and the brand-ink logo follow without any <code>.bg--brand &amp;</code> overrides.</p></header>
+    <div class="scopes" id="scopeRow"></div>
+  </section>
+
+  <section id="components">
+    <header><h2>Components</h2></header>
+    <h3><code>.m_thumb</code> · responds to its slot, not the viewport</h3>
+    <div class="slots" id="thumbs"></div>
+    <h3><code>.a_button</code></h3>
+    <div class="btnrow">
+      <button class="a_button" type="button">Enquire</button>
+      <button class="a_button a_button--solid" type="button">Order a sample</button>
+      <button class="a_button a_button--plain" type="button">View finishes →</button>
+    </div>
+    <h3><code>.o_gallery</code></h3>
+    <div class="o_gallery" id="gallery"></div>
+    <h3><code>.b_typeset</code></h3>
+    <div class="b_typeset">
+      <p class="b_typeset--lede">Quarried in the Apuan Alps, Carrara has a soft white ground with fine grey veining.</p>
+      <p>Honed finishes suit floors and benchtops; <a href="#">polished</a> finishes bring out the veining on walls and vanities. Each slab is unique, so we recommend selecting slabs in person.</p>
+      <h3>Finishes</h3>
+      <ul><li>Honed, 20 mm and 30 mm</li><li>Polished, 20 mm</li><li>Brushed, by request</li></ul>
+    </div>
+  </section>
+
+  <section id="utilities">
+    <header><h2>Utilities</h2><p class="note">Last layer, so they always win. <code>@bp</code> always means “from this width up”.</p></header>
+    <table class="util">
+      <thead><tr><th>Class</th><th>Does</th></tr></thead>
+      <tbody>
+        <tr><td>u_m · u_p --t --b --l --r</td><td>Base-unit margin/padding. Suffix <code>-</code> half, doubled letter double, <code>0</code> none: <code>u_p--tt</code>, <code>u_m--b0</code></td></tr>
+        <tr><td>u_gutter</td><td>Page-edge inline padding (tightens below medium)</td></tr>
+        <tr><td>u_span--full-width · --2cols · --3rows</td><td>Grid spans, with @bp variants</td></tr>
+        <tr><td>u_self--middle · --bottom …</td><td>Align one child within its layout</td></tr>
+        <tr><td>u_hide · u_hide@medium · u_hide--until-medium</td><td>Visibility by width; <code>u_visually-hidden</code> for screen-reader text</td></tr>
+        <tr><td>u_flow · u_clamp--2 · u_fill · u_sticky · u_contents</td><td>Owl spacing, line clamp, full height, sticky, display: contents</td></tr>
+        <tr><td>a_ratio--1x1 · --gm · --16x9 …</td><td>Aspect boxes (atoms), with @bp variants</td></tr>
+        <tr><td>h0-style … h6-style</td><td>Heading sizes on any element, with @bp variants: <code>h5-style h3-style@medium</code></td></tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+(() => {
+  const STONES = {"carrara": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cfilter%20id%3D%22f%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.004%200.03%22%20numOctaves%3D%225%22%20seed%3D%223%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.55%200%200%200%200%200.56%200%200%200%200%200.58%203.2%200%200%200%20-1.1%22/%3E%3C/filter%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22%23eeece7%22/%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20filter%3D%22url%28%23f%29%22/%3E%3C/svg%3E", "pietra": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cfilter%20id%3D%22f%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.02%200.02%22%20numOctaves%3D%224%22%20seed%3D%228%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.45%200%200%200%200%200.45%200%200%200%200%200.43%202.2%200%200%200%20-0.9%22/%3E%3C/filter%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22%23a9a8a2%22/%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20filter%3D%22url%28%23f%29%22/%3E%3C/svg%3E", "nero": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cfilter%20id%3D%22f%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.003%200.025%22%20numOctaves%3D%225%22%20seed%3D%2211%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.95%200%200%200%200%200.94%200%200%200%200%200.92%203.6%200%200%200%20-1.3%22/%3E%3C/filter%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22%231d1c1b%22/%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20filter%3D%22url%28%23f%29%22/%3E%3C/svg%3E", "travertino": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cfilter%20id%3D%22f%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.002%200.06%22%20numOctaves%3D%224%22%20seed%3D%225%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.62%200%200%200%200%200.52%200%200%200%200%200.38%202.4%200%200%200%20-0.7%22/%3E%3C/filter%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22%23d9c9ac%22/%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20filter%3D%22url%28%23f%29%22/%3E%3C/svg%3E", "terrazzo": "data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20600%20400%22%20preserveAspectRatio%3D%22xMidYMid%20slice%22%3E%3Cfilter%20id%3D%22f%22%3E%3CfeTurbulence%20type%3D%22fractalNoise%22%20baseFrequency%3D%220.09%200.09%22%20numOctaves%3D%222%22%20seed%3D%222%22/%3E%3CfeColorMatrix%20values%3D%220%200%200%200%200.4%200%200%200%200%200.38%200%200%200%200%200.35%204.5%200%200%200%20-1.6%22/%3E%3C/filter%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20fill%3D%22%23d8d4cc%22/%3E%3Crect%20width%3D%22600%22%20height%3D%22400%22%20filter%3D%22url%28%23f%29%22/%3E%3C/svg%3E"};
+  const $ = s => document.querySelector(s);
+
+  // ---------- playground
+  const groups = {
+    prim: [["beam","l_beam"],["column","l_column u_fill"],["grid","l_grid l_grid--tri"]],
+    x: [["default",""],["left","left"],["middle","middle"],["right","right"]],
+    y: [["default",""],["top","top"],["middlev","middlev"],["bottom","bottom"],["baseline","baseline"],["stretch","stretch"]],
+    spread: [["none",""],["space-between","space-between"],["space-around","space-around"],["space-evenly","space-evenly"]],
+    gap: [["default",""],["none","l_gap--none"],["small","l_gap--small"],["large","l_gap--large"]],
+  };
+  const state = { prim: "l_beam", x: "", y: "", spread: "", gap: "" };
+  for (const [g, opts] of Object.entries(groups)) {
+    const box = document.querySelector(`[data-group="${g}"]`);
+    opts.forEach(([label, val], i) => {
+      const id = `pg-${g}-${i}`;
+      box.insertAdjacentHTML("beforeend",
+        `<label for="${id}"><input type="radio" id="${id}" name="${g}" value="${val}" ${i === 0 ? "checked" : ""}><span>${label}</span></label>`);
+    });
+  }
+  const demo = $("#demo"), cls = $("#cls");
+  const render = () => {
+    const c = [state.prim, state.x, state.y, state.spread, state.gap].filter(Boolean).join(" ");
+    demo.className = c;
+    cls.textContent = `class="${c}"`;
+  };
+  $("#pg").addEventListener("change", e => { state[e.target.name] = e.target.value; render(); });
+  render();
+  $("#copy").addEventListener("click", async e => {
+    const b = e.currentTarget;
+    try { await navigator.clipboard.writeText(cls.textContent); b.textContent = "Copied"; }
+    catch { const r = document.createRange(); r.selectNodeContents(cls); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = "Selected"; }
+    setTimeout(() => b.textContent = "Copy", 1400);
+  });
+
+  // ---------- tokens (computed, so they show what the browser actually resolved)
+  const cs = getComputedStyle(document.documentElement);
+  const sw = (name) => `<div class="swatch"><i style="background:var(${name})"></i><span class="k">${name}</span></div>`;
+  $("#sem").innerHTML = ["--clr-text","--clr-bg","--clr-brand","--clr-muted","--clr-surface","--clr-success","--clr-warning","--clr-error"].map(sw).join("");
+  $("#pal").innerHTML = ["--white","--black","--grey-100","--grey-300","--grey-500","--grey-700","--grey-900","--brand"].map(sw).join("");
+
+  const probe = document.createElement("div");
+  probe.style.position = "absolute"; probe.style.visibility = "hidden";
+  document.body.append(probe);
+  const px = (prop, v) => { probe.style[prop] = v; const r = parseFloat(getComputedStyle(probe)[prop]); return Math.round(r * 10) / 10; };
+  $("#space").innerHTML = ["--base-unit--ss","--base-unit--s","--base-unit","--base-unit--b","--base-unit--bb"].map(t =>
+    `<span class="k">${t}</span><div class="bar" style="inline-size:var(${t})"></div><span class="k px">${px("width", `var(${t})`)}px</span>`).join("");
+  const sample = ["Carrara Bianco","Pietra Grey honed","Terrazzo Venezia","Nero Marquina 20mm","Travertino Classico","Slab selection","Finishes and sizes"];
+  $("#type").innerHTML = [0,1,2,3,4,5,6].map(i =>
+    `<div><span class="k">.h${i}-style · ${px("fontSize", `var(--h${i})`)}px</span><p class="h${i}-style">${sample[i]}</p></div>`).join("")
+    + `<div><span class="k">body · ${px("fontSize", "1rem")}px</span><p>Each slab is unique, so we recommend selecting in person.</p></div>`;
+  probe.remove();
+
+  // ---------- scopes
+  const logo = `<svg class="logo" viewBox="0 0 120 24" aria-label="Logo"><rect x="0" y="4" width="16" height="16" fill="currentColor"/><text x="22" y="18" font-size="16" font-family="system-ui" fill="currentColor">Marmo</text></svg>`;
+  const scopeBody = (cls, label) => `<div class="${cls}"><span class="k">${label}</span>${logo}<h4 class="h5-style">Pietra Grey</h4><p class="b_muted b_small">Limestone · honed · 600 × 600</p><div class="btnrow"><button class="a_button" type="button">Enquire</button><button class="a_button a_button--solid" type="button">Sample</button></div></div>`;
+  $("#scopeRow").innerHTML = scopeBody("", "default") + scopeBody("bg--surface", ".bg--surface") + scopeBody("bg--brand", ".bg--brand") + scopeBody("bg--dark", ".bg--dark");
+
+  // ---------- thumbs
+  const thumb = (stone, name, desc, mod = "") => `<article class="m_thumb ${mod}"><a href="#components"><figure class="m_thumb__image a_ratio--gm"><img alt="${name} surface" src="${STONES[stone]}"></figure><div class="m_thumb__inner"><h3 class="m_thumb__title">${name}</h3><div class="m_thumb__description">${desc}</div></div></a></article>`;
+  const slot = (w, label, html) => `<div class="slot" style="inline-size:${w}"><span class="k">${label}</span>${html}</div>`;
+  $("#thumbs").innerHTML =
+    slot("14rem", "14rem slot · no description", thumb("carrara", "Carrara", "Soft white ground with fine grey veining.")) +
+    slot("28rem", "28rem slot · description appears", thumb("pietra", "Pietra Grey", "Dense limestone with a calm, even tone. Honed or brushed.")) +
+    slot("28rem", ".m_thumb--over", thumb("nero", "Nero Marquina", "Black marble with bright white veins.", "m_thumb--over"));
+
+  // ---------- gallery
+  $("#gallery").innerHTML = [["travertino","landscape","Travertino, cross-cut"],["terrazzo","portrait","Terrazzo detail"],["carrara","portrait","Carrara, honed"],["pietra","landscape","Pietra Grey bathroom"],["nero","landscape","Nero Marquina vanity"]]
+    .map(([s, o, c]) => `<figure class="${o}"><img alt="${c}" src="${STONES[s]}"><figcaption>${c}</figcaption></figure>`).join("");
+})();
+</script>
