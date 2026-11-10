@@ -10,7 +10,13 @@
   <txp::o_header nav="0" />                              no nav (use <txp::o_nav class="o_nav--sticky" /> below)
   <txp::o_header>search, language…</txp::o_header>       contents go in the extra slot
 
-  class       switches, default "o_header--split"
+  Arrangements (--split --inline --stacked --centred) also come as @small @medium @desktop,
+  meaning "from that width up" (720 / 960 / 1280px). Base class for phones, @ class to switch:
+  <txp::o_header class="o_header--stacked o_header--split@small" />    nav below the logo on phones, right from 720px
+  <txp::o_header class="o_header--centred o_header--split@medium" />   all centred on phones, split from 960px
+  <txp::o_header class="o_header--stacked o_header--inline@desktop" /> nav below until 1280px, then beside the brand
+
+  class       switches, default "o_header--split"; arrangements take @small @medium @desktop
   style       knobs, e.g. style="--o-header-name: var(--h1)"
   sitename    replaces the site name; also takes a logo: sitename='<txp:output_form form="logo" />'
   slogan="0"  hides the slogan
