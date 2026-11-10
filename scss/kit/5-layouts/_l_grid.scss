@@ -23,7 +23,7 @@
 
 .l_grid--auto {
   grid-template-columns: repeat(auto-fill, minmax(min(var(--l-min, 16rem), 100%), 1fr));
-  &--tight {
+  &--small {
     @include s.until(medium) {
       --l-min: 10rem;
     }

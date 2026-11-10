@@ -22,7 +22,7 @@
     <txp:hide>
       <!-- plain thumb variant -->
       <txp::with thumb_excerpt thumb_class="l_grid__sub" thumb_inner="" thumb_headline="" thumb_description=""  thumb_figure="">
-        <txp:article listform="thumb" allowoverride="0" wraptag="ul" limit="36" class="u_gutter a_list-bare l_width-limited l_width-limited--large l_grid  l_grid--auto l_grid--auto--tight l_gap--large@medium" />
+        <txp:article listform="thumb" allowoverride="0" wraptag="ul" limit="36" class="u_gutter a_list-bare l_width-limited l_width-limited--large l_grid  l_grid--auto l_grid--auto--small l_gap--large@medium" />
       </txp::with>
     </txp:hide>
 
